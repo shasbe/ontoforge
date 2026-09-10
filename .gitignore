@@ -5,3 +5,8 @@ dist41/
 .venv/
 node_modules/
 apps/web/dist/
+apps/web/tsconfig.tsbuildinfo
+# Prebuilt IR is regenerable from source and large (FIBO alone is 10 MB).
+# CI runs the ingesters; the derived stats the web app needs live in the
+# committed export bundle, and the analysis reports are kept.
+catalog/ir/*.ir.json
