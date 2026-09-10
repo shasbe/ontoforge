@@ -12,8 +12,9 @@
 - constraints: **4,742**
 - anonymous constraint targets: **0**
 
-- definitions present on **100.0%** of entities; definition-or-example on **100.0%** (drives LLM grounding value)
+- definitions present on **100.0%** of the 158 schema entities; definition-or-example on **100.0%** (drives LLM grounding value)
 - **0.0%** of constraints target anonymous expressions -- these must not become graph nodes
+
 - hierarchy depth up to **0**; **0** classes have >1 parent (max 0)
 
 ## Hub ranking (node-selection candidates, by in-degree)

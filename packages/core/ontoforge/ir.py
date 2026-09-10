@@ -54,6 +54,7 @@ class SourceMeta:
     triples: int = 0
     files_parsed: int = 0
     notes: list[str] = field(default_factory=list)
+    raw_counts: dict = field(default_factory=dict)
 
 
 @dataclass

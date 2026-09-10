@@ -1,0 +1,805 @@
+{
+  "standard": "gs1",
+  "title": "GS1 Web Vocabulary -- trade items, parties, places",
+  "industry": "Retail / CPG",
+  "source": {
+    "registry": "gs1",
+    "http": "ref.gs1.org/voc/data/gs1Voc.ttl"
+  },
+  "notes": [
+    "56 classes but 557 properties with declared domain/range -- property-heavy vocabulary.",
+    "GTIN on Product; GLN on both Organization and Place, as GS1 defines it.",
+    "GPCCategory is a BROADER_THAN taxonomy sidecar."
+  ],
+  "keys": {},
+  "nodes": {
+    "Product": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "gtin",
+          "type": "STRING"
+        },
+        {
+          "name": "productName",
+          "type": "STRING"
+        },
+        {
+          "name": "brandName",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "gpcCategoryCode",
+          "type": "STRING"
+        },
+        {
+          "name": "netContentValue",
+          "type": "FLOAT"
+        },
+        {
+          "name": "netContentUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "countryOfOrigin",
+          "type": "STRING"
+        },
+        {
+          "name": "productionDate",
+          "type": "DATE"
+        },
+        {
+          "name": "expirationDate",
+          "type": "DATE"
+        },
+        {
+          "name": "isConsumerUnit",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "isBaseUnit",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "isOrderableUnit",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "isDespatchUnit",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "isVariableWeight",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "grossWeight",
+          "type": "FLOAT"
+        },
+        {
+          "name": "weightUnit",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Brand": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "brandName",
+          "type": "STRING"
+        },
+        {
+          "name": "subBrand",
+          "type": "STRING"
+        },
+        {
+          "name": "brandOwnerName",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Organization": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "gln",
+          "type": "STRING"
+        },
+        {
+          "name": "organizationName",
+          "type": "STRING"
+        },
+        {
+          "name": "organizationType",
+          "type": "STRING"
+        },
+        {
+          "name": "taxId",
+          "type": "STRING"
+        },
+        {
+          "name": "duns",
+          "type": "STRING"
+        },
+        {
+          "name": "isManufacturer",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "Place": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "gln",
+          "type": "STRING"
+        },
+        {
+          "name": "placeName",
+          "type": "STRING"
+        },
+        {
+          "name": "placeType",
+          "type": "STRING"
+        },
+        {
+          "name": "glnType",
+          "type": "STRING"
+        },
+        {
+          "name": "latitude",
+          "type": "FLOAT"
+        },
+        {
+          "name": "longitude",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "PostalAddress": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "streetAddress",
+          "type": "STRING"
+        },
+        {
+          "name": "addressLocality",
+          "type": "STRING"
+        },
+        {
+          "name": "addressRegion",
+          "type": "STRING"
+        },
+        {
+          "name": "addressSuburb",
+          "type": "STRING"
+        },
+        {
+          "name": "postalCode",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Country": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "countryCode",
+          "type": "STRING"
+        },
+        {
+          "name": "countryName",
+          "type": "STRING"
+        }
+      ]
+    },
+    "GeoCoordinates": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "latitude",
+          "type": "FLOAT"
+        },
+        {
+          "name": "longitude",
+          "type": "FLOAT"
+        },
+        {
+          "name": "elevation",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "Offer": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "offerId",
+          "type": "STRING"
+        },
+        {
+          "name": "price",
+          "type": "FLOAT"
+        },
+        {
+          "name": "priceCurrency",
+          "type": "STRING"
+        },
+        {
+          "name": "availability",
+          "type": "STRING"
+        },
+        {
+          "name": "validFrom",
+          "type": "DATE"
+        },
+        {
+          "name": "validThrough",
+          "type": "DATE"
+        },
+        {
+          "name": "eligibleQuantity",
+          "type": "FLOAT"
+        },
+        {
+          "name": "acceptedPaymentMethod",
+          "type": "STRING"
+        }
+      ]
+    },
+    "PriceSpecification": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "price",
+          "type": "FLOAT"
+        },
+        {
+          "name": "priceCurrency",
+          "type": "STRING"
+        },
+        {
+          "name": "valueAddedTaxIncluded",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "validFrom",
+          "type": "DATE"
+        },
+        {
+          "name": "validThrough",
+          "type": "DATE"
+        }
+      ]
+    },
+    "Discount": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "discountType",
+          "type": "STRING"
+        },
+        {
+          "name": "discountValue",
+          "type": "FLOAT"
+        },
+        {
+          "name": "discountCurrency",
+          "type": "STRING"
+        }
+      ]
+    },
+    "PackagingDetails": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "packagingTypeCode",
+          "type": "STRING"
+        },
+        {
+          "name": "packagingMaterialCode",
+          "type": "STRING"
+        },
+        {
+          "name": "isRecyclable",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "packagingWeight",
+          "type": "FLOAT"
+        },
+        {
+          "name": "weightUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "isReturnable",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "AllergenDetails": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "allergenTypeCode",
+          "type": "STRING"
+        },
+        {
+          "name": "levelOfContainmentCode",
+          "type": "STRING"
+        },
+        {
+          "name": "allergenStatement",
+          "type": "STRING"
+        }
+      ]
+    },
+    "AdditiveDetails": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "additiveName",
+          "type": "STRING"
+        },
+        {
+          "name": "levelOfContainmentCode",
+          "type": "STRING"
+        }
+      ]
+    },
+    "NutrientDetail": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "nutrientTypeCode",
+          "type": "STRING"
+        },
+        {
+          "name": "quantityContained",
+          "type": "FLOAT"
+        },
+        {
+          "name": "quantityUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "dailyValuePercent",
+          "type": "FLOAT"
+        },
+        {
+          "name": "measurementPrecision",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Ingredient": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "ingredientName",
+          "type": "STRING"
+        },
+        {
+          "name": "ingredientSequence",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ingredientStrength",
+          "type": "FLOAT"
+        },
+        {
+          "name": "strengthUnit",
+          "type": "STRING"
+        }
+      ]
+    },
+    "CertificationDetails": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "certificationStandard",
+          "type": "STRING"
+        },
+        {
+          "name": "certificationAgency",
+          "type": "STRING"
+        },
+        {
+          "name": "certificationValue",
+          "type": "STRING"
+        },
+        {
+          "name": "certificationEndDate",
+          "type": "DATE"
+        }
+      ]
+    },
+    "RegulatoryInformation": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "regulationTypeCode",
+          "type": "STRING"
+        },
+        {
+          "name": "regulatoryAct",
+          "type": "STRING"
+        },
+        {
+          "name": "permitId",
+          "type": "STRING"
+        },
+        {
+          "name": "complianceStatement",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Identifier": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "scheme",
+          "type": "STRING"
+        },
+        {
+          "name": "value",
+          "type": "STRING"
+        },
+        {
+          "name": "issuingAuthority",
+          "type": "STRING"
+        },
+        {
+          "name": "isPrimary",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "DigitalLink": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "uri",
+          "type": "STRING"
+        },
+        {
+          "name": "linkType",
+          "type": "STRING"
+        },
+        {
+          "name": "linkTitle",
+          "type": "STRING"
+        },
+        {
+          "name": "targetUrl",
+          "type": "STRING"
+        },
+        {
+          "name": "language",
+          "type": "STRING"
+        },
+        {
+          "name": "context",
+          "type": "STRING"
+        }
+      ]
+    },
+    "GPCCategory": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "title",
+          "type": "STRING"
+        },
+        {
+          "name": "definition",
+          "type": "STRING"
+        },
+        {
+          "name": "level",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "TypeCode": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "codeScheme",
+          "type": "STRING"
+        },
+        {
+          "name": "codeValue",
+          "type": "STRING"
+        },
+        {
+          "name": "codeDescription",
+          "type": "STRING"
+        }
+      ]
+    },
+    "QuantitativeValue": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "value",
+          "type": "FLOAT"
+        },
+        {
+          "name": "unitCode",
+          "type": "STRING"
+        },
+        {
+          "name": "minValue",
+          "type": "FLOAT"
+        },
+        {
+          "name": "maxValue",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "TargetMarket": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "countryCode",
+          "type": "STRING"
+        },
+        {
+          "name": "countryName",
+          "type": "STRING"
+        },
+        {
+          "name": "subdivisionCode",
+          "type": "STRING"
+        }
+      ]
+    },
+    "SizeDetails": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "sizeCodeValue",
+          "type": "STRING"
+        },
+        {
+          "name": "sizeSystem",
+          "type": "STRING"
+        },
+        {
+          "name": "sizeDescriptor",
+          "type": "STRING"
+        }
+      ]
+    },
+    "ReferencedFile": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "fileName",
+          "type": "STRING"
+        },
+        {
+          "name": "fileFormat",
+          "type": "STRING"
+        },
+        {
+          "name": "url",
+          "type": "STRING"
+        },
+        {
+          "name": "fileTypeCode",
+          "type": "STRING"
+        },
+        {
+          "name": "language",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Transaction": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "transactionType",
+          "type": "STRING"
+        },
+        {
+          "name": "transactionDate",
+          "type": "DATE"
+        },
+        {
+          "name": "transactionIdentifier",
+          "type": "STRING"
+        }
+      ]
+    },
+    "LogisticUnit": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "sscc",
+          "type": "STRING"
+        },
+        {
+          "name": "unitType",
+          "type": "STRING"
+        },
+        {
+          "name": "grossWeight",
+          "type": "FLOAT"
+        },
+        {
+          "name": "weightUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "height",
+          "type": "FLOAT"
+        },
+        {
+          "name": "width",
+          "type": "FLOAT"
+        },
+        {
+          "name": "depth",
+          "type": "FLOAT"
+        },
+        {
+          "name": "dimensionUnit",
+          "type": "STRING"
+        }
+      ]
+    },
+    "ContactPoint": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "contactType",
+          "type": "STRING"
+        },
+        {
+          "name": "telephone",
+          "type": "STRING"
+        },
+        {
+          "name": "email",
+          "type": "STRING"
+        },
+        {
+          "name": "contactName",
+          "type": "STRING"
+        }
+      ]
+    }
+  }
+}

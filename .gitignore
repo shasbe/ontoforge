@@ -4,3 +4,4 @@ dist/
 dist41/
 .venv/
 node_modules/
+apps/web/dist/

@@ -1,0 +1,18 @@
+{
+  "findings": [],
+  "errors": 0,
+  "warnings": 0,
+  "decisions": [
+    "target neo4j-workspace v4.0.0; capabilities: none",
+    "accepted property types: ['BOOLEAN', 'DATE', 'FLOAT', 'INTEGER', 'STRING']",
+    "TYPE_MAP: EPCISEvent.eventTime: DATETIME not accepted by target -> STRING (store ISO 8601; sorts correctly as text)",
+    "TYPE_MAP: EPCISEvent.recordTime: DATETIME not accepted by target -> STRING (store ISO 8601; sorts correctly as text)",
+    "TYPE_MAP: SensorMetadata.time: DATETIME not accepted by target -> STRING (store ISO 8601; sorts correctly as text)",
+    "TYPE_MAP: SensorMetadata.startTime: DATETIME not accepted by target -> STRING (store ISO 8601; sorts correctly as text)",
+    "TYPE_MAP: SensorMetadata.endTime: DATETIME not accepted by target -> STRING (store ISO 8601; sorts correctly as text)",
+    "TYPE_MAP: ErrorDeclaration.declarationTime: DATETIME not accepted by target -> STRING (store ISO 8601; sorts correctly as text)",
+    "TYPE_MAP: 6 property type(s) renegotiated for this target",
+    "emitted 20 nodes, 107 properties, 38 relationships (37 distinct types)",
+    "self-relationships (journey spines / hierarchies): ['BROADER_THAN', 'NEXT', 'PART_OF']"
+  ]
+}

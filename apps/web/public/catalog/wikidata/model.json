@@ -1,0 +1,1109 @@
+{
+  "version": "4.0.0",
+  "nodes": {
+    "n:0": {
+      "labels": {
+        "identifier": "Item"
+      },
+      "name": "Item",
+      "properties": {
+        "p:0": {
+          "type": "STRING",
+          "name": "qid"
+        },
+        "p:1": {
+          "type": "STRING",
+          "name": "label"
+        },
+        "p:2": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "p:3": {
+          "type": "DATE",
+          "name": "modified"
+        },
+        "p:4": {
+          "type": "INTEGER",
+          "name": "statementCount"
+        },
+        "p:5": {
+          "type": "INTEGER",
+          "name": "siteLinkCount"
+        },
+        "p:6": {
+          "type": "BOOLEAN",
+          "name": "isRedirect"
+        }
+      }
+    },
+    "n:1": {
+      "labels": {
+        "identifier": "Property"
+      },
+      "name": "Property",
+      "properties": {
+        "p:7": {
+          "type": "STRING",
+          "name": "pid"
+        },
+        "p:8": {
+          "type": "STRING",
+          "name": "label"
+        },
+        "p:9": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "p:10": {
+          "type": "STRING",
+          "name": "dataType"
+        },
+        "p:11": {
+          "type": "STRING",
+          "name": "formatterUrl"
+        },
+        "p:12": {
+          "type": "INTEGER",
+          "name": "statementCount"
+        }
+      }
+    },
+    "n:2": {
+      "labels": {
+        "identifier": "Statement"
+      },
+      "name": "Statement",
+      "properties": {
+        "p:13": {
+          "type": "STRING",
+          "name": "statementId"
+        },
+        "p:14": {
+          "type": "STRING",
+          "name": "rank"
+        },
+        "p:15": {
+          "type": "STRING",
+          "name": "snakType"
+        },
+        "p:16": {
+          "type": "STRING",
+          "name": "propertyId"
+        },
+        "p:17": {
+          "type": "STRING",
+          "name": "dataValueType"
+        },
+        "p:18": {
+          "type": "STRING",
+          "name": "hash"
+        }
+      }
+    },
+    "n:3": {
+      "labels": {
+        "identifier": "Qualifier"
+      },
+      "name": "Qualifier",
+      "properties": {
+        "p:19": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:20": {
+          "type": "STRING",
+          "name": "propertyId"
+        },
+        "p:21": {
+          "type": "STRING",
+          "name": "snakType"
+        },
+        "p:22": {
+          "type": "STRING",
+          "name": "dataValueType"
+        },
+        "p:23": {
+          "type": "INTEGER",
+          "name": "order"
+        },
+        "p:24": {
+          "type": "STRING",
+          "name": "hash"
+        }
+      }
+    },
+    "n:4": {
+      "labels": {
+        "identifier": "Reference"
+      },
+      "name": "Reference",
+      "properties": {
+        "p:25": {
+          "type": "STRING",
+          "name": "referenceHash"
+        },
+        "p:26": {
+          "type": "INTEGER",
+          "name": "snakCount"
+        }
+      }
+    },
+    "n:5": {
+      "labels": {
+        "identifier": "Snak"
+      },
+      "name": "Snak",
+      "properties": {
+        "p:27": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:28": {
+          "type": "STRING",
+          "name": "propertyId"
+        },
+        "p:29": {
+          "type": "STRING",
+          "name": "snakType"
+        },
+        "p:30": {
+          "type": "STRING",
+          "name": "dataValueType"
+        },
+        "p:31": {
+          "type": "STRING",
+          "name": "hash"
+        }
+      }
+    },
+    "n:6": {
+      "labels": {
+        "identifier": "QuantityValue"
+      },
+      "name": "QuantityValue",
+      "properties": {
+        "p:32": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:33": {
+          "type": "FLOAT",
+          "name": "amount"
+        },
+        "p:34": {
+          "type": "FLOAT",
+          "name": "lowerBound"
+        },
+        "p:35": {
+          "type": "FLOAT",
+          "name": "upperBound"
+        },
+        "p:36": {
+          "type": "STRING",
+          "name": "unitId"
+        }
+      }
+    },
+    "n:7": {
+      "labels": {
+        "identifier": "TimeValue"
+      },
+      "name": "TimeValue",
+      "properties": {
+        "p:37": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:38": {
+          "type": "STRING",
+          "name": "time"
+        },
+        "p:39": {
+          "type": "INTEGER",
+          "name": "timezone"
+        },
+        "p:40": {
+          "type": "INTEGER",
+          "name": "before"
+        },
+        "p:41": {
+          "type": "INTEGER",
+          "name": "after"
+        },
+        "p:42": {
+          "type": "INTEGER",
+          "name": "precision"
+        },
+        "p:43": {
+          "type": "STRING",
+          "name": "calendarModelId"
+        }
+      }
+    },
+    "n:8": {
+      "labels": {
+        "identifier": "GlobeCoordinateValue"
+      },
+      "name": "GlobeCoordinateValue",
+      "properties": {
+        "p:44": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:45": {
+          "type": "FLOAT",
+          "name": "latitude"
+        },
+        "p:46": {
+          "type": "FLOAT",
+          "name": "longitude"
+        },
+        "p:47": {
+          "type": "FLOAT",
+          "name": "altitude"
+        },
+        "p:48": {
+          "type": "FLOAT",
+          "name": "precision"
+        },
+        "p:49": {
+          "type": "STRING",
+          "name": "globeId"
+        }
+      }
+    },
+    "n:9": {
+      "labels": {
+        "identifier": "MonolingualText"
+      },
+      "name": "MonolingualText",
+      "properties": {
+        "p:50": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:51": {
+          "type": "STRING",
+          "name": "text"
+        },
+        "p:52": {
+          "type": "STRING",
+          "name": "languageCode"
+        }
+      }
+    },
+    "n:10": {
+      "labels": {
+        "identifier": "StringValue"
+      },
+      "name": "StringValue",
+      "properties": {
+        "p:53": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:54": {
+          "type": "STRING",
+          "name": "value"
+        }
+      }
+    },
+    "n:11": {
+      "labels": {
+        "identifier": "Term"
+      },
+      "name": "Term",
+      "properties": {
+        "p:55": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:56": {
+          "type": "STRING",
+          "name": "termType"
+        },
+        "p:57": {
+          "type": "STRING",
+          "name": "languageCode"
+        },
+        "p:58": {
+          "type": "STRING",
+          "name": "value"
+        }
+      }
+    },
+    "n:12": {
+      "labels": {
+        "identifier": "Language"
+      },
+      "name": "Language",
+      "properties": {
+        "p:59": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "p:60": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "p:61": {
+          "type": "STRING",
+          "name": "nativeName"
+        },
+        "p:62": {
+          "type": "BOOLEAN",
+          "name": "isRtl"
+        }
+      }
+    },
+    "n:13": {
+      "labels": {
+        "identifier": "Sitelink"
+      },
+      "name": "Sitelink",
+      "properties": {
+        "p:63": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:64": {
+          "type": "STRING",
+          "name": "site"
+        },
+        "p:65": {
+          "type": "STRING",
+          "name": "title"
+        },
+        "p:66": {
+          "type": "STRING",
+          "name": "url"
+        },
+        "p:67": {
+          "type": "INTEGER",
+          "name": "badgeCount"
+        }
+      }
+    },
+    "n:14": {
+      "labels": {
+        "identifier": "WikiSite"
+      },
+      "name": "WikiSite",
+      "properties": {
+        "p:68": {
+          "type": "STRING",
+          "name": "siteId"
+        },
+        "p:69": {
+          "type": "STRING",
+          "name": "siteName"
+        },
+        "p:70": {
+          "type": "STRING",
+          "name": "url"
+        },
+        "p:71": {
+          "type": "STRING",
+          "name": "languageCode"
+        },
+        "p:72": {
+          "type": "STRING",
+          "name": "siteGroup"
+        }
+      }
+    },
+    "n:15": {
+      "labels": {
+        "identifier": "Lexeme"
+      },
+      "name": "Lexeme",
+      "properties": {
+        "p:73": {
+          "type": "STRING",
+          "name": "lid"
+        },
+        "p:74": {
+          "type": "STRING",
+          "name": "lemma"
+        },
+        "p:75": {
+          "type": "STRING",
+          "name": "languageCode"
+        },
+        "p:76": {
+          "type": "STRING",
+          "name": "lexicalCategoryId"
+        },
+        "p:77": {
+          "type": "INTEGER",
+          "name": "formCount"
+        },
+        "p:78": {
+          "type": "INTEGER",
+          "name": "senseCount"
+        }
+      }
+    },
+    "n:16": {
+      "labels": {
+        "identifier": "Form"
+      },
+      "name": "Form",
+      "properties": {
+        "p:79": {
+          "type": "STRING",
+          "name": "formId"
+        },
+        "p:80": {
+          "type": "STRING",
+          "name": "representation"
+        },
+        "p:81": {
+          "type": "INTEGER",
+          "name": "grammaticalFeatureCount"
+        }
+      }
+    },
+    "n:17": {
+      "labels": {
+        "identifier": "Sense"
+      },
+      "name": "Sense",
+      "properties": {
+        "p:82": {
+          "type": "STRING",
+          "name": "senseId"
+        },
+        "p:83": {
+          "type": "STRING",
+          "name": "gloss"
+        },
+        "p:84": {
+          "type": "STRING",
+          "name": "glossLanguage"
+        }
+      }
+    },
+    "n:18": {
+      "labels": {
+        "identifier": "EntitySchema"
+      },
+      "name": "EntitySchema",
+      "properties": {
+        "p:85": {
+          "type": "STRING",
+          "name": "eid"
+        },
+        "p:86": {
+          "type": "STRING",
+          "name": "label"
+        },
+        "p:87": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "p:88": {
+          "type": "STRING",
+          "name": "schemaText"
+        }
+      }
+    },
+    "n:19": {
+      "labels": {
+        "identifier": "Revision"
+      },
+      "name": "Revision",
+      "properties": {
+        "p:89": {
+          "type": "STRING",
+          "name": "revisionId"
+        },
+        "p:90": {
+          "type": "DATE",
+          "name": "timestamp"
+        },
+        "p:91": {
+          "type": "STRING",
+          "name": "comment"
+        },
+        "p:92": {
+          "type": "INTEGER",
+          "name": "sizeBytes"
+        },
+        "p:93": {
+          "type": "BOOLEAN",
+          "name": "isMinor"
+        }
+      }
+    },
+    "n:20": {
+      "labels": {
+        "identifier": "Editor"
+      },
+      "name": "Editor",
+      "properties": {
+        "p:94": {
+          "type": "STRING",
+          "name": "username"
+        },
+        "p:95": {
+          "type": "STRING",
+          "name": "userId"
+        },
+        "p:96": {
+          "type": "BOOLEAN",
+          "name": "isBot"
+        },
+        "p:97": {
+          "type": "INTEGER",
+          "name": "editCount"
+        },
+        "p:98": {
+          "type": "DATE",
+          "name": "registrationDate"
+        }
+      }
+    }
+  },
+  "relationships": {
+    "r:0": {
+      "type": "HAS_STATEMENT",
+      "name": "HAS_STATEMENT",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:2"
+      }
+    },
+    "r:1": {
+      "type": "HAS_STATEMENT",
+      "name": "HAS_STATEMENT",
+      "from": {
+        "node": "n:1"
+      },
+      "to": {
+        "node": "n:2"
+      }
+    },
+    "r:2": {
+      "type": "HAS_STATEMENT",
+      "name": "HAS_STATEMENT",
+      "from": {
+        "node": "n:15"
+      },
+      "to": {
+        "node": "n:2"
+      }
+    },
+    "r:3": {
+      "type": "HAS_STATEMENT",
+      "name": "HAS_STATEMENT",
+      "from": {
+        "node": "n:17"
+      },
+      "to": {
+        "node": "n:2"
+      }
+    },
+    "r:4": {
+      "type": "HAS_STATEMENT",
+      "name": "HAS_STATEMENT",
+      "from": {
+        "node": "n:16"
+      },
+      "to": {
+        "node": "n:2"
+      }
+    },
+    "r:5": {
+      "type": "OF_PROPERTY",
+      "name": "OF_PROPERTY",
+      "from": {
+        "node": "n:2"
+      },
+      "to": {
+        "node": "n:1"
+      }
+    },
+    "r:6": {
+      "type": "HAS_QUALIFIER",
+      "name": "HAS_QUALIFIER",
+      "from": {
+        "node": "n:2"
+      },
+      "to": {
+        "node": "n:3"
+      }
+    },
+    "r:7": {
+      "type": "HAS_REFERENCE",
+      "name": "HAS_REFERENCE",
+      "from": {
+        "node": "n:2"
+      },
+      "to": {
+        "node": "n:4"
+      }
+    },
+    "r:8": {
+      "type": "OF_PROPERTY",
+      "name": "OF_PROPERTY",
+      "from": {
+        "node": "n:3"
+      },
+      "to": {
+        "node": "n:1"
+      }
+    },
+    "r:9": {
+      "type": "HAS_SNAK",
+      "name": "HAS_SNAK",
+      "from": {
+        "node": "n:4"
+      },
+      "to": {
+        "node": "n:5"
+      }
+    },
+    "r:10": {
+      "type": "OF_PROPERTY",
+      "name": "OF_PROPERTY",
+      "from": {
+        "node": "n:5"
+      },
+      "to": {
+        "node": "n:1"
+      }
+    },
+    "r:11": {
+      "type": "VALUE_ITEM",
+      "name": "VALUE_ITEM",
+      "from": {
+        "node": "n:2"
+      },
+      "to": {
+        "node": "n:0"
+      }
+    },
+    "r:12": {
+      "type": "VALUE_QUANTITY",
+      "name": "VALUE_QUANTITY",
+      "from": {
+        "node": "n:2"
+      },
+      "to": {
+        "node": "n:6"
+      }
+    },
+    "r:13": {
+      "type": "VALUE_TIME",
+      "name": "VALUE_TIME",
+      "from": {
+        "node": "n:2"
+      },
+      "to": {
+        "node": "n:7"
+      }
+    },
+    "r:14": {
+      "type": "VALUE_COORDINATE",
+      "name": "VALUE_COORDINATE",
+      "from": {
+        "node": "n:2"
+      },
+      "to": {
+        "node": "n:8"
+      }
+    },
+    "r:15": {
+      "type": "VALUE_MONOLINGUAL_TEXT",
+      "name": "VALUE_MONOLINGUAL_TEXT",
+      "from": {
+        "node": "n:2"
+      },
+      "to": {
+        "node": "n:9"
+      }
+    },
+    "r:16": {
+      "type": "VALUE_STRING",
+      "name": "VALUE_STRING",
+      "from": {
+        "node": "n:2"
+      },
+      "to": {
+        "node": "n:10"
+      }
+    },
+    "r:17": {
+      "type": "VALUE_ITEM",
+      "name": "VALUE_ITEM",
+      "from": {
+        "node": "n:3"
+      },
+      "to": {
+        "node": "n:0"
+      }
+    },
+    "r:18": {
+      "type": "VALUE_TIME",
+      "name": "VALUE_TIME",
+      "from": {
+        "node": "n:3"
+      },
+      "to": {
+        "node": "n:7"
+      }
+    },
+    "r:19": {
+      "type": "VALUE_QUANTITY",
+      "name": "VALUE_QUANTITY",
+      "from": {
+        "node": "n:3"
+      },
+      "to": {
+        "node": "n:6"
+      }
+    },
+    "r:20": {
+      "type": "VALUE_ITEM",
+      "name": "VALUE_ITEM",
+      "from": {
+        "node": "n:5"
+      },
+      "to": {
+        "node": "n:0"
+      }
+    },
+    "r:21": {
+      "type": "VALUE_STRING",
+      "name": "VALUE_STRING",
+      "from": {
+        "node": "n:5"
+      },
+      "to": {
+        "node": "n:10"
+      }
+    },
+    "r:22": {
+      "type": "UNIT",
+      "name": "UNIT",
+      "from": {
+        "node": "n:6"
+      },
+      "to": {
+        "node": "n:0"
+      }
+    },
+    "r:23": {
+      "type": "CALENDAR_MODEL",
+      "name": "CALENDAR_MODEL",
+      "from": {
+        "node": "n:7"
+      },
+      "to": {
+        "node": "n:0"
+      }
+    },
+    "r:24": {
+      "type": "GLOBE",
+      "name": "GLOBE",
+      "from": {
+        "node": "n:8"
+      },
+      "to": {
+        "node": "n:0"
+      }
+    },
+    "r:25": {
+      "type": "IN_LANGUAGE",
+      "name": "IN_LANGUAGE",
+      "from": {
+        "node": "n:9"
+      },
+      "to": {
+        "node": "n:12"
+      }
+    },
+    "r:26": {
+      "type": "HAS_TERM",
+      "name": "HAS_TERM",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:11"
+      }
+    },
+    "r:27": {
+      "type": "HAS_TERM",
+      "name": "HAS_TERM",
+      "from": {
+        "node": "n:1"
+      },
+      "to": {
+        "node": "n:11"
+      }
+    },
+    "r:28": {
+      "type": "IN_LANGUAGE",
+      "name": "IN_LANGUAGE",
+      "from": {
+        "node": "n:11"
+      },
+      "to": {
+        "node": "n:12"
+      }
+    },
+    "r:29": {
+      "type": "HAS_SITELINK",
+      "name": "HAS_SITELINK",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:13"
+      }
+    },
+    "r:30": {
+      "type": "ON_SITE",
+      "name": "ON_SITE",
+      "from": {
+        "node": "n:13"
+      },
+      "to": {
+        "node": "n:14"
+      }
+    },
+    "r:31": {
+      "type": "HAS_BADGE",
+      "name": "HAS_BADGE",
+      "from": {
+        "node": "n:13"
+      },
+      "to": {
+        "node": "n:0"
+      }
+    },
+    "r:32": {
+      "type": "SITE_LANGUAGE",
+      "name": "SITE_LANGUAGE",
+      "from": {
+        "node": "n:14"
+      },
+      "to": {
+        "node": "n:12"
+      }
+    },
+    "r:33": {
+      "type": "HAS_FORM",
+      "name": "HAS_FORM",
+      "from": {
+        "node": "n:15"
+      },
+      "to": {
+        "node": "n:16"
+      }
+    },
+    "r:34": {
+      "type": "HAS_SENSE",
+      "name": "HAS_SENSE",
+      "from": {
+        "node": "n:15"
+      },
+      "to": {
+        "node": "n:17"
+      }
+    },
+    "r:35": {
+      "type": "LEXICAL_CATEGORY",
+      "name": "LEXICAL_CATEGORY",
+      "from": {
+        "node": "n:15"
+      },
+      "to": {
+        "node": "n:0"
+      }
+    },
+    "r:36": {
+      "type": "LANGUAGE_ITEM",
+      "name": "LANGUAGE_ITEM",
+      "from": {
+        "node": "n:15"
+      },
+      "to": {
+        "node": "n:0"
+      }
+    },
+    "r:37": {
+      "type": "GRAMMATICAL_FEATURE",
+      "name": "GRAMMATICAL_FEATURE",
+      "from": {
+        "node": "n:16"
+      },
+      "to": {
+        "node": "n:0"
+      }
+    },
+    "r:38": {
+      "type": "CONSTRAINS_ITEM",
+      "name": "CONSTRAINS_ITEM",
+      "from": {
+        "node": "n:18"
+      },
+      "to": {
+        "node": "n:0"
+      }
+    },
+    "r:39": {
+      "type": "REVISION_OF",
+      "name": "REVISION_OF",
+      "from": {
+        "node": "n:19"
+      },
+      "to": {
+        "node": "n:0"
+      }
+    },
+    "r:40": {
+      "type": "EDITED_BY",
+      "name": "EDITED_BY",
+      "from": {
+        "node": "n:19"
+      },
+      "to": {
+        "node": "n:20"
+      }
+    },
+    "r:41": {
+      "type": "INSTANCE_OF",
+      "name": "INSTANCE_OF",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:0"
+      }
+    },
+    "r:42": {
+      "type": "SUBCLASS_OF",
+      "name": "SUBCLASS_OF",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:0"
+      }
+    },
+    "r:43": {
+      "type": "PART_OF",
+      "name": "PART_OF",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:0"
+      }
+    },
+    "r:44": {
+      "type": "SUBPROPERTY_OF",
+      "name": "SUBPROPERTY_OF",
+      "from": {
+        "node": "n:1"
+      },
+      "to": {
+        "node": "n:1"
+      }
+    }
+  },
+  "display": {
+    "nodes": {
+      "n:0": {
+        "x": -860,
+        "y": -200
+      },
+      "n:1": {
+        "x": -430,
+        "y": -200
+      },
+      "n:2": {
+        "x": 0,
+        "y": -200
+      },
+      "n:3": {
+        "x": 430,
+        "y": -200
+      },
+      "n:4": {
+        "x": 860,
+        "y": -200
+      },
+      "n:5": {
+        "x": -860,
+        "y": 10
+      },
+      "n:6": {
+        "x": -430,
+        "y": 10
+      },
+      "n:7": {
+        "x": 0,
+        "y": 10
+      },
+      "n:8": {
+        "x": 430,
+        "y": 10
+      },
+      "n:9": {
+        "x": 860,
+        "y": 10
+      },
+      "n:10": {
+        "x": -860,
+        "y": 220
+      },
+      "n:11": {
+        "x": -430,
+        "y": 220
+      },
+      "n:12": {
+        "x": 0,
+        "y": 220
+      },
+      "n:13": {
+        "x": 430,
+        "y": 220
+      },
+      "n:14": {
+        "x": 860,
+        "y": 220
+      },
+      "n:15": {
+        "x": -860,
+        "y": 430
+      },
+      "n:16": {
+        "x": -430,
+        "y": 430
+      },
+      "n:17": {
+        "x": 0,
+        "y": 430
+      },
+      "n:18": {
+        "x": 430,
+        "y": 430
+      },
+      "n:19": {
+        "x": 860,
+        "y": 430
+      },
+      "n:20": {
+        "x": -860,
+        "y": 640
+      }
+    }
+  }
+}

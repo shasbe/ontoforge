@@ -1,0 +1,539 @@
+{
+  "standard": "wikidata",
+  "title": "Wikidata / Wikibase data model",
+  "industry": "Cross-domain knowledge graph",
+  "source": {
+    "registry": "wikidata",
+    "spec": "mediawiki.org/wiki/Wikibase/DataModel"
+  },
+  "notes": [
+    "Deliberately NOT flattened. A Statement carries qualifiers, references and a rank,",
+    "so ROLE_REIFICATION_KEEP applies to the whole model -- collapsing it would destroy it.",
+    "Included as a counter-example to the flattening rules used by the other seven."
+  ],
+  "keys": {},
+  "nodes": {
+    "Item": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "qid",
+          "type": "STRING"
+        },
+        {
+          "name": "label",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "modified",
+          "type": "DATE"
+        },
+        {
+          "name": "statementCount",
+          "type": "INTEGER"
+        },
+        {
+          "name": "siteLinkCount",
+          "type": "INTEGER"
+        },
+        {
+          "name": "isRedirect",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "Property": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "pid",
+          "type": "STRING"
+        },
+        {
+          "name": "label",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "dataType",
+          "type": "STRING"
+        },
+        {
+          "name": "formatterUrl",
+          "type": "STRING"
+        },
+        {
+          "name": "statementCount",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "Statement": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "statementId",
+          "type": "STRING"
+        },
+        {
+          "name": "rank",
+          "type": "STRING"
+        },
+        {
+          "name": "snakType",
+          "type": "STRING"
+        },
+        {
+          "name": "propertyId",
+          "type": "STRING"
+        },
+        {
+          "name": "dataValueType",
+          "type": "STRING"
+        },
+        {
+          "name": "hash",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Qualifier": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "propertyId",
+          "type": "STRING"
+        },
+        {
+          "name": "snakType",
+          "type": "STRING"
+        },
+        {
+          "name": "dataValueType",
+          "type": "STRING"
+        },
+        {
+          "name": "order",
+          "type": "INTEGER"
+        },
+        {
+          "name": "hash",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Reference": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "referenceHash",
+          "type": "STRING"
+        },
+        {
+          "name": "snakCount",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "Snak": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "propertyId",
+          "type": "STRING"
+        },
+        {
+          "name": "snakType",
+          "type": "STRING"
+        },
+        {
+          "name": "dataValueType",
+          "type": "STRING"
+        },
+        {
+          "name": "hash",
+          "type": "STRING"
+        }
+      ]
+    },
+    "QuantityValue": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "amount",
+          "type": "FLOAT"
+        },
+        {
+          "name": "lowerBound",
+          "type": "FLOAT"
+        },
+        {
+          "name": "upperBound",
+          "type": "FLOAT"
+        },
+        {
+          "name": "unitId",
+          "type": "STRING"
+        }
+      ]
+    },
+    "TimeValue": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "time",
+          "type": "STRING"
+        },
+        {
+          "name": "timezone",
+          "type": "INTEGER"
+        },
+        {
+          "name": "before",
+          "type": "INTEGER"
+        },
+        {
+          "name": "after",
+          "type": "INTEGER"
+        },
+        {
+          "name": "precision",
+          "type": "INTEGER"
+        },
+        {
+          "name": "calendarModelId",
+          "type": "STRING"
+        }
+      ]
+    },
+    "GlobeCoordinateValue": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "latitude",
+          "type": "FLOAT"
+        },
+        {
+          "name": "longitude",
+          "type": "FLOAT"
+        },
+        {
+          "name": "altitude",
+          "type": "FLOAT"
+        },
+        {
+          "name": "precision",
+          "type": "FLOAT"
+        },
+        {
+          "name": "globeId",
+          "type": "STRING"
+        }
+      ]
+    },
+    "MonolingualText": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "text",
+          "type": "STRING"
+        },
+        {
+          "name": "languageCode",
+          "type": "STRING"
+        }
+      ]
+    },
+    "StringValue": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "value",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Term": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "termType",
+          "type": "STRING"
+        },
+        {
+          "name": "languageCode",
+          "type": "STRING"
+        },
+        {
+          "name": "value",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Language": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "nativeName",
+          "type": "STRING"
+        },
+        {
+          "name": "isRtl",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "Sitelink": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "site",
+          "type": "STRING"
+        },
+        {
+          "name": "title",
+          "type": "STRING"
+        },
+        {
+          "name": "url",
+          "type": "STRING"
+        },
+        {
+          "name": "badgeCount",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "WikiSite": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "siteId",
+          "type": "STRING"
+        },
+        {
+          "name": "siteName",
+          "type": "STRING"
+        },
+        {
+          "name": "url",
+          "type": "STRING"
+        },
+        {
+          "name": "languageCode",
+          "type": "STRING"
+        },
+        {
+          "name": "siteGroup",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Lexeme": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "lid",
+          "type": "STRING"
+        },
+        {
+          "name": "lemma",
+          "type": "STRING"
+        },
+        {
+          "name": "languageCode",
+          "type": "STRING"
+        },
+        {
+          "name": "lexicalCategoryId",
+          "type": "STRING"
+        },
+        {
+          "name": "formCount",
+          "type": "INTEGER"
+        },
+        {
+          "name": "senseCount",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "Form": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "formId",
+          "type": "STRING"
+        },
+        {
+          "name": "representation",
+          "type": "STRING"
+        },
+        {
+          "name": "grammaticalFeatureCount",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "Sense": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "senseId",
+          "type": "STRING"
+        },
+        {
+          "name": "gloss",
+          "type": "STRING"
+        },
+        {
+          "name": "glossLanguage",
+          "type": "STRING"
+        }
+      ]
+    },
+    "EntitySchema": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "eid",
+          "type": "STRING"
+        },
+        {
+          "name": "label",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "schemaText",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Revision": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "revisionId",
+          "type": "STRING"
+        },
+        {
+          "name": "timestamp",
+          "type": "DATE"
+        },
+        {
+          "name": "comment",
+          "type": "STRING"
+        },
+        {
+          "name": "sizeBytes",
+          "type": "INTEGER"
+        },
+        {
+          "name": "isMinor",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "Editor": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "username",
+          "type": "STRING"
+        },
+        {
+          "name": "userId",
+          "type": "STRING"
+        },
+        {
+          "name": "isBot",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "editCount",
+          "type": "INTEGER"
+        },
+        {
+          "name": "registrationDate",
+          "type": "DATE"
+        }
+      ]
+    }
+  }
+}

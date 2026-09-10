@@ -1,0 +1,1232 @@
+{
+  "standard": "fibo",
+  "title": "FIBO -- Financial Industry Business Ontology",
+  "industry": "Financial Services",
+  "source": {
+    "registry": "fibo",
+    "git": "github.com/edmcouncil/fibo",
+    "pin": "119fa8c",
+    "date": "2026-07-17"
+  },
+  "notes": [
+    "3,021 classes from 221 content modules / 130,273 triples. (The original hand analysis counted 286 files / 132,414 triples by also parsing the About*/Metadata* aggregators, which carry only owl:imports; the ingester excludes them.)",
+    "219 SEC Preferred* share classes collapsed into flags on FinancialInstrument (SUBCLASS_COLLAPSE).",
+    "InstrumentType is the TAXONOMY_SIDECAR for the 12-level class tree.",
+    "External imports NOT vendored: 1,193 to OMG Commons, 54 to LCC (IMPORT_RESOLVE).",
+    "Canvas positions are curated (domain-banded), not grid-generated.",
+    "Timestamps are declared DATETIME; the TYPE_MAP rule negotiates them to STRING (ISO 8601) for targets whose Neo4jType enum lacks DATETIME."
+  ],
+  "keys": {},
+  "nodes": {
+    "InstrumentType": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "fiboClassIri",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "label",
+          "type": "STRING"
+        },
+        {
+          "name": "definition",
+          "type": "STRING"
+        },
+        {
+          "name": "cfiCode",
+          "type": "STRING"
+        },
+        {
+          "name": "fiboDomain",
+          "type": "STRING"
+        },
+        {
+          "name": "level",
+          "type": "INTEGER"
+        },
+        {
+          "name": "isLeaf",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "Currency": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "iso4217Code",
+          "type": "STRING"
+        },
+        {
+          "name": "numericCode",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "minorUnit",
+          "type": "INTEGER"
+        },
+        {
+          "name": "usedByCountry",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Jurisdiction": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "appliesToName",
+          "type": "STRING"
+        },
+        {
+          "name": "countryCode",
+          "type": "STRING"
+        },
+        {
+          "name": "subdivisionCode",
+          "type": "STRING"
+        }
+      ]
+    },
+    "IndustrySector": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "scheme",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Address": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "addressLine1",
+          "type": "STRING"
+        },
+        {
+          "name": "city",
+          "type": "STRING"
+        },
+        {
+          "name": "region",
+          "type": "STRING"
+        },
+        {
+          "name": "postalCode",
+          "type": "STRING"
+        },
+        {
+          "name": "countryCode",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Identifier": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "scheme",
+          "type": "STRING"
+        },
+        {
+          "name": "value",
+          "type": "STRING"
+        },
+        {
+          "name": "issuingAuthority",
+          "type": "STRING"
+        },
+        {
+          "name": "isPrimary",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "Market": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "mic",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "marketLevel",
+          "type": "STRING"
+        },
+        {
+          "name": "acronym",
+          "type": "STRING"
+        },
+        {
+          "name": "venueType",
+          "type": "STRING"
+        },
+        {
+          "name": "micStatus",
+          "type": "STRING"
+        },
+        {
+          "name": "countryName",
+          "type": "STRING"
+        },
+        {
+          "name": "countryCode",
+          "type": "STRING"
+        },
+        {
+          "name": "city",
+          "type": "STRING"
+        },
+        {
+          "name": "website",
+          "type": "STRING"
+        }
+      ]
+    },
+    "InterestRateBenchmark": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "tenor",
+          "type": "STRING"
+        },
+        {
+          "name": "referenceCurrencyCode",
+          "type": "STRING"
+        },
+        {
+          "name": "referenceCurrencyName",
+          "type": "STRING"
+        },
+        {
+          "name": "rateResetTime",
+          "type": "STRING"
+        },
+        {
+          "name": "publisherName",
+          "type": "STRING"
+        }
+      ]
+    },
+    "MarketIndex": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "indexType",
+          "type": "STRING"
+        },
+        {
+          "name": "baseValue",
+          "type": "FLOAT"
+        },
+        {
+          "name": "baseDate",
+          "type": "DATE"
+        },
+        {
+          "name": "methodology",
+          "type": "STRING"
+        }
+      ]
+    },
+    "RegulatoryAgency": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "shortName",
+          "type": "STRING"
+        },
+        {
+          "name": "agencyType",
+          "type": "STRING"
+        }
+      ]
+    },
+    "LegalEntity": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "lei",
+          "type": "STRING"
+        },
+        {
+          "name": "legalName",
+          "type": "STRING"
+        },
+        {
+          "name": "legalForm",
+          "type": "STRING"
+        },
+        {
+          "name": "entityStatus",
+          "type": "STRING"
+        },
+        {
+          "name": "incorporationDate",
+          "type": "DATE"
+        },
+        {
+          "name": "entityExpirationDate",
+          "type": "DATE"
+        },
+        {
+          "name": "entityExpirationReason",
+          "type": "STRING"
+        },
+        {
+          "name": "isPubliclyTraded",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "Person": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "fullName",
+          "type": "STRING"
+        },
+        {
+          "name": "birthDate",
+          "type": "DATE"
+        },
+        {
+          "name": "deathDate",
+          "type": "DATE"
+        },
+        {
+          "name": "gender",
+          "type": "STRING"
+        },
+        {
+          "name": "citizenshipCountryCode",
+          "type": "STRING"
+        }
+      ]
+    },
+    "PartyInRole": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "roleType",
+          "type": "STRING"
+        },
+        {
+          "name": "startDate",
+          "type": "DATE"
+        },
+        {
+          "name": "endDate",
+          "type": "DATE"
+        },
+        {
+          "name": "isActive",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "Ownership": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "ownershipType",
+          "type": "STRING"
+        },
+        {
+          "name": "ownershipPercentage",
+          "type": "FLOAT"
+        },
+        {
+          "name": "controlType",
+          "type": "STRING"
+        },
+        {
+          "name": "isMajorityControl",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "effectiveDate",
+          "type": "DATE"
+        },
+        {
+          "name": "endDate",
+          "type": "DATE"
+        }
+      ]
+    },
+    "FinancialServiceProvider": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "lei",
+          "type": "STRING"
+        },
+        {
+          "name": "providerType",
+          "type": "STRING"
+        },
+        {
+          "name": "homeCountryName",
+          "type": "STRING"
+        },
+        {
+          "name": "homeCountryCode",
+          "type": "STRING"
+        },
+        {
+          "name": "isSubjectToReserveRequirements",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "licenceStatus",
+          "type": "STRING"
+        }
+      ]
+    },
+    "FinancialService": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "serviceType",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        }
+      ]
+    },
+    "FinancialInstrument": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "isin",
+          "type": "STRING"
+        },
+        {
+          "name": "cusip",
+          "type": "STRING"
+        },
+        {
+          "name": "figi",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "shortName",
+          "type": "STRING"
+        },
+        {
+          "name": "instrumentType",
+          "type": "STRING"
+        },
+        {
+          "name": "cfiCode",
+          "type": "STRING"
+        },
+        {
+          "name": "isNegotiable",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "issueDate",
+          "type": "DATE"
+        },
+        {
+          "name": "maturityDate",
+          "type": "DATE"
+        },
+        {
+          "name": "nominalValueAmount",
+          "type": "FLOAT"
+        },
+        {
+          "name": "denominationCurrencyCode",
+          "type": "STRING"
+        },
+        {
+          "name": "isMiFIDReportingRequired",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "shareClass",
+          "type": "STRING"
+        },
+        {
+          "name": "isPreferred",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "votingRights",
+          "type": "STRING"
+        },
+        {
+          "name": "votesPerShare",
+          "type": "FLOAT"
+        },
+        {
+          "name": "sharesAuthorized",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sharesIssued",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sharesOutstanding",
+          "type": "INTEGER"
+        },
+        {
+          "name": "isCumulative",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "isParticipating",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "isRedeemable",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "isExchangeable",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "isExtendable",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "dividendRateType",
+          "type": "STRING"
+        },
+        {
+          "name": "couponRate",
+          "type": "FLOAT"
+        },
+        {
+          "name": "couponFrequency",
+          "type": "STRING"
+        },
+        {
+          "name": "faceValueAmount",
+          "type": "FLOAT"
+        },
+        {
+          "name": "seniority",
+          "type": "STRING"
+        },
+        {
+          "name": "isCallable",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "isPuttable",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "dayCountConvention",
+          "type": "STRING"
+        },
+        {
+          "name": "series",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Loan": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "loanType",
+          "type": "STRING"
+        },
+        {
+          "name": "principalAmount",
+          "type": "FLOAT"
+        },
+        {
+          "name": "currencyCode",
+          "type": "STRING"
+        },
+        {
+          "name": "interestRate",
+          "type": "FLOAT"
+        },
+        {
+          "name": "rateType",
+          "type": "STRING"
+        },
+        {
+          "name": "disbursementDate",
+          "type": "DATE"
+        },
+        {
+          "name": "maturityDate",
+          "type": "DATE"
+        },
+        {
+          "name": "isInterestOnly",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "inDefault",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "isAssumable",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "lienPosition",
+          "type": "STRING"
+        },
+        {
+          "name": "loanMarketCategory",
+          "type": "STRING"
+        },
+        {
+          "name": "totalClosingCostsAmount",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "DerivativeContract": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "derivativeType",
+          "type": "STRING"
+        },
+        {
+          "name": "notionalAmount",
+          "type": "FLOAT"
+        },
+        {
+          "name": "currencyCode",
+          "type": "STRING"
+        },
+        {
+          "name": "tradeDate",
+          "type": "DATE"
+        },
+        {
+          "name": "effectiveDate",
+          "type": "DATE"
+        },
+        {
+          "name": "expirationDate",
+          "type": "DATE"
+        },
+        {
+          "name": "settlementType",
+          "type": "STRING"
+        },
+        {
+          "name": "optionType",
+          "type": "STRING"
+        },
+        {
+          "name": "strikePrice",
+          "type": "FLOAT"
+        },
+        {
+          "name": "isCleared",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "Fund": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "fundType",
+          "type": "STRING"
+        },
+        {
+          "name": "netAssetValue",
+          "type": "FLOAT"
+        },
+        {
+          "name": "navCurrencyCode",
+          "type": "STRING"
+        },
+        {
+          "name": "navDate",
+          "type": "DATE"
+        },
+        {
+          "name": "isOpenEnded",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "Contract": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "contractType",
+          "type": "STRING"
+        },
+        {
+          "name": "effectiveDate",
+          "type": "DATE"
+        },
+        {
+          "name": "executionDate",
+          "type": "DATE"
+        },
+        {
+          "name": "issuanceDate",
+          "type": "DATE"
+        },
+        {
+          "name": "isAssignable",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "governingLaw",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Collateral": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "collateralType",
+          "type": "STRING"
+        },
+        {
+          "name": "valueAmount",
+          "type": "FLOAT"
+        },
+        {
+          "name": "currencyCode",
+          "type": "STRING"
+        },
+        {
+          "name": "haircutPercentage",
+          "type": "FLOAT"
+        },
+        {
+          "name": "valuationDate",
+          "type": "DATE"
+        },
+        {
+          "name": "lienPosition",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Account": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "accountType",
+          "type": "STRING"
+        },
+        {
+          "name": "openDate",
+          "type": "DATE"
+        },
+        {
+          "name": "closeDate",
+          "type": "DATE"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "balanceAmount",
+          "type": "FLOAT"
+        },
+        {
+          "name": "balanceCurrencyCode",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Portfolio": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "investmentStrategy",
+          "type": "STRING"
+        },
+        {
+          "name": "inceptionDate",
+          "type": "DATE"
+        }
+      ]
+    },
+    "Holding": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "quantity",
+          "type": "FLOAT"
+        },
+        {
+          "name": "fractionalInterest",
+          "type": "FLOAT"
+        },
+        {
+          "name": "marketValueAmount",
+          "type": "FLOAT"
+        },
+        {
+          "name": "currencyCode",
+          "type": "STRING"
+        },
+        {
+          "name": "asOfDate",
+          "type": "DATE"
+        }
+      ]
+    },
+    "Position": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "direction",
+          "type": "STRING"
+        },
+        {
+          "name": "quantity",
+          "type": "FLOAT"
+        },
+        {
+          "name": "exposureAmount",
+          "type": "FLOAT"
+        },
+        {
+          "name": "currencyCode",
+          "type": "STRING"
+        },
+        {
+          "name": "asOfDate",
+          "type": "DATE"
+        }
+      ]
+    },
+    "PaymentSchedule": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "scheduleType",
+          "type": "STRING"
+        },
+        {
+          "name": "frequency",
+          "type": "STRING"
+        },
+        {
+          "name": "firstPaymentDate",
+          "type": "DATE"
+        },
+        {
+          "name": "finalPaymentDate",
+          "type": "DATE"
+        },
+        {
+          "name": "anticipatedNumberOfPayments",
+          "type": "INTEGER"
+        },
+        {
+          "name": "businessDayConvention",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Payment": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "paymentType",
+          "type": "STRING"
+        },
+        {
+          "name": "dueDate",
+          "type": "DATE"
+        },
+        {
+          "name": "amount",
+          "type": "FLOAT"
+        },
+        {
+          "name": "currencyCode",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "paidDate",
+          "type": "DATE"
+        }
+      ]
+    },
+    "CashFlow": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "flowType",
+          "type": "STRING"
+        },
+        {
+          "name": "flowDate",
+          "type": "DATE"
+        },
+        {
+          "name": "amount",
+          "type": "FLOAT"
+        },
+        {
+          "name": "currencyCode",
+          "type": "STRING"
+        },
+        {
+          "name": "isProjected",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "Trade": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "tradeDateTime",
+          "type": "DATETIME"
+        },
+        {
+          "name": "side",
+          "type": "STRING"
+        },
+        {
+          "name": "quantity",
+          "type": "FLOAT"
+        },
+        {
+          "name": "price",
+          "type": "FLOAT"
+        },
+        {
+          "name": "priceCurrencyCode",
+          "type": "STRING"
+        },
+        {
+          "name": "notionalAmount",
+          "type": "FLOAT"
+        },
+        {
+          "name": "settlementDate",
+          "type": "DATE"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "venueMic",
+          "type": "STRING"
+        }
+      ]
+    },
+    "LifecycleEvent": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "eventType",
+          "type": "STRING"
+        },
+        {
+          "name": "eventDateTime",
+          "type": "DATETIME"
+        },
+        {
+          "name": "stage",
+          "type": "STRING"
+        },
+        {
+          "name": "sequenceNumber",
+          "type": "INTEGER"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        }
+      ]
+    },
+    "CorporateAction": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "actionType",
+          "type": "STRING"
+        },
+        {
+          "name": "announcementDate",
+          "type": "DATE"
+        },
+        {
+          "name": "exDate",
+          "type": "DATE"
+        },
+        {
+          "name": "recordDate",
+          "type": "DATE"
+        },
+        {
+          "name": "paymentDate",
+          "type": "DATE"
+        },
+        {
+          "name": "effectiveDate",
+          "type": "DATE"
+        },
+        {
+          "name": "isMandatory",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "ratio",
+          "type": "STRING"
+        }
+      ]
+    },
+    "CreditRating": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "ratingScore",
+          "type": "STRING"
+        },
+        {
+          "name": "ratingScale",
+          "type": "STRING"
+        },
+        {
+          "name": "ratingType",
+          "type": "STRING"
+        },
+        {
+          "name": "outlook",
+          "type": "STRING"
+        },
+        {
+          "name": "issuanceDate",
+          "type": "DATE"
+        },
+        {
+          "name": "effectiveDate",
+          "type": "DATE"
+        },
+        {
+          "name": "isSolicited",
+          "type": "BOOLEAN"
+        }
+      ]
+    }
+  }
+}

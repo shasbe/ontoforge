@@ -1,0 +1,14 @@
+{
+  "findings": [],
+  "errors": 0,
+  "warnings": 0,
+  "decisions": [
+    "target neo4j-workspace v4.0.0; capabilities: none",
+    "accepted property types: ['BOOLEAN', 'DATE', 'FLOAT', 'INTEGER', 'STRING']",
+    "TYPE_MAP: Trade.tradeDateTime: DATETIME not accepted by target -> STRING (store ISO 8601; sorts correctly as text)",
+    "TYPE_MAP: LifecycleEvent.eventDateTime: DATETIME not accepted by target -> STRING (store ISO 8601; sorts correctly as text)",
+    "TYPE_MAP: 2 property type(s) renegotiated for this target",
+    "emitted 33 nodes, 253 properties, 86 relationships (69 distinct types)",
+    "self-relationships (journey spines / hierarchies): ['BROADER_THAN', 'HAS_UNDERLIER', 'MEMBER_OF', 'NEXT', 'OPERATED_UNDER', 'SUCCEEDS', 'SUPERSEDES']"
+  ]
+}

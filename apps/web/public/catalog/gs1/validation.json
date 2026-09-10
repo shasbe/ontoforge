@@ -1,0 +1,11 @@
+{
+  "findings": [],
+  "errors": 0,
+  "warnings": 0,
+  "decisions": [
+    "target neo4j-workspace v4.0.0; capabilities: none",
+    "accepted property types: ['BOOLEAN', 'DATE', 'FLOAT', 'INTEGER', 'STRING']",
+    "emitted 28 nodes, 155 properties, 47 relationships (41 distinct types)",
+    "self-relationships (journey spines / hierarchies): ['AFFILIATED_TO', 'BROADER_THAN', 'CONTAINS_PRODUCT', 'PART_OF_PLACE']"
+  ]
+}

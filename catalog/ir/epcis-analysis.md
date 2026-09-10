@@ -12,8 +12,9 @@
 - constraints: **74**
 - anonymous constraint targets: **11**
 
-- definitions present on **100.0%** of entities; definition-or-example on **100.0%** (drives LLM grounding value)
+- definitions present on **100.0%** of the 94 schema entities; definition-or-example on **100.0%** (drives LLM grounding value)
 - **14.9%** of constraints target anonymous expressions -- these must not become graph nodes
+- **0.0%** of subClassOf axioms point at blank nodes rather than named classes, i.e. most of the apparent 'hierarchy' is really OWL restrictions -- the core reason a naive RDF import fails
 - hierarchy depth up to **1**; **0** classes have >1 parent (max 0)
 
 ## Combinatorial subclassing warning

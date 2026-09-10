@@ -5,7 +5,12 @@ Compile industry data standards into Neo4j property-graph models.
 Point it at a published standard — FIBO, HL7 FHIR, GS1, EPCIS, IDMP, IOF, AUTO,
 Wikidata — and get a curated Neo4j data model as Workspace JSON, ready to import.
 
-Status: **phase 1 (core) complete**. Web app is phase 2.
+Status: **phases 1-2 complete** — core pipeline plus a static web app.
+
+```bash
+PYTHONPATH=packages/core python -m ontoforge.cli export   # regenerate catalog
+cd apps/web && npm install && npm run dev                 # http://localhost:5173
+```
 
 ## Why it isn't a one-shot converter
 
@@ -75,19 +80,26 @@ python -m ontoforge.cli analyze catalog/ir/fhir.ir.json
 
 Run `ontoforge analyze` for the full report. Headline numbers:
 
-| standard | triples | classes | anon% | depth | grounding text |
-|---|---|---|---|---|---|
-| fibo | 132,414 | 3,021 | 42.0 | 12 | 85% |
-| iof | 25,348 | 1,002 | 44.1 | 7 | 95% |
-| gs1 | 18,749 | 56 | 0.5 | 3 | 100% |
-| idmp | 15,684 | 457 | 11.9 | 7 | 98% |
-| auto | 13,474 | 1,171 | 7.8 | 12 | 93% |
-| fhir | 8,896 elements | 158 | 0.0 | 0 | 100% |
-| epcis | 1,000 | 20 | 14.9 | 1 | 100% |
+| standard | triples | classes | anon subClassOf | anon targets | depth | grounding |
+|---|---|---|---|---|---|---|
+| fibo | 130,273 | 3,021 | 42.1% | 8.5% | 12 | 85.5% |
+| iof | 25,348 | 1,002 | 38.6% | 44.1% | 7 | 95.1% |
+| gs1 | 18,749 | 56 | 0.0% | 0.5% | 3 | 100.0% |
+| idmp | 15,684 | 457 | 62.4% | 11.9% | 7 | 97.9% |
+| auto | 13,474 | 1,171 | 40.9% | 7.8% | 12 | 92.7% |
+| fhir | 8,896 | 158 | — | 0.0% | 0 | 100.0% |
+| epcis | 1,000 | 20 | 0.0% | 14.9% | 1 | 100.0% |
 
-`anon%` is the share of constraints whose target is an anonymous class
-expression. Those must never become graph nodes — it is the single biggest
-reason a naive RDF import produces an unusable graph.
+`anon subClassOf` is the share of `rdfs:subClassOf` axioms whose object is a
+blank node — i.e. how much of the apparent hierarchy is really OWL restrictions.
+This is the single biggest reason a naive RDF import produces an unusable graph.
+`anon targets` is the narrower share of extracted constraints pointing at
+anonymous unions/intersections. Both are reported because they answer different
+questions. **IDMP is the extreme at 62.4%**, ahead of FIBO's 42.1%.
+
+Grounding coverage is scoped to *schema* entities (classes + properties);
+including reference-data individuals would dilute it — FIBO reads 39% over all
+16k entities but 85.5% over its 4,230 schema ones.
 
 Two findings worth knowing: **IOF has the highest anonymous share (44%)**
 because BFO encodes meaning in `owl:equivalentClass` intersections rather than
@@ -142,9 +154,19 @@ targets/<name>/             adapter.yaml + sample.json (+ schema.json)
 tests/golden/               the nine hand-built models
 ```
 
+## Web app
+
+`apps/web` — static catalog browser and model canvas (React + React Flow, no
+backend, no login). Browse the catalog, explore a model on a pan/zoom canvas,
+inspect nodes, read the validation gates and decision log, and download the JSON
+with your current layout baked into `display`. See `apps/web/README.md`.
+
+The catalog it serves is precomputed: FIBO is a 137 MB clone and ~2 minutes of
+parsing, and FHIR R5 a 44 MB bundle, so neither can happen on a page load. CI
+runs `ontoforge export` and the site ships the result as static JSON.
+
 ## Roadmap
 
-- **2** Web app: catalog → canvas (React Flow) → validate → download. Static.
 - **3** Target-adapter upload in the UI; regenerate catalog against a new spec.
 - **4** Bring-your-own-source + JSON Schema ingester (unlocks Smart Data Models, OCSF, OSDU).
 - **5** Reference-data extraction + Cypher DDL in the UI; tabular and XSD ingesters.

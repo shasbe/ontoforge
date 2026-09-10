@@ -1,0 +1,1503 @@
+{
+  "version": "4.0.0",
+  "nodes": {
+    "n:0": {
+      "labels": {
+        "identifier": "MedicinalProduct"
+      },
+      "name": "MedicinalProduct",
+      "properties": {
+        "p:0": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:1": {
+          "type": "STRING",
+          "name": "mpid"
+        },
+        "p:2": {
+          "type": "STRING",
+          "name": "productName"
+        },
+        "p:3": {
+          "type": "STRING",
+          "name": "fullName"
+        },
+        "p:4": {
+          "type": "STRING",
+          "name": "productType"
+        },
+        "p:5": {
+          "type": "STRING",
+          "name": "domain"
+        },
+        "p:6": {
+          "type": "STRING",
+          "name": "legalStatusOfSupply"
+        },
+        "p:7": {
+          "type": "STRING",
+          "name": "productClassification"
+        },
+        "p:8": {
+          "type": "BOOLEAN",
+          "name": "orphanDesignation"
+        },
+        "p:9": {
+          "type": "STRING",
+          "name": "paediatricUseIndicator"
+        }
+      }
+    },
+    "n:1": {
+      "labels": {
+        "identifier": "PharmaceuticalProduct"
+      },
+      "name": "PharmaceuticalProduct",
+      "properties": {
+        "p:10": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:11": {
+          "type": "STRING",
+          "name": "phpid"
+        },
+        "p:12": {
+          "type": "STRING",
+          "name": "administrableDoseFormCode"
+        },
+        "p:13": {
+          "type": "STRING",
+          "name": "unitOfPresentationCode"
+        },
+        "p:14": {
+          "type": "STRING",
+          "name": "routeOfAdministrationCode"
+        }
+      }
+    },
+    "n:2": {
+      "labels": {
+        "identifier": "ManufacturedItem"
+      },
+      "name": "ManufacturedItem",
+      "properties": {
+        "p:15": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:16": {
+          "type": "STRING",
+          "name": "manufacturedDoseFormCode"
+        },
+        "p:17": {
+          "type": "STRING",
+          "name": "unitOfPresentationCode"
+        },
+        "p:18": {
+          "type": "FLOAT",
+          "name": "quantity"
+        },
+        "p:19": {
+          "type": "STRING",
+          "name": "quantityUnit"
+        }
+      }
+    },
+    "n:3": {
+      "labels": {
+        "identifier": "PackagedMedicinalProduct"
+      },
+      "name": "PackagedMedicinalProduct",
+      "properties": {
+        "p:20": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:21": {
+          "type": "STRING",
+          "name": "pcid"
+        },
+        "p:22": {
+          "type": "STRING",
+          "name": "packageDescription"
+        },
+        "p:23": {
+          "type": "STRING",
+          "name": "packageTypeCode"
+        },
+        "p:24": {
+          "type": "FLOAT",
+          "name": "quantity"
+        },
+        "p:25": {
+          "type": "INTEGER",
+          "name": "shelfLifeValue"
+        },
+        "p:26": {
+          "type": "STRING",
+          "name": "shelfLifeUnit"
+        },
+        "p:27": {
+          "type": "STRING",
+          "name": "storageConditions"
+        },
+        "p:28": {
+          "type": "STRING",
+          "name": "marketingStatus"
+        }
+      }
+    },
+    "n:4": {
+      "labels": {
+        "identifier": "Container"
+      },
+      "name": "Container",
+      "properties": {
+        "p:29": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:30": {
+          "type": "STRING",
+          "name": "containerTypeCode"
+        },
+        "p:31": {
+          "type": "STRING",
+          "name": "materialCode"
+        },
+        "p:32": {
+          "type": "FLOAT",
+          "name": "capacity"
+        },
+        "p:33": {
+          "type": "STRING",
+          "name": "capacityUnit"
+        },
+        "p:34": {
+          "type": "STRING",
+          "name": "closureTypeCode"
+        }
+      }
+    },
+    "n:5": {
+      "labels": {
+        "identifier": "Ingredient"
+      },
+      "name": "Ingredient",
+      "properties": {
+        "p:35": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:36": {
+          "type": "STRING",
+          "name": "ingredientRole"
+        },
+        "p:37": {
+          "type": "STRING",
+          "name": "strengthType"
+        },
+        "p:38": {
+          "type": "FLOAT",
+          "name": "presentationNumerator"
+        },
+        "p:39": {
+          "type": "STRING",
+          "name": "presentationNumeratorUnit"
+        },
+        "p:40": {
+          "type": "FLOAT",
+          "name": "presentationDenominator"
+        },
+        "p:41": {
+          "type": "FLOAT",
+          "name": "concentrationNumerator"
+        },
+        "p:42": {
+          "type": "FLOAT",
+          "name": "concentrationDenominator"
+        },
+        "p:43": {
+          "type": "STRING",
+          "name": "basisOfStrengthType"
+        }
+      }
+    },
+    "n:6": {
+      "labels": {
+        "identifier": "Substance"
+      },
+      "name": "Substance",
+      "properties": {
+        "p:44": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:45": {
+          "type": "STRING",
+          "name": "substanceId"
+        },
+        "p:46": {
+          "type": "STRING",
+          "name": "substanceName"
+        },
+        "p:47": {
+          "type": "STRING",
+          "name": "substanceClass"
+        },
+        "p:48": {
+          "type": "STRING",
+          "name": "molecularFormula"
+        },
+        "p:49": {
+          "type": "FLOAT",
+          "name": "molecularWeight"
+        },
+        "p:50": {
+          "type": "STRING",
+          "name": "casNumber"
+        },
+        "p:51": {
+          "type": "STRING",
+          "name": "unii"
+        },
+        "p:52": {
+          "type": "STRING",
+          "name": "inchiKey"
+        },
+        "p:53": {
+          "type": "STRING",
+          "name": "stereochemistry"
+        },
+        "p:54": {
+          "type": "STRING",
+          "name": "opticalActivity"
+        }
+      }
+    },
+    "n:7": {
+      "labels": {
+        "identifier": "Moiety"
+      },
+      "name": "Moiety",
+      "properties": {
+        "p:55": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:56": {
+          "type": "STRING",
+          "name": "moietyName"
+        },
+        "p:57": {
+          "type": "STRING",
+          "name": "molecularFormula"
+        },
+        "p:58": {
+          "type": "FLOAT",
+          "name": "molecularWeight"
+        },
+        "p:59": {
+          "type": "FLOAT",
+          "name": "amountNumerator"
+        },
+        "p:60": {
+          "type": "STRING",
+          "name": "amountUnit"
+        },
+        "p:61": {
+          "type": "INTEGER",
+          "name": "definingNumberOfMoieties"
+        }
+      }
+    },
+    "n:8": {
+      "labels": {
+        "identifier": "SpecifiedSubstance"
+      },
+      "name": "SpecifiedSubstance",
+      "properties": {
+        "p:62": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:63": {
+          "type": "STRING",
+          "name": "groupNumber"
+        },
+        "p:64": {
+          "type": "STRING",
+          "name": "sourceMaterialClass"
+        },
+        "p:65": {
+          "type": "STRING",
+          "name": "sourceMaterialType"
+        },
+        "p:66": {
+          "type": "STRING",
+          "name": "sourceMaterialState"
+        },
+        "p:67": {
+          "type": "STRING",
+          "name": "partDescription"
+        }
+      }
+    },
+    "n:9": {
+      "labels": {
+        "identifier": "Taxon"
+      },
+      "name": "Taxon",
+      "properties": {
+        "p:68": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:69": {
+          "type": "STRING",
+          "name": "scientificName"
+        },
+        "p:70": {
+          "type": "STRING",
+          "name": "rank"
+        },
+        "p:71": {
+          "type": "STRING",
+          "name": "commonName"
+        }
+      }
+    },
+    "n:10": {
+      "labels": {
+        "identifier": "DoseForm"
+      },
+      "name": "DoseForm",
+      "properties": {
+        "p:72": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:73": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "p:74": {
+          "type": "STRING",
+          "name": "codeSystem"
+        },
+        "p:75": {
+          "type": "STRING",
+          "name": "term"
+        },
+        "p:76": {
+          "type": "STRING",
+          "name": "doseFormType"
+        }
+      }
+    },
+    "n:11": {
+      "labels": {
+        "identifier": "RouteOfAdministration"
+      },
+      "name": "RouteOfAdministration",
+      "properties": {
+        "p:77": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:78": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "p:79": {
+          "type": "STRING",
+          "name": "codeSystem"
+        },
+        "p:80": {
+          "type": "STRING",
+          "name": "term"
+        }
+      }
+    },
+    "n:12": {
+      "labels": {
+        "identifier": "UnitOfPresentation"
+      },
+      "name": "UnitOfPresentation",
+      "properties": {
+        "p:81": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:82": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "p:83": {
+          "type": "STRING",
+          "name": "codeSystem"
+        },
+        "p:84": {
+          "type": "STRING",
+          "name": "term"
+        }
+      }
+    },
+    "n:13": {
+      "labels": {
+        "identifier": "UnitOfMeasurement"
+      },
+      "name": "UnitOfMeasurement",
+      "properties": {
+        "p:85": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:86": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "p:87": {
+          "type": "STRING",
+          "name": "codeSystem"
+        },
+        "p:88": {
+          "type": "STRING",
+          "name": "term"
+        },
+        "p:89": {
+          "type": "STRING",
+          "name": "dimension"
+        }
+      }
+    },
+    "n:14": {
+      "labels": {
+        "identifier": "MarketingAuthorization"
+      },
+      "name": "MarketingAuthorization",
+      "properties": {
+        "p:90": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:91": {
+          "type": "STRING",
+          "name": "authorizationNumber"
+        },
+        "p:92": {
+          "type": "STRING",
+          "name": "authorizationStatus"
+        },
+        "p:93": {
+          "type": "DATE",
+          "name": "statusDate"
+        },
+        "p:94": {
+          "type": "DATE",
+          "name": "authorizationDate"
+        },
+        "p:95": {
+          "type": "DATE",
+          "name": "validityPeriodStart"
+        },
+        "p:96": {
+          "type": "DATE",
+          "name": "validityPeriodEnd"
+        },
+        "p:97": {
+          "type": "STRING",
+          "name": "legalBasis"
+        },
+        "p:98": {
+          "type": "STRING",
+          "name": "procedureType"
+        },
+        "p:99": {
+          "type": "DATE",
+          "name": "dataExclusivityEnd"
+        }
+      }
+    },
+    "n:15": {
+      "labels": {
+        "identifier": "RegulatoryAuthority"
+      },
+      "name": "RegulatoryAuthority",
+      "properties": {
+        "p:100": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:101": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "p:102": {
+          "type": "STRING",
+          "name": "shortName"
+        },
+        "p:103": {
+          "type": "STRING",
+          "name": "countryCode"
+        },
+        "p:104": {
+          "type": "STRING",
+          "name": "role"
+        }
+      }
+    },
+    "n:16": {
+      "labels": {
+        "identifier": "Organization"
+      },
+      "name": "Organization",
+      "properties": {
+        "p:105": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:106": {
+          "type": "STRING",
+          "name": "organizationId"
+        },
+        "p:107": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "p:108": {
+          "type": "STRING",
+          "name": "organizationType"
+        },
+        "p:109": {
+          "type": "STRING",
+          "name": "countryCode"
+        },
+        "p:110": {
+          "type": "STRING",
+          "name": "addressText"
+        }
+      }
+    },
+    "n:17": {
+      "labels": {
+        "identifier": "ClinicalTrial"
+      },
+      "name": "ClinicalTrial",
+      "properties": {
+        "p:111": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:112": {
+          "type": "STRING",
+          "name": "trialIdentifier"
+        },
+        "p:113": {
+          "type": "STRING",
+          "name": "trialPhase"
+        },
+        "p:114": {
+          "type": "STRING",
+          "name": "title"
+        },
+        "p:115": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "p:116": {
+          "type": "DATE",
+          "name": "startDate"
+        },
+        "p:117": {
+          "type": "DATE",
+          "name": "completionDate"
+        }
+      }
+    },
+    "n:18": {
+      "labels": {
+        "identifier": "Indication"
+      },
+      "name": "Indication",
+      "properties": {
+        "p:118": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:119": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "p:120": {
+          "type": "STRING",
+          "name": "codeSystem"
+        },
+        "p:121": {
+          "type": "STRING",
+          "name": "term"
+        },
+        "p:122": {
+          "type": "STRING",
+          "name": "indicationType"
+        }
+      }
+    },
+    "n:19": {
+      "labels": {
+        "identifier": "Contraindication"
+      },
+      "name": "Contraindication",
+      "properties": {
+        "p:123": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:124": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "p:125": {
+          "type": "STRING",
+          "name": "codeSystem"
+        },
+        "p:126": {
+          "type": "STRING",
+          "name": "term"
+        },
+        "p:127": {
+          "type": "STRING",
+          "name": "contraindicationText"
+        }
+      }
+    },
+    "n:20": {
+      "labels": {
+        "identifier": "Interaction"
+      },
+      "name": "Interaction",
+      "properties": {
+        "p:128": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:129": {
+          "type": "STRING",
+          "name": "interactionType"
+        },
+        "p:130": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "p:131": {
+          "type": "STRING",
+          "name": "severity"
+        },
+        "p:132": {
+          "type": "STRING",
+          "name": "management"
+        }
+      }
+    },
+    "n:21": {
+      "labels": {
+        "identifier": "UndesirableEffect"
+      },
+      "name": "UndesirableEffect",
+      "properties": {
+        "p:133": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:134": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "p:135": {
+          "type": "STRING",
+          "name": "codeSystem"
+        },
+        "p:136": {
+          "type": "STRING",
+          "name": "term"
+        },
+        "p:137": {
+          "type": "STRING",
+          "name": "frequency"
+        },
+        "p:138": {
+          "type": "STRING",
+          "name": "severity"
+        }
+      }
+    },
+    "n:22": {
+      "labels": {
+        "identifier": "Batch"
+      },
+      "name": "Batch",
+      "properties": {
+        "p:139": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:140": {
+          "type": "STRING",
+          "name": "batchNumber"
+        },
+        "p:141": {
+          "type": "DATE",
+          "name": "manufacturingDate"
+        },
+        "p:142": {
+          "type": "DATE",
+          "name": "expiryDate"
+        },
+        "p:143": {
+          "type": "FLOAT",
+          "name": "quantity"
+        },
+        "p:144": {
+          "type": "STRING",
+          "name": "quantityUnit"
+        }
+      }
+    },
+    "n:23": {
+      "labels": {
+        "identifier": "ManufacturingProcess"
+      },
+      "name": "ManufacturingProcess",
+      "properties": {
+        "p:145": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:146": {
+          "type": "STRING",
+          "name": "processType"
+        },
+        "p:147": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "p:148": {
+          "type": "BOOLEAN",
+          "name": "isContinuous"
+        }
+      }
+    },
+    "n:24": {
+      "labels": {
+        "identifier": "MedicinalProductName"
+      },
+      "name": "MedicinalProductName",
+      "properties": {
+        "p:149": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:150": {
+          "type": "STRING",
+          "name": "fullName"
+        },
+        "p:151": {
+          "type": "STRING",
+          "name": "namePart"
+        },
+        "p:152": {
+          "type": "STRING",
+          "name": "namePartType"
+        },
+        "p:153": {
+          "type": "STRING",
+          "name": "languageCode"
+        },
+        "p:154": {
+          "type": "STRING",
+          "name": "countryCode"
+        }
+      }
+    },
+    "n:25": {
+      "labels": {
+        "identifier": "TargetPopulation"
+      },
+      "name": "TargetPopulation",
+      "properties": {
+        "p:155": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:156": {
+          "type": "FLOAT",
+          "name": "ageRangeLow"
+        },
+        "p:157": {
+          "type": "FLOAT",
+          "name": "ageRangeHigh"
+        },
+        "p:158": {
+          "type": "STRING",
+          "name": "ageUnit"
+        },
+        "p:159": {
+          "type": "STRING",
+          "name": "gender"
+        },
+        "p:160": {
+          "type": "STRING",
+          "name": "specialPrecautions"
+        }
+      }
+    },
+    "n:26": {
+      "labels": {
+        "identifier": "PhysicalCharacteristic"
+      },
+      "name": "PhysicalCharacteristic",
+      "properties": {
+        "p:161": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:162": {
+          "type": "STRING",
+          "name": "characteristicType"
+        },
+        "p:163": {
+          "type": "STRING",
+          "name": "value"
+        },
+        "p:164": {
+          "type": "STRING",
+          "name": "unit"
+        }
+      }
+    },
+    "n:27": {
+      "labels": {
+        "identifier": "AttachedDocument"
+      },
+      "name": "AttachedDocument",
+      "properties": {
+        "p:165": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:166": {
+          "type": "STRING",
+          "name": "documentType"
+        },
+        "p:167": {
+          "type": "STRING",
+          "name": "title"
+        },
+        "p:168": {
+          "type": "STRING",
+          "name": "languageCode"
+        },
+        "p:169": {
+          "type": "STRING",
+          "name": "url"
+        },
+        "p:170": {
+          "type": "DATE",
+          "name": "versionDate"
+        }
+      }
+    },
+    "n:28": {
+      "labels": {
+        "identifier": "Identifier"
+      },
+      "name": "Identifier",
+      "properties": {
+        "p:171": {
+          "type": "STRING",
+          "name": "scheme"
+        },
+        "p:172": {
+          "type": "STRING",
+          "name": "value"
+        },
+        "p:173": {
+          "type": "STRING",
+          "name": "issuingAuthority"
+        },
+        "p:174": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "p:175": {
+          "type": "DATE",
+          "name": "assignedDate"
+        }
+      }
+    }
+  },
+  "relationships": {
+    "r:0": {
+      "type": "HAS_PHARMACEUTICAL_PRODUCT",
+      "name": "HAS_PHARMACEUTICAL_PRODUCT",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:1"
+      }
+    },
+    "r:1": {
+      "type": "HAS_PACKAGED_PRODUCT",
+      "name": "HAS_PACKAGED_PRODUCT",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:3"
+      }
+    },
+    "r:2": {
+      "type": "HAS_NAME",
+      "name": "HAS_NAME",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:24"
+      }
+    },
+    "r:3": {
+      "type": "IDENTIFIED_BY",
+      "name": "IDENTIFIED_BY",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:28"
+      }
+    },
+    "r:4": {
+      "type": "HAS_AUTHORIZATION",
+      "name": "HAS_AUTHORIZATION",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:14"
+      }
+    },
+    "r:5": {
+      "type": "HAS_INDICATION",
+      "name": "HAS_INDICATION",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:18"
+      }
+    },
+    "r:6": {
+      "type": "HAS_CONTRAINDICATION",
+      "name": "HAS_CONTRAINDICATION",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:19"
+      }
+    },
+    "r:7": {
+      "type": "HAS_INTERACTION",
+      "name": "HAS_INTERACTION",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:20"
+      }
+    },
+    "r:8": {
+      "type": "HAS_UNDESIRABLE_EFFECT",
+      "name": "HAS_UNDESIRABLE_EFFECT",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:21"
+      }
+    },
+    "r:9": {
+      "type": "HAS_COMBINED_DOSE_FORM",
+      "name": "HAS_COMBINED_DOSE_FORM",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:10"
+      }
+    },
+    "r:10": {
+      "type": "HAS_ATTACHED_DOCUMENT",
+      "name": "HAS_ATTACHED_DOCUMENT",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:27"
+      }
+    },
+    "r:11": {
+      "type": "HAS_TARGET_POPULATION",
+      "name": "HAS_TARGET_POPULATION",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:25"
+      }
+    },
+    "r:12": {
+      "type": "STUDIED_IN",
+      "name": "STUDIED_IN",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:17"
+      }
+    },
+    "r:13": {
+      "type": "HAS_ADMINISTRABLE_DOSE_FORM",
+      "name": "HAS_ADMINISTRABLE_DOSE_FORM",
+      "from": {
+        "node": "n:1"
+      },
+      "to": {
+        "node": "n:10"
+      }
+    },
+    "r:14": {
+      "type": "HAS_ROUTE",
+      "name": "HAS_ROUTE",
+      "from": {
+        "node": "n:1"
+      },
+      "to": {
+        "node": "n:11"
+      }
+    },
+    "r:15": {
+      "type": "HAS_UNIT_OF_PRESENTATION",
+      "name": "HAS_UNIT_OF_PRESENTATION",
+      "from": {
+        "node": "n:1"
+      },
+      "to": {
+        "node": "n:12"
+      }
+    },
+    "r:16": {
+      "type": "HAS_INGREDIENT",
+      "name": "HAS_INGREDIENT",
+      "from": {
+        "node": "n:1"
+      },
+      "to": {
+        "node": "n:5"
+      }
+    },
+    "r:17": {
+      "type": "CONTAINS_MANUFACTURED_ITEM",
+      "name": "CONTAINS_MANUFACTURED_ITEM",
+      "from": {
+        "node": "n:3"
+      },
+      "to": {
+        "node": "n:2"
+      }
+    },
+    "r:18": {
+      "type": "HAS_CONTAINER",
+      "name": "HAS_CONTAINER",
+      "from": {
+        "node": "n:3"
+      },
+      "to": {
+        "node": "n:4"
+      }
+    },
+    "r:19": {
+      "type": "IDENTIFIED_BY",
+      "name": "IDENTIFIED_BY",
+      "from": {
+        "node": "n:3"
+      },
+      "to": {
+        "node": "n:28"
+      }
+    },
+    "r:20": {
+      "type": "HAS_BATCH",
+      "name": "HAS_BATCH",
+      "from": {
+        "node": "n:3"
+      },
+      "to": {
+        "node": "n:22"
+      }
+    },
+    "r:21": {
+      "type": "HAS_MANUFACTURED_DOSE_FORM",
+      "name": "HAS_MANUFACTURED_DOSE_FORM",
+      "from": {
+        "node": "n:2"
+      },
+      "to": {
+        "node": "n:10"
+      }
+    },
+    "r:22": {
+      "type": "HAS_INGREDIENT",
+      "name": "HAS_INGREDIENT",
+      "from": {
+        "node": "n:2"
+      },
+      "to": {
+        "node": "n:5"
+      }
+    },
+    "r:23": {
+      "type": "MANUFACTURED_BY",
+      "name": "MANUFACTURED_BY",
+      "from": {
+        "node": "n:2"
+      },
+      "to": {
+        "node": "n:16"
+      }
+    },
+    "r:24": {
+      "type": "HAS_SUBSTANCE",
+      "name": "HAS_SUBSTANCE",
+      "from": {
+        "node": "n:5"
+      },
+      "to": {
+        "node": "n:6"
+      }
+    },
+    "r:25": {
+      "type": "BASIS_OF_STRENGTH",
+      "name": "BASIS_OF_STRENGTH",
+      "from": {
+        "node": "n:5"
+      },
+      "to": {
+        "node": "n:6"
+      }
+    },
+    "r:26": {
+      "type": "STRENGTH_UNIT",
+      "name": "STRENGTH_UNIT",
+      "from": {
+        "node": "n:5"
+      },
+      "to": {
+        "node": "n:13"
+      }
+    },
+    "r:27": {
+      "type": "HAS_ACTIVE_MOIETY",
+      "name": "HAS_ACTIVE_MOIETY",
+      "from": {
+        "node": "n:6"
+      },
+      "to": {
+        "node": "n:7"
+      }
+    },
+    "r:28": {
+      "type": "HAS_SPECIFIED_SUBSTANCE",
+      "name": "HAS_SPECIFIED_SUBSTANCE",
+      "from": {
+        "node": "n:6"
+      },
+      "to": {
+        "node": "n:8"
+      }
+    },
+    "r:29": {
+      "type": "IDENTIFIED_BY",
+      "name": "IDENTIFIED_BY",
+      "from": {
+        "node": "n:6"
+      },
+      "to": {
+        "node": "n:28"
+      }
+    },
+    "r:30": {
+      "type": "HAS_PHYSICAL_CHARACTERISTIC",
+      "name": "HAS_PHYSICAL_CHARACTERISTIC",
+      "from": {
+        "node": "n:6"
+      },
+      "to": {
+        "node": "n:26"
+      }
+    },
+    "r:31": {
+      "type": "RELATED_SUBSTANCE",
+      "name": "RELATED_SUBSTANCE",
+      "from": {
+        "node": "n:6"
+      },
+      "to": {
+        "node": "n:6"
+      }
+    },
+    "r:32": {
+      "type": "DERIVED_FROM_TAXON",
+      "name": "DERIVED_FROM_TAXON",
+      "from": {
+        "node": "n:8"
+      },
+      "to": {
+        "node": "n:9"
+      }
+    },
+    "r:33": {
+      "type": "PARENT_TAXON",
+      "name": "PARENT_TAXON",
+      "from": {
+        "node": "n:9"
+      },
+      "to": {
+        "node": "n:9"
+      }
+    },
+    "r:34": {
+      "type": "HELD_BY",
+      "name": "HELD_BY",
+      "from": {
+        "node": "n:14"
+      },
+      "to": {
+        "node": "n:16"
+      }
+    },
+    "r:35": {
+      "type": "GRANTED_BY",
+      "name": "GRANTED_BY",
+      "from": {
+        "node": "n:14"
+      },
+      "to": {
+        "node": "n:15"
+      }
+    },
+    "r:36": {
+      "type": "AUTHORIZES_PACKAGE",
+      "name": "AUTHORIZES_PACKAGE",
+      "from": {
+        "node": "n:14"
+      },
+      "to": {
+        "node": "n:3"
+      }
+    },
+    "r:37": {
+      "type": "PRODUCED_BY",
+      "name": "PRODUCED_BY",
+      "from": {
+        "node": "n:22"
+      },
+      "to": {
+        "node": "n:23"
+      }
+    },
+    "r:38": {
+      "type": "PERFORMED_BY",
+      "name": "PERFORMED_BY",
+      "from": {
+        "node": "n:23"
+      },
+      "to": {
+        "node": "n:16"
+      }
+    },
+    "r:39": {
+      "type": "SPONSORED_BY",
+      "name": "SPONSORED_BY",
+      "from": {
+        "node": "n:17"
+      },
+      "to": {
+        "node": "n:16"
+      }
+    },
+    "r:40": {
+      "type": "IDENTIFIED_BY",
+      "name": "IDENTIFIED_BY",
+      "from": {
+        "node": "n:17"
+      },
+      "to": {
+        "node": "n:28"
+      }
+    },
+    "r:41": {
+      "type": "PART_OF",
+      "name": "PART_OF",
+      "from": {
+        "node": "n:16"
+      },
+      "to": {
+        "node": "n:16"
+      }
+    },
+    "r:42": {
+      "type": "BROADER_THAN",
+      "name": "BROADER_THAN",
+      "from": {
+        "node": "n:10"
+      },
+      "to": {
+        "node": "n:10"
+      }
+    },
+    "r:43": {
+      "type": "HAS_JURISDICTION_ORG",
+      "name": "HAS_JURISDICTION_ORG",
+      "from": {
+        "node": "n:15"
+      },
+      "to": {
+        "node": "n:16"
+      }
+    }
+  },
+  "display": {
+    "nodes": {
+      "n:0": {
+        "x": -1075,
+        "y": -200
+      },
+      "n:1": {
+        "x": -645,
+        "y": -200
+      },
+      "n:2": {
+        "x": -215,
+        "y": -200
+      },
+      "n:3": {
+        "x": 215,
+        "y": -200
+      },
+      "n:4": {
+        "x": 645,
+        "y": -200
+      },
+      "n:5": {
+        "x": 1075,
+        "y": -200
+      },
+      "n:6": {
+        "x": -1075,
+        "y": 10
+      },
+      "n:7": {
+        "x": -645,
+        "y": 10
+      },
+      "n:8": {
+        "x": -215,
+        "y": 10
+      },
+      "n:9": {
+        "x": 215,
+        "y": 10
+      },
+      "n:10": {
+        "x": 645,
+        "y": 10
+      },
+      "n:11": {
+        "x": 1075,
+        "y": 10
+      },
+      "n:12": {
+        "x": -1075,
+        "y": 220
+      },
+      "n:13": {
+        "x": -645,
+        "y": 220
+      },
+      "n:14": {
+        "x": -215,
+        "y": 220
+      },
+      "n:15": {
+        "x": 215,
+        "y": 220
+      },
+      "n:16": {
+        "x": 645,
+        "y": 220
+      },
+      "n:17": {
+        "x": 1075,
+        "y": 220
+      },
+      "n:18": {
+        "x": -1075,
+        "y": 430
+      },
+      "n:19": {
+        "x": -645,
+        "y": 430
+      },
+      "n:20": {
+        "x": -215,
+        "y": 430
+      },
+      "n:21": {
+        "x": 215,
+        "y": 430
+      },
+      "n:22": {
+        "x": 645,
+        "y": 430
+      },
+      "n:23": {
+        "x": 1075,
+        "y": 430
+      },
+      "n:24": {
+        "x": -1075,
+        "y": 640
+      },
+      "n:25": {
+        "x": -645,
+        "y": 640
+      },
+      "n:26": {
+        "x": -215,
+        "y": 640
+      },
+      "n:27": {
+        "x": 215,
+        "y": 640
+      },
+      "n:28": {
+        "x": 645,
+        "y": 640
+      }
+    }
+  }
+}

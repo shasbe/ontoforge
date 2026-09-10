@@ -1,0 +1,566 @@
+{
+  "standard": "epcis",
+  "title": "GS1 EPCIS 2.0 -- supply chain traceability",
+  "industry": "Supply Chain",
+  "source": {
+    "registry": "epcis",
+    "http": "ref.gs1.org/standards/epcis/2.0.0/epcis-ontology.ttl"
+  },
+  "notes": [
+    "20 classes / 74 properties. EPCISEvent has exactly 5 subclasses.",
+    "Collapsed to an eventType DISCRIMINATOR because the target allows one label per node;",
+    "flip capabilities.multi_label on and these become second labels instead.",
+    "Timestamps are declared DATETIME; the TYPE_MAP rule negotiates them to STRING (ISO 8601) for targets whose Neo4jType enum lacks DATETIME."
+  ],
+  "keys": {},
+  "nodes": {
+    "EPCISEvent": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "eventId",
+          "type": "STRING"
+        },
+        {
+          "name": "eventType",
+          "type": "STRING"
+        },
+        {
+          "name": "eventTime",
+          "type": "DATETIME"
+        },
+        {
+          "name": "recordTime",
+          "type": "DATETIME"
+        },
+        {
+          "name": "eventTimeZoneOffset",
+          "type": "STRING"
+        },
+        {
+          "name": "action",
+          "type": "STRING"
+        },
+        {
+          "name": "parentId",
+          "type": "STRING"
+        },
+        {
+          "name": "transformationId",
+          "type": "STRING"
+        },
+        {
+          "name": "certificationInfo",
+          "type": "STRING"
+        }
+      ]
+    },
+    "TradeItemInstance": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "epc",
+          "type": "STRING"
+        },
+        {
+          "name": "epcScheme",
+          "type": "STRING"
+        },
+        {
+          "name": "gtin",
+          "type": "STRING"
+        },
+        {
+          "name": "serialNumber",
+          "type": "STRING"
+        },
+        {
+          "name": "lotNumber",
+          "type": "STRING"
+        }
+      ]
+    },
+    "TradeItem": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "epcClass",
+          "type": "STRING"
+        },
+        {
+          "name": "gtin",
+          "type": "STRING"
+        },
+        {
+          "name": "productName",
+          "type": "STRING"
+        },
+        {
+          "name": "gpcCategoryCode",
+          "type": "STRING"
+        }
+      ]
+    },
+    "QuantityElement": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "epcClass",
+          "type": "STRING"
+        },
+        {
+          "name": "quantity",
+          "type": "FLOAT"
+        },
+        {
+          "name": "uom",
+          "type": "STRING"
+        }
+      ]
+    },
+    "BizStep": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "uri",
+          "type": "STRING"
+        },
+        {
+          "name": "label",
+          "type": "STRING"
+        },
+        {
+          "name": "definition",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Disposition": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "uri",
+          "type": "STRING"
+        },
+        {
+          "name": "label",
+          "type": "STRING"
+        },
+        {
+          "name": "definition",
+          "type": "STRING"
+        }
+      ]
+    },
+    "PersistentDisposition": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "setDispositions",
+          "type": "STRING"
+        },
+        {
+          "name": "unsetDispositions",
+          "type": "STRING"
+        }
+      ]
+    },
+    "BizTransaction": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "transactionType",
+          "type": "STRING"
+        },
+        {
+          "name": "transactionId",
+          "type": "STRING"
+        },
+        {
+          "name": "transactionUri",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Place": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "gln",
+          "type": "STRING"
+        },
+        {
+          "name": "sgln",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "locationType",
+          "type": "STRING"
+        },
+        {
+          "name": "addressText",
+          "type": "STRING"
+        },
+        {
+          "name": "latitude",
+          "type": "FLOAT"
+        },
+        {
+          "name": "longitude",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "SourceOrDestination": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "sourceOrDestinationType",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Party": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "gln",
+          "type": "STRING"
+        },
+        {
+          "name": "partyName",
+          "type": "STRING"
+        },
+        {
+          "name": "partyRole",
+          "type": "STRING"
+        }
+      ]
+    },
+    "SensorElement": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "elementId",
+          "type": "STRING"
+        }
+      ]
+    },
+    "SensorMetadata": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "time",
+          "type": "DATETIME"
+        },
+        {
+          "name": "startTime",
+          "type": "DATETIME"
+        },
+        {
+          "name": "endTime",
+          "type": "DATETIME"
+        },
+        {
+          "name": "dataProcessingMethod",
+          "type": "STRING"
+        },
+        {
+          "name": "bizRules",
+          "type": "STRING"
+        }
+      ]
+    },
+    "SensorReport": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "measurementType",
+          "type": "STRING"
+        },
+        {
+          "name": "value",
+          "type": "FLOAT"
+        },
+        {
+          "name": "uom",
+          "type": "STRING"
+        },
+        {
+          "name": "minValue",
+          "type": "FLOAT"
+        },
+        {
+          "name": "maxValue",
+          "type": "FLOAT"
+        },
+        {
+          "name": "meanValue",
+          "type": "FLOAT"
+        },
+        {
+          "name": "sDev",
+          "type": "FLOAT"
+        },
+        {
+          "name": "percRank",
+          "type": "FLOAT"
+        },
+        {
+          "name": "percValue",
+          "type": "FLOAT"
+        },
+        {
+          "name": "stringValue",
+          "type": "STRING"
+        },
+        {
+          "name": "booleanValue",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "hexBinaryValue",
+          "type": "STRING"
+        },
+        {
+          "name": "uriValue",
+          "type": "STRING"
+        },
+        {
+          "name": "component",
+          "type": "STRING"
+        },
+        {
+          "name": "chemicalSubstance",
+          "type": "STRING"
+        },
+        {
+          "name": "microorganism",
+          "type": "STRING"
+        },
+        {
+          "name": "coordinateReferenceSystem",
+          "type": "STRING"
+        },
+        {
+          "name": "exception",
+          "type": "STRING"
+        }
+      ]
+    },
+    "SensorDevice": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "deviceId",
+          "type": "STRING"
+        },
+        {
+          "name": "deviceType",
+          "type": "STRING"
+        },
+        {
+          "name": "manufacturer",
+          "type": "STRING"
+        },
+        {
+          "name": "modelNumber",
+          "type": "STRING"
+        }
+      ]
+    },
+    "ILMD": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "lotNumber",
+          "type": "STRING"
+        },
+        {
+          "name": "productionDate",
+          "type": "DATE"
+        },
+        {
+          "name": "bestBeforeDate",
+          "type": "DATE"
+        },
+        {
+          "name": "itemExpirationDate",
+          "type": "DATE"
+        },
+        {
+          "name": "farmName",
+          "type": "STRING"
+        },
+        {
+          "name": "countryOfOrigin",
+          "type": "STRING"
+        }
+      ]
+    },
+    "ErrorDeclaration": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "declarationTime",
+          "type": "DATETIME"
+        },
+        {
+          "name": "reason",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Transformation": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "transformationId",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        }
+      ]
+    },
+    "EPCISDocument": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "schemaVersion",
+          "type": "STRING"
+        },
+        {
+          "name": "creationDate",
+          "type": "STRING"
+        }
+      ]
+    },
+    "MasterData": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "vocabularyType",
+          "type": "STRING"
+        },
+        {
+          "name": "vocabularyElementId",
+          "type": "STRING"
+        },
+        {
+          "name": "attributeCount",
+          "type": "INTEGER"
+        }
+      ]
+    }
+  }
+}

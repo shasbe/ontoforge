@@ -1,0 +1,1456 @@
+{
+  "standard": "fhir",
+  "title": "HL7 FHIR R5 -- clinical core",
+  "industry": "Healthcare",
+  "source": {
+    "registry": "fhir",
+    "http": "hl7.org/fhir/R5/profiles-resources.json",
+    "version": "5.0.0"
+  },
+  "notes": [
+    "158 concrete resource types; node selection driven by measured reference in-degree.",
+    "Organization 96, Patient 86, Practitioner 84, PractitionerRole 79, Device 67, Location 50.",
+    "Coding node is the SNOMED CT / LOINC / ICD binding point."
+  ],
+  "keys": {},
+  "nodes": {
+    "Patient": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "active",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "nameFamily",
+          "type": "STRING"
+        },
+        {
+          "name": "nameGiven",
+          "type": "STRING"
+        },
+        {
+          "name": "gender",
+          "type": "STRING"
+        },
+        {
+          "name": "birthDate",
+          "type": "DATE"
+        },
+        {
+          "name": "deceasedBoolean",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "deceasedDate",
+          "type": "DATE"
+        },
+        {
+          "name": "maritalStatus",
+          "type": "STRING"
+        },
+        {
+          "name": "multipleBirthInteger",
+          "type": "INTEGER"
+        },
+        {
+          "name": "telecom",
+          "type": "STRING"
+        },
+        {
+          "name": "addressText",
+          "type": "STRING"
+        },
+        {
+          "name": "communicationLanguage",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Practitioner": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "active",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "nameFamily",
+          "type": "STRING"
+        },
+        {
+          "name": "nameGiven",
+          "type": "STRING"
+        },
+        {
+          "name": "gender",
+          "type": "STRING"
+        },
+        {
+          "name": "birthDate",
+          "type": "DATE"
+        },
+        {
+          "name": "qualificationCode",
+          "type": "STRING"
+        },
+        {
+          "name": "communicationLanguage",
+          "type": "STRING"
+        }
+      ]
+    },
+    "PractitionerRole": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "active",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "periodStart",
+          "type": "DATE"
+        },
+        {
+          "name": "periodEnd",
+          "type": "DATE"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "specialty",
+          "type": "STRING"
+        },
+        {
+          "name": "availabilityExceptions",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Organization": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "active",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "type",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "alias",
+          "type": "STRING"
+        },
+        {
+          "name": "telecom",
+          "type": "STRING"
+        },
+        {
+          "name": "addressText",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Location": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "mode",
+          "type": "STRING"
+        },
+        {
+          "name": "type",
+          "type": "STRING"
+        },
+        {
+          "name": "physicalType",
+          "type": "STRING"
+        },
+        {
+          "name": "addressText",
+          "type": "STRING"
+        },
+        {
+          "name": "latitude",
+          "type": "FLOAT"
+        },
+        {
+          "name": "longitude",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "HealthcareService": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "active",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "category",
+          "type": "STRING"
+        },
+        {
+          "name": "type",
+          "type": "STRING"
+        },
+        {
+          "name": "specialty",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "comment",
+          "type": "STRING"
+        },
+        {
+          "name": "appointmentRequired",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "RelatedPerson": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "active",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "relationship",
+          "type": "STRING"
+        },
+        {
+          "name": "nameFamily",
+          "type": "STRING"
+        },
+        {
+          "name": "nameGiven",
+          "type": "STRING"
+        },
+        {
+          "name": "gender",
+          "type": "STRING"
+        },
+        {
+          "name": "birthDate",
+          "type": "DATE"
+        }
+      ]
+    },
+    "Group": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "active",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "type",
+          "type": "STRING"
+        },
+        {
+          "name": "membership",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "quantity",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "CareTeam": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "category",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "periodStart",
+          "type": "DATE"
+        },
+        {
+          "name": "periodEnd",
+          "type": "DATE"
+        }
+      ]
+    },
+    "Device": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "manufacturer",
+          "type": "STRING"
+        },
+        {
+          "name": "modelNumber",
+          "type": "STRING"
+        },
+        {
+          "name": "serialNumber",
+          "type": "STRING"
+        },
+        {
+          "name": "manufactureDate",
+          "type": "DATE"
+        },
+        {
+          "name": "expirationDate",
+          "type": "DATE"
+        },
+        {
+          "name": "lotNumber",
+          "type": "STRING"
+        },
+        {
+          "name": "type",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Coverage": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "kind",
+          "type": "STRING"
+        },
+        {
+          "name": "type",
+          "type": "STRING"
+        },
+        {
+          "name": "subscriberId",
+          "type": "STRING"
+        },
+        {
+          "name": "dependent",
+          "type": "STRING"
+        },
+        {
+          "name": "relationship",
+          "type": "STRING"
+        },
+        {
+          "name": "periodStart",
+          "type": "DATE"
+        },
+        {
+          "name": "periodEnd",
+          "type": "DATE"
+        },
+        {
+          "name": "network",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Encounter": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "class",
+          "type": "STRING"
+        },
+        {
+          "name": "priority",
+          "type": "STRING"
+        },
+        {
+          "name": "type",
+          "type": "STRING"
+        },
+        {
+          "name": "serviceType",
+          "type": "STRING"
+        },
+        {
+          "name": "actualPeriodStart",
+          "type": "DATE"
+        },
+        {
+          "name": "actualPeriodEnd",
+          "type": "DATE"
+        },
+        {
+          "name": "lengthMinutes",
+          "type": "INTEGER"
+        },
+        {
+          "name": "admitSource",
+          "type": "STRING"
+        },
+        {
+          "name": "dischargeDisposition",
+          "type": "STRING"
+        }
+      ]
+    },
+    "EpisodeOfCare": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "type",
+          "type": "STRING"
+        },
+        {
+          "name": "periodStart",
+          "type": "DATE"
+        },
+        {
+          "name": "periodEnd",
+          "type": "DATE"
+        }
+      ]
+    },
+    "Condition": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "clinicalStatus",
+          "type": "STRING"
+        },
+        {
+          "name": "verificationStatus",
+          "type": "STRING"
+        },
+        {
+          "name": "category",
+          "type": "STRING"
+        },
+        {
+          "name": "severity",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "bodySite",
+          "type": "STRING"
+        },
+        {
+          "name": "onsetDate",
+          "type": "DATE"
+        },
+        {
+          "name": "abatementDate",
+          "type": "DATE"
+        },
+        {
+          "name": "recordedDate",
+          "type": "DATE"
+        }
+      ]
+    },
+    "Observation": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "category",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "effectiveDate",
+          "type": "DATE"
+        },
+        {
+          "name": "issued",
+          "type": "DATE"
+        },
+        {
+          "name": "valueQuantity",
+          "type": "FLOAT"
+        },
+        {
+          "name": "valueUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "valueCodeableConcept",
+          "type": "STRING"
+        },
+        {
+          "name": "valueString",
+          "type": "STRING"
+        },
+        {
+          "name": "interpretation",
+          "type": "STRING"
+        },
+        {
+          "name": "bodySite",
+          "type": "STRING"
+        },
+        {
+          "name": "method",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Procedure": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "category",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "occurrenceDate",
+          "type": "DATE"
+        },
+        {
+          "name": "recorded",
+          "type": "DATE"
+        },
+        {
+          "name": "outcome",
+          "type": "STRING"
+        },
+        {
+          "name": "bodySite",
+          "type": "STRING"
+        }
+      ]
+    },
+    "DiagnosticReport": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "category",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "effectiveDate",
+          "type": "DATE"
+        },
+        {
+          "name": "issued",
+          "type": "DATE"
+        },
+        {
+          "name": "conclusion",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Specimen": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "type",
+          "type": "STRING"
+        },
+        {
+          "name": "receivedTime",
+          "type": "DATE"
+        },
+        {
+          "name": "collectedDate",
+          "type": "DATE"
+        },
+        {
+          "name": "collectionMethod",
+          "type": "STRING"
+        },
+        {
+          "name": "bodySite",
+          "type": "STRING"
+        }
+      ]
+    },
+    "AllergyIntolerance": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "clinicalStatus",
+          "type": "STRING"
+        },
+        {
+          "name": "verificationStatus",
+          "type": "STRING"
+        },
+        {
+          "name": "type",
+          "type": "STRING"
+        },
+        {
+          "name": "category",
+          "type": "STRING"
+        },
+        {
+          "name": "criticality",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "onsetDate",
+          "type": "DATE"
+        },
+        {
+          "name": "recordedDate",
+          "type": "DATE"
+        },
+        {
+          "name": "lastOccurrence",
+          "type": "DATE"
+        }
+      ]
+    },
+    "Immunization": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "vaccineCode",
+          "type": "STRING"
+        },
+        {
+          "name": "occurrenceDate",
+          "type": "DATE"
+        },
+        {
+          "name": "primarySource",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "lotNumber",
+          "type": "STRING"
+        },
+        {
+          "name": "expirationDate",
+          "type": "DATE"
+        },
+        {
+          "name": "site",
+          "type": "STRING"
+        },
+        {
+          "name": "route",
+          "type": "STRING"
+        },
+        {
+          "name": "doseQuantity",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "CarePlan": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "intent",
+          "type": "STRING"
+        },
+        {
+          "name": "category",
+          "type": "STRING"
+        },
+        {
+          "name": "title",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "periodStart",
+          "type": "DATE"
+        },
+        {
+          "name": "periodEnd",
+          "type": "DATE"
+        },
+        {
+          "name": "created",
+          "type": "DATE"
+        }
+      ]
+    },
+    "Goal": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "lifecycleStatus",
+          "type": "STRING"
+        },
+        {
+          "name": "achievementStatus",
+          "type": "STRING"
+        },
+        {
+          "name": "category",
+          "type": "STRING"
+        },
+        {
+          "name": "priority",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "startDate",
+          "type": "DATE"
+        },
+        {
+          "name": "targetDate",
+          "type": "DATE"
+        }
+      ]
+    },
+    "ClinicalImpression": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "effectiveDate",
+          "type": "DATE"
+        },
+        {
+          "name": "summary",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Medication": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "doseFormCode",
+          "type": "STRING"
+        },
+        {
+          "name": "totalVolumeValue",
+          "type": "FLOAT"
+        },
+        {
+          "name": "totalVolumeUnit",
+          "type": "STRING"
+        }
+      ]
+    },
+    "MedicationRequest": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "intent",
+          "type": "STRING"
+        },
+        {
+          "name": "category",
+          "type": "STRING"
+        },
+        {
+          "name": "priority",
+          "type": "STRING"
+        },
+        {
+          "name": "doNotPerform",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "authoredOn",
+          "type": "DATE"
+        },
+        {
+          "name": "dosageText",
+          "type": "STRING"
+        },
+        {
+          "name": "dosageRoute",
+          "type": "STRING"
+        },
+        {
+          "name": "dispenseQuantity",
+          "type": "FLOAT"
+        },
+        {
+          "name": "numberOfRepeatsAllowed",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "MedicationAdministration": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "category",
+          "type": "STRING"
+        },
+        {
+          "name": "occurrenceDate",
+          "type": "DATE"
+        },
+        {
+          "name": "recorded",
+          "type": "DATE"
+        },
+        {
+          "name": "dosageText",
+          "type": "STRING"
+        },
+        {
+          "name": "dosageRoute",
+          "type": "STRING"
+        },
+        {
+          "name": "dosageDoseValue",
+          "type": "FLOAT"
+        },
+        {
+          "name": "dosageDoseUnit",
+          "type": "STRING"
+        }
+      ]
+    },
+    "MedicationDispense": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "category",
+          "type": "STRING"
+        },
+        {
+          "name": "type",
+          "type": "STRING"
+        },
+        {
+          "name": "quantityValue",
+          "type": "FLOAT"
+        },
+        {
+          "name": "quantityUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "daysSupply",
+          "type": "FLOAT"
+        },
+        {
+          "name": "whenPrepared",
+          "type": "DATE"
+        },
+        {
+          "name": "whenHandedOver",
+          "type": "DATE"
+        }
+      ]
+    },
+    "ServiceRequest": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "intent",
+          "type": "STRING"
+        },
+        {
+          "name": "category",
+          "type": "STRING"
+        },
+        {
+          "name": "priority",
+          "type": "STRING"
+        },
+        {
+          "name": "doNotPerform",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "occurrenceDate",
+          "type": "DATE"
+        },
+        {
+          "name": "authoredOn",
+          "type": "DATE"
+        }
+      ]
+    },
+    "Appointment": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "cancellationReason",
+          "type": "STRING"
+        },
+        {
+          "name": "serviceCategory",
+          "type": "STRING"
+        },
+        {
+          "name": "serviceType",
+          "type": "STRING"
+        },
+        {
+          "name": "specialty",
+          "type": "STRING"
+        },
+        {
+          "name": "appointmentType",
+          "type": "STRING"
+        },
+        {
+          "name": "priority",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "startDate",
+          "type": "DATE"
+        },
+        {
+          "name": "endDate",
+          "type": "DATE"
+        },
+        {
+          "name": "minutesDuration",
+          "type": "INTEGER"
+        },
+        {
+          "name": "created",
+          "type": "DATE"
+        }
+      ]
+    },
+    "Task": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "intent",
+          "type": "STRING"
+        },
+        {
+          "name": "priority",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "authoredOn",
+          "type": "DATE"
+        },
+        {
+          "name": "lastModified",
+          "type": "DATE"
+        }
+      ]
+    },
+    "DocumentReference": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "identifier",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "docStatus",
+          "type": "STRING"
+        },
+        {
+          "name": "type",
+          "type": "STRING"
+        },
+        {
+          "name": "category",
+          "type": "STRING"
+        },
+        {
+          "name": "date",
+          "type": "DATE"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "contentType",
+          "type": "STRING"
+        },
+        {
+          "name": "contentUrl",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Provenance": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "occurredDate",
+          "type": "DATE"
+        },
+        {
+          "name": "recorded",
+          "type": "DATE"
+        },
+        {
+          "name": "activity",
+          "type": "STRING"
+        },
+        {
+          "name": "policy",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Coding": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "system",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "display",
+          "type": "STRING"
+        },
+        {
+          "name": "version",
+          "type": "STRING"
+        },
+        {
+          "name": "userSelected",
+          "type": "BOOLEAN"
+        }
+      ]
+    }
+  }
+}

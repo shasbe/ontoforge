@@ -909,7 +909,9 @@ relationships:
 keys: {}
 rules: {}
 notes:
-- 286 modules / 132,414 triples / 3,021 classes parsed.
+- 3,021 classes from 221 content modules / 130,273 triples. (The original hand analysis counted 286 files
+  / 132,414 triples by also parsing the About*/Metadata* aggregators, which carry only owl:imports; the
+  ingester excludes them.)
 - 219 SEC Preferred* share classes collapsed into flags on FinancialInstrument (SUBCLASS_COLLAPSE).
 - InstrumentType is the TAXONOMY_SIDECAR for the 12-level class tree.
 - 'External imports NOT vendored: 1,193 to OMG Commons, 54 to LCC (IMPORT_RESOLVE).'

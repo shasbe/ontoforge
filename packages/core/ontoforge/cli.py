@@ -105,6 +105,86 @@ def cmd_draft_adapter(args):
         print("  -", n)
 
 
+def cmd_export(args):
+    """Emit the static catalog bundle the web app consumes.
+
+    Models and validation results are computed HERE, in Python, so the browser
+    never re-implements the rules and cannot drift from them.
+    """
+    import dataclasses
+    adapter = Adapter.load(args.target)
+    sample_p = os.path.join(args.target, "sample.json")
+    sample = json.load(open(sample_p)) if os.path.exists(sample_p) else None
+    out = args.out
+    os.makedirs(out, exist_ok=True)
+    index = []
+    for fp in sorted(glob.glob(_p("catalog", "profiles", "*.yaml"))):
+        std = os.path.basename(fp)[:-5]
+        prof = Profile.load(fp)
+        model, log = emit(prof, adapter)
+        found = validate(model, adapter, sample)
+        errs = [x for x in found if x.severity == "error"]
+        d = os.path.join(out, std)
+        os.makedirs(d, exist_ok=True)
+        json.dump(model, open(os.path.join(d, "model.json"), "w"), indent=2)
+        json.dump({"findings": [dataclasses.asdict(x) for x in found],
+                   "errors": len(errs),
+                   "warnings": len(found) - len(errs),
+                   "decisions": log},
+                  open(os.path.join(d, "validation.json"), "w"), indent=2)
+        # provenance + curation notes, for the inspector panel
+        json.dump({"standard": prof.standard, "title": prof.title,
+                   "industry": prof.industry, "source": prof.source,
+                   "notes": prof.notes, "keys": prof.keys,
+                   "nodes": {n.label: {"source_iri": n.source_iri, "note": n.note,
+                                       "properties": [{"name": a, "type": b}
+                                                      for a, b in n.properties]}
+                             for n in prof.nodes}},
+                  open(os.path.join(d, "profile.json"), "w"), indent=2)
+        ir_stats = None
+        irp = _p("catalog", "ir", f"{std}.ir.json")
+        if os.path.exists(irp):
+            try:
+                _ir = IR.load(irp)
+                m = metrics(_ir)
+                ir_stats = {"triples": _ir.meta.triples,
+                            "classes": m["counts"]["classes"],
+                            "object_properties": m["counts"]["object_properties"],
+                            "individuals": m["counts"]["individuals"],
+                            "anonymous_share": m["anonymous_share"],
+                            "anonymous_subclass_share": m.get("anonymous_subclass_share"),
+                            "max_depth": m["max_depth"],
+                            "grounding_coverage": m.get("grounding_coverage"),
+                            "top_hubs": m["top_hubs"][:12]}
+                ap = _p("catalog", "ir", f"{std}-analysis.md")
+                if os.path.exists(ap):
+                    open(os.path.join(d, "analysis.md"), "w").write(open(ap).read())
+            except Exception as e:                       # analysis is optional
+                ir_stats = None
+        nprops = sum(len(n[adapter.node["properties"]["collection"].lstrip("$.")])
+                     for n in model[adapter.node["collection"].lstrip("$.")].values())
+        rels = model[adapter.relationship["collection"].lstrip("$.")]
+        index.append({"standard": std, "title": prof.title, "industry": prof.industry,
+                      "source": prof.source,
+                      "nodes": len(prof.nodes), "properties": nprops,
+                      "relationships": len(prof.relationships),
+                      "relationship_types": len({r["type"] for r in rels.values()}),
+                      "self_relationships": sorted({r["type"] for r in rels.values()
+                                                    if r["from"]["node"] == r["to"]["node"]}),
+                      "errors": len(errs), "warnings": len(found) - len(errs),
+                      "ir": ir_stats,
+                      "has_analysis": os.path.exists(os.path.join(d, "analysis.md"))})
+        print(f"  {std:10} model + validation + provenance"
+              + ("  + analysis" if ir_stats else ""))
+    json.dump({"generated_by": "ontoforge",
+               "target": {"name": adapter.target, "version": adapter.version,
+                          "type_enum": sorted(adapter.type_enum()),
+                          "capabilities": adapter.capabilities.__dict__},
+               "standards": index},
+              open(os.path.join(out, "index.json"), "w"), indent=2)
+    print(f"\nexported {len(index)} standards to {out}")
+
+
 def cmd_analyze(args):
     ir = IR.load(args.ir)
     txt = report(ir)
@@ -137,6 +217,11 @@ def main(argv=None):
     d = sub.add_parser("draft-adapter", help="infer a target adapter from an uploaded sample")
     d.add_argument("sample"); d.add_argument("--version"); d.add_argument("--out")
     d.set_defaults(fn=cmd_draft_adapter)
+
+    x = sub.add_parser("export", help="emit the static catalog bundle for the web app")
+    x.add_argument("--target", default=DEFAULT_TARGET)
+    x.add_argument("--out", default="apps/web/public/catalog")
+    x.set_defaults(fn=cmd_export)
 
     a = sub.add_parser("analyze", help="metrics report from a prebuilt IR")
     a.add_argument("ir"); a.add_argument("--out")

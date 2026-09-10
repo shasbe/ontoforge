@@ -9,8 +9,13 @@ def camel_words(n: str) -> list[str]:
     return re.findall(r"[A-Z][a-z0-9]*|[A-Z]+(?![a-z])", n)
 
 
+def _cov(entities, pred) -> float:
+    return round(100 * sum(1 for e in entities if pred(e)) / len(entities), 1) if entities else 0
+
+
 def metrics(ir: IR) -> dict:
     classes = ir.of_kind(CLASS)
+    schema_entities = [e for e in ir.entities.values() if e.kind != INDIVIDUAL]
     children, parents = ir.children(), ir.parents()
 
     # HUB_RANK -- in-degree over non-anonymous constraint targets
@@ -55,13 +60,20 @@ def metrics(ir: IR) -> dict:
                      for i, n in indeg.most_common(25)],
         "widest_parents": [(ir.entities[p].local_name if p in ir.entities else p, len(cs))
                            for p, cs in sorted(children.items(), key=lambda x: -len(x[1]))[:20]],
-        "definition_coverage": round(
-            100 * sum(1 for e in ir.entities.values() if e.definition) / len(ir.entities), 1)
-        if ir.entities else 0,
-        "grounding_coverage": round(
-            100 * sum(1 for e in ir.entities.values()
-                      if e.definition or e.annotations.get("example")) / len(ir.entities), 1)
-        if ir.entities else 0,
+        # Scoped to SCHEMA entities (classes + properties). Reference-data
+        # individuals rarely carry definitions and would dilute the signal --
+        # FIBO reads 39% over all 16k entities but 85% over its 4,230 schema ones.
+        "definition_coverage": _cov(schema_entities, lambda e: bool(e.definition)),
+        "grounding_coverage": _cov(schema_entities,
+                                   lambda e: bool(e.definition or e.annotations.get("example"))),
+        "schema_entities": len(schema_entities),
+        # Share of subClassOf axioms whose object is a blank node -- i.e. how much
+        # of the "hierarchy" is really OWL restrictions. This is the number that
+        # explains why a naive RDF import produces an unusable graph.
+        "anonymous_subclass_share": (
+            round(100 * ir.meta.raw_counts.get("subclass_to_anonymous", 0)
+                  / ir.meta.raw_counts["subclass_axioms"], 1)
+            if ir.meta.raw_counts.get("subclass_axioms") else None),
     }
 
 
@@ -73,11 +85,16 @@ def report(ir: IR) -> str:
          f"- {ir.meta.triples:,} triples from {ir.meta.files_parsed} file(s)", ""]
     for k, v in m["counts"].items():
         L.append(f"- {k.replace('_',' ')}: **{v:,}**")
-    L += ["", f"- definitions present on **{m['definition_coverage']}%** of entities;"
+    L += ["", f"- definitions present on **{m['definition_coverage']}%** of the"
+              f" {m['schema_entities']:,} schema entities;"
               f" definition-or-example on **{m['grounding_coverage']}%**"
               " (drives LLM grounding value)",
           f"- **{m['anonymous_share']}%** of constraints target anonymous expressions"
           " -- these must not become graph nodes",
+          (f"- **{m['anonymous_subclass_share']}%** of subClassOf axioms point at blank"
+           " nodes rather than named classes, i.e. most of the apparent 'hierarchy' is"
+           " really OWL restrictions -- the core reason a naive RDF import fails"
+           if m.get("anonymous_subclass_share") is not None else ""),
           f"- hierarchy depth up to **{m['max_depth']}**;"
           f" **{m['multiple_inheritance']['classes']}** classes have >1 parent"
           f" (max {m['multiple_inheritance']['max_parents']})", ""]

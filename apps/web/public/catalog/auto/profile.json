@@ -1,0 +1,981 @@
+{
+  "standard": "auto",
+  "title": "AUTO -- Automotive Ontology",
+  "industry": "Automotive",
+  "source": {
+    "registry": "auto",
+    "git": "github.com/edmcouncil/auto"
+  },
+  "notes": [
+    "1,269 classes / 14,744 triples.",
+    "193 ObservableSignal + 89 ActuableSignal subclasses are the VSS catalogue; modelled as",
+    "instances under PARENT_SIGNAL rather than labels (TAXONOMY_SIDECAR)."
+  ],
+  "keys": {},
+  "nodes": {
+    "Vehicle": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "vin",
+          "type": "STRING"
+        },
+        {
+          "name": "make",
+          "type": "STRING"
+        },
+        {
+          "name": "model",
+          "type": "STRING"
+        },
+        {
+          "name": "modelYear",
+          "type": "INTEGER"
+        },
+        {
+          "name": "bodyType",
+          "type": "STRING"
+        },
+        {
+          "name": "vehicleClass",
+          "type": "STRING"
+        },
+        {
+          "name": "curbWeight",
+          "type": "FLOAT"
+        },
+        {
+          "name": "weightUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "fuelType",
+          "type": "STRING"
+        },
+        {
+          "name": "propulsionType",
+          "type": "STRING"
+        },
+        {
+          "name": "seatingCapacity",
+          "type": "INTEGER"
+        },
+        {
+          "name": "automationLevel",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "VehiclePart": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "partName",
+          "type": "STRING"
+        },
+        {
+          "name": "partNumber",
+          "type": "STRING"
+        },
+        {
+          "name": "partType",
+          "type": "STRING"
+        },
+        {
+          "name": "manufacturer",
+          "type": "STRING"
+        },
+        {
+          "name": "serialNumber",
+          "type": "STRING"
+        },
+        {
+          "name": "installDate",
+          "type": "DATE"
+        }
+      ]
+    },
+    "VehicleSensor": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "sensorName",
+          "type": "STRING"
+        },
+        {
+          "name": "sensorType",
+          "type": "STRING"
+        },
+        {
+          "name": "modality",
+          "type": "STRING"
+        },
+        {
+          "name": "sensingRange",
+          "type": "FLOAT"
+        },
+        {
+          "name": "rangeUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "fieldOfView",
+          "type": "FLOAT"
+        },
+        {
+          "name": "samplingRate",
+          "type": "FLOAT"
+        },
+        {
+          "name": "mountingPosition",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Actuator": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "actuatorName",
+          "type": "STRING"
+        },
+        {
+          "name": "actuatorType",
+          "type": "STRING"
+        },
+        {
+          "name": "controlMode",
+          "type": "STRING"
+        },
+        {
+          "name": "responseTime",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "ObservableSignal": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "signalName",
+          "type": "STRING"
+        },
+        {
+          "name": "signalPath",
+          "type": "STRING"
+        },
+        {
+          "name": "dataType",
+          "type": "STRING"
+        },
+        {
+          "name": "unit",
+          "type": "STRING"
+        },
+        {
+          "name": "minValue",
+          "type": "FLOAT"
+        },
+        {
+          "name": "maxValue",
+          "type": "FLOAT"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        }
+      ]
+    },
+    "ActuableSignal": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "signalName",
+          "type": "STRING"
+        },
+        {
+          "name": "signalPath",
+          "type": "STRING"
+        },
+        {
+          "name": "dataType",
+          "type": "STRING"
+        },
+        {
+          "name": "unit",
+          "type": "STRING"
+        },
+        {
+          "name": "minValue",
+          "type": "FLOAT"
+        },
+        {
+          "name": "maxValue",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "SignalObservation": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "observedAt",
+          "type": "DATE"
+        },
+        {
+          "name": "numericValue",
+          "type": "FLOAT"
+        },
+        {
+          "name": "stringValue",
+          "type": "STRING"
+        },
+        {
+          "name": "quality",
+          "type": "STRING"
+        }
+      ]
+    },
+    "ValueSpace": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "valueSpaceType",
+          "type": "STRING"
+        },
+        {
+          "name": "allowedValues",
+          "type": "STRING"
+        },
+        {
+          "name": "unit",
+          "type": "STRING"
+        }
+      ]
+    },
+    "DrivingAutomationSystem": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "systemName",
+          "type": "STRING"
+        },
+        {
+          "name": "automationLevel",
+          "type": "INTEGER"
+        },
+        {
+          "name": "softwareVersion",
+          "type": "STRING"
+        },
+        {
+          "name": "activationStatus",
+          "type": "STRING"
+        }
+      ]
+    },
+    "OperationalDesignDomain": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "oddName",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "geographicScope",
+          "type": "STRING"
+        },
+        {
+          "name": "speedRangeMin",
+          "type": "FLOAT"
+        },
+        {
+          "name": "speedRangeMax",
+          "type": "FLOAT"
+        },
+        {
+          "name": "speedUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "timeOfDay",
+          "type": "STRING"
+        }
+      ]
+    },
+    "OperatingCondition": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "conditionType",
+          "type": "STRING"
+        },
+        {
+          "name": "weatherCondition",
+          "type": "STRING"
+        },
+        {
+          "name": "roadSurface",
+          "type": "STRING"
+        },
+        {
+          "name": "illumination",
+          "type": "STRING"
+        },
+        {
+          "name": "visibilityRange",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "DynamicDrivingTask": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "taskType",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "fallbackReady",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "HumanUser": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "userRole",
+          "type": "STRING"
+        },
+        {
+          "name": "occupiesSeatOfDriver",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "licenseClass",
+          "type": "STRING"
+        },
+        {
+          "name": "isReceptiveToRequests",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "age",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "Trip": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "tripId",
+          "type": "STRING"
+        },
+        {
+          "name": "startTime",
+          "type": "DATE"
+        },
+        {
+          "name": "endTime",
+          "type": "DATE"
+        },
+        {
+          "name": "distance",
+          "type": "FLOAT"
+        },
+        {
+          "name": "distanceUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "startOdometer",
+          "type": "FLOAT"
+        },
+        {
+          "name": "endOdometer",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "TripSegment": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "sequenceNumber",
+          "type": "INTEGER"
+        },
+        {
+          "name": "startTime",
+          "type": "DATE"
+        },
+        {
+          "name": "endTime",
+          "type": "DATE"
+        },
+        {
+          "name": "distance",
+          "type": "FLOAT"
+        },
+        {
+          "name": "averageSpeed",
+          "type": "FLOAT"
+        },
+        {
+          "name": "speedUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "automationEngaged",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "Maneuver": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "maneuverType",
+          "type": "STRING"
+        },
+        {
+          "name": "startTime",
+          "type": "DATE"
+        },
+        {
+          "name": "endTime",
+          "type": "DATE"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Crash": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "crashId",
+          "type": "STRING"
+        },
+        {
+          "name": "crashDateTime",
+          "type": "DATE"
+        },
+        {
+          "name": "crashType",
+          "type": "STRING"
+        },
+        {
+          "name": "severity",
+          "type": "STRING"
+        },
+        {
+          "name": "numberOfVehicles",
+          "type": "INTEGER"
+        },
+        {
+          "name": "numberOfFatalities",
+          "type": "INTEGER"
+        },
+        {
+          "name": "numberOfInjuries",
+          "type": "INTEGER"
+        },
+        {
+          "name": "mannerOfCollision",
+          "type": "STRING"
+        },
+        {
+          "name": "firstHarmfulEvent",
+          "type": "STRING"
+        }
+      ]
+    },
+    "TrafficIncident": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "incidentType",
+          "type": "STRING"
+        },
+        {
+          "name": "incidentDateTime",
+          "type": "DATE"
+        },
+        {
+          "name": "severity",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "clearedDateTime",
+          "type": "DATE"
+        }
+      ]
+    },
+    "Trafficway": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "functionalClass",
+          "type": "STRING"
+        },
+        {
+          "name": "speedLimit",
+          "type": "FLOAT"
+        },
+        {
+          "name": "speedLimitUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "surfaceType",
+          "type": "STRING"
+        },
+        {
+          "name": "numberOfLanes",
+          "type": "INTEGER"
+        },
+        {
+          "name": "isDivided",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "RoadSegment": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "segmentId",
+          "type": "STRING"
+        },
+        {
+          "name": "startLatitude",
+          "type": "FLOAT"
+        },
+        {
+          "name": "startLongitude",
+          "type": "FLOAT"
+        },
+        {
+          "name": "endLatitude",
+          "type": "FLOAT"
+        },
+        {
+          "name": "endLongitude",
+          "type": "FLOAT"
+        },
+        {
+          "name": "length",
+          "type": "FLOAT"
+        },
+        {
+          "name": "lengthUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "grade",
+          "type": "FLOAT"
+        },
+        {
+          "name": "curvature",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "Lane": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "laneNumber",
+          "type": "INTEGER"
+        },
+        {
+          "name": "laneType",
+          "type": "STRING"
+        },
+        {
+          "name": "width",
+          "type": "FLOAT"
+        },
+        {
+          "name": "widthUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "drivingDirection",
+          "type": "STRING"
+        },
+        {
+          "name": "allowsLaneChange",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "Intersection": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "intersectionType",
+          "type": "STRING"
+        },
+        {
+          "name": "isSignalized",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "numberOfApproaches",
+          "type": "INTEGER"
+        },
+        {
+          "name": "trafficControl",
+          "type": "STRING"
+        }
+      ]
+    },
+    "TrafficSignal": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "signalType",
+          "type": "STRING"
+        },
+        {
+          "name": "angle",
+          "type": "FLOAT"
+        },
+        {
+          "name": "currentState",
+          "type": "STRING"
+        },
+        {
+          "name": "cycleTime",
+          "type": "FLOAT"
+        },
+        {
+          "name": "mountingHeight",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "Infrastructure": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "infrastructureType",
+          "type": "STRING"
+        },
+        {
+          "name": "addressText",
+          "type": "STRING"
+        },
+        {
+          "name": "latitude",
+          "type": "FLOAT"
+        },
+        {
+          "name": "longitude",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "Location": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "latitude",
+          "type": "FLOAT"
+        },
+        {
+          "name": "longitude",
+          "type": "FLOAT"
+        },
+        {
+          "name": "altitude",
+          "type": "FLOAT"
+        },
+        {
+          "name": "headingDegrees",
+          "type": "FLOAT"
+        },
+        {
+          "name": "geohash",
+          "type": "STRING"
+        }
+      ]
+    },
+    "ADASFeature": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "featureName",
+          "type": "STRING"
+        },
+        {
+          "name": "featureType",
+          "type": "STRING"
+        },
+        {
+          "name": "isActive",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "softwareVersion",
+          "type": "STRING"
+        }
+      ]
+    },
+    "ExternalLights": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "lightType",
+          "type": "STRING"
+        },
+        {
+          "name": "isIlluminated",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "colorTemperature",
+          "type": "FLOAT"
+        },
+        {
+          "name": "intensity",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "DiagnosticTroubleCode": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "dtcCode",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "severity",
+          "type": "STRING"
+        },
+        {
+          "name": "setTime",
+          "type": "DATE"
+        },
+        {
+          "name": "clearedTime",
+          "type": "DATE"
+        },
+        {
+          "name": "isActive",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "SoftwareRelease": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "version",
+          "type": "STRING"
+        },
+        {
+          "name": "releaseDate",
+          "type": "DATE"
+        },
+        {
+          "name": "component",
+          "type": "STRING"
+        },
+        {
+          "name": "changeDescription",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Manufacturer": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "brand",
+          "type": "STRING"
+        },
+        {
+          "name": "countryCode",
+          "type": "STRING"
+        }
+      ]
+    }
+  }
+}

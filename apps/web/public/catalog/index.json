@@ -1,0 +1,627 @@
+{
+  "generated_by": "ontoforge",
+  "target": {
+    "name": "neo4j-workspace",
+    "version": "4.0.0",
+    "type_enum": [
+      "BOOLEAN",
+      "DATE",
+      "FLOAT",
+      "INTEGER",
+      "STRING"
+    ],
+    "capabilities": {
+      "multi_label": false,
+      "relationship_properties": false,
+      "node_keys": false,
+      "nested_property_types": false
+    }
+  },
+  "standards": [
+    {
+      "standard": "auto",
+      "title": "AUTO -- Automotive Ontology",
+      "industry": "Automotive",
+      "source": {
+        "registry": "auto",
+        "git": "github.com/edmcouncil/auto"
+      },
+      "nodes": 30,
+      "properties": 196,
+      "relationships": 53,
+      "relationship_types": 48,
+      "self_relationships": [
+        "ADJACENT_TO",
+        "CONNECTS_TO",
+        "NEXT",
+        "PARENT_SIGNAL",
+        "PART_OF"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "ir": {
+        "triples": 13474,
+        "classes": 1171,
+        "object_properties": 172,
+        "individuals": 58,
+        "anonymous_share": 7.8,
+        "anonymous_subclass_share": 40.9,
+        "max_depth": 12,
+        "grounding_coverage": 92.7,
+        "top_hubs": [
+          [
+            "DimensionlessUnit",
+            119
+          ],
+          [
+            "DiagnosticSystem",
+            20
+          ],
+          [
+            "QuantitativeValueFloat",
+            17
+          ],
+          [
+            "PriceSpecification",
+            17
+          ],
+          [
+            "ChoiceOrComponent",
+            14
+          ],
+          [
+            "Cabin",
+            13
+          ],
+          [
+            "MultimediaSystem",
+            13
+          ],
+          [
+            "QuantitativeValue",
+            12
+          ],
+          [
+            "TemperatureUnit",
+            11
+          ],
+          [
+            "Body",
+            10
+          ],
+          [
+            "PressureOrStressUnit",
+            10
+          ],
+          [
+            "TimeUnit",
+            9
+          ]
+        ]
+      },
+      "has_analysis": true
+    },
+    {
+      "standard": "epcis",
+      "title": "GS1 EPCIS 2.0 -- supply chain traceability",
+      "industry": "Supply Chain",
+      "source": {
+        "registry": "epcis",
+        "http": "ref.gs1.org/standards/epcis/2.0.0/epcis-ontology.ttl"
+      },
+      "nodes": 20,
+      "properties": 107,
+      "relationships": 38,
+      "relationship_types": 37,
+      "self_relationships": [
+        "BROADER_THAN",
+        "NEXT",
+        "PART_OF"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "ir": {
+        "triples": 1000,
+        "classes": 20,
+        "object_properties": 48,
+        "individuals": 0,
+        "anonymous_share": 14.9,
+        "anonymous_subclass_share": 0.0,
+        "max_depth": 1,
+        "grounding_coverage": 100.0,
+        "top_hubs": [
+          [
+            "https://gs1.org/voc/IndividualObject",
+            4
+          ],
+          [
+            "QuantityElement",
+            4
+          ],
+          [
+            "https://ref.gs1.org/cbv/Disp",
+            3
+          ],
+          [
+            "https://gs1.org/voc/Place",
+            2
+          ],
+          [
+            "EPCISEvent",
+            2
+          ],
+          [
+            "SourceOrDestination",
+            2
+          ],
+          [
+            "https://ref.gs1.org/cbv/BizStep",
+            1
+          ],
+          [
+            "BizTransaction",
+            1
+          ],
+          [
+            "https://ref.gs1.org/cbv/BTT",
+            1
+          ],
+          [
+            "https://gs1.org/voc/CertificationDetails",
+            1
+          ],
+          [
+            "https://gs1.org/voc/SensorDevice",
+            1
+          ],
+          [
+            "EPCISDocumentBody",
+            1
+          ]
+        ]
+      },
+      "has_analysis": true
+    },
+    {
+      "standard": "fhir",
+      "title": "HL7 FHIR R5 -- clinical core",
+      "industry": "Healthcare",
+      "source": {
+        "registry": "fhir",
+        "http": "hl7.org/fhir/R5/profiles-resources.json",
+        "version": "5.0.0"
+      },
+      "nodes": 33,
+      "properties": 310,
+      "relationships": 101,
+      "relationship_types": 52,
+      "self_relationships": [
+        "DERIVED_FROM",
+        "HAS_MEMBER",
+        "LINK",
+        "PART_OF",
+        "SUBSUMED_BY"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "ir": {
+        "triples": 8896,
+        "classes": 158,
+        "object_properties": 0,
+        "individuals": 0,
+        "anonymous_share": 0.0,
+        "anonymous_subclass_share": null,
+        "max_depth": 0,
+        "grounding_coverage": 100.0,
+        "top_hubs": [
+          [
+            "Organization",
+            219
+          ],
+          [
+            "Patient",
+            174
+          ],
+          [
+            "Practitioner",
+            170
+          ],
+          [
+            "PractitionerRole",
+            155
+          ],
+          [
+            "RelatedPerson",
+            111
+          ],
+          [
+            "Device",
+            108
+          ],
+          [
+            "http://hl7.org/fhir/StructureDefinition/Resource",
+            92
+          ],
+          [
+            "Group",
+            83
+          ],
+          [
+            "Location",
+            78
+          ],
+          [
+            "CareTeam",
+            58
+          ],
+          [
+            "Encounter",
+            48
+          ],
+          [
+            "HealthcareService",
+            37
+          ]
+        ]
+      },
+      "has_analysis": true
+    },
+    {
+      "standard": "fibo",
+      "title": "FIBO -- Financial Industry Business Ontology",
+      "industry": "Financial Services",
+      "source": {
+        "registry": "fibo",
+        "git": "github.com/edmcouncil/fibo",
+        "pin": "119fa8c",
+        "date": "2026-07-17"
+      },
+      "nodes": 33,
+      "properties": 253,
+      "relationships": 86,
+      "relationship_types": 69,
+      "self_relationships": [
+        "BROADER_THAN",
+        "HAS_UNDERLIER",
+        "MEMBER_OF",
+        "NEXT",
+        "OPERATED_UNDER",
+        "SUCCEEDS",
+        "SUPERSEDES"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "ir": {
+        "triples": 130273,
+        "classes": 3021,
+        "object_properties": 946,
+        "individuals": 12029,
+        "anonymous_share": 8.5,
+        "anonymous_subclass_share": 42.1,
+        "max_depth": 12,
+        "grounding_coverage": 85.5,
+        "top_hubs": [
+          [
+            "MonetaryAmount",
+            102
+          ],
+          [
+            "https://www.omg.org/spec/Commons/DatesAndTimes/ExplicitDate",
+            75
+          ],
+          [
+            "https://www.omg.org/spec/Commons/DatesAndTimes/Date",
+            63
+          ],
+          [
+            "https://www.omg.org/spec/Commons/DatesAndTimes/DatePeriod",
+            45
+          ],
+          [
+            "Currency",
+            44
+          ],
+          [
+            "Security",
+            42
+          ],
+          [
+            "http://www.w3.org/2001/XMLSchema#string",
+            36
+          ],
+          [
+            "https://www.omg.org/spec/Commons/RegulatoryAgencies/Jurisdiction",
+            34
+          ],
+          [
+            "SecuritiesUnderwritingIssuanceProcess",
+            31
+          ],
+          [
+            "MonetaryPrice",
+            25
+          ],
+          [
+            "Party",
+            20
+          ],
+          [
+            "https://www.omg.org/spec/Commons/DatesAndTimes/Duration",
+            20
+          ]
+        ]
+      },
+      "has_analysis": true
+    },
+    {
+      "standard": "gs1",
+      "title": "GS1 Web Vocabulary -- trade items, parties, places",
+      "industry": "Retail / CPG",
+      "source": {
+        "registry": "gs1",
+        "http": "ref.gs1.org/voc/data/gs1Voc.ttl"
+      },
+      "nodes": 28,
+      "properties": 155,
+      "relationships": 47,
+      "relationship_types": 41,
+      "self_relationships": [
+        "AFFILIATED_TO",
+        "BROADER_THAN",
+        "CONTAINS_PRODUCT",
+        "PART_OF_PLACE"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "ir": {
+        "triples": 18749,
+        "classes": 56,
+        "object_properties": 342,
+        "individuals": 0,
+        "anonymous_share": 0.5,
+        "anonymous_subclass_share": 0.0,
+        "max_depth": 3,
+        "grounding_coverage": 100.0,
+        "top_hubs": [
+          [
+            "http://www.w3.org/2001/XMLSchema#anyURI",
+            65
+          ],
+          [
+            "NutritionMeasurementType",
+            43
+          ],
+          [
+            "QuantitativeValue",
+            32
+          ],
+          [
+            "Organization",
+            26
+          ],
+          [
+            "https://ref.gs1.org/voc/NonbinaryLogicCode",
+            20
+          ],
+          [
+            "Place",
+            13
+          ],
+          [
+            "http://www.w3.org/2001/XMLSchema#date",
+            10
+          ],
+          [
+            "Country",
+            7
+          ],
+          [
+            "Product",
+            7
+          ],
+          [
+            "ReferencedFileDetails",
+            6
+          ],
+          [
+            "http://www.w3.org/2001/XMLSchema#string",
+            4
+          ],
+          [
+            "https://ref.gs1.org/voc/LevelOfContainmentCode",
+            3
+          ]
+        ]
+      },
+      "has_analysis": true
+    },
+    {
+      "standard": "idmp",
+      "title": "ISO IDMP v1.4.0 -- medicinal products",
+      "industry": "Pharmaceuticals",
+      "source": {
+        "registry": "idmp",
+        "http": "spec.edmcouncil.org/idmp/ontology/",
+        "version": "v1.4.0"
+      },
+      "nodes": 29,
+      "properties": 176,
+      "relationships": 44,
+      "relationship_types": 40,
+      "self_relationships": [
+        "BROADER_THAN",
+        "PARENT_TAXON",
+        "PART_OF",
+        "RELATED_SUBSTANCE"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "ir": {
+        "triples": 15684,
+        "classes": 457,
+        "object_properties": 231,
+        "individuals": 206,
+        "anonymous_share": 11.9,
+        "anonymous_subclass_share": 62.4,
+        "max_depth": 7,
+        "grounding_coverage": 97.9,
+        "top_hubs": [
+          [
+            "SubstanceName",
+            25
+          ],
+          [
+            "MedicinalProduct",
+            25
+          ],
+          [
+            "ReferenceSource",
+            19
+          ],
+          [
+            "Substance",
+            18
+          ],
+          [
+            "https://www.omg.org/spec/Commons/DatesAndTimes/ExplicitDate",
+            15
+          ],
+          [
+            "https://www.omg.org/spec/Commons/QuantitiesAndUnits/ScalarQuantityValue",
+            13
+          ],
+          [
+            "Amount",
+            12
+          ],
+          [
+            "Manufacturer",
+            12
+          ],
+          [
+            "Moiety",
+            9
+          ],
+          [
+            "PolymerSubstance",
+            8
+          ],
+          [
+            "Strength",
+            8
+          ],
+          [
+            "PhysicalCharacteristic",
+            8
+          ]
+        ]
+      },
+      "has_analysis": true
+    },
+    {
+      "standard": "iof",
+      "title": "Industrial Ontologies Foundry -- manufacturing",
+      "industry": "Manufacturing",
+      "source": {
+        "registry": "iof",
+        "git": "github.com/iofoundry/ontology"
+      },
+      "nodes": 31,
+      "properties": 198,
+      "relationships": 58,
+      "relationship_types": 51,
+      "self_relationships": [
+        "CATEGORIZED_BY",
+        "COMPONENT_OF",
+        "NEXT",
+        "PART_OF"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "ir": {
+        "triples": 25348,
+        "classes": 1002,
+        "object_properties": 128,
+        "individuals": 1,
+        "anonymous_share": 44.1,
+        "anonymous_subclass_share": 38.6,
+        "max_depth": 7,
+        "grounding_coverage": 95.1,
+        "top_hubs": [
+          [
+            "http://purl.obolibrary.org/obo/BFO_0000040",
+            56
+          ],
+          [
+            "http://purl.obolibrary.org/obo/BFO_0000001",
+            19
+          ],
+          [
+            "Solution",
+            10
+          ],
+          [
+            "RecipeProcessStage",
+            10
+          ],
+          [
+            "InformationContentEntity",
+            10
+          ],
+          [
+            "http://purl.obolibrary.org/obo/BFO_0000015",
+            9
+          ],
+          [
+            "Agent",
+            8
+          ],
+          [
+            "PlannedProcess",
+            8
+          ],
+          [
+            "RecipeProcessOperation",
+            8
+          ],
+          [
+            "CultureMedium",
+            6
+          ],
+          [
+            "MaterialProduct",
+            6
+          ],
+          [
+            "MaterialState",
+            6
+          ]
+        ]
+      },
+      "has_analysis": true
+    },
+    {
+      "standard": "wikidata",
+      "title": "Wikidata / Wikibase data model",
+      "industry": "Cross-domain knowledge graph",
+      "source": {
+        "registry": "wikidata",
+        "spec": "mediawiki.org/wiki/Wikibase/DataModel"
+      },
+      "nodes": 21,
+      "properties": 99,
+      "relationships": 45,
+      "relationship_types": 32,
+      "self_relationships": [
+        "INSTANCE_OF",
+        "PART_OF",
+        "SUBCLASS_OF",
+        "SUBPROPERTY_OF"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "ir": null,
+      "has_analysis": false
+    }
+  ]
+}

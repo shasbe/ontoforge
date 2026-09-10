@@ -99,10 +99,20 @@ def ingest(paths: list[str], standard: str, version: str, fetched_from: str,
                 types=sorted({local(o) for o in g.objects(s, RDF.type) if isinstance(o, URIRef)}),
                 annotations=ann)
 
+    sub_total = sub_named = sub_anon = 0
     for pred, hkind in ((RDFS.subClassOf, "subclass"), (RDFS.subPropertyOf, "subproperty")):
         for s, _, o in g.triples((None, pred, None)):
+            if pred == RDFS.subClassOf:
+                sub_total += 1
+                if isinstance(o, URIRef):
+                    sub_named += 1
+                else:
+                    sub_anon += 1
             if isinstance(s, URIRef) and isinstance(o, URIRef):
                 ir.hierarchy.append(Hierarchy(child=str(s), parent=str(o), kind=hkind))
+    ir.meta.raw_counts = {"subclass_axioms": sub_total,
+                          "subclass_to_named": sub_named,
+                          "subclass_to_anonymous": sub_anon}
 
     dprops = {e.iri for e in ir.of_kind(DATA_PROP)}
     # restrictions reached via subClassOf blank nodes

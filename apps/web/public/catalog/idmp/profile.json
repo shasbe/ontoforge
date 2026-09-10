@@ -1,0 +1,896 @@
+{
+  "standard": "idmp",
+  "title": "ISO IDMP v1.4.0 -- medicinal products",
+  "industry": "Pharmaceuticals",
+  "source": {
+    "registry": "idmp",
+    "http": "spec.edmcouncil.org/idmp/ontology/",
+    "version": "v1.4.0"
+  },
+  "notes": [
+    "457 classes / 231 object properties / 15,684 triples.",
+    "Ingredient subclass family collapsed to one node with ingredientRole.",
+    "hasActiveMoiety preserved verbatim from ISO 11238."
+  ],
+  "keys": {},
+  "nodes": {
+    "MedicinalProduct": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "mpid",
+          "type": "STRING"
+        },
+        {
+          "name": "productName",
+          "type": "STRING"
+        },
+        {
+          "name": "fullName",
+          "type": "STRING"
+        },
+        {
+          "name": "productType",
+          "type": "STRING"
+        },
+        {
+          "name": "domain",
+          "type": "STRING"
+        },
+        {
+          "name": "legalStatusOfSupply",
+          "type": "STRING"
+        },
+        {
+          "name": "productClassification",
+          "type": "STRING"
+        },
+        {
+          "name": "orphanDesignation",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "paediatricUseIndicator",
+          "type": "STRING"
+        }
+      ]
+    },
+    "PharmaceuticalProduct": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "phpid",
+          "type": "STRING"
+        },
+        {
+          "name": "administrableDoseFormCode",
+          "type": "STRING"
+        },
+        {
+          "name": "unitOfPresentationCode",
+          "type": "STRING"
+        },
+        {
+          "name": "routeOfAdministrationCode",
+          "type": "STRING"
+        }
+      ]
+    },
+    "ManufacturedItem": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "manufacturedDoseFormCode",
+          "type": "STRING"
+        },
+        {
+          "name": "unitOfPresentationCode",
+          "type": "STRING"
+        },
+        {
+          "name": "quantity",
+          "type": "FLOAT"
+        },
+        {
+          "name": "quantityUnit",
+          "type": "STRING"
+        }
+      ]
+    },
+    "PackagedMedicinalProduct": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "pcid",
+          "type": "STRING"
+        },
+        {
+          "name": "packageDescription",
+          "type": "STRING"
+        },
+        {
+          "name": "packageTypeCode",
+          "type": "STRING"
+        },
+        {
+          "name": "quantity",
+          "type": "FLOAT"
+        },
+        {
+          "name": "shelfLifeValue",
+          "type": "INTEGER"
+        },
+        {
+          "name": "shelfLifeUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "storageConditions",
+          "type": "STRING"
+        },
+        {
+          "name": "marketingStatus",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Container": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "containerTypeCode",
+          "type": "STRING"
+        },
+        {
+          "name": "materialCode",
+          "type": "STRING"
+        },
+        {
+          "name": "capacity",
+          "type": "FLOAT"
+        },
+        {
+          "name": "capacityUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "closureTypeCode",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Ingredient": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "ingredientRole",
+          "type": "STRING"
+        },
+        {
+          "name": "strengthType",
+          "type": "STRING"
+        },
+        {
+          "name": "presentationNumerator",
+          "type": "FLOAT"
+        },
+        {
+          "name": "presentationNumeratorUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "presentationDenominator",
+          "type": "FLOAT"
+        },
+        {
+          "name": "concentrationNumerator",
+          "type": "FLOAT"
+        },
+        {
+          "name": "concentrationDenominator",
+          "type": "FLOAT"
+        },
+        {
+          "name": "basisOfStrengthType",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Substance": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "substanceId",
+          "type": "STRING"
+        },
+        {
+          "name": "substanceName",
+          "type": "STRING"
+        },
+        {
+          "name": "substanceClass",
+          "type": "STRING"
+        },
+        {
+          "name": "molecularFormula",
+          "type": "STRING"
+        },
+        {
+          "name": "molecularWeight",
+          "type": "FLOAT"
+        },
+        {
+          "name": "casNumber",
+          "type": "STRING"
+        },
+        {
+          "name": "unii",
+          "type": "STRING"
+        },
+        {
+          "name": "inchiKey",
+          "type": "STRING"
+        },
+        {
+          "name": "stereochemistry",
+          "type": "STRING"
+        },
+        {
+          "name": "opticalActivity",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Moiety": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "moietyName",
+          "type": "STRING"
+        },
+        {
+          "name": "molecularFormula",
+          "type": "STRING"
+        },
+        {
+          "name": "molecularWeight",
+          "type": "FLOAT"
+        },
+        {
+          "name": "amountNumerator",
+          "type": "FLOAT"
+        },
+        {
+          "name": "amountUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "definingNumberOfMoieties",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "SpecifiedSubstance": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "groupNumber",
+          "type": "STRING"
+        },
+        {
+          "name": "sourceMaterialClass",
+          "type": "STRING"
+        },
+        {
+          "name": "sourceMaterialType",
+          "type": "STRING"
+        },
+        {
+          "name": "sourceMaterialState",
+          "type": "STRING"
+        },
+        {
+          "name": "partDescription",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Taxon": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "scientificName",
+          "type": "STRING"
+        },
+        {
+          "name": "rank",
+          "type": "STRING"
+        },
+        {
+          "name": "commonName",
+          "type": "STRING"
+        }
+      ]
+    },
+    "DoseForm": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "codeSystem",
+          "type": "STRING"
+        },
+        {
+          "name": "term",
+          "type": "STRING"
+        },
+        {
+          "name": "doseFormType",
+          "type": "STRING"
+        }
+      ]
+    },
+    "RouteOfAdministration": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "codeSystem",
+          "type": "STRING"
+        },
+        {
+          "name": "term",
+          "type": "STRING"
+        }
+      ]
+    },
+    "UnitOfPresentation": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "codeSystem",
+          "type": "STRING"
+        },
+        {
+          "name": "term",
+          "type": "STRING"
+        }
+      ]
+    },
+    "UnitOfMeasurement": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "codeSystem",
+          "type": "STRING"
+        },
+        {
+          "name": "term",
+          "type": "STRING"
+        },
+        {
+          "name": "dimension",
+          "type": "STRING"
+        }
+      ]
+    },
+    "MarketingAuthorization": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "authorizationNumber",
+          "type": "STRING"
+        },
+        {
+          "name": "authorizationStatus",
+          "type": "STRING"
+        },
+        {
+          "name": "statusDate",
+          "type": "DATE"
+        },
+        {
+          "name": "authorizationDate",
+          "type": "DATE"
+        },
+        {
+          "name": "validityPeriodStart",
+          "type": "DATE"
+        },
+        {
+          "name": "validityPeriodEnd",
+          "type": "DATE"
+        },
+        {
+          "name": "legalBasis",
+          "type": "STRING"
+        },
+        {
+          "name": "procedureType",
+          "type": "STRING"
+        },
+        {
+          "name": "dataExclusivityEnd",
+          "type": "DATE"
+        }
+      ]
+    },
+    "RegulatoryAuthority": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "shortName",
+          "type": "STRING"
+        },
+        {
+          "name": "countryCode",
+          "type": "STRING"
+        },
+        {
+          "name": "role",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Organization": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "organizationId",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "organizationType",
+          "type": "STRING"
+        },
+        {
+          "name": "countryCode",
+          "type": "STRING"
+        },
+        {
+          "name": "addressText",
+          "type": "STRING"
+        }
+      ]
+    },
+    "ClinicalTrial": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "trialIdentifier",
+          "type": "STRING"
+        },
+        {
+          "name": "trialPhase",
+          "type": "STRING"
+        },
+        {
+          "name": "title",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "startDate",
+          "type": "DATE"
+        },
+        {
+          "name": "completionDate",
+          "type": "DATE"
+        }
+      ]
+    },
+    "Indication": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "codeSystem",
+          "type": "STRING"
+        },
+        {
+          "name": "term",
+          "type": "STRING"
+        },
+        {
+          "name": "indicationType",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Contraindication": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "codeSystem",
+          "type": "STRING"
+        },
+        {
+          "name": "term",
+          "type": "STRING"
+        },
+        {
+          "name": "contraindicationText",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Interaction": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "interactionType",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "severity",
+          "type": "STRING"
+        },
+        {
+          "name": "management",
+          "type": "STRING"
+        }
+      ]
+    },
+    "UndesirableEffect": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "code",
+          "type": "STRING"
+        },
+        {
+          "name": "codeSystem",
+          "type": "STRING"
+        },
+        {
+          "name": "term",
+          "type": "STRING"
+        },
+        {
+          "name": "frequency",
+          "type": "STRING"
+        },
+        {
+          "name": "severity",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Batch": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "batchNumber",
+          "type": "STRING"
+        },
+        {
+          "name": "manufacturingDate",
+          "type": "DATE"
+        },
+        {
+          "name": "expiryDate",
+          "type": "DATE"
+        },
+        {
+          "name": "quantity",
+          "type": "FLOAT"
+        },
+        {
+          "name": "quantityUnit",
+          "type": "STRING"
+        }
+      ]
+    },
+    "ManufacturingProcess": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "processType",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "isContinuous",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "MedicinalProductName": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "fullName",
+          "type": "STRING"
+        },
+        {
+          "name": "namePart",
+          "type": "STRING"
+        },
+        {
+          "name": "namePartType",
+          "type": "STRING"
+        },
+        {
+          "name": "languageCode",
+          "type": "STRING"
+        },
+        {
+          "name": "countryCode",
+          "type": "STRING"
+        }
+      ]
+    },
+    "TargetPopulation": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "ageRangeLow",
+          "type": "FLOAT"
+        },
+        {
+          "name": "ageRangeHigh",
+          "type": "FLOAT"
+        },
+        {
+          "name": "ageUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "gender",
+          "type": "STRING"
+        },
+        {
+          "name": "specialPrecautions",
+          "type": "STRING"
+        }
+      ]
+    },
+    "PhysicalCharacteristic": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "characteristicType",
+          "type": "STRING"
+        },
+        {
+          "name": "value",
+          "type": "STRING"
+        },
+        {
+          "name": "unit",
+          "type": "STRING"
+        }
+      ]
+    },
+    "AttachedDocument": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "documentType",
+          "type": "STRING"
+        },
+        {
+          "name": "title",
+          "type": "STRING"
+        },
+        {
+          "name": "languageCode",
+          "type": "STRING"
+        },
+        {
+          "name": "url",
+          "type": "STRING"
+        },
+        {
+          "name": "versionDate",
+          "type": "DATE"
+        }
+      ]
+    },
+    "Identifier": {
+      "source_iri": null,
+      "note": null,
+      "properties": [
+        {
+          "name": "scheme",
+          "type": "STRING"
+        },
+        {
+          "name": "value",
+          "type": "STRING"
+        },
+        {
+          "name": "issuingAuthority",
+          "type": "STRING"
+        },
+        {
+          "name": "status",
+          "type": "STRING"
+        },
+        {
+          "name": "assignedDate",
+          "type": "DATE"
+        }
+      ]
+    }
+  }
+}
