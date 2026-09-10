@@ -1,0 +1,627 @@
+standard: auto
+title: AUTO -- Automotive Ontology
+industry: Automotive
+source:
+  registry: auto
+  git: github.com/edmcouncil/auto
+layout:
+  columns: 6
+nodes:
+- label: Vehicle
+  properties:
+  - name: vin
+    type: STRING
+  - name: make
+    type: STRING
+  - name: model
+    type: STRING
+  - name: modelYear
+    type: INTEGER
+  - name: bodyType
+    type: STRING
+  - name: vehicleClass
+    type: STRING
+  - name: curbWeight
+    type: FLOAT
+  - name: weightUnit
+    type: STRING
+  - name: fuelType
+    type: STRING
+  - name: propulsionType
+    type: STRING
+  - name: seatingCapacity
+    type: INTEGER
+  - name: automationLevel
+    type: INTEGER
+- label: VehiclePart
+  properties:
+  - name: id
+    type: STRING
+  - name: partName
+    type: STRING
+  - name: partNumber
+    type: STRING
+  - name: partType
+    type: STRING
+  - name: manufacturer
+    type: STRING
+  - name: serialNumber
+    type: STRING
+  - name: installDate
+    type: DATE
+- label: VehicleSensor
+  properties:
+  - name: id
+    type: STRING
+  - name: sensorName
+    type: STRING
+  - name: sensorType
+    type: STRING
+  - name: modality
+    type: STRING
+  - name: sensingRange
+    type: FLOAT
+  - name: rangeUnit
+    type: STRING
+  - name: fieldOfView
+    type: FLOAT
+  - name: samplingRate
+    type: FLOAT
+  - name: mountingPosition
+    type: STRING
+- label: Actuator
+  properties:
+  - name: id
+    type: STRING
+  - name: actuatorName
+    type: STRING
+  - name: actuatorType
+    type: STRING
+  - name: controlMode
+    type: STRING
+  - name: responseTime
+    type: FLOAT
+- label: ObservableSignal
+  properties:
+  - name: id
+    type: STRING
+  - name: signalName
+    type: STRING
+  - name: signalPath
+    type: STRING
+  - name: dataType
+    type: STRING
+  - name: unit
+    type: STRING
+  - name: minValue
+    type: FLOAT
+  - name: maxValue
+    type: FLOAT
+  - name: description
+    type: STRING
+- label: ActuableSignal
+  properties:
+  - name: id
+    type: STRING
+  - name: signalName
+    type: STRING
+  - name: signalPath
+    type: STRING
+  - name: dataType
+    type: STRING
+  - name: unit
+    type: STRING
+  - name: minValue
+    type: FLOAT
+  - name: maxValue
+    type: FLOAT
+- label: SignalObservation
+  properties:
+  - name: id
+    type: STRING
+  - name: observedAt
+    type: DATE
+  - name: numericValue
+    type: FLOAT
+  - name: stringValue
+    type: STRING
+  - name: quality
+    type: STRING
+- label: ValueSpace
+  properties:
+  - name: id
+    type: STRING
+  - name: valueSpaceType
+    type: STRING
+  - name: allowedValues
+    type: STRING
+  - name: unit
+    type: STRING
+- label: DrivingAutomationSystem
+  properties:
+  - name: id
+    type: STRING
+  - name: systemName
+    type: STRING
+  - name: automationLevel
+    type: INTEGER
+  - name: softwareVersion
+    type: STRING
+  - name: activationStatus
+    type: STRING
+- label: OperationalDesignDomain
+  properties:
+  - name: id
+    type: STRING
+  - name: oddName
+    type: STRING
+  - name: description
+    type: STRING
+  - name: geographicScope
+    type: STRING
+  - name: speedRangeMin
+    type: FLOAT
+  - name: speedRangeMax
+    type: FLOAT
+  - name: speedUnit
+    type: STRING
+  - name: timeOfDay
+    type: STRING
+- label: OperatingCondition
+  properties:
+  - name: id
+    type: STRING
+  - name: conditionType
+    type: STRING
+  - name: weatherCondition
+    type: STRING
+  - name: roadSurface
+    type: STRING
+  - name: illumination
+    type: STRING
+  - name: visibilityRange
+    type: FLOAT
+- label: DynamicDrivingTask
+  properties:
+  - name: id
+    type: STRING
+  - name: taskType
+    type: STRING
+  - name: description
+    type: STRING
+  - name: fallbackReady
+    type: BOOLEAN
+- label: HumanUser
+  properties:
+  - name: id
+    type: STRING
+  - name: userRole
+    type: STRING
+  - name: occupiesSeatOfDriver
+    type: BOOLEAN
+  - name: licenseClass
+    type: STRING
+  - name: isReceptiveToRequests
+    type: BOOLEAN
+  - name: age
+    type: INTEGER
+- label: Trip
+  properties:
+  - name: id
+    type: STRING
+  - name: tripId
+    type: STRING
+  - name: startTime
+    type: DATE
+  - name: endTime
+    type: DATE
+  - name: distance
+    type: FLOAT
+  - name: distanceUnit
+    type: STRING
+  - name: startOdometer
+    type: FLOAT
+  - name: endOdometer
+    type: FLOAT
+- label: TripSegment
+  properties:
+  - name: id
+    type: STRING
+  - name: sequenceNumber
+    type: INTEGER
+  - name: startTime
+    type: DATE
+  - name: endTime
+    type: DATE
+  - name: distance
+    type: FLOAT
+  - name: averageSpeed
+    type: FLOAT
+  - name: speedUnit
+    type: STRING
+  - name: automationEngaged
+    type: BOOLEAN
+- label: Maneuver
+  properties:
+  - name: id
+    type: STRING
+  - name: maneuverType
+    type: STRING
+  - name: startTime
+    type: DATE
+  - name: endTime
+    type: DATE
+  - name: description
+    type: STRING
+- label: Crash
+  properties:
+  - name: id
+    type: STRING
+  - name: crashId
+    type: STRING
+  - name: crashDateTime
+    type: DATE
+  - name: crashType
+    type: STRING
+  - name: severity
+    type: STRING
+  - name: numberOfVehicles
+    type: INTEGER
+  - name: numberOfFatalities
+    type: INTEGER
+  - name: numberOfInjuries
+    type: INTEGER
+  - name: mannerOfCollision
+    type: STRING
+  - name: firstHarmfulEvent
+    type: STRING
+- label: TrafficIncident
+  properties:
+  - name: id
+    type: STRING
+  - name: incidentType
+    type: STRING
+  - name: incidentDateTime
+    type: DATE
+  - name: severity
+    type: STRING
+  - name: description
+    type: STRING
+  - name: clearedDateTime
+    type: DATE
+- label: Trafficway
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: functionalClass
+    type: STRING
+  - name: speedLimit
+    type: FLOAT
+  - name: speedLimitUnit
+    type: STRING
+  - name: surfaceType
+    type: STRING
+  - name: numberOfLanes
+    type: INTEGER
+  - name: isDivided
+    type: BOOLEAN
+- label: RoadSegment
+  properties:
+  - name: id
+    type: STRING
+  - name: segmentId
+    type: STRING
+  - name: startLatitude
+    type: FLOAT
+  - name: startLongitude
+    type: FLOAT
+  - name: endLatitude
+    type: FLOAT
+  - name: endLongitude
+    type: FLOAT
+  - name: length
+    type: FLOAT
+  - name: lengthUnit
+    type: STRING
+  - name: grade
+    type: FLOAT
+  - name: curvature
+    type: FLOAT
+- label: Lane
+  properties:
+  - name: id
+    type: STRING
+  - name: laneNumber
+    type: INTEGER
+  - name: laneType
+    type: STRING
+  - name: width
+    type: FLOAT
+  - name: widthUnit
+    type: STRING
+  - name: drivingDirection
+    type: STRING
+  - name: allowsLaneChange
+    type: BOOLEAN
+- label: Intersection
+  properties:
+  - name: id
+    type: STRING
+  - name: intersectionType
+    type: STRING
+  - name: isSignalized
+    type: BOOLEAN
+  - name: numberOfApproaches
+    type: INTEGER
+  - name: trafficControl
+    type: STRING
+- label: TrafficSignal
+  properties:
+  - name: id
+    type: STRING
+  - name: signalType
+    type: STRING
+  - name: angle
+    type: FLOAT
+  - name: currentState
+    type: STRING
+  - name: cycleTime
+    type: FLOAT
+  - name: mountingHeight
+    type: FLOAT
+- label: Infrastructure
+  properties:
+  - name: id
+    type: STRING
+  - name: infrastructureType
+    type: STRING
+  - name: addressText
+    type: STRING
+  - name: latitude
+    type: FLOAT
+  - name: longitude
+    type: FLOAT
+- label: Location
+  properties:
+  - name: id
+    type: STRING
+  - name: latitude
+    type: FLOAT
+  - name: longitude
+    type: FLOAT
+  - name: altitude
+    type: FLOAT
+  - name: headingDegrees
+    type: FLOAT
+  - name: geohash
+    type: STRING
+- label: ADASFeature
+  properties:
+  - name: id
+    type: STRING
+  - name: featureName
+    type: STRING
+  - name: featureType
+    type: STRING
+  - name: isActive
+    type: BOOLEAN
+  - name: softwareVersion
+    type: STRING
+- label: ExternalLights
+  properties:
+  - name: id
+    type: STRING
+  - name: lightType
+    type: STRING
+  - name: isIlluminated
+    type: BOOLEAN
+  - name: colorTemperature
+    type: FLOAT
+  - name: intensity
+    type: FLOAT
+- label: DiagnosticTroubleCode
+  properties:
+  - name: id
+    type: STRING
+  - name: dtcCode
+    type: STRING
+  - name: description
+    type: STRING
+  - name: severity
+    type: STRING
+  - name: setTime
+    type: DATE
+  - name: clearedTime
+    type: DATE
+  - name: isActive
+    type: BOOLEAN
+- label: SoftwareRelease
+  properties:
+  - name: id
+    type: STRING
+  - name: version
+    type: STRING
+  - name: releaseDate
+    type: DATE
+  - name: component
+    type: STRING
+  - name: changeDescription
+    type: STRING
+- label: Manufacturer
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: brand
+    type: STRING
+  - name: countryCode
+    type: STRING
+relationships:
+- type: HAS_PART
+  start: Vehicle
+  end: VehiclePart
+- type: PART_OF
+  start: VehiclePart
+  end: VehiclePart
+- type: HAS_SENSOR
+  start: Vehicle
+  end: VehicleSensor
+- type: HAS_ACTUATOR
+  start: Vehicle
+  end: Actuator
+- type: MANUFACTURED_BY
+  start: Vehicle
+  end: Manufacturer
+- type: HAS_AUTOMATION_SYSTEM
+  start: Vehicle
+  end: DrivingAutomationSystem
+- type: HAS_ADAS_FEATURE
+  start: Vehicle
+  end: ADASFeature
+- type: HAS_EXTERNAL_LIGHTS
+  start: Vehicle
+  end: ExternalLights
+- type: OBSERVES_SIGNAL
+  start: VehicleSensor
+  end: ObservableSignal
+- type: MOUNTED_ON
+  start: VehicleSensor
+  end: VehiclePart
+- type: ACTUATES_SIGNAL
+  start: Actuator
+  end: ActuableSignal
+- type: HAS_VALUE_SPACE
+  start: ObservableSignal
+  end: ValueSpace
+- type: HAS_VALUE_SPACE
+  start: ActuableSignal
+  end: ValueSpace
+- type: PARENT_SIGNAL
+  start: ObservableSignal
+  end: ObservableSignal
+- type: OF_SIGNAL
+  start: SignalObservation
+  end: ObservableSignal
+- type: DURING_SEGMENT
+  start: SignalObservation
+  end: TripSegment
+- type: HAS_USAGE_SPECIFICATION
+  start: DrivingAutomationSystem
+  end: OperationalDesignDomain
+- type: HAS_OPERATING_CONDITION
+  start: OperationalDesignDomain
+  end: OperatingCondition
+- type: PERFORMS_TASK
+  start: DrivingAutomationSystem
+  end: DynamicDrivingTask
+- type: CONTROLS_ACTUATOR
+  start: DrivingAutomationSystem
+  end: Actuator
+- type: IS_RECEPTIVE_TO
+  start: HumanUser
+  end: DynamicDrivingTask
+- type: OPERATES
+  start: HumanUser
+  end: Vehicle
+- type: HAS_SEGMENT
+  start: Trip
+  end: TripSegment
+- type: NEXT
+  start: TripSegment
+  end: TripSegment
+- type: MADE_BY_VEHICLE
+  start: Trip
+  end: Vehicle
+- type: DRIVEN_BY
+  start: Trip
+  end: HumanUser
+- type: ON_ROAD_SEGMENT
+  start: TripSegment
+  end: RoadSegment
+- type: AUTOMATION_ACTIVE
+  start: TripSegment
+  end: DrivingAutomationSystem
+- type: HAS_MANEUVER
+  start: TripSegment
+  end: Maneuver
+- type: UNDER_CONDITION
+  start: TripSegment
+  end: OperatingCondition
+- type: IN_LANE
+  start: Maneuver
+  end: Lane
+- type: INVOLVES_VEHICLE
+  start: Crash
+  end: Vehicle
+- type: AT_LOCATION
+  start: Crash
+  end: Location
+- type: ON_ROAD_SEGMENT
+  start: Crash
+  end: RoadSegment
+- type: INVOLVES_PERSON
+  start: Crash
+  end: HumanUser
+- type: DURING_TRIP
+  start: Crash
+  end: Trip
+- type: AT_INTERSECTION
+  start: Crash
+  end: Intersection
+- type: AFFECTS_ROAD_SEGMENT
+  start: TrafficIncident
+  end: RoadSegment
+- type: RELATED_CRASH
+  start: TrafficIncident
+  end: Crash
+- type: HAS_SEGMENT
+  start: Trafficway
+  end: RoadSegment
+- type: HAS_LANE
+  start: RoadSegment
+  end: Lane
+- type: CONNECTS_TO
+  start: RoadSegment
+  end: RoadSegment
+- type: HAS_INTERSECTION
+  start: RoadSegment
+  end: Intersection
+- type: HAS_TRAFFIC_SIGNAL
+  start: Intersection
+  end: TrafficSignal
+- type: AT_LOCATION
+  start: Intersection
+  end: Location
+- type: AT_LOCATION
+  start: Infrastructure
+  end: Location
+- type: SERVES_ROAD_SEGMENT
+  start: Infrastructure
+  end: RoadSegment
+- type: ADJACENT_TO
+  start: Lane
+  end: Lane
+- type: REPORTED_BY_VEHICLE
+  start: DiagnosticTroubleCode
+  end: Vehicle
+- type: AFFECTS_PART
+  start: DiagnosticTroubleCode
+  end: VehiclePart
+- type: INSTALLED_ON
+  start: SoftwareRelease
+  end: Vehicle
+- type: UPDATES_AUTOMATION_SYSTEM
+  start: SoftwareRelease
+  end: DrivingAutomationSystem
+- type: USES_SENSOR
+  start: ADASFeature
+  end: VehicleSensor
+keys: {}
+rules: {}
+notes:
+- 1,269 classes / 14,744 triples.
+- 193 ObservableSignal + 89 ActuableSignal subclasses are the VSS catalogue; modelled as
+- instances under PARENT_SIGNAL rather than labels (TAXONOMY_SIDECAR).

@@ -1,0 +1,918 @@
+standard: fibo
+title: FIBO -- Financial Industry Business Ontology
+industry: Financial Services
+source:
+  registry: fibo
+  git: github.com/edmcouncil/fibo
+  pin: 119fa8c
+  date: '2026-07-17'
+layout:
+  columns: 6
+nodes:
+- label: InstrumentType
+  properties:
+  - name: fiboClassIri
+    type: STRING
+  - name: name
+    type: STRING
+  - name: label
+    type: STRING
+  - name: definition
+    type: STRING
+  - name: cfiCode
+    type: STRING
+  - name: fiboDomain
+    type: STRING
+  - name: level
+    type: INTEGER
+  - name: isLeaf
+    type: BOOLEAN
+  x: -1250
+  y: -240
+- label: Currency
+  properties:
+  - name: iso4217Code
+    type: STRING
+  - name: numericCode
+    type: STRING
+  - name: name
+    type: STRING
+  - name: minorUnit
+    type: INTEGER
+  - name: usedByCountry
+    type: STRING
+  x: -1250
+  y: -60
+- label: Jurisdiction
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: appliesToName
+    type: STRING
+  - name: countryCode
+    type: STRING
+  - name: subdivisionCode
+    type: STRING
+  x: -1250
+  y: 120
+- label: IndustrySector
+  properties:
+  - name: scheme
+    type: STRING
+  - name: code
+    type: STRING
+  - name: description
+    type: STRING
+  x: -1250
+  y: 300
+- label: Address
+  properties:
+  - name: id
+    type: STRING
+  - name: addressLine1
+    type: STRING
+  - name: city
+    type: STRING
+  - name: region
+    type: STRING
+  - name: postalCode
+    type: STRING
+  - name: countryCode
+    type: STRING
+  x: -1250
+  y: 480
+- label: Identifier
+  properties:
+  - name: scheme
+    type: STRING
+  - name: value
+    type: STRING
+  - name: issuingAuthority
+    type: STRING
+  - name: isPrimary
+    type: BOOLEAN
+  x: -1250
+  y: -420
+- label: Market
+  properties:
+  - name: mic
+    type: STRING
+  - name: name
+    type: STRING
+  - name: marketLevel
+    type: STRING
+  - name: acronym
+    type: STRING
+  - name: venueType
+    type: STRING
+  - name: micStatus
+    type: STRING
+  - name: countryName
+    type: STRING
+  - name: countryCode
+    type: STRING
+  - name: city
+    type: STRING
+  - name: website
+    type: STRING
+  x: -850
+  y: -600
+- label: InterestRateBenchmark
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: tenor
+    type: STRING
+  - name: referenceCurrencyCode
+    type: STRING
+  - name: referenceCurrencyName
+    type: STRING
+  - name: rateResetTime
+    type: STRING
+  - name: publisherName
+    type: STRING
+  x: -1250
+  y: -600
+- label: MarketIndex
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: indexType
+    type: STRING
+  - name: baseValue
+    type: FLOAT
+  - name: baseDate
+    type: DATE
+  - name: methodology
+    type: STRING
+  x: -1250
+  y: -780
+- label: RegulatoryAgency
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: shortName
+    type: STRING
+  - name: agencyType
+    type: STRING
+  x: -850
+  y: 480
+- label: LegalEntity
+  properties:
+  - name: lei
+    type: STRING
+  - name: legalName
+    type: STRING
+  - name: legalForm
+    type: STRING
+  - name: entityStatus
+    type: STRING
+  - name: incorporationDate
+    type: DATE
+  - name: entityExpirationDate
+    type: DATE
+  - name: entityExpirationReason
+    type: STRING
+  - name: isPubliclyTraded
+    type: BOOLEAN
+  x: -800
+  y: 60
+- label: Person
+  properties:
+  - name: id
+    type: STRING
+  - name: fullName
+    type: STRING
+  - name: birthDate
+    type: DATE
+  - name: deathDate
+    type: DATE
+  - name: gender
+    type: STRING
+  - name: citizenshipCountryCode
+    type: STRING
+  x: -800
+  y: 260
+- label: PartyInRole
+  properties:
+  - name: id
+    type: STRING
+  - name: roleType
+    type: STRING
+  - name: startDate
+    type: DATE
+  - name: endDate
+    type: DATE
+  - name: isActive
+    type: BOOLEAN
+  x: -400
+  y: 160
+- label: Ownership
+  properties:
+  - name: id
+    type: STRING
+  - name: ownershipType
+    type: STRING
+  - name: ownershipPercentage
+    type: FLOAT
+  - name: controlType
+    type: STRING
+  - name: isMajorityControl
+    type: BOOLEAN
+  - name: effectiveDate
+    type: DATE
+  - name: endDate
+    type: DATE
+  x: -800
+  y: -140
+- label: FinancialServiceProvider
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: lei
+    type: STRING
+  - name: providerType
+    type: STRING
+  - name: homeCountryName
+    type: STRING
+  - name: homeCountryCode
+    type: STRING
+  - name: isSubjectToReserveRequirements
+    type: BOOLEAN
+  - name: licenceStatus
+    type: STRING
+  x: -450
+  y: -280
+- label: FinancialService
+  properties:
+  - name: id
+    type: STRING
+  - name: serviceType
+    type: STRING
+  - name: name
+    type: STRING
+  - name: description
+    type: STRING
+  x: -450
+  y: -460
+- label: FinancialInstrument
+  properties:
+  - name: isin
+    type: STRING
+  - name: cusip
+    type: STRING
+  - name: figi
+    type: STRING
+  - name: name
+    type: STRING
+  - name: shortName
+    type: STRING
+  - name: instrumentType
+    type: STRING
+  - name: cfiCode
+    type: STRING
+  - name: isNegotiable
+    type: BOOLEAN
+  - name: issueDate
+    type: DATE
+  - name: maturityDate
+    type: DATE
+  - name: nominalValueAmount
+    type: FLOAT
+  - name: denominationCurrencyCode
+    type: STRING
+  - name: isMiFIDReportingRequired
+    type: BOOLEAN
+  - name: shareClass
+    type: STRING
+  - name: isPreferred
+    type: BOOLEAN
+  - name: votingRights
+    type: STRING
+  - name: votesPerShare
+    type: FLOAT
+  - name: sharesAuthorized
+    type: INTEGER
+  - name: sharesIssued
+    type: INTEGER
+  - name: sharesOutstanding
+    type: INTEGER
+  - name: isCumulative
+    type: BOOLEAN
+  - name: isParticipating
+    type: BOOLEAN
+  - name: isRedeemable
+    type: BOOLEAN
+  - name: isExchangeable
+    type: BOOLEAN
+  - name: isExtendable
+    type: BOOLEAN
+  - name: dividendRateType
+    type: STRING
+  - name: couponRate
+    type: FLOAT
+  - name: couponFrequency
+    type: STRING
+  - name: faceValueAmount
+    type: FLOAT
+  - name: seniority
+    type: STRING
+  - name: isCallable
+    type: BOOLEAN
+  - name: isPuttable
+    type: BOOLEAN
+  - name: dayCountConvention
+    type: STRING
+  - name: series
+    type: STRING
+  x: 0
+  y: -60
+- label: Loan
+  properties:
+  - name: id
+    type: STRING
+  - name: loanType
+    type: STRING
+  - name: principalAmount
+    type: FLOAT
+  - name: currencyCode
+    type: STRING
+  - name: interestRate
+    type: FLOAT
+  - name: rateType
+    type: STRING
+  - name: disbursementDate
+    type: DATE
+  - name: maturityDate
+    type: DATE
+  - name: isInterestOnly
+    type: BOOLEAN
+  - name: inDefault
+    type: BOOLEAN
+  - name: isAssumable
+    type: BOOLEAN
+  - name: lienPosition
+    type: STRING
+  - name: loanMarketCategory
+    type: STRING
+  - name: totalClosingCostsAmount
+    type: FLOAT
+  x: 0
+  y: 300
+- label: DerivativeContract
+  properties:
+  - name: id
+    type: STRING
+  - name: derivativeType
+    type: STRING
+  - name: notionalAmount
+    type: FLOAT
+  - name: currencyCode
+    type: STRING
+  - name: tradeDate
+    type: DATE
+  - name: effectiveDate
+    type: DATE
+  - name: expirationDate
+    type: DATE
+  - name: settlementType
+    type: STRING
+  - name: optionType
+    type: STRING
+  - name: strikePrice
+    type: FLOAT
+  - name: isCleared
+    type: BOOLEAN
+  x: 0
+  y: -480
+- label: Fund
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: fundType
+    type: STRING
+  - name: netAssetValue
+    type: FLOAT
+  - name: navCurrencyCode
+    type: STRING
+  - name: navDate
+    type: DATE
+  - name: isOpenEnded
+    type: BOOLEAN
+  x: 400
+  y: -480
+- label: Contract
+  properties:
+  - name: id
+    type: STRING
+  - name: contractType
+    type: STRING
+  - name: effectiveDate
+    type: DATE
+  - name: executionDate
+    type: DATE
+  - name: issuanceDate
+    type: DATE
+  - name: isAssignable
+    type: BOOLEAN
+  - name: governingLaw
+    type: STRING
+  - name: status
+    type: STRING
+  x: 0
+  y: 540
+- label: Collateral
+  properties:
+  - name: id
+    type: STRING
+  - name: collateralType
+    type: STRING
+  - name: valueAmount
+    type: FLOAT
+  - name: currencyCode
+    type: STRING
+  - name: haircutPercentage
+    type: FLOAT
+  - name: valuationDate
+    type: DATE
+  - name: lienPosition
+    type: STRING
+  x: -400
+  y: 480
+- label: Account
+  properties:
+  - name: id
+    type: STRING
+  - name: accountType
+    type: STRING
+  - name: openDate
+    type: DATE
+  - name: closeDate
+    type: DATE
+  - name: status
+    type: STRING
+  - name: balanceAmount
+    type: FLOAT
+  - name: balanceCurrencyCode
+    type: STRING
+  x: 450
+  y: 160
+- label: Portfolio
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: investmentStrategy
+    type: STRING
+  - name: inceptionDate
+    type: DATE
+  x: 450
+  y: -60
+- label: Holding
+  properties:
+  - name: id
+    type: STRING
+  - name: quantity
+    type: FLOAT
+  - name: fractionalInterest
+    type: FLOAT
+  - name: marketValueAmount
+    type: FLOAT
+  - name: currencyCode
+    type: STRING
+  - name: asOfDate
+    type: DATE
+  x: 450
+  y: -280
+- label: Position
+  properties:
+  - name: id
+    type: STRING
+  - name: direction
+    type: STRING
+  - name: quantity
+    type: FLOAT
+  - name: exposureAmount
+    type: FLOAT
+  - name: currencyCode
+    type: STRING
+  - name: asOfDate
+    type: DATE
+  x: 450
+  y: 380
+- label: PaymentSchedule
+  properties:
+  - name: id
+    type: STRING
+  - name: scheduleType
+    type: STRING
+  - name: frequency
+    type: STRING
+  - name: firstPaymentDate
+    type: DATE
+  - name: finalPaymentDate
+    type: DATE
+  - name: anticipatedNumberOfPayments
+    type: INTEGER
+  - name: businessDayConvention
+    type: STRING
+  x: 850
+  y: 480
+- label: Payment
+  properties:
+  - name: id
+    type: STRING
+  - name: paymentType
+    type: STRING
+  - name: dueDate
+    type: DATE
+  - name: amount
+    type: FLOAT
+  - name: currencyCode
+    type: STRING
+  - name: status
+    type: STRING
+  - name: paidDate
+    type: DATE
+  x: 1200
+  y: 480
+- label: CashFlow
+  properties:
+  - name: id
+    type: STRING
+  - name: flowType
+    type: STRING
+  - name: flowDate
+    type: DATE
+  - name: amount
+    type: FLOAT
+  - name: currencyCode
+    type: STRING
+  - name: isProjected
+    type: BOOLEAN
+  x: 1200
+  y: 260
+- label: Trade
+  properties:
+  - name: id
+    type: STRING
+  - name: tradeDateTime
+    type: DATETIME
+  - name: side
+    type: STRING
+  - name: quantity
+    type: FLOAT
+  - name: price
+    type: FLOAT
+  - name: priceCurrencyCode
+    type: STRING
+  - name: notionalAmount
+    type: FLOAT
+  - name: settlementDate
+    type: DATE
+  - name: status
+    type: STRING
+  - name: venueMic
+    type: STRING
+  x: 900
+  y: -60
+- label: LifecycleEvent
+  properties:
+  - name: id
+    type: STRING
+  - name: eventType
+    type: STRING
+  - name: eventDateTime
+    type: DATETIME
+  - name: stage
+    type: STRING
+  - name: sequenceNumber
+    type: INTEGER
+  - name: status
+    type: STRING
+  x: 900
+  y: -300
+- label: CorporateAction
+  properties:
+  - name: id
+    type: STRING
+  - name: actionType
+    type: STRING
+  - name: announcementDate
+    type: DATE
+  - name: exDate
+    type: DATE
+  - name: recordDate
+    type: DATE
+  - name: paymentDate
+    type: DATE
+  - name: effectiveDate
+    type: DATE
+  - name: isMandatory
+    type: BOOLEAN
+  - name: ratio
+    type: STRING
+  x: 900
+  y: -540
+- label: CreditRating
+  properties:
+  - name: id
+    type: STRING
+  - name: ratingScore
+    type: STRING
+  - name: ratingScale
+    type: STRING
+  - name: ratingType
+    type: STRING
+  - name: outlook
+    type: STRING
+  - name: issuanceDate
+    type: DATE
+  - name: effectiveDate
+    type: DATE
+  - name: isSolicited
+    type: BOOLEAN
+  x: -450
+  y: -780
+relationships:
+- type: BROADER_THAN
+  start: InstrumentType
+  end: InstrumentType
+- type: CLASSIFIED_AS
+  start: FinancialInstrument
+  end: InstrumentType
+- type: OPERATED_UNDER
+  start: Market
+  end: Market
+- type: LOCATED_IN
+  start: Market
+  end: Jurisdiction
+- type: MANAGED_BY
+  start: Market
+  end: FinancialServiceProvider
+- type: IDENTIFIED_BY
+  start: Market
+  end: Identifier
+- type: DENOMINATED_IN
+  start: InterestRateBenchmark
+  end: Currency
+- type: HAS_CONSTITUENT
+  start: MarketIndex
+  end: FinancialInstrument
+- type: HAS_JURISDICTION
+  start: RegulatoryAgency
+  end: Jurisdiction
+- type: REGULATES
+  start: RegulatoryAgency
+  end: FinancialServiceProvider
+- type: HAS_LEGAL_ADDRESS
+  start: LegalEntity
+  end: Address
+- type: ORGANIZED_IN
+  start: LegalEntity
+  end: Jurisdiction
+- type: CLASSIFIED_BY
+  start: LegalEntity
+  end: IndustrySector
+- type: IDENTIFIED_BY
+  start: LegalEntity
+  end: Identifier
+- type: PLAYS
+  start: LegalEntity
+  end: PartyInRole
+- type: PLAYS
+  start: Person
+  end: PartyInRole
+- type: RESIDES_AT
+  start: Person
+  end: Address
+- type: EMPLOYED_BY
+  start: Person
+  end: LegalEntity
+- type: HAS_OWNING_PARTY
+  start: Ownership
+  end: PartyInRole
+- type: OWNS_ENTITY
+  start: Ownership
+  end: LegalEntity
+- type: OWNS_INSTRUMENT
+  start: Ownership
+  end: FinancialInstrument
+- type: IS_PLAYED_BY
+  start: FinancialServiceProvider
+  end: LegalEntity
+- type: PROVIDES
+  start: FinancialServiceProvider
+  end: FinancialService
+- type: ISSUED_BY
+  start: FinancialInstrument
+  end: PartyInRole
+- type: DENOMINATED_IN
+  start: FinancialInstrument
+  end: Currency
+- type: LEGALLY_RECORDED_IN
+  start: FinancialInstrument
+  end: Jurisdiction
+- type: IDENTIFIED_BY
+  start: FinancialInstrument
+  end: Identifier
+- type: LISTED_ON
+  start: FinancialInstrument
+  end: Market
+- type: HAS_UNDERLIER
+  start: FinancialInstrument
+  end: FinancialInstrument
+- type: HAS_PAYMENT_SCHEDULE
+  start: FinancialInstrument
+  end: PaymentSchedule
+- type: COLLATERALIZED_BY
+  start: FinancialInstrument
+  end: Collateral
+- type: GOVERNED_BY
+  start: FinancialInstrument
+  end: Contract
+- type: INTEREST_BASED_ON
+  start: FinancialInstrument
+  end: InterestRateBenchmark
+- type: HAS_UNDERLIER
+  start: DerivativeContract
+  end: FinancialInstrument
+- type: HAS_COUNTERPARTY
+  start: DerivativeContract
+  end: PartyInRole
+- type: GOVERNED_BY
+  start: DerivativeContract
+  end: Contract
+- type: COLLATERALIZED_BY
+  start: DerivativeContract
+  end: Collateral
+- type: REFERENCES_BENCHMARK
+  start: DerivativeContract
+  end: InterestRateBenchmark
+- type: REFERENCES_INDEX
+  start: DerivativeContract
+  end: MarketIndex
+- type: HAS_PORTFOLIO
+  start: Fund
+  end: Portfolio
+- type: MANAGED_BY
+  start: Fund
+  end: PartyInRole
+- type: ISSUED_BY
+  start: Fund
+  end: PartyInRole
+- type: HAS_BORROWER
+  start: Loan
+  end: PartyInRole
+- type: HAS_LENDER
+  start: Loan
+  end: PartyInRole
+- type: HAS_GUARANTOR
+  start: Loan
+  end: PartyInRole
+- type: SERVICED_BY
+  start: Loan
+  end: PartyInRole
+- type: COLLATERALIZED_BY
+  start: Loan
+  end: Collateral
+- type: HAS_PAYMENT_SCHEDULE
+  start: Loan
+  end: PaymentSchedule
+- type: HAS_CORRESPONDING_ACCOUNT
+  start: Loan
+  end: Account
+- type: INTEREST_BASED_ON
+  start: Loan
+  end: InterestRateBenchmark
+- type: HAS_CONTRACT_PARTY
+  start: Contract
+  end: PartyInRole
+- type: GOVERNED_BY_JURISDICTION
+  start: Contract
+  end: Jurisdiction
+- type: SUPERSEDES
+  start: Contract
+  end: Contract
+- type: HELD_BY
+  start: Account
+  end: PartyInRole
+- type: PROVIDED_BY
+  start: Account
+  end: FinancialServiceProvider
+- type: DENOMINATED_IN
+  start: Account
+  end: Currency
+- type: HAS_PORTFOLIO
+  start: Account
+  end: Portfolio
+- type: HAS_POSITION
+  start: Account
+  end: Position
+- type: COMPRISES
+  start: Portfolio
+  end: Holding
+- type: MEMBER_OF
+  start: Portfolio
+  end: Portfolio
+- type: MANAGED_BY
+  start: Portfolio
+  end: PartyInRole
+- type: OF_INSTRUMENT
+  start: Holding
+  end: FinancialInstrument
+- type: IN_INSTRUMENT
+  start: Position
+  end: FinancialInstrument
+- type: HAS_PAYMENT
+  start: PaymentSchedule
+  end: Payment
+- type: GENERATES_CASH_FLOW
+  start: Payment
+  end: CashFlow
+- type: PAYABLE_TO
+  start: Payment
+  end: PartyInRole
+- type: CREDITED_TO
+  start: CashFlow
+  end: Account
+- type: INVOLVES_INSTRUMENT
+  start: Trade
+  end: FinancialInstrument
+- type: HAS_BUYER
+  start: Trade
+  end: PartyInRole
+- type: HAS_SELLER
+  start: Trade
+  end: PartyInRole
+- type: EXECUTED_ON
+  start: Trade
+  end: Market
+- type: SETTLES_IN
+  start: Trade
+  end: Account
+- type: SUCCEEDS
+  start: Trade
+  end: Trade
+- type: EMBODIED_IN
+  start: Trade
+  end: Contract
+- type: NEXT
+  start: LifecycleEvent
+  end: LifecycleEvent
+- type: AFFECTS_INSTRUMENT
+  start: LifecycleEvent
+  end: FinancialInstrument
+- type: AFFECTS_ACCOUNT
+  start: LifecycleEvent
+  end: Account
+- type: INVOLVES_PARTY
+  start: LifecycleEvent
+  end: PartyInRole
+- type: TRIGGERED_BY
+  start: LifecycleEvent
+  end: Trade
+- type: AFFECTS_INSTRUMENT
+  start: CorporateAction
+  end: FinancialInstrument
+- type: CONVERTS_TO
+  start: CorporateAction
+  end: FinancialInstrument
+- type: DECLARED_BY
+  start: CorporateAction
+  end: LegalEntity
+- type: HAS_LIFECYCLE_EVENT
+  start: CorporateAction
+  end: LifecycleEvent
+- type: RATES_INSTRUMENT
+  start: CreditRating
+  end: FinancialInstrument
+- type: RATES_ENTITY
+  start: CreditRating
+  end: LegalEntity
+- type: ISSUED_BY
+  start: CreditRating
+  end: FinancialServiceProvider
+keys: {}
+rules: {}
+notes:
+- 286 modules / 132,414 triples / 3,021 classes parsed.
+- 219 SEC Preferred* share classes collapsed into flags on FinancialInstrument (SUBCLASS_COLLAPSE).
+- InstrumentType is the TAXONOMY_SIDECAR for the 12-level class tree.
+- 'External imports NOT vendored: 1,193 to OMG Commons, 54 to LCC (IMPORT_RESOLVE).'
+- Canvas positions are curated (domain-banded), not grid-generated.
+- Timestamps are declared DATETIME; the TYPE_MAP rule negotiates them to STRING (ISO 8601) for targets
+  whose Neo4jType enum lacks DATETIME.

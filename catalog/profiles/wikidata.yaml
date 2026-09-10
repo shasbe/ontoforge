@@ -1,0 +1,391 @@
+standard: wikidata
+title: Wikidata / Wikibase data model
+industry: Cross-domain knowledge graph
+source:
+  registry: wikidata
+  spec: mediawiki.org/wiki/Wikibase/DataModel
+layout:
+  columns: 5
+nodes:
+- label: Item
+  properties:
+  - name: qid
+    type: STRING
+  - name: label
+    type: STRING
+  - name: description
+    type: STRING
+  - name: modified
+    type: DATE
+  - name: statementCount
+    type: INTEGER
+  - name: siteLinkCount
+    type: INTEGER
+  - name: isRedirect
+    type: BOOLEAN
+- label: Property
+  properties:
+  - name: pid
+    type: STRING
+  - name: label
+    type: STRING
+  - name: description
+    type: STRING
+  - name: dataType
+    type: STRING
+  - name: formatterUrl
+    type: STRING
+  - name: statementCount
+    type: INTEGER
+- label: Statement
+  properties:
+  - name: statementId
+    type: STRING
+  - name: rank
+    type: STRING
+  - name: snakType
+    type: STRING
+  - name: propertyId
+    type: STRING
+  - name: dataValueType
+    type: STRING
+  - name: hash
+    type: STRING
+- label: Qualifier
+  properties:
+  - name: id
+    type: STRING
+  - name: propertyId
+    type: STRING
+  - name: snakType
+    type: STRING
+  - name: dataValueType
+    type: STRING
+  - name: order
+    type: INTEGER
+  - name: hash
+    type: STRING
+- label: Reference
+  properties:
+  - name: referenceHash
+    type: STRING
+  - name: snakCount
+    type: INTEGER
+- label: Snak
+  properties:
+  - name: id
+    type: STRING
+  - name: propertyId
+    type: STRING
+  - name: snakType
+    type: STRING
+  - name: dataValueType
+    type: STRING
+  - name: hash
+    type: STRING
+- label: QuantityValue
+  properties:
+  - name: id
+    type: STRING
+  - name: amount
+    type: FLOAT
+  - name: lowerBound
+    type: FLOAT
+  - name: upperBound
+    type: FLOAT
+  - name: unitId
+    type: STRING
+- label: TimeValue
+  properties:
+  - name: id
+    type: STRING
+  - name: time
+    type: STRING
+  - name: timezone
+    type: INTEGER
+  - name: before
+    type: INTEGER
+  - name: after
+    type: INTEGER
+  - name: precision
+    type: INTEGER
+  - name: calendarModelId
+    type: STRING
+- label: GlobeCoordinateValue
+  properties:
+  - name: id
+    type: STRING
+  - name: latitude
+    type: FLOAT
+  - name: longitude
+    type: FLOAT
+  - name: altitude
+    type: FLOAT
+  - name: precision
+    type: FLOAT
+  - name: globeId
+    type: STRING
+- label: MonolingualText
+  properties:
+  - name: id
+    type: STRING
+  - name: text
+    type: STRING
+  - name: languageCode
+    type: STRING
+- label: StringValue
+  properties:
+  - name: id
+    type: STRING
+  - name: value
+    type: STRING
+- label: Term
+  properties:
+  - name: id
+    type: STRING
+  - name: termType
+    type: STRING
+  - name: languageCode
+    type: STRING
+  - name: value
+    type: STRING
+- label: Language
+  properties:
+  - name: code
+    type: STRING
+  - name: name
+    type: STRING
+  - name: nativeName
+    type: STRING
+  - name: isRtl
+    type: BOOLEAN
+- label: Sitelink
+  properties:
+  - name: id
+    type: STRING
+  - name: site
+    type: STRING
+  - name: title
+    type: STRING
+  - name: url
+    type: STRING
+  - name: badgeCount
+    type: INTEGER
+- label: WikiSite
+  properties:
+  - name: siteId
+    type: STRING
+  - name: siteName
+    type: STRING
+  - name: url
+    type: STRING
+  - name: languageCode
+    type: STRING
+  - name: siteGroup
+    type: STRING
+- label: Lexeme
+  properties:
+  - name: lid
+    type: STRING
+  - name: lemma
+    type: STRING
+  - name: languageCode
+    type: STRING
+  - name: lexicalCategoryId
+    type: STRING
+  - name: formCount
+    type: INTEGER
+  - name: senseCount
+    type: INTEGER
+- label: Form
+  properties:
+  - name: formId
+    type: STRING
+  - name: representation
+    type: STRING
+  - name: grammaticalFeatureCount
+    type: INTEGER
+- label: Sense
+  properties:
+  - name: senseId
+    type: STRING
+  - name: gloss
+    type: STRING
+  - name: glossLanguage
+    type: STRING
+- label: EntitySchema
+  properties:
+  - name: eid
+    type: STRING
+  - name: label
+    type: STRING
+  - name: description
+    type: STRING
+  - name: schemaText
+    type: STRING
+- label: Revision
+  properties:
+  - name: revisionId
+    type: STRING
+  - name: timestamp
+    type: DATE
+  - name: comment
+    type: STRING
+  - name: sizeBytes
+    type: INTEGER
+  - name: isMinor
+    type: BOOLEAN
+- label: Editor
+  properties:
+  - name: username
+    type: STRING
+  - name: userId
+    type: STRING
+  - name: isBot
+    type: BOOLEAN
+  - name: editCount
+    type: INTEGER
+  - name: registrationDate
+    type: DATE
+relationships:
+- type: HAS_STATEMENT
+  start: Item
+  end: Statement
+- type: HAS_STATEMENT
+  start: Property
+  end: Statement
+- type: HAS_STATEMENT
+  start: Lexeme
+  end: Statement
+- type: HAS_STATEMENT
+  start: Sense
+  end: Statement
+- type: HAS_STATEMENT
+  start: Form
+  end: Statement
+- type: OF_PROPERTY
+  start: Statement
+  end: Property
+- type: HAS_QUALIFIER
+  start: Statement
+  end: Qualifier
+- type: HAS_REFERENCE
+  start: Statement
+  end: Reference
+- type: OF_PROPERTY
+  start: Qualifier
+  end: Property
+- type: HAS_SNAK
+  start: Reference
+  end: Snak
+- type: OF_PROPERTY
+  start: Snak
+  end: Property
+- type: VALUE_ITEM
+  start: Statement
+  end: Item
+- type: VALUE_QUANTITY
+  start: Statement
+  end: QuantityValue
+- type: VALUE_TIME
+  start: Statement
+  end: TimeValue
+- type: VALUE_COORDINATE
+  start: Statement
+  end: GlobeCoordinateValue
+- type: VALUE_MONOLINGUAL_TEXT
+  start: Statement
+  end: MonolingualText
+- type: VALUE_STRING
+  start: Statement
+  end: StringValue
+- type: VALUE_ITEM
+  start: Qualifier
+  end: Item
+- type: VALUE_TIME
+  start: Qualifier
+  end: TimeValue
+- type: VALUE_QUANTITY
+  start: Qualifier
+  end: QuantityValue
+- type: VALUE_ITEM
+  start: Snak
+  end: Item
+- type: VALUE_STRING
+  start: Snak
+  end: StringValue
+- type: UNIT
+  start: QuantityValue
+  end: Item
+- type: CALENDAR_MODEL
+  start: TimeValue
+  end: Item
+- type: GLOBE
+  start: GlobeCoordinateValue
+  end: Item
+- type: IN_LANGUAGE
+  start: MonolingualText
+  end: Language
+- type: HAS_TERM
+  start: Item
+  end: Term
+- type: HAS_TERM
+  start: Property
+  end: Term
+- type: IN_LANGUAGE
+  start: Term
+  end: Language
+- type: HAS_SITELINK
+  start: Item
+  end: Sitelink
+- type: ON_SITE
+  start: Sitelink
+  end: WikiSite
+- type: HAS_BADGE
+  start: Sitelink
+  end: Item
+- type: SITE_LANGUAGE
+  start: WikiSite
+  end: Language
+- type: HAS_FORM
+  start: Lexeme
+  end: Form
+- type: HAS_SENSE
+  start: Lexeme
+  end: Sense
+- type: LEXICAL_CATEGORY
+  start: Lexeme
+  end: Item
+- type: LANGUAGE_ITEM
+  start: Lexeme
+  end: Item
+- type: GRAMMATICAL_FEATURE
+  start: Form
+  end: Item
+- type: CONSTRAINS_ITEM
+  start: EntitySchema
+  end: Item
+- type: REVISION_OF
+  start: Revision
+  end: Item
+- type: EDITED_BY
+  start: Revision
+  end: Editor
+- type: INSTANCE_OF
+  start: Item
+  end: Item
+- type: SUBCLASS_OF
+  start: Item
+  end: Item
+- type: PART_OF
+  start: Item
+  end: Item
+- type: SUBPROPERTY_OF
+  start: Property
+  end: Property
+keys: {}
+rules: {}
+notes:
+- Deliberately NOT flattened. A Statement carries qualifiers, references and a rank,
+- so ROLE_REIFICATION_KEEP applies to the whole model -- collapsing it would destroy it.
+- Included as a counter-example to the flattening rules used by the other seven.

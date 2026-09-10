@@ -1,0 +1,1006 @@
+standard: fhir
+title: HL7 FHIR R5 -- clinical core
+industry: Healthcare
+source:
+  registry: fhir
+  http: hl7.org/fhir/R5/profiles-resources.json
+  version: 5.0.0
+layout:
+  columns: 6
+nodes:
+- label: Patient
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: active
+    type: BOOLEAN
+  - name: nameFamily
+    type: STRING
+  - name: nameGiven
+    type: STRING
+  - name: gender
+    type: STRING
+  - name: birthDate
+    type: DATE
+  - name: deceasedBoolean
+    type: BOOLEAN
+  - name: deceasedDate
+    type: DATE
+  - name: maritalStatus
+    type: STRING
+  - name: multipleBirthInteger
+    type: INTEGER
+  - name: telecom
+    type: STRING
+  - name: addressText
+    type: STRING
+  - name: communicationLanguage
+    type: STRING
+- label: Practitioner
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: active
+    type: BOOLEAN
+  - name: nameFamily
+    type: STRING
+  - name: nameGiven
+    type: STRING
+  - name: gender
+    type: STRING
+  - name: birthDate
+    type: DATE
+  - name: qualificationCode
+    type: STRING
+  - name: communicationLanguage
+    type: STRING
+- label: PractitionerRole
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: active
+    type: BOOLEAN
+  - name: periodStart
+    type: DATE
+  - name: periodEnd
+    type: DATE
+  - name: code
+    type: STRING
+  - name: specialty
+    type: STRING
+  - name: availabilityExceptions
+    type: STRING
+- label: Organization
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: active
+    type: BOOLEAN
+  - name: type
+    type: STRING
+  - name: name
+    type: STRING
+  - name: alias
+    type: STRING
+  - name: telecom
+    type: STRING
+  - name: addressText
+    type: STRING
+- label: Location
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: name
+    type: STRING
+  - name: description
+    type: STRING
+  - name: mode
+    type: STRING
+  - name: type
+    type: STRING
+  - name: physicalType
+    type: STRING
+  - name: addressText
+    type: STRING
+  - name: latitude
+    type: FLOAT
+  - name: longitude
+    type: FLOAT
+- label: HealthcareService
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: active
+    type: BOOLEAN
+  - name: category
+    type: STRING
+  - name: type
+    type: STRING
+  - name: specialty
+    type: STRING
+  - name: name
+    type: STRING
+  - name: comment
+    type: STRING
+  - name: appointmentRequired
+    type: BOOLEAN
+- label: RelatedPerson
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: active
+    type: BOOLEAN
+  - name: relationship
+    type: STRING
+  - name: nameFamily
+    type: STRING
+  - name: nameGiven
+    type: STRING
+  - name: gender
+    type: STRING
+  - name: birthDate
+    type: DATE
+- label: Group
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: active
+    type: BOOLEAN
+  - name: type
+    type: STRING
+  - name: membership
+    type: STRING
+  - name: code
+    type: STRING
+  - name: name
+    type: STRING
+  - name: quantity
+    type: INTEGER
+- label: CareTeam
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: category
+    type: STRING
+  - name: name
+    type: STRING
+  - name: periodStart
+    type: DATE
+  - name: periodEnd
+    type: DATE
+- label: Device
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: manufacturer
+    type: STRING
+  - name: modelNumber
+    type: STRING
+  - name: serialNumber
+    type: STRING
+  - name: manufactureDate
+    type: DATE
+  - name: expirationDate
+    type: DATE
+  - name: lotNumber
+    type: STRING
+  - name: type
+    type: STRING
+- label: Coverage
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: kind
+    type: STRING
+  - name: type
+    type: STRING
+  - name: subscriberId
+    type: STRING
+  - name: dependent
+    type: STRING
+  - name: relationship
+    type: STRING
+  - name: periodStart
+    type: DATE
+  - name: periodEnd
+    type: DATE
+  - name: network
+    type: STRING
+- label: Encounter
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: class
+    type: STRING
+  - name: priority
+    type: STRING
+  - name: type
+    type: STRING
+  - name: serviceType
+    type: STRING
+  - name: actualPeriodStart
+    type: DATE
+  - name: actualPeriodEnd
+    type: DATE
+  - name: lengthMinutes
+    type: INTEGER
+  - name: admitSource
+    type: STRING
+  - name: dischargeDisposition
+    type: STRING
+- label: EpisodeOfCare
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: type
+    type: STRING
+  - name: periodStart
+    type: DATE
+  - name: periodEnd
+    type: DATE
+- label: Condition
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: clinicalStatus
+    type: STRING
+  - name: verificationStatus
+    type: STRING
+  - name: category
+    type: STRING
+  - name: severity
+    type: STRING
+  - name: code
+    type: STRING
+  - name: bodySite
+    type: STRING
+  - name: onsetDate
+    type: DATE
+  - name: abatementDate
+    type: DATE
+  - name: recordedDate
+    type: DATE
+- label: Observation
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: category
+    type: STRING
+  - name: code
+    type: STRING
+  - name: effectiveDate
+    type: DATE
+  - name: issued
+    type: DATE
+  - name: valueQuantity
+    type: FLOAT
+  - name: valueUnit
+    type: STRING
+  - name: valueCodeableConcept
+    type: STRING
+  - name: valueString
+    type: STRING
+  - name: interpretation
+    type: STRING
+  - name: bodySite
+    type: STRING
+  - name: method
+    type: STRING
+- label: Procedure
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: category
+    type: STRING
+  - name: code
+    type: STRING
+  - name: occurrenceDate
+    type: DATE
+  - name: recorded
+    type: DATE
+  - name: outcome
+    type: STRING
+  - name: bodySite
+    type: STRING
+- label: DiagnosticReport
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: category
+    type: STRING
+  - name: code
+    type: STRING
+  - name: effectiveDate
+    type: DATE
+  - name: issued
+    type: DATE
+  - name: conclusion
+    type: STRING
+- label: Specimen
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: type
+    type: STRING
+  - name: receivedTime
+    type: DATE
+  - name: collectedDate
+    type: DATE
+  - name: collectionMethod
+    type: STRING
+  - name: bodySite
+    type: STRING
+- label: AllergyIntolerance
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: clinicalStatus
+    type: STRING
+  - name: verificationStatus
+    type: STRING
+  - name: type
+    type: STRING
+  - name: category
+    type: STRING
+  - name: criticality
+    type: STRING
+  - name: code
+    type: STRING
+  - name: onsetDate
+    type: DATE
+  - name: recordedDate
+    type: DATE
+  - name: lastOccurrence
+    type: DATE
+- label: Immunization
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: vaccineCode
+    type: STRING
+  - name: occurrenceDate
+    type: DATE
+  - name: primarySource
+    type: BOOLEAN
+  - name: lotNumber
+    type: STRING
+  - name: expirationDate
+    type: DATE
+  - name: site
+    type: STRING
+  - name: route
+    type: STRING
+  - name: doseQuantity
+    type: FLOAT
+- label: CarePlan
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: intent
+    type: STRING
+  - name: category
+    type: STRING
+  - name: title
+    type: STRING
+  - name: description
+    type: STRING
+  - name: periodStart
+    type: DATE
+  - name: periodEnd
+    type: DATE
+  - name: created
+    type: DATE
+- label: Goal
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: lifecycleStatus
+    type: STRING
+  - name: achievementStatus
+    type: STRING
+  - name: category
+    type: STRING
+  - name: priority
+    type: STRING
+  - name: description
+    type: STRING
+  - name: startDate
+    type: DATE
+  - name: targetDate
+    type: DATE
+- label: ClinicalImpression
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: description
+    type: STRING
+  - name: effectiveDate
+    type: DATE
+  - name: summary
+    type: STRING
+- label: Medication
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: code
+    type: STRING
+  - name: status
+    type: STRING
+  - name: doseFormCode
+    type: STRING
+  - name: totalVolumeValue
+    type: FLOAT
+  - name: totalVolumeUnit
+    type: STRING
+- label: MedicationRequest
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: intent
+    type: STRING
+  - name: category
+    type: STRING
+  - name: priority
+    type: STRING
+  - name: doNotPerform
+    type: BOOLEAN
+  - name: authoredOn
+    type: DATE
+  - name: dosageText
+    type: STRING
+  - name: dosageRoute
+    type: STRING
+  - name: dispenseQuantity
+    type: FLOAT
+  - name: numberOfRepeatsAllowed
+    type: INTEGER
+- label: MedicationAdministration
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: category
+    type: STRING
+  - name: occurrenceDate
+    type: DATE
+  - name: recorded
+    type: DATE
+  - name: dosageText
+    type: STRING
+  - name: dosageRoute
+    type: STRING
+  - name: dosageDoseValue
+    type: FLOAT
+  - name: dosageDoseUnit
+    type: STRING
+- label: MedicationDispense
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: category
+    type: STRING
+  - name: type
+    type: STRING
+  - name: quantityValue
+    type: FLOAT
+  - name: quantityUnit
+    type: STRING
+  - name: daysSupply
+    type: FLOAT
+  - name: whenPrepared
+    type: DATE
+  - name: whenHandedOver
+    type: DATE
+- label: ServiceRequest
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: intent
+    type: STRING
+  - name: category
+    type: STRING
+  - name: priority
+    type: STRING
+  - name: doNotPerform
+    type: BOOLEAN
+  - name: code
+    type: STRING
+  - name: occurrenceDate
+    type: DATE
+  - name: authoredOn
+    type: DATE
+- label: Appointment
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: cancellationReason
+    type: STRING
+  - name: serviceCategory
+    type: STRING
+  - name: serviceType
+    type: STRING
+  - name: specialty
+    type: STRING
+  - name: appointmentType
+    type: STRING
+  - name: priority
+    type: STRING
+  - name: description
+    type: STRING
+  - name: startDate
+    type: DATE
+  - name: endDate
+    type: DATE
+  - name: minutesDuration
+    type: INTEGER
+  - name: created
+    type: DATE
+- label: Task
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: intent
+    type: STRING
+  - name: priority
+    type: STRING
+  - name: code
+    type: STRING
+  - name: description
+    type: STRING
+  - name: authoredOn
+    type: DATE
+  - name: lastModified
+    type: DATE
+- label: DocumentReference
+  properties:
+  - name: id
+    type: STRING
+  - name: identifier
+    type: STRING
+  - name: status
+    type: STRING
+  - name: docStatus
+    type: STRING
+  - name: type
+    type: STRING
+  - name: category
+    type: STRING
+  - name: date
+    type: DATE
+  - name: description
+    type: STRING
+  - name: contentType
+    type: STRING
+  - name: contentUrl
+    type: STRING
+- label: Provenance
+  properties:
+  - name: id
+    type: STRING
+  - name: occurredDate
+    type: DATE
+  - name: recorded
+    type: DATE
+  - name: activity
+    type: STRING
+  - name: policy
+    type: STRING
+- label: Coding
+  properties:
+  - name: system
+    type: STRING
+  - name: code
+    type: STRING
+  - name: display
+    type: STRING
+  - name: version
+    type: STRING
+  - name: userSelected
+    type: BOOLEAN
+relationships:
+- type: SUBJECT
+  start: Encounter
+  end: Patient
+- type: SUBJECT
+  start: Observation
+  end: Patient
+- type: SUBJECT
+  start: Condition
+  end: Patient
+- type: SUBJECT
+  start: Procedure
+  end: Patient
+- type: PATIENT
+  start: AllergyIntolerance
+  end: Patient
+- type: PATIENT
+  start: Immunization
+  end: Patient
+- type: SUBJECT
+  start: MedicationRequest
+  end: Patient
+- type: SUBJECT
+  start: MedicationAdministration
+  end: Patient
+- type: SUBJECT
+  start: MedicationDispense
+  end: Patient
+- type: SUBJECT
+  start: DiagnosticReport
+  end: Patient
+- type: SUBJECT
+  start: CarePlan
+  end: Patient
+- type: SUBJECT
+  start: Goal
+  end: Patient
+- type: SUBJECT
+  start: ServiceRequest
+  end: Patient
+- type: SUBJECT
+  start: Specimen
+  end: Patient
+- type: PATIENT
+  start: EpisodeOfCare
+  end: Patient
+- type: SUBJECT
+  start: CareTeam
+  end: Patient
+- type: BENEFICIARY
+  start: Coverage
+  end: Patient
+- type: SUBJECT
+  start: ClinicalImpression
+  end: Patient
+- type: SUBJECT
+  start: DocumentReference
+  end: Patient
+- type: PATIENT
+  start: RelatedPerson
+  end: Patient
+- type: FOR
+  start: Task
+  end: Patient
+- type: MEMBER_PATIENT
+  start: Group
+  end: Patient
+- type: GENERAL_PRACTITIONER
+  start: Patient
+  end: Practitioner
+- type: MANAGING_ORGANIZATION
+  start: Patient
+  end: Organization
+- type: LINK
+  start: Patient
+  end: Patient
+- type: PART_OF
+  start: Encounter
+  end: Encounter
+- type: SERVICE_PROVIDER
+  start: Encounter
+  end: Organization
+- type: LOCATION
+  start: Encounter
+  end: Location
+- type: PARTICIPANT
+  start: Encounter
+  end: Practitioner
+- type: EPISODE_OF_CARE
+  start: Encounter
+  end: EpisodeOfCare
+- type: DIAGNOSIS
+  start: Encounter
+  end: Condition
+- type: ENCOUNTER
+  start: Observation
+  end: Encounter
+- type: ENCOUNTER
+  start: Condition
+  end: Encounter
+- type: ENCOUNTER
+  start: Procedure
+  end: Encounter
+- type: ENCOUNTER
+  start: MedicationRequest
+  end: Encounter
+- type: ENCOUNTER
+  start: DiagnosticReport
+  end: Encounter
+- type: PRACTITIONER
+  start: PractitionerRole
+  end: Practitioner
+- type: ORGANIZATION
+  start: PractitionerRole
+  end: Organization
+- type: LOCATION
+  start: PractitionerRole
+  end: Location
+- type: HEALTHCARE_SERVICE
+  start: PractitionerRole
+  end: HealthcareService
+- type: PART_OF
+  start: Organization
+  end: Organization
+- type: PART_OF
+  start: Location
+  end: Location
+- type: MANAGING_ORGANIZATION
+  start: Location
+  end: Organization
+- type: PROVIDED_BY
+  start: HealthcareService
+  end: Organization
+- type: PARTICIPANT
+  start: CareTeam
+  end: Practitioner
+- type: QUALIFICATION_ISSUER
+  start: Practitioner
+  end: Organization
+- type: PERFORMER
+  start: Observation
+  end: Practitioner
+- type: SPECIMEN
+  start: Observation
+  end: Specimen
+- type: DEVICE
+  start: Observation
+  end: Device
+- type: HAS_MEMBER
+  start: Observation
+  end: Observation
+- type: DERIVED_FROM
+  start: Observation
+  end: Observation
+- type: BASED_ON
+  start: Observation
+  end: ServiceRequest
+- type: RESULT
+  start: DiagnosticReport
+  end: Observation
+- type: SPECIMEN
+  start: DiagnosticReport
+  end: Specimen
+- type: PERFORMER
+  start: DiagnosticReport
+  end: Organization
+- type: PERFORMER
+  start: Procedure
+  end: Practitioner
+- type: REASON
+  start: Procedure
+  end: Condition
+- type: REPORT
+  start: Procedure
+  end: DiagnosticReport
+- type: COLLECTOR
+  start: Specimen
+  end: Practitioner
+- type: ASSERTER
+  start: Condition
+  end: Practitioner
+- type: GOAL
+  start: CarePlan
+  end: Goal
+- type: CARE_TEAM
+  start: CarePlan
+  end: CareTeam
+- type: ADDRESSES
+  start: CarePlan
+  end: Condition
+- type: ACTIVITY
+  start: CarePlan
+  end: ServiceRequest
+- type: PROBLEM
+  start: ClinicalImpression
+  end: Condition
+- type: MEDICATION
+  start: MedicationRequest
+  end: Medication
+- type: REQUESTER
+  start: MedicationRequest
+  end: Practitioner
+- type: REASON
+  start: MedicationRequest
+  end: Condition
+- type: MEDICATION
+  start: MedicationAdministration
+  end: Medication
+- type: REQUEST
+  start: MedicationAdministration
+  end: MedicationRequest
+- type: PERFORMER
+  start: MedicationAdministration
+  end: Practitioner
+- type: MEDICATION
+  start: MedicationDispense
+  end: Medication
+- type: AUTHORIZING_PRESCRIPTION
+  start: MedicationDispense
+  end: MedicationRequest
+- type: MANUFACTURER
+  start: Medication
+  end: Organization
+- type: REQUESTER
+  start: ServiceRequest
+  end: Practitioner
+- type: PERFORMER
+  start: ServiceRequest
+  end: Organization
+- type: PARTICIPANT_PRACTITIONER
+  start: Appointment
+  end: Practitioner
+- type: PARTICIPANT_PATIENT
+  start: Appointment
+  end: Patient
+- type: LOCATION
+  start: Appointment
+  end: Location
+- type: BASED_ON
+  start: Appointment
+  end: ServiceRequest
+- type: OWNER
+  start: Task
+  end: Practitioner
+- type: BASED_ON
+  start: Task
+  end: ServiceRequest
+- type: AUTHOR
+  start: DocumentReference
+  end: Practitioner
+- type: CUSTODIAN
+  start: DocumentReference
+  end: Organization
+- type: AGENT
+  start: Provenance
+  end: Practitioner
+- type: TARGET
+  start: Provenance
+  end: Observation
+- type: OWNER
+  start: Device
+  end: Organization
+- type: LOCATION
+  start: Device
+  end: Location
+- type: PAYOR
+  start: Coverage
+  end: Organization
+- type: SUBSCRIBER
+  start: Coverage
+  end: Patient
+- type: CODED_AS
+  start: Condition
+  end: Coding
+- type: CODED_AS
+  start: Observation
+  end: Coding
+- type: CODED_AS
+  start: Procedure
+  end: Coding
+- type: CODED_AS
+  start: Medication
+  end: Coding
+- type: CODED_AS
+  start: AllergyIntolerance
+  end: Coding
+- type: CODED_AS
+  start: Immunization
+  end: Coding
+- type: CODED_AS
+  start: Encounter
+  end: Coding
+- type: CODED_AS
+  start: ServiceRequest
+  end: Coding
+- type: CODED_AS
+  start: Specimen
+  end: Coding
+- type: CODED_AS
+  start: Device
+  end: Coding
+- type: SUBSUMED_BY
+  start: Coding
+  end: Coding
+keys: {}
+rules: {}
+notes:
+- 158 concrete resource types; node selection driven by measured reference in-degree.
+- Organization 96, Patient 86, Practitioner 84, PractitionerRole 79, Device 67, Location 50.
+- Coding node is the SNOMED CT / LOINC / ICD binding point.

@@ -1,0 +1,51 @@
+# Target Format Adapter: Neo4j Workspace data model JSON v4.0.0
+#
+# Structure below was auto-drafted by Adapter.draft_from_sample() from
+# sample.json and then confirmed. Only the type_enum was hand-widened -- see
+# the provenance note on it.
+target: neo4j-workspace
+version: "4.0.0"
+version_path: "$.version"
+
+node:
+  collection: "$.nodes"
+  id_pattern: "n:{i}"
+  label: "$.labels.identifier"
+  name: "$.name"
+  properties:
+    collection: "$.properties"
+    id_pattern: "p:{i}"
+    name: "$.name"
+    type: "$.type"
+    # PROVENANCE: sample.json only exercises STRING and DATE. INTEGER, FLOAT and
+    # BOOLEAN are known-accepted from observed validator behaviour: an upload
+    # failed at $.nodes['n:29'].properties['p:221'].type with
+    #   "Neo4jType does not contain element with name 'DATETIME'"
+    # having already accepted INTEGER and BOOLEAN at n:0 and FLOAT at n:8
+    # earlier in document order. DATETIME is therefore excluded.
+    # Replace this list with {from_schema: ...} once an authoritative
+    # Neo4jType schema is available.
+    type_enum: [STRING, DATE, INTEGER, FLOAT, BOOLEAN]
+
+relationship:
+  collection: "$.relationships"
+  id_pattern: "r:{i}"
+  type: "$.type"
+  name: "$.name"
+  from: "$.from.node"
+  to: "$.to.node"
+
+display:
+  nodes: "$.display.nodes"
+  fields: { x: "$.x", y: "$.y" }
+
+label_pattern: "[A-Z][A-Za-z0-9]*"
+rel_type_pattern: "[A-Z][A-Z0-9_]*"
+
+# All off for v4.0.0. The spec is additive, so these only ever get turned on --
+# and the rules engine then compiles the same profiles into better models.
+capabilities:
+  multi_label: false
+  relationship_properties: false
+  node_keys: false
+  nested_property_types: false

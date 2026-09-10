@@ -1,0 +1,648 @@
+standard: iof
+title: Industrial Ontologies Foundry -- manufacturing
+industry: Manufacturing
+source:
+  registry: iof
+  git: github.com/iofoundry/ontology
+layout:
+  columns: 6
+nodes:
+- label: MaterialArtifact
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: description
+    type: STRING
+  - name: materialType
+    type: STRING
+  - name: serialNumber
+    type: STRING
+  - name: lotNumber
+    type: STRING
+  - name: quantity
+    type: FLOAT
+  - name: unitOfMeasure
+    type: STRING
+  - name: grade
+    type: STRING
+- label: ProductDesign
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: version
+    type: STRING
+  - name: revisionDate
+    type: DATE
+  - name: status
+    type: STRING
+  - name: drawingNumber
+    type: STRING
+- label: PlanSpecification
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: planType
+    type: STRING
+  - name: version
+    type: STRING
+  - name: createdDate
+    type: DATE
+  - name: status
+    type: STRING
+- label: PlannedProcess
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: processType
+    type: STRING
+  - name: plannedStart
+    type: DATE
+  - name: plannedEnd
+    type: DATE
+  - name: actualStart
+    type: DATE
+  - name: actualEnd
+    type: DATE
+  - name: status
+    type: STRING
+- label: ManufacturingProcess
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: processType
+    type: STRING
+  - name: cycleTime
+    type: FLOAT
+  - name: cycleTimeUnit
+    type: STRING
+  - name: yieldQuantity
+    type: FLOAT
+  - name: scrapQuantity
+    type: FLOAT
+  - name: status
+    type: STRING
+- label: ProcessStage
+  properties:
+  - name: id
+    type: STRING
+  - name: stageName
+    type: STRING
+  - name: sequenceNumber
+    type: INTEGER
+  - name: startTime
+    type: DATE
+  - name: endTime
+    type: DATE
+  - name: status
+    type: STRING
+- label: WorkOrder
+  properties:
+  - name: id
+    type: STRING
+  - name: orderNumber
+    type: STRING
+  - name: priority
+    type: STRING
+  - name: quantityOrdered
+    type: FLOAT
+  - name: quantityCompleted
+    type: FLOAT
+  - name: dueDate
+    type: DATE
+  - name: releaseDate
+    type: DATE
+  - name: status
+    type: STRING
+- label: ProductionSchedule
+  properties:
+  - name: id
+    type: STRING
+  - name: scheduleId
+    type: STRING
+  - name: horizonStart
+    type: DATE
+  - name: horizonEnd
+    type: DATE
+  - name: version
+    type: STRING
+  - name: status
+    type: STRING
+- label: Equipment
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: equipmentType
+    type: STRING
+  - name: manufacturer
+    type: STRING
+  - name: modelNumber
+    type: STRING
+  - name: serialNumber
+    type: STRING
+  - name: installDate
+    type: DATE
+  - name: criticality
+    type: STRING
+  - name: status
+    type: STRING
+- label: Capability
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: capabilityType
+    type: STRING
+  - name: description
+    type: STRING
+  - name: ratedCapacity
+    type: FLOAT
+  - name: capacityUnit
+    type: STRING
+- label: Facility
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: facilityType
+    type: STRING
+  - name: addressText
+    type: STRING
+  - name: countryCode
+    type: STRING
+  - name: latitude
+    type: FLOAT
+  - name: longitude
+    type: FLOAT
+- label: WorkCenter
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: workCenterType
+    type: STRING
+  - name: capacity
+    type: FLOAT
+  - name: capacityUnit
+    type: STRING
+- label: Agent
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: agentType
+    type: STRING
+  - name: employeeNumber
+    type: STRING
+- label: AgentRole
+  properties:
+  - name: id
+    type: STRING
+  - name: roleType
+    type: STRING
+  - name: startDate
+    type: DATE
+  - name: endDate
+    type: DATE
+  - name: isActive
+    type: BOOLEAN
+- label: Organization
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: organizationType
+    type: STRING
+  - name: duns
+    type: STRING
+  - name: countryCode
+    type: STRING
+- label: Sensor
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: sensorType
+    type: STRING
+  - name: measurementType
+    type: STRING
+  - name: samplingRate
+    type: FLOAT
+  - name: unitOfMeasure
+    type: STRING
+- label: Measurement
+  properties:
+  - name: id
+    type: STRING
+  - name: measurementType
+    type: STRING
+  - name: value
+    type: FLOAT
+  - name: unitOfMeasure
+    type: STRING
+  - name: timestamp
+    type: DATE
+  - name: quality
+    type: STRING
+- label: InformationContentEntity
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: entityType
+    type: STRING
+  - name: format
+    type: STRING
+  - name: createdDate
+    type: DATE
+- label: Certificate
+  properties:
+  - name: id
+    type: STRING
+  - name: certificateNumber
+    type: STRING
+  - name: certificateType
+    type: STRING
+  - name: issueDate
+    type: DATE
+  - name: expiryDate
+    type: DATE
+  - name: status
+    type: STRING
+- label: CertifyingBody
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: accreditationNumber
+    type: STRING
+  - name: countryCode
+    type: STRING
+- label: Classifier
+  properties:
+  - name: id
+    type: STRING
+  - name: scheme
+    type: STRING
+  - name: code
+    type: STRING
+  - name: label
+    type: STRING
+  - name: definition
+    type: STRING
+- label: SupplyRelationship
+  properties:
+  - name: id
+    type: STRING
+  - name: relationshipType
+    type: STRING
+  - name: startDate
+    type: DATE
+  - name: endDate
+    type: DATE
+  - name: contractReference
+    type: STRING
+  - name: status
+    type: STRING
+- label: Customer
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: customerType
+    type: STRING
+  - name: accountNumber
+    type: STRING
+- label: Supplier
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: supplierType
+    type: STRING
+  - name: supplierNumber
+    type: STRING
+  - name: approvalStatus
+    type: STRING
+  - name: riskRating
+    type: STRING
+- label: PurchaseOrder
+  properties:
+  - name: id
+    type: STRING
+  - name: orderNumber
+    type: STRING
+  - name: orderDate
+    type: DATE
+  - name: promisedDate
+    type: DATE
+  - name: quantity
+    type: FLOAT
+  - name: unitPrice
+    type: FLOAT
+  - name: currencyCode
+    type: STRING
+  - name: status
+    type: STRING
+- label: Shipment
+  properties:
+  - name: id
+    type: STRING
+  - name: shipmentNumber
+    type: STRING
+  - name: shipDate
+    type: DATE
+  - name: arrivalDate
+    type: DATE
+  - name: quantity
+    type: FLOAT
+  - name: carrier
+    type: STRING
+  - name: trackingNumber
+    type: STRING
+  - name: incoterms
+    type: STRING
+- label: Inventory
+  properties:
+  - name: id
+    type: STRING
+  - name: quantityOnHand
+    type: FLOAT
+  - name: unitOfMeasure
+    type: STRING
+  - name: asOfDate
+    type: DATE
+  - name: safetyStock
+    type: FLOAT
+  - name: reorderPoint
+    type: FLOAT
+- label: MaintenanceActivity
+  properties:
+  - name: id
+    type: STRING
+  - name: activityType
+    type: STRING
+  - name: scheduledDate
+    type: DATE
+  - name: completedDate
+    type: DATE
+  - name: downtimeHours
+    type: FLOAT
+  - name: laborHours
+    type: FLOAT
+  - name: cost
+    type: FLOAT
+  - name: currencyCode
+    type: STRING
+- label: FailureEvent
+  properties:
+  - name: id
+    type: STRING
+  - name: failureMode
+    type: STRING
+  - name: failureDate
+    type: DATE
+  - name: detectionMethod
+    type: STRING
+  - name: severity
+    type: STRING
+  - name: rootCause
+    type: STRING
+  - name: mtbfHours
+    type: FLOAT
+- label: Deviation
+  properties:
+  - name: id
+    type: STRING
+  - name: deviationType
+    type: STRING
+  - name: detectedDate
+    type: DATE
+  - name: description
+    type: STRING
+  - name: severity
+    type: STRING
+  - name: status
+    type: STRING
+  - name: disposition
+    type: STRING
+- label: QualityTest
+  properties:
+  - name: id
+    type: STRING
+  - name: testMethod
+    type: STRING
+  - name: testDate
+    type: DATE
+  - name: result
+    type: FLOAT
+  - name: resultUnit
+    type: STRING
+  - name: specificationMin
+    type: FLOAT
+  - name: specificationMax
+    type: FLOAT
+  - name: passFail
+    type: STRING
+relationships:
+- type: REALIZES
+  start: WorkOrder
+  end: PlanSpecification
+- type: PRODUCES
+  start: WorkOrder
+  end: MaterialArtifact
+- type: EXECUTED_AS
+  start: WorkOrder
+  end: ManufacturingProcess
+- type: SCHEDULED_IN
+  start: WorkOrder
+  end: ProductionSchedule
+- type: FOR_CUSTOMER
+  start: WorkOrder
+  end: Customer
+- type: HAS_STAGE
+  start: ManufacturingProcess
+  end: ProcessStage
+- type: NEXT
+  start: ProcessStage
+  end: ProcessStage
+- type: USES_EQUIPMENT
+  start: ManufacturingProcess
+  end: Equipment
+- type: PERFORMED_AT
+  start: ManufacturingProcess
+  end: WorkCenter
+- type: HAS_INPUT
+  start: ManufacturingProcess
+  end: MaterialArtifact
+- type: HAS_OUTPUT
+  start: ManufacturingProcess
+  end: MaterialArtifact
+- type: PRESCRIBED_BY
+  start: ManufacturingProcess
+  end: PlanSpecification
+- type: HAS_PARTICIPANT
+  start: ManufacturingProcess
+  end: AgentRole
+- type: PRESCRIBED_BY
+  start: PlannedProcess
+  end: PlanSpecification
+- type: PART_OF
+  start: PlannedProcess
+  end: PlannedProcess
+- type: HAS_CAPABILITY
+  start: Equipment
+  end: Capability
+- type: LOCATED_IN
+  start: Equipment
+  end: Facility
+- type: COMPONENT_OF
+  start: Equipment
+  end: Equipment
+- type: MONITORED_BY
+  start: Equipment
+  end: Sensor
+- type: LOCATED_IN
+  start: WorkCenter
+  end: Facility
+- type: HAS_CAPABILITY
+  start: WorkCenter
+  end: Capability
+- type: GENERATES
+  start: Sensor
+  end: Measurement
+- type: MEASURES_PROCESS
+  start: Measurement
+  end: ManufacturingProcess
+- type: HAS_ROLE
+  start: Agent
+  end: AgentRole
+- type: ROLE_IN_ORGANIZATION
+  start: AgentRole
+  end: Organization
+- type: MEMBER_OF
+  start: Agent
+  end: Organization
+- type: BUILT_TO_DESIGN
+  start: MaterialArtifact
+  end: ProductDesign
+- type: CLASSIFIED_BY
+  start: MaterialArtifact
+  end: Classifier
+- type: COMPONENT_OF
+  start: MaterialArtifact
+  end: MaterialArtifact
+- type: HAS_INVENTORY
+  start: MaterialArtifact
+  end: Inventory
+- type: TESTED_BY
+  start: MaterialArtifact
+  end: QualityTest
+- type: CERTIFIED_BY
+  start: MaterialArtifact
+  end: Certificate
+- type: GRANTED_BY
+  start: Certificate
+  end: CertifyingBody
+- type: CERTIFIES_EQUIPMENT
+  start: Certificate
+  end: Equipment
+- type: CATEGORIZED_BY
+  start: Classifier
+  end: Classifier
+- type: DEPENDS_ON_BUYER
+  start: SupplyRelationship
+  end: Customer
+- type: DEPENDS_ON_SUPPLIER
+  start: SupplyRelationship
+  end: Supplier
+- type: GOVERNS_MATERIAL
+  start: SupplyRelationship
+  end: MaterialArtifact
+- type: PLACED_WITH
+  start: PurchaseOrder
+  end: Supplier
+- type: ORDERS_MATERIAL
+  start: PurchaseOrder
+  end: MaterialArtifact
+- type: FULFILLED_BY
+  start: PurchaseOrder
+  end: Shipment
+- type: SHIPS_MATERIAL
+  start: Shipment
+  end: MaterialArtifact
+- type: SHIPPED_FROM
+  start: Shipment
+  end: Facility
+- type: SHIPPED_TO
+  start: Shipment
+  end: Facility
+- type: STORED_AT
+  start: Inventory
+  end: Facility
+- type: MAINTAINS
+  start: MaintenanceActivity
+  end: Equipment
+- type: PERFORMED_BY
+  start: MaintenanceActivity
+  end: AgentRole
+- type: ADDRESSES_FAILURE
+  start: MaintenanceActivity
+  end: FailureEvent
+- type: AFFECTS_EQUIPMENT
+  start: FailureEvent
+  end: Equipment
+- type: CAUSED_DEVIATION
+  start: FailureEvent
+  end: Deviation
+- type: AFFECTS_PROCESS
+  start: Deviation
+  end: ManufacturingProcess
+- type: AFFECTS_MATERIAL
+  start: Deviation
+  end: MaterialArtifact
+- type: PERFORMED_BY
+  start: QualityTest
+  end: AgentRole
+- type: IS_ORGANIZATION
+  start: Supplier
+  end: Organization
+- type: IS_ORGANIZATION
+  start: Customer
+  end: Organization
+- type: SCHEDULES_WORK_CENTER
+  start: ProductionSchedule
+  end: WorkCenter
+- type: ABOUT
+  start: InformationContentEntity
+  end: MaterialArtifact
+- type: CLASSIFIED_BY
+  start: InformationContentEntity
+  end: Classifier
+keys: {}
+rules: {}
+notes:
+- 1,002 classes / 25,348 triples; BFO-grounded.
+- 'BFO role reification preserved: Agent -> AgentRole (ROLE_REIFICATION_KEEP).'
+- 'Real IOF predicates reused: certificateGrantedBy, categorizedBy, dependsOnBuyer.'

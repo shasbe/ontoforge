@@ -1,0 +1,386 @@
+standard: epcis
+title: GS1 EPCIS 2.0 -- supply chain traceability
+industry: Supply Chain
+source:
+  registry: epcis
+  http: ref.gs1.org/standards/epcis/2.0.0/epcis-ontology.ttl
+layout:
+  columns: 5
+nodes:
+- label: EPCISEvent
+  properties:
+  - name: eventId
+    type: STRING
+  - name: eventType
+    type: STRING
+  - name: eventTime
+    type: DATETIME
+  - name: recordTime
+    type: DATETIME
+  - name: eventTimeZoneOffset
+    type: STRING
+  - name: action
+    type: STRING
+  - name: parentId
+    type: STRING
+  - name: transformationId
+    type: STRING
+  - name: certificationInfo
+    type: STRING
+- label: TradeItemInstance
+  properties:
+  - name: epc
+    type: STRING
+  - name: epcScheme
+    type: STRING
+  - name: gtin
+    type: STRING
+  - name: serialNumber
+    type: STRING
+  - name: lotNumber
+    type: STRING
+- label: TradeItem
+  properties:
+  - name: id
+    type: STRING
+  - name: epcClass
+    type: STRING
+  - name: gtin
+    type: STRING
+  - name: productName
+    type: STRING
+  - name: gpcCategoryCode
+    type: STRING
+- label: QuantityElement
+  properties:
+  - name: id
+    type: STRING
+  - name: epcClass
+    type: STRING
+  - name: quantity
+    type: FLOAT
+  - name: uom
+    type: STRING
+- label: BizStep
+  properties:
+  - name: id
+    type: STRING
+  - name: code
+    type: STRING
+  - name: uri
+    type: STRING
+  - name: label
+    type: STRING
+  - name: definition
+    type: STRING
+- label: Disposition
+  properties:
+  - name: id
+    type: STRING
+  - name: code
+    type: STRING
+  - name: uri
+    type: STRING
+  - name: label
+    type: STRING
+  - name: definition
+    type: STRING
+- label: PersistentDisposition
+  properties:
+  - name: id
+    type: STRING
+  - name: setDispositions
+    type: STRING
+  - name: unsetDispositions
+    type: STRING
+- label: BizTransaction
+  properties:
+  - name: id
+    type: STRING
+  - name: transactionType
+    type: STRING
+  - name: transactionId
+    type: STRING
+  - name: transactionUri
+    type: STRING
+- label: Place
+  properties:
+  - name: id
+    type: STRING
+  - name: gln
+    type: STRING
+  - name: sgln
+    type: STRING
+  - name: name
+    type: STRING
+  - name: locationType
+    type: STRING
+  - name: addressText
+    type: STRING
+  - name: latitude
+    type: FLOAT
+  - name: longitude
+    type: FLOAT
+- label: SourceOrDestination
+  properties:
+  - name: id
+    type: STRING
+  - name: sourceOrDestinationType
+    type: STRING
+  - name: identifier
+    type: STRING
+- label: Party
+  properties:
+  - name: id
+    type: STRING
+  - name: gln
+    type: STRING
+  - name: partyName
+    type: STRING
+  - name: partyRole
+    type: STRING
+- label: SensorElement
+  properties:
+  - name: id
+    type: STRING
+  - name: elementId
+    type: STRING
+- label: SensorMetadata
+  properties:
+  - name: id
+    type: STRING
+  - name: time
+    type: DATETIME
+  - name: startTime
+    type: DATETIME
+  - name: endTime
+    type: DATETIME
+  - name: dataProcessingMethod
+    type: STRING
+  - name: bizRules
+    type: STRING
+- label: SensorReport
+  properties:
+  - name: id
+    type: STRING
+  - name: measurementType
+    type: STRING
+  - name: value
+    type: FLOAT
+  - name: uom
+    type: STRING
+  - name: minValue
+    type: FLOAT
+  - name: maxValue
+    type: FLOAT
+  - name: meanValue
+    type: FLOAT
+  - name: sDev
+    type: FLOAT
+  - name: percRank
+    type: FLOAT
+  - name: percValue
+    type: FLOAT
+  - name: stringValue
+    type: STRING
+  - name: booleanValue
+    type: BOOLEAN
+  - name: hexBinaryValue
+    type: STRING
+  - name: uriValue
+    type: STRING
+  - name: component
+    type: STRING
+  - name: chemicalSubstance
+    type: STRING
+  - name: microorganism
+    type: STRING
+  - name: coordinateReferenceSystem
+    type: STRING
+  - name: exception
+    type: STRING
+- label: SensorDevice
+  properties:
+  - name: id
+    type: STRING
+  - name: deviceId
+    type: STRING
+  - name: deviceType
+    type: STRING
+  - name: manufacturer
+    type: STRING
+  - name: modelNumber
+    type: STRING
+- label: ILMD
+  properties:
+  - name: id
+    type: STRING
+  - name: lotNumber
+    type: STRING
+  - name: productionDate
+    type: DATE
+  - name: bestBeforeDate
+    type: DATE
+  - name: itemExpirationDate
+    type: DATE
+  - name: farmName
+    type: STRING
+  - name: countryOfOrigin
+    type: STRING
+- label: ErrorDeclaration
+  properties:
+  - name: id
+    type: STRING
+  - name: declarationTime
+    type: DATETIME
+  - name: reason
+    type: STRING
+- label: Transformation
+  properties:
+  - name: id
+    type: STRING
+  - name: transformationId
+    type: STRING
+  - name: description
+    type: STRING
+- label: EPCISDocument
+  properties:
+  - name: id
+    type: STRING
+  - name: schemaVersion
+    type: STRING
+  - name: creationDate
+    type: STRING
+- label: MasterData
+  properties:
+  - name: id
+    type: STRING
+  - name: vocabularyType
+    type: STRING
+  - name: vocabularyElementId
+    type: STRING
+  - name: attributeCount
+    type: INTEGER
+relationships:
+- type: NEXT
+  start: EPCISEvent
+  end: EPCISEvent
+- type: HAS_EPC
+  start: EPCISEvent
+  end: TradeItemInstance
+- type: PARENT_EPC
+  start: EPCISEvent
+  end: TradeItemInstance
+- type: CHILD_EPC
+  start: EPCISEvent
+  end: TradeItemInstance
+- type: INPUT_EPC
+  start: EPCISEvent
+  end: TradeItemInstance
+- type: OUTPUT_EPC
+  start: EPCISEvent
+  end: TradeItemInstance
+- type: HAS_QUANTITY_ELEMENT
+  start: EPCISEvent
+  end: QuantityElement
+- type: BIZ_STEP
+  start: EPCISEvent
+  end: BizStep
+- type: DISPOSITION
+  start: EPCISEvent
+  end: Disposition
+- type: PERSISTENT_DISPOSITION
+  start: EPCISEvent
+  end: PersistentDisposition
+- type: READ_POINT
+  start: EPCISEvent
+  end: Place
+- type: BIZ_LOCATION
+  start: EPCISEvent
+  end: Place
+- type: HAS_BIZ_TRANSACTION
+  start: EPCISEvent
+  end: BizTransaction
+- type: SOURCE
+  start: EPCISEvent
+  end: SourceOrDestination
+- type: DESTINATION
+  start: EPCISEvent
+  end: SourceOrDestination
+- type: HAS_SENSOR_ELEMENT
+  start: EPCISEvent
+  end: SensorElement
+- type: HAS_ILMD
+  start: EPCISEvent
+  end: ILMD
+- type: HAS_ERROR_DECLARATION
+  start: EPCISEvent
+  end: ErrorDeclaration
+- type: HAS_TRANSFORMATION
+  start: EPCISEvent
+  end: Transformation
+- type: IN_DOCUMENT
+  start: EPCISEvent
+  end: EPCISDocument
+- type: CORRECTIVE_EVENT
+  start: ErrorDeclaration
+  end: EPCISEvent
+- type: HAS_METADATA
+  start: SensorElement
+  end: SensorMetadata
+- type: HAS_REPORT
+  start: SensorElement
+  end: SensorReport
+- type: DEVICE
+  start: SensorMetadata
+  end: SensorDevice
+- type: DEVICE
+  start: SensorReport
+  end: SensorDevice
+- type: OF_EPC_CLASS
+  start: QuantityElement
+  end: TradeItem
+- type: INSTANCE_OF
+  start: TradeItemInstance
+  end: TradeItem
+- type: IS_PLACE
+  start: SourceOrDestination
+  end: Place
+- type: IS_PARTY
+  start: SourceOrDestination
+  end: Party
+- type: SENDER
+  start: EPCISDocument
+  end: Party
+- type: RECEIVER
+  start: EPCISDocument
+  end: Party
+- type: HAS_MASTER_DATA
+  start: EPCISDocument
+  end: MasterData
+- type: DESCRIBES_PLACE
+  start: MasterData
+  end: Place
+- type: DESCRIBES_TRADE_ITEM
+  start: MasterData
+  end: TradeItem
+- type: PART_OF
+  start: Place
+  end: Place
+- type: BROADER_THAN
+  start: BizStep
+  end: BizStep
+- type: OPERATES_PLACE
+  start: Party
+  end: Place
+- type: FOR_TRADE_ITEM
+  start: ILMD
+  end: TradeItem
+keys: {}
+rules: {}
+notes:
+- 20 classes / 74 properties. EPCISEvent has exactly 5 subclasses.
+- Collapsed to an eventType DISCRIMINATOR because the target allows one label per node;
+- flip capabilities.multi_label on and these become second labels instead.
+- Timestamps are declared DATETIME; the TYPE_MAP rule negotiates them to STRING (ISO 8601) for targets
+  whose Neo4jType enum lacks DATETIME.

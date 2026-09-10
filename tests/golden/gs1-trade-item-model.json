@@ -1,0 +1,1437 @@
+{
+  "version": "4.0.0",
+  "nodes": {
+    "n:0": {
+      "labels": {
+        "identifier": "Product"
+      },
+      "properties": {
+        "p:0": {
+          "type": "STRING",
+          "name": "gtin"
+        },
+        "p:1": {
+          "type": "STRING",
+          "name": "productName"
+        },
+        "p:2": {
+          "type": "STRING",
+          "name": "brandName"
+        },
+        "p:3": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "p:4": {
+          "type": "STRING",
+          "name": "gpcCategoryCode"
+        },
+        "p:5": {
+          "type": "FLOAT",
+          "name": "netContentValue"
+        },
+        "p:6": {
+          "type": "STRING",
+          "name": "netContentUnit"
+        },
+        "p:7": {
+          "type": "STRING",
+          "name": "countryOfOrigin"
+        },
+        "p:8": {
+          "type": "DATE",
+          "name": "productionDate"
+        },
+        "p:9": {
+          "type": "DATE",
+          "name": "expirationDate"
+        },
+        "p:10": {
+          "type": "BOOLEAN",
+          "name": "isConsumerUnit"
+        },
+        "p:11": {
+          "type": "BOOLEAN",
+          "name": "isBaseUnit"
+        },
+        "p:12": {
+          "type": "BOOLEAN",
+          "name": "isOrderableUnit"
+        },
+        "p:13": {
+          "type": "BOOLEAN",
+          "name": "isDespatchUnit"
+        },
+        "p:14": {
+          "type": "BOOLEAN",
+          "name": "isVariableWeight"
+        },
+        "p:15": {
+          "type": "FLOAT",
+          "name": "grossWeight"
+        },
+        "p:16": {
+          "type": "STRING",
+          "name": "weightUnit"
+        }
+      },
+      "name": "Product"
+    },
+    "n:1": {
+      "labels": {
+        "identifier": "Brand"
+      },
+      "properties": {
+        "p:17": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:18": {
+          "type": "STRING",
+          "name": "brandName"
+        },
+        "p:19": {
+          "type": "STRING",
+          "name": "subBrand"
+        },
+        "p:20": {
+          "type": "STRING",
+          "name": "brandOwnerName"
+        }
+      },
+      "name": "Brand"
+    },
+    "n:2": {
+      "labels": {
+        "identifier": "Organization"
+      },
+      "properties": {
+        "p:21": {
+          "type": "STRING",
+          "name": "gln"
+        },
+        "p:22": {
+          "type": "STRING",
+          "name": "organizationName"
+        },
+        "p:23": {
+          "type": "STRING",
+          "name": "organizationType"
+        },
+        "p:24": {
+          "type": "STRING",
+          "name": "taxId"
+        },
+        "p:25": {
+          "type": "STRING",
+          "name": "duns"
+        },
+        "p:26": {
+          "type": "BOOLEAN",
+          "name": "isManufacturer"
+        }
+      },
+      "name": "Organization"
+    },
+    "n:3": {
+      "labels": {
+        "identifier": "Place"
+      },
+      "properties": {
+        "p:27": {
+          "type": "STRING",
+          "name": "gln"
+        },
+        "p:28": {
+          "type": "STRING",
+          "name": "placeName"
+        },
+        "p:29": {
+          "type": "STRING",
+          "name": "placeType"
+        },
+        "p:30": {
+          "type": "STRING",
+          "name": "glnType"
+        },
+        "p:31": {
+          "type": "FLOAT",
+          "name": "latitude"
+        },
+        "p:32": {
+          "type": "FLOAT",
+          "name": "longitude"
+        }
+      },
+      "name": "Place"
+    },
+    "n:4": {
+      "labels": {
+        "identifier": "PostalAddress"
+      },
+      "properties": {
+        "p:33": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:34": {
+          "type": "STRING",
+          "name": "streetAddress"
+        },
+        "p:35": {
+          "type": "STRING",
+          "name": "addressLocality"
+        },
+        "p:36": {
+          "type": "STRING",
+          "name": "addressRegion"
+        },
+        "p:37": {
+          "type": "STRING",
+          "name": "addressSuburb"
+        },
+        "p:38": {
+          "type": "STRING",
+          "name": "postalCode"
+        }
+      },
+      "name": "PostalAddress"
+    },
+    "n:5": {
+      "labels": {
+        "identifier": "Country"
+      },
+      "properties": {
+        "p:39": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:40": {
+          "type": "STRING",
+          "name": "countryCode"
+        },
+        "p:41": {
+          "type": "STRING",
+          "name": "countryName"
+        }
+      },
+      "name": "Country"
+    },
+    "n:6": {
+      "labels": {
+        "identifier": "GeoCoordinates"
+      },
+      "properties": {
+        "p:42": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:43": {
+          "type": "FLOAT",
+          "name": "latitude"
+        },
+        "p:44": {
+          "type": "FLOAT",
+          "name": "longitude"
+        },
+        "p:45": {
+          "type": "FLOAT",
+          "name": "elevation"
+        }
+      },
+      "name": "GeoCoordinates"
+    },
+    "n:7": {
+      "labels": {
+        "identifier": "Offer"
+      },
+      "properties": {
+        "p:46": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:47": {
+          "type": "STRING",
+          "name": "offerId"
+        },
+        "p:48": {
+          "type": "FLOAT",
+          "name": "price"
+        },
+        "p:49": {
+          "type": "STRING",
+          "name": "priceCurrency"
+        },
+        "p:50": {
+          "type": "STRING",
+          "name": "availability"
+        },
+        "p:51": {
+          "type": "DATE",
+          "name": "validFrom"
+        },
+        "p:52": {
+          "type": "DATE",
+          "name": "validThrough"
+        },
+        "p:53": {
+          "type": "FLOAT",
+          "name": "eligibleQuantity"
+        },
+        "p:54": {
+          "type": "STRING",
+          "name": "acceptedPaymentMethod"
+        }
+      },
+      "name": "Offer"
+    },
+    "n:8": {
+      "labels": {
+        "identifier": "PriceSpecification"
+      },
+      "properties": {
+        "p:55": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:56": {
+          "type": "FLOAT",
+          "name": "price"
+        },
+        "p:57": {
+          "type": "STRING",
+          "name": "priceCurrency"
+        },
+        "p:58": {
+          "type": "BOOLEAN",
+          "name": "valueAddedTaxIncluded"
+        },
+        "p:59": {
+          "type": "DATE",
+          "name": "validFrom"
+        },
+        "p:60": {
+          "type": "DATE",
+          "name": "validThrough"
+        }
+      },
+      "name": "PriceSpecification"
+    },
+    "n:9": {
+      "labels": {
+        "identifier": "Discount"
+      },
+      "properties": {
+        "p:61": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:62": {
+          "type": "STRING",
+          "name": "discountType"
+        },
+        "p:63": {
+          "type": "FLOAT",
+          "name": "discountValue"
+        },
+        "p:64": {
+          "type": "STRING",
+          "name": "discountCurrency"
+        }
+      },
+      "name": "Discount"
+    },
+    "n:10": {
+      "labels": {
+        "identifier": "PackagingDetails"
+      },
+      "properties": {
+        "p:65": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:66": {
+          "type": "STRING",
+          "name": "packagingTypeCode"
+        },
+        "p:67": {
+          "type": "STRING",
+          "name": "packagingMaterialCode"
+        },
+        "p:68": {
+          "type": "BOOLEAN",
+          "name": "isRecyclable"
+        },
+        "p:69": {
+          "type": "FLOAT",
+          "name": "packagingWeight"
+        },
+        "p:70": {
+          "type": "STRING",
+          "name": "weightUnit"
+        },
+        "p:71": {
+          "type": "BOOLEAN",
+          "name": "isReturnable"
+        }
+      },
+      "name": "PackagingDetails"
+    },
+    "n:11": {
+      "labels": {
+        "identifier": "AllergenDetails"
+      },
+      "properties": {
+        "p:72": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:73": {
+          "type": "STRING",
+          "name": "allergenTypeCode"
+        },
+        "p:74": {
+          "type": "STRING",
+          "name": "levelOfContainmentCode"
+        },
+        "p:75": {
+          "type": "STRING",
+          "name": "allergenStatement"
+        }
+      },
+      "name": "AllergenDetails"
+    },
+    "n:12": {
+      "labels": {
+        "identifier": "AdditiveDetails"
+      },
+      "properties": {
+        "p:76": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:77": {
+          "type": "STRING",
+          "name": "additiveName"
+        },
+        "p:78": {
+          "type": "STRING",
+          "name": "levelOfContainmentCode"
+        }
+      },
+      "name": "AdditiveDetails"
+    },
+    "n:13": {
+      "labels": {
+        "identifier": "NutrientDetail"
+      },
+      "properties": {
+        "p:79": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:80": {
+          "type": "STRING",
+          "name": "nutrientTypeCode"
+        },
+        "p:81": {
+          "type": "FLOAT",
+          "name": "quantityContained"
+        },
+        "p:82": {
+          "type": "STRING",
+          "name": "quantityUnit"
+        },
+        "p:83": {
+          "type": "FLOAT",
+          "name": "dailyValuePercent"
+        },
+        "p:84": {
+          "type": "STRING",
+          "name": "measurementPrecision"
+        }
+      },
+      "name": "NutrientDetail"
+    },
+    "n:14": {
+      "labels": {
+        "identifier": "Ingredient"
+      },
+      "properties": {
+        "p:85": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:86": {
+          "type": "STRING",
+          "name": "ingredientName"
+        },
+        "p:87": {
+          "type": "INTEGER",
+          "name": "ingredientSequence"
+        },
+        "p:88": {
+          "type": "FLOAT",
+          "name": "ingredientStrength"
+        },
+        "p:89": {
+          "type": "STRING",
+          "name": "strengthUnit"
+        }
+      },
+      "name": "Ingredient"
+    },
+    "n:15": {
+      "labels": {
+        "identifier": "CertificationDetails"
+      },
+      "properties": {
+        "p:90": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:91": {
+          "type": "STRING",
+          "name": "certificationStandard"
+        },
+        "p:92": {
+          "type": "STRING",
+          "name": "certificationAgency"
+        },
+        "p:93": {
+          "type": "STRING",
+          "name": "certificationValue"
+        },
+        "p:94": {
+          "type": "DATE",
+          "name": "certificationEndDate"
+        }
+      },
+      "name": "CertificationDetails"
+    },
+    "n:16": {
+      "labels": {
+        "identifier": "RegulatoryInformation"
+      },
+      "properties": {
+        "p:95": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:96": {
+          "type": "STRING",
+          "name": "regulationTypeCode"
+        },
+        "p:97": {
+          "type": "STRING",
+          "name": "regulatoryAct"
+        },
+        "p:98": {
+          "type": "STRING",
+          "name": "permitId"
+        },
+        "p:99": {
+          "type": "STRING",
+          "name": "complianceStatement"
+        }
+      },
+      "name": "RegulatoryInformation"
+    },
+    "n:17": {
+      "labels": {
+        "identifier": "Identifier"
+      },
+      "properties": {
+        "p:100": {
+          "type": "STRING",
+          "name": "scheme"
+        },
+        "p:101": {
+          "type": "STRING",
+          "name": "value"
+        },
+        "p:102": {
+          "type": "STRING",
+          "name": "issuingAuthority"
+        },
+        "p:103": {
+          "type": "BOOLEAN",
+          "name": "isPrimary"
+        }
+      },
+      "name": "Identifier"
+    },
+    "n:18": {
+      "labels": {
+        "identifier": "DigitalLink"
+      },
+      "properties": {
+        "p:104": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:105": {
+          "type": "STRING",
+          "name": "uri"
+        },
+        "p:106": {
+          "type": "STRING",
+          "name": "linkType"
+        },
+        "p:107": {
+          "type": "STRING",
+          "name": "linkTitle"
+        },
+        "p:108": {
+          "type": "STRING",
+          "name": "targetUrl"
+        },
+        "p:109": {
+          "type": "STRING",
+          "name": "language"
+        },
+        "p:110": {
+          "type": "STRING",
+          "name": "context"
+        }
+      },
+      "name": "DigitalLink"
+    },
+    "n:19": {
+      "labels": {
+        "identifier": "GPCCategory"
+      },
+      "properties": {
+        "p:111": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "p:112": {
+          "type": "STRING",
+          "name": "title"
+        },
+        "p:113": {
+          "type": "STRING",
+          "name": "definition"
+        },
+        "p:114": {
+          "type": "INTEGER",
+          "name": "level"
+        }
+      },
+      "name": "GPCCategory"
+    },
+    "n:20": {
+      "labels": {
+        "identifier": "TypeCode"
+      },
+      "properties": {
+        "p:115": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:116": {
+          "type": "STRING",
+          "name": "codeScheme"
+        },
+        "p:117": {
+          "type": "STRING",
+          "name": "codeValue"
+        },
+        "p:118": {
+          "type": "STRING",
+          "name": "codeDescription"
+        }
+      },
+      "name": "TypeCode"
+    },
+    "n:21": {
+      "labels": {
+        "identifier": "QuantitativeValue"
+      },
+      "properties": {
+        "p:119": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:120": {
+          "type": "FLOAT",
+          "name": "value"
+        },
+        "p:121": {
+          "type": "STRING",
+          "name": "unitCode"
+        },
+        "p:122": {
+          "type": "FLOAT",
+          "name": "minValue"
+        },
+        "p:123": {
+          "type": "FLOAT",
+          "name": "maxValue"
+        }
+      },
+      "name": "QuantitativeValue"
+    },
+    "n:22": {
+      "labels": {
+        "identifier": "TargetMarket"
+      },
+      "properties": {
+        "p:124": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:125": {
+          "type": "STRING",
+          "name": "countryCode"
+        },
+        "p:126": {
+          "type": "STRING",
+          "name": "countryName"
+        },
+        "p:127": {
+          "type": "STRING",
+          "name": "subdivisionCode"
+        }
+      },
+      "name": "TargetMarket"
+    },
+    "n:23": {
+      "labels": {
+        "identifier": "SizeDetails"
+      },
+      "properties": {
+        "p:128": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:129": {
+          "type": "STRING",
+          "name": "sizeCodeValue"
+        },
+        "p:130": {
+          "type": "STRING",
+          "name": "sizeSystem"
+        },
+        "p:131": {
+          "type": "STRING",
+          "name": "sizeDescriptor"
+        }
+      },
+      "name": "SizeDetails"
+    },
+    "n:24": {
+      "labels": {
+        "identifier": "ReferencedFile"
+      },
+      "properties": {
+        "p:132": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:133": {
+          "type": "STRING",
+          "name": "fileName"
+        },
+        "p:134": {
+          "type": "STRING",
+          "name": "fileFormat"
+        },
+        "p:135": {
+          "type": "STRING",
+          "name": "url"
+        },
+        "p:136": {
+          "type": "STRING",
+          "name": "fileTypeCode"
+        },
+        "p:137": {
+          "type": "STRING",
+          "name": "language"
+        }
+      },
+      "name": "ReferencedFile"
+    },
+    "n:25": {
+      "labels": {
+        "identifier": "Transaction"
+      },
+      "properties": {
+        "p:138": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:139": {
+          "type": "STRING",
+          "name": "transactionType"
+        },
+        "p:140": {
+          "type": "DATE",
+          "name": "transactionDate"
+        },
+        "p:141": {
+          "type": "STRING",
+          "name": "transactionIdentifier"
+        }
+      },
+      "name": "Transaction"
+    },
+    "n:26": {
+      "labels": {
+        "identifier": "LogisticUnit"
+      },
+      "properties": {
+        "p:142": {
+          "type": "STRING",
+          "name": "sscc"
+        },
+        "p:143": {
+          "type": "STRING",
+          "name": "unitType"
+        },
+        "p:144": {
+          "type": "FLOAT",
+          "name": "grossWeight"
+        },
+        "p:145": {
+          "type": "STRING",
+          "name": "weightUnit"
+        },
+        "p:146": {
+          "type": "FLOAT",
+          "name": "height"
+        },
+        "p:147": {
+          "type": "FLOAT",
+          "name": "width"
+        },
+        "p:148": {
+          "type": "FLOAT",
+          "name": "depth"
+        },
+        "p:149": {
+          "type": "STRING",
+          "name": "dimensionUnit"
+        }
+      },
+      "name": "LogisticUnit"
+    },
+    "n:27": {
+      "labels": {
+        "identifier": "ContactPoint"
+      },
+      "properties": {
+        "p:150": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:151": {
+          "type": "STRING",
+          "name": "contactType"
+        },
+        "p:152": {
+          "type": "STRING",
+          "name": "telephone"
+        },
+        "p:153": {
+          "type": "STRING",
+          "name": "email"
+        },
+        "p:154": {
+          "type": "STRING",
+          "name": "contactName"
+        }
+      },
+      "name": "ContactPoint"
+    }
+  },
+  "relationships": {
+    "r:0": {
+      "type": "HAS_BRAND",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:1"
+      },
+      "name": "HAS_BRAND"
+    },
+    "r:1": {
+      "type": "BRAND_OWNER",
+      "from": {
+        "node": "n:1"
+      },
+      "to": {
+        "node": "n:2"
+      },
+      "name": "BRAND_OWNER"
+    },
+    "r:2": {
+      "type": "MANUFACTURED_BY",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:2"
+      },
+      "name": "MANUFACTURED_BY"
+    },
+    "r:3": {
+      "type": "IDENTIFIED_BY",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:17"
+      },
+      "name": "IDENTIFIED_BY"
+    },
+    "r:4": {
+      "type": "CLASSIFIED_AS",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:19"
+      },
+      "name": "CLASSIFIED_AS"
+    },
+    "r:5": {
+      "type": "HAS_DIGITAL_LINK",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:18"
+      },
+      "name": "HAS_DIGITAL_LINK"
+    },
+    "r:6": {
+      "type": "CONTAINS_PRODUCT",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:0"
+      },
+      "name": "CONTAINS_PRODUCT"
+    },
+    "r:7": {
+      "type": "HAS_PACKAGING",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:10"
+      },
+      "name": "HAS_PACKAGING"
+    },
+    "r:8": {
+      "type": "HAS_ALLERGEN",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:11"
+      },
+      "name": "HAS_ALLERGEN"
+    },
+    "r:9": {
+      "type": "HAS_ADDITIVE",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:12"
+      },
+      "name": "HAS_ADDITIVE"
+    },
+    "r:10": {
+      "type": "HAS_NUTRIENT",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:13"
+      },
+      "name": "HAS_NUTRIENT"
+    },
+    "r:11": {
+      "type": "HAS_INGREDIENT",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:14"
+      },
+      "name": "HAS_INGREDIENT"
+    },
+    "r:12": {
+      "type": "HAS_CERTIFICATION",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:15"
+      },
+      "name": "HAS_CERTIFICATION"
+    },
+    "r:13": {
+      "type": "HAS_REGULATORY_INFO",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:16"
+      },
+      "name": "HAS_REGULATORY_INFO"
+    },
+    "r:14": {
+      "type": "COUNTRY_OF_ORIGIN",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:5"
+      },
+      "name": "COUNTRY_OF_ORIGIN"
+    },
+    "r:15": {
+      "type": "AVAILABLE_IN_MARKET",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:22"
+      },
+      "name": "AVAILABLE_IN_MARKET"
+    },
+    "r:16": {
+      "type": "HAS_SIZE",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:23"
+      },
+      "name": "HAS_SIZE"
+    },
+    "r:17": {
+      "type": "HAS_REFERENCED_FILE",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:24"
+      },
+      "name": "HAS_REFERENCED_FILE"
+    },
+    "r:18": {
+      "type": "NET_CONTENT",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:21"
+      },
+      "name": "NET_CONTENT"
+    },
+    "r:19": {
+      "type": "OFFERED_AS",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:7"
+      },
+      "name": "OFFERED_AS"
+    },
+    "r:20": {
+      "type": "OFFERED_BY",
+      "from": {
+        "node": "n:7"
+      },
+      "to": {
+        "node": "n:2"
+      },
+      "name": "OFFERED_BY"
+    },
+    "r:21": {
+      "type": "HAS_PRICE_SPECIFICATION",
+      "from": {
+        "node": "n:7"
+      },
+      "to": {
+        "node": "n:8"
+      },
+      "name": "HAS_PRICE_SPECIFICATION"
+    },
+    "r:22": {
+      "type": "HAS_DISCOUNT",
+      "from": {
+        "node": "n:7"
+      },
+      "to": {
+        "node": "n:9"
+      },
+      "name": "HAS_DISCOUNT"
+    },
+    "r:23": {
+      "type": "AVAILABLE_AT",
+      "from": {
+        "node": "n:7"
+      },
+      "to": {
+        "node": "n:3"
+      },
+      "name": "AVAILABLE_AT"
+    },
+    "r:24": {
+      "type": "HAS_ADDRESS",
+      "from": {
+        "node": "n:2"
+      },
+      "to": {
+        "node": "n:4"
+      },
+      "name": "HAS_ADDRESS"
+    },
+    "r:25": {
+      "type": "IDENTIFIED_BY",
+      "from": {
+        "node": "n:2"
+      },
+      "to": {
+        "node": "n:17"
+      },
+      "name": "IDENTIFIED_BY"
+    },
+    "r:26": {
+      "type": "AFFILIATED_TO",
+      "from": {
+        "node": "n:2"
+      },
+      "to": {
+        "node": "n:2"
+      },
+      "name": "AFFILIATED_TO"
+    },
+    "r:27": {
+      "type": "LOCATED_AT",
+      "from": {
+        "node": "n:2"
+      },
+      "to": {
+        "node": "n:3"
+      },
+      "name": "LOCATED_AT"
+    },
+    "r:28": {
+      "type": "HAS_CONTACT_POINT",
+      "from": {
+        "node": "n:2"
+      },
+      "to": {
+        "node": "n:27"
+      },
+      "name": "HAS_CONTACT_POINT"
+    },
+    "r:29": {
+      "type": "HAS_ADDRESS",
+      "from": {
+        "node": "n:3"
+      },
+      "to": {
+        "node": "n:4"
+      },
+      "name": "HAS_ADDRESS"
+    },
+    "r:30": {
+      "type": "IDENTIFIED_BY",
+      "from": {
+        "node": "n:3"
+      },
+      "to": {
+        "node": "n:17"
+      },
+      "name": "IDENTIFIED_BY"
+    },
+    "r:31": {
+      "type": "HAS_GEO_COORDINATES",
+      "from": {
+        "node": "n:3"
+      },
+      "to": {
+        "node": "n:6"
+      },
+      "name": "HAS_GEO_COORDINATES"
+    },
+    "r:32": {
+      "type": "PART_OF_PLACE",
+      "from": {
+        "node": "n:3"
+      },
+      "to": {
+        "node": "n:3"
+      },
+      "name": "PART_OF_PLACE"
+    },
+    "r:33": {
+      "type": "IN_COUNTRY",
+      "from": {
+        "node": "n:3"
+      },
+      "to": {
+        "node": "n:5"
+      },
+      "name": "IN_COUNTRY"
+    },
+    "r:34": {
+      "type": "ADDRESS_COUNTRY",
+      "from": {
+        "node": "n:4"
+      },
+      "to": {
+        "node": "n:5"
+      },
+      "name": "ADDRESS_COUNTRY"
+    },
+    "r:35": {
+      "type": "BROADER_THAN",
+      "from": {
+        "node": "n:19"
+      },
+      "to": {
+        "node": "n:19"
+      },
+      "name": "BROADER_THAN"
+    },
+    "r:36": {
+      "type": "BROADER_THAN",
+      "from": {
+        "node": "n:20"
+      },
+      "to": {
+        "node": "n:20"
+      },
+      "name": "BROADER_THAN"
+    },
+    "r:37": {
+      "type": "ISSUED_BY",
+      "from": {
+        "node": "n:15"
+      },
+      "to": {
+        "node": "n:2"
+      },
+      "name": "ISSUED_BY"
+    },
+    "r:38": {
+      "type": "CONTAINS_PRODUCT",
+      "from": {
+        "node": "n:26"
+      },
+      "to": {
+        "node": "n:0"
+      },
+      "name": "CONTAINS_PRODUCT"
+    },
+    "r:39": {
+      "type": "IDENTIFIED_BY",
+      "from": {
+        "node": "n:26"
+      },
+      "to": {
+        "node": "n:17"
+      },
+      "name": "IDENTIFIED_BY"
+    },
+    "r:40": {
+      "type": "SHIPPED_FROM",
+      "from": {
+        "node": "n:26"
+      },
+      "to": {
+        "node": "n:3"
+      },
+      "name": "SHIPPED_FROM"
+    },
+    "r:41": {
+      "type": "SHIPPED_TO",
+      "from": {
+        "node": "n:26"
+      },
+      "to": {
+        "node": "n:3"
+      },
+      "name": "SHIPPED_TO"
+    },
+    "r:42": {
+      "type": "INVOLVES_PRODUCT",
+      "from": {
+        "node": "n:25"
+      },
+      "to": {
+        "node": "n:0"
+      },
+      "name": "INVOLVES_PRODUCT"
+    },
+    "r:43": {
+      "type": "BUYER",
+      "from": {
+        "node": "n:25"
+      },
+      "to": {
+        "node": "n:2"
+      },
+      "name": "BUYER"
+    },
+    "r:44": {
+      "type": "SELLER",
+      "from": {
+        "node": "n:25"
+      },
+      "to": {
+        "node": "n:2"
+      },
+      "name": "SELLER"
+    },
+    "r:45": {
+      "type": "RESOLVES_TO_FILE",
+      "from": {
+        "node": "n:18"
+      },
+      "to": {
+        "node": "n:24"
+      },
+      "name": "RESOLVES_TO_FILE"
+    },
+    "r:46": {
+      "type": "CLASSIFIED_BY_CODE",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:20"
+      },
+      "name": "CLASSIFIED_BY_CODE"
+    }
+  },
+  "display": {
+    "nodes": {
+      "n:0": {
+        "x": -1075,
+        "y": -200
+      },
+      "n:1": {
+        "x": -645,
+        "y": -200
+      },
+      "n:2": {
+        "x": -215,
+        "y": -200
+      },
+      "n:3": {
+        "x": 215,
+        "y": -200
+      },
+      "n:4": {
+        "x": 645,
+        "y": -200
+      },
+      "n:5": {
+        "x": 1075,
+        "y": -200
+      },
+      "n:6": {
+        "x": -1075,
+        "y": 10
+      },
+      "n:7": {
+        "x": -645,
+        "y": 10
+      },
+      "n:8": {
+        "x": -215,
+        "y": 10
+      },
+      "n:9": {
+        "x": 215,
+        "y": 10
+      },
+      "n:10": {
+        "x": 645,
+        "y": 10
+      },
+      "n:11": {
+        "x": 1075,
+        "y": 10
+      },
+      "n:12": {
+        "x": -1075,
+        "y": 220
+      },
+      "n:13": {
+        "x": -645,
+        "y": 220
+      },
+      "n:14": {
+        "x": -215,
+        "y": 220
+      },
+      "n:15": {
+        "x": 215,
+        "y": 220
+      },
+      "n:16": {
+        "x": 645,
+        "y": 220
+      },
+      "n:17": {
+        "x": 1075,
+        "y": 220
+      },
+      "n:18": {
+        "x": -1075,
+        "y": 430
+      },
+      "n:19": {
+        "x": -645,
+        "y": 430
+      },
+      "n:20": {
+        "x": -215,
+        "y": 430
+      },
+      "n:21": {
+        "x": 215,
+        "y": 430
+      },
+      "n:22": {
+        "x": 645,
+        "y": 430
+      },
+      "n:23": {
+        "x": 1075,
+        "y": 430
+      },
+      "n:24": {
+        "x": -1075,
+        "y": 640
+      },
+      "n:25": {
+        "x": -645,
+        "y": 640
+      },
+      "n:26": {
+        "x": -215,
+        "y": 640
+      },
+      "n:27": {
+        "x": 215,
+        "y": 640
+      }
+    }
+  }
+}

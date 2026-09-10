@@ -1,0 +1,275 @@
+{
+  "version": "4.0.0",
+  "nodes": {
+    "n:0": {
+      "labels": {
+        "identifier": "Patient"
+      },
+      "properties": {
+        "p:0": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:1": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "p:2": {
+          "type": "DATE",
+          "name": "birthDate"
+        }
+      },
+      "name": "Patient"
+    },
+    "n:1": {
+      "labels": {
+        "identifier": "Encounter"
+      },
+      "properties": {
+        "p:3": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:4": {
+          "type": "DATE",
+          "name": "date"
+        },
+        "p:5": {
+          "type": "STRING",
+          "name": "type"
+        }
+      },
+      "name": "Encounter"
+    },
+    "n:2": {
+      "labels": {
+        "identifier": "Observation"
+      },
+      "properties": {
+        "p:6": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:7": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "p:8": {
+          "type": "STRING",
+          "name": "value"
+        },
+        "p:9": {
+          "type": "STRING",
+          "name": "unit"
+        }
+      },
+      "name": "Observation"
+    },
+    "n:3": {
+      "labels": {
+        "identifier": "Drug"
+      },
+      "properties": {
+        "p:10": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "p:11": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "p:12": {
+          "type": "STRING",
+          "name": "dosage"
+        },
+        "p:13": {
+          "type": "STRING",
+          "name": "frequency"
+        }
+      },
+      "name": "Drug"
+    },
+    "n:4": {
+      "labels": {
+        "identifier": "Condition"
+      },
+      "properties": {
+        "p:14": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "p:15": {
+          "type": "STRING",
+          "name": "description"
+        }
+      },
+      "name": "Condition"
+    },
+    "n:5": {
+      "labels": {
+        "identifier": "Provider"
+      },
+      "properties": {
+        "p:16": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:17": {
+          "type": "STRING",
+          "name": "name"
+        }
+      },
+      "name": "Provider"
+    },
+    "n:6": {
+      "labels": {
+        "identifier": "Speciality"
+      },
+      "properties": {
+        "p:18": {
+          "type": "STRING",
+          "name": "name"
+        }
+      },
+      "name": "Speciality"
+    },
+    "n:7": {
+      "labels": {
+        "identifier": "Organisation"
+      },
+      "properties": {
+        "p:19": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "p:20": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "p:21": {
+          "type": "STRING",
+          "name": "address"
+        }
+      },
+      "name": "Organisation"
+    }
+  },
+  "relationships": {
+    "r:0": {
+      "type": "HAS_ENCOUNTER",
+      "from": {
+        "node": "n:0"
+      },
+      "to": {
+        "node": "n:1"
+      },
+      "name": "HAS_ENCOUNTER"
+    },
+    "r:1": {
+      "type": "HAS_OBSERVATION",
+      "from": {
+        "node": "n:1"
+      },
+      "to": {
+        "node": "n:2"
+      },
+      "name": "HAS_OBSERVATION"
+    },
+    "r:2": {
+      "type": "PRESCRIBED",
+      "from": {
+        "node": "n:1"
+      },
+      "to": {
+        "node": "n:3"
+      },
+      "name": "PRESCRIBED"
+    },
+    "r:3": {
+      "type": "DIAGNOSED",
+      "from": {
+        "node": "n:1"
+      },
+      "to": {
+        "node": "n:4"
+      },
+      "name": "DIAGNOSED"
+    },
+    "r:4": {
+      "type": "ATTENDED_BY",
+      "from": {
+        "node": "n:1"
+      },
+      "to": {
+        "node": "n:5"
+      },
+      "name": "ATTENDED_BY"
+    },
+    "r:5": {
+      "type": "HAS_SPECIALITY",
+      "from": {
+        "node": "n:5"
+      },
+      "to": {
+        "node": "n:6"
+      },
+      "name": "HAS_SPECIALITY"
+    },
+    "r:6": {
+      "type": "BELONGS_TO",
+      "from": {
+        "node": "n:5"
+      },
+      "to": {
+        "node": "n:7"
+      },
+      "name": "BELONGS_TO"
+    },
+    "r:7": {
+      "type": "NEXT",
+      "from": {
+        "node": "n:1"
+      },
+      "to": {
+        "node": "n:1"
+      },
+      "name": "NEXT"
+    }
+  },
+  "display": {
+    "nodes": {
+      "n:0": {
+        "x": 0,
+        "y": 200
+      },
+      "n:1": {
+        "x": 300,
+        "y": 200
+      },
+      "n:2": {
+        "x": 550,
+        "y": 50
+      },
+      "n:3": {
+        "x": 450,
+        "y": -100
+      },
+      "n:4": {
+        "x": 200,
+        "y": -100
+      },
+      "n:5": {
+        "x": 500,
+        "y": 380
+      },
+      "n:6": {
+        "x": 720,
+        "y": 380
+      },
+      "n:7": {
+        "x": 280,
+        "y": 380
+      }
+    }
+  }
+}

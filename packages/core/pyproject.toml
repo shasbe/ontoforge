@@ -1,0 +1,13 @@
+[project]
+name = "ontoforge"
+version = "0.1.0"
+description = "Compile industry data standards into Neo4j property-graph models"
+requires-python = ">=3.10"
+dependencies = ["pyyaml>=6.0"]
+[project.optional-dependencies]
+ingest = ["rdflib>=7.0"]
+[project.scripts]
+ontoforge = "ontoforge.cli:main"
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"

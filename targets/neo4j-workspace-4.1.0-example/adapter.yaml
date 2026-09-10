@@ -1,0 +1,29 @@
+# EXAMPLE ONLY -- a hypothetical additive successor to v4.0.0, used to prove that
+# a spec change is a config drop. Replace with the real spec + sample when it lands.
+target: neo4j-workspace
+version: "4.1.0"
+version_path: "$.version"
+node:
+  collection: "$.nodes"
+  id_pattern: "n:{i}"
+  label: "$.labels.identifier"
+  name: "$.name"
+  properties:
+    collection: "$.properties"
+    id_pattern: "p:{i}"
+    name: "$.name"
+    type: "$.type"
+    type_enum: [STRING, DATE, INTEGER, FLOAT, BOOLEAN, DATETIME, DURATION, POINT]
+relationship:
+  collection: "$.relationships"
+  id_pattern: "r:{i}"
+  type: "$.type"
+  name: "$.name"
+  from: "$.from.node"
+  to: "$.to.node"
+display: { nodes: "$.display.nodes", fields: { x: "$.x", y: "$.y" } }
+capabilities:
+  multi_label: true
+  relationship_properties: true
+  node_keys: true
+  nested_property_types: false

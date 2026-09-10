@@ -1,0 +1,523 @@
+standard: gs1
+title: GS1 Web Vocabulary -- trade items, parties, places
+industry: Retail / CPG
+source:
+  registry: gs1
+  http: ref.gs1.org/voc/data/gs1Voc.ttl
+layout:
+  columns: 6
+nodes:
+- label: Product
+  properties:
+  - name: gtin
+    type: STRING
+  - name: productName
+    type: STRING
+  - name: brandName
+    type: STRING
+  - name: description
+    type: STRING
+  - name: gpcCategoryCode
+    type: STRING
+  - name: netContentValue
+    type: FLOAT
+  - name: netContentUnit
+    type: STRING
+  - name: countryOfOrigin
+    type: STRING
+  - name: productionDate
+    type: DATE
+  - name: expirationDate
+    type: DATE
+  - name: isConsumerUnit
+    type: BOOLEAN
+  - name: isBaseUnit
+    type: BOOLEAN
+  - name: isOrderableUnit
+    type: BOOLEAN
+  - name: isDespatchUnit
+    type: BOOLEAN
+  - name: isVariableWeight
+    type: BOOLEAN
+  - name: grossWeight
+    type: FLOAT
+  - name: weightUnit
+    type: STRING
+- label: Brand
+  properties:
+  - name: id
+    type: STRING
+  - name: brandName
+    type: STRING
+  - name: subBrand
+    type: STRING
+  - name: brandOwnerName
+    type: STRING
+- label: Organization
+  properties:
+  - name: gln
+    type: STRING
+  - name: organizationName
+    type: STRING
+  - name: organizationType
+    type: STRING
+  - name: taxId
+    type: STRING
+  - name: duns
+    type: STRING
+  - name: isManufacturer
+    type: BOOLEAN
+- label: Place
+  properties:
+  - name: gln
+    type: STRING
+  - name: placeName
+    type: STRING
+  - name: placeType
+    type: STRING
+  - name: glnType
+    type: STRING
+  - name: latitude
+    type: FLOAT
+  - name: longitude
+    type: FLOAT
+- label: PostalAddress
+  properties:
+  - name: id
+    type: STRING
+  - name: streetAddress
+    type: STRING
+  - name: addressLocality
+    type: STRING
+  - name: addressRegion
+    type: STRING
+  - name: addressSuburb
+    type: STRING
+  - name: postalCode
+    type: STRING
+- label: Country
+  properties:
+  - name: id
+    type: STRING
+  - name: countryCode
+    type: STRING
+  - name: countryName
+    type: STRING
+- label: GeoCoordinates
+  properties:
+  - name: id
+    type: STRING
+  - name: latitude
+    type: FLOAT
+  - name: longitude
+    type: FLOAT
+  - name: elevation
+    type: FLOAT
+- label: Offer
+  properties:
+  - name: id
+    type: STRING
+  - name: offerId
+    type: STRING
+  - name: price
+    type: FLOAT
+  - name: priceCurrency
+    type: STRING
+  - name: availability
+    type: STRING
+  - name: validFrom
+    type: DATE
+  - name: validThrough
+    type: DATE
+  - name: eligibleQuantity
+    type: FLOAT
+  - name: acceptedPaymentMethod
+    type: STRING
+- label: PriceSpecification
+  properties:
+  - name: id
+    type: STRING
+  - name: price
+    type: FLOAT
+  - name: priceCurrency
+    type: STRING
+  - name: valueAddedTaxIncluded
+    type: BOOLEAN
+  - name: validFrom
+    type: DATE
+  - name: validThrough
+    type: DATE
+- label: Discount
+  properties:
+  - name: id
+    type: STRING
+  - name: discountType
+    type: STRING
+  - name: discountValue
+    type: FLOAT
+  - name: discountCurrency
+    type: STRING
+- label: PackagingDetails
+  properties:
+  - name: id
+    type: STRING
+  - name: packagingTypeCode
+    type: STRING
+  - name: packagingMaterialCode
+    type: STRING
+  - name: isRecyclable
+    type: BOOLEAN
+  - name: packagingWeight
+    type: FLOAT
+  - name: weightUnit
+    type: STRING
+  - name: isReturnable
+    type: BOOLEAN
+- label: AllergenDetails
+  properties:
+  - name: id
+    type: STRING
+  - name: allergenTypeCode
+    type: STRING
+  - name: levelOfContainmentCode
+    type: STRING
+  - name: allergenStatement
+    type: STRING
+- label: AdditiveDetails
+  properties:
+  - name: id
+    type: STRING
+  - name: additiveName
+    type: STRING
+  - name: levelOfContainmentCode
+    type: STRING
+- label: NutrientDetail
+  properties:
+  - name: id
+    type: STRING
+  - name: nutrientTypeCode
+    type: STRING
+  - name: quantityContained
+    type: FLOAT
+  - name: quantityUnit
+    type: STRING
+  - name: dailyValuePercent
+    type: FLOAT
+  - name: measurementPrecision
+    type: STRING
+- label: Ingredient
+  properties:
+  - name: id
+    type: STRING
+  - name: ingredientName
+    type: STRING
+  - name: ingredientSequence
+    type: INTEGER
+  - name: ingredientStrength
+    type: FLOAT
+  - name: strengthUnit
+    type: STRING
+- label: CertificationDetails
+  properties:
+  - name: id
+    type: STRING
+  - name: certificationStandard
+    type: STRING
+  - name: certificationAgency
+    type: STRING
+  - name: certificationValue
+    type: STRING
+  - name: certificationEndDate
+    type: DATE
+- label: RegulatoryInformation
+  properties:
+  - name: id
+    type: STRING
+  - name: regulationTypeCode
+    type: STRING
+  - name: regulatoryAct
+    type: STRING
+  - name: permitId
+    type: STRING
+  - name: complianceStatement
+    type: STRING
+- label: Identifier
+  properties:
+  - name: scheme
+    type: STRING
+  - name: value
+    type: STRING
+  - name: issuingAuthority
+    type: STRING
+  - name: isPrimary
+    type: BOOLEAN
+- label: DigitalLink
+  properties:
+  - name: id
+    type: STRING
+  - name: uri
+    type: STRING
+  - name: linkType
+    type: STRING
+  - name: linkTitle
+    type: STRING
+  - name: targetUrl
+    type: STRING
+  - name: language
+    type: STRING
+  - name: context
+    type: STRING
+- label: GPCCategory
+  properties:
+  - name: code
+    type: STRING
+  - name: title
+    type: STRING
+  - name: definition
+    type: STRING
+  - name: level
+    type: INTEGER
+- label: TypeCode
+  properties:
+  - name: id
+    type: STRING
+  - name: codeScheme
+    type: STRING
+  - name: codeValue
+    type: STRING
+  - name: codeDescription
+    type: STRING
+- label: QuantitativeValue
+  properties:
+  - name: id
+    type: STRING
+  - name: value
+    type: FLOAT
+  - name: unitCode
+    type: STRING
+  - name: minValue
+    type: FLOAT
+  - name: maxValue
+    type: FLOAT
+- label: TargetMarket
+  properties:
+  - name: id
+    type: STRING
+  - name: countryCode
+    type: STRING
+  - name: countryName
+    type: STRING
+  - name: subdivisionCode
+    type: STRING
+- label: SizeDetails
+  properties:
+  - name: id
+    type: STRING
+  - name: sizeCodeValue
+    type: STRING
+  - name: sizeSystem
+    type: STRING
+  - name: sizeDescriptor
+    type: STRING
+- label: ReferencedFile
+  properties:
+  - name: id
+    type: STRING
+  - name: fileName
+    type: STRING
+  - name: fileFormat
+    type: STRING
+  - name: url
+    type: STRING
+  - name: fileTypeCode
+    type: STRING
+  - name: language
+    type: STRING
+- label: Transaction
+  properties:
+  - name: id
+    type: STRING
+  - name: transactionType
+    type: STRING
+  - name: transactionDate
+    type: DATE
+  - name: transactionIdentifier
+    type: STRING
+- label: LogisticUnit
+  properties:
+  - name: sscc
+    type: STRING
+  - name: unitType
+    type: STRING
+  - name: grossWeight
+    type: FLOAT
+  - name: weightUnit
+    type: STRING
+  - name: height
+    type: FLOAT
+  - name: width
+    type: FLOAT
+  - name: depth
+    type: FLOAT
+  - name: dimensionUnit
+    type: STRING
+- label: ContactPoint
+  properties:
+  - name: id
+    type: STRING
+  - name: contactType
+    type: STRING
+  - name: telephone
+    type: STRING
+  - name: email
+    type: STRING
+  - name: contactName
+    type: STRING
+relationships:
+- type: HAS_BRAND
+  start: Product
+  end: Brand
+- type: BRAND_OWNER
+  start: Brand
+  end: Organization
+- type: MANUFACTURED_BY
+  start: Product
+  end: Organization
+- type: IDENTIFIED_BY
+  start: Product
+  end: Identifier
+- type: CLASSIFIED_AS
+  start: Product
+  end: GPCCategory
+- type: HAS_DIGITAL_LINK
+  start: Product
+  end: DigitalLink
+- type: CONTAINS_PRODUCT
+  start: Product
+  end: Product
+- type: HAS_PACKAGING
+  start: Product
+  end: PackagingDetails
+- type: HAS_ALLERGEN
+  start: Product
+  end: AllergenDetails
+- type: HAS_ADDITIVE
+  start: Product
+  end: AdditiveDetails
+- type: HAS_NUTRIENT
+  start: Product
+  end: NutrientDetail
+- type: HAS_INGREDIENT
+  start: Product
+  end: Ingredient
+- type: HAS_CERTIFICATION
+  start: Product
+  end: CertificationDetails
+- type: HAS_REGULATORY_INFO
+  start: Product
+  end: RegulatoryInformation
+- type: COUNTRY_OF_ORIGIN
+  start: Product
+  end: Country
+- type: AVAILABLE_IN_MARKET
+  start: Product
+  end: TargetMarket
+- type: HAS_SIZE
+  start: Product
+  end: SizeDetails
+- type: HAS_REFERENCED_FILE
+  start: Product
+  end: ReferencedFile
+- type: NET_CONTENT
+  start: Product
+  end: QuantitativeValue
+- type: OFFERED_AS
+  start: Product
+  end: Offer
+- type: OFFERED_BY
+  start: Offer
+  end: Organization
+- type: HAS_PRICE_SPECIFICATION
+  start: Offer
+  end: PriceSpecification
+- type: HAS_DISCOUNT
+  start: Offer
+  end: Discount
+- type: AVAILABLE_AT
+  start: Offer
+  end: Place
+- type: HAS_ADDRESS
+  start: Organization
+  end: PostalAddress
+- type: IDENTIFIED_BY
+  start: Organization
+  end: Identifier
+- type: AFFILIATED_TO
+  start: Organization
+  end: Organization
+- type: LOCATED_AT
+  start: Organization
+  end: Place
+- type: HAS_CONTACT_POINT
+  start: Organization
+  end: ContactPoint
+- type: HAS_ADDRESS
+  start: Place
+  end: PostalAddress
+- type: IDENTIFIED_BY
+  start: Place
+  end: Identifier
+- type: HAS_GEO_COORDINATES
+  start: Place
+  end: GeoCoordinates
+- type: PART_OF_PLACE
+  start: Place
+  end: Place
+- type: IN_COUNTRY
+  start: Place
+  end: Country
+- type: ADDRESS_COUNTRY
+  start: PostalAddress
+  end: Country
+- type: BROADER_THAN
+  start: GPCCategory
+  end: GPCCategory
+- type: BROADER_THAN
+  start: TypeCode
+  end: TypeCode
+- type: ISSUED_BY
+  start: CertificationDetails
+  end: Organization
+- type: CONTAINS_PRODUCT
+  start: LogisticUnit
+  end: Product
+- type: IDENTIFIED_BY
+  start: LogisticUnit
+  end: Identifier
+- type: SHIPPED_FROM
+  start: LogisticUnit
+  end: Place
+- type: SHIPPED_TO
+  start: LogisticUnit
+  end: Place
+- type: INVOLVES_PRODUCT
+  start: Transaction
+  end: Product
+- type: BUYER
+  start: Transaction
+  end: Organization
+- type: SELLER
+  start: Transaction
+  end: Organization
+- type: RESOLVES_TO_FILE
+  start: DigitalLink
+  end: ReferencedFile
+- type: CLASSIFIED_BY_CODE
+  start: Product
+  end: TypeCode
+keys: {}
+rules: {}
+notes:
+- 56 classes but 557 properties with declared domain/range -- property-heavy vocabulary.
+- GTIN on Product; GLN on both Organization and Place, as GS1 defines it.
+- GPCCategory is a BROADER_THAN taxonomy sidecar.

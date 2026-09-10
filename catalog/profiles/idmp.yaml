@@ -1,0 +1,559 @@
+standard: idmp
+title: ISO IDMP v1.4.0 -- medicinal products
+industry: Pharmaceuticals
+source:
+  registry: idmp
+  http: spec.edmcouncil.org/idmp/ontology/
+  version: v1.4.0
+layout:
+  columns: 6
+nodes:
+- label: MedicinalProduct
+  properties:
+  - name: id
+    type: STRING
+  - name: mpid
+    type: STRING
+  - name: productName
+    type: STRING
+  - name: fullName
+    type: STRING
+  - name: productType
+    type: STRING
+  - name: domain
+    type: STRING
+  - name: legalStatusOfSupply
+    type: STRING
+  - name: productClassification
+    type: STRING
+  - name: orphanDesignation
+    type: BOOLEAN
+  - name: paediatricUseIndicator
+    type: STRING
+- label: PharmaceuticalProduct
+  properties:
+  - name: id
+    type: STRING
+  - name: phpid
+    type: STRING
+  - name: administrableDoseFormCode
+    type: STRING
+  - name: unitOfPresentationCode
+    type: STRING
+  - name: routeOfAdministrationCode
+    type: STRING
+- label: ManufacturedItem
+  properties:
+  - name: id
+    type: STRING
+  - name: manufacturedDoseFormCode
+    type: STRING
+  - name: unitOfPresentationCode
+    type: STRING
+  - name: quantity
+    type: FLOAT
+  - name: quantityUnit
+    type: STRING
+- label: PackagedMedicinalProduct
+  properties:
+  - name: id
+    type: STRING
+  - name: pcid
+    type: STRING
+  - name: packageDescription
+    type: STRING
+  - name: packageTypeCode
+    type: STRING
+  - name: quantity
+    type: FLOAT
+  - name: shelfLifeValue
+    type: INTEGER
+  - name: shelfLifeUnit
+    type: STRING
+  - name: storageConditions
+    type: STRING
+  - name: marketingStatus
+    type: STRING
+- label: Container
+  properties:
+  - name: id
+    type: STRING
+  - name: containerTypeCode
+    type: STRING
+  - name: materialCode
+    type: STRING
+  - name: capacity
+    type: FLOAT
+  - name: capacityUnit
+    type: STRING
+  - name: closureTypeCode
+    type: STRING
+- label: Ingredient
+  properties:
+  - name: id
+    type: STRING
+  - name: ingredientRole
+    type: STRING
+  - name: strengthType
+    type: STRING
+  - name: presentationNumerator
+    type: FLOAT
+  - name: presentationNumeratorUnit
+    type: STRING
+  - name: presentationDenominator
+    type: FLOAT
+  - name: concentrationNumerator
+    type: FLOAT
+  - name: concentrationDenominator
+    type: FLOAT
+  - name: basisOfStrengthType
+    type: STRING
+- label: Substance
+  properties:
+  - name: id
+    type: STRING
+  - name: substanceId
+    type: STRING
+  - name: substanceName
+    type: STRING
+  - name: substanceClass
+    type: STRING
+  - name: molecularFormula
+    type: STRING
+  - name: molecularWeight
+    type: FLOAT
+  - name: casNumber
+    type: STRING
+  - name: unii
+    type: STRING
+  - name: inchiKey
+    type: STRING
+  - name: stereochemistry
+    type: STRING
+  - name: opticalActivity
+    type: STRING
+- label: Moiety
+  properties:
+  - name: id
+    type: STRING
+  - name: moietyName
+    type: STRING
+  - name: molecularFormula
+    type: STRING
+  - name: molecularWeight
+    type: FLOAT
+  - name: amountNumerator
+    type: FLOAT
+  - name: amountUnit
+    type: STRING
+  - name: definingNumberOfMoieties
+    type: INTEGER
+- label: SpecifiedSubstance
+  properties:
+  - name: id
+    type: STRING
+  - name: groupNumber
+    type: STRING
+  - name: sourceMaterialClass
+    type: STRING
+  - name: sourceMaterialType
+    type: STRING
+  - name: sourceMaterialState
+    type: STRING
+  - name: partDescription
+    type: STRING
+- label: Taxon
+  properties:
+  - name: id
+    type: STRING
+  - name: scientificName
+    type: STRING
+  - name: rank
+    type: STRING
+  - name: commonName
+    type: STRING
+- label: DoseForm
+  properties:
+  - name: id
+    type: STRING
+  - name: code
+    type: STRING
+  - name: codeSystem
+    type: STRING
+  - name: term
+    type: STRING
+  - name: doseFormType
+    type: STRING
+- label: RouteOfAdministration
+  properties:
+  - name: id
+    type: STRING
+  - name: code
+    type: STRING
+  - name: codeSystem
+    type: STRING
+  - name: term
+    type: STRING
+- label: UnitOfPresentation
+  properties:
+  - name: id
+    type: STRING
+  - name: code
+    type: STRING
+  - name: codeSystem
+    type: STRING
+  - name: term
+    type: STRING
+- label: UnitOfMeasurement
+  properties:
+  - name: id
+    type: STRING
+  - name: code
+    type: STRING
+  - name: codeSystem
+    type: STRING
+  - name: term
+    type: STRING
+  - name: dimension
+    type: STRING
+- label: MarketingAuthorization
+  properties:
+  - name: id
+    type: STRING
+  - name: authorizationNumber
+    type: STRING
+  - name: authorizationStatus
+    type: STRING
+  - name: statusDate
+    type: DATE
+  - name: authorizationDate
+    type: DATE
+  - name: validityPeriodStart
+    type: DATE
+  - name: validityPeriodEnd
+    type: DATE
+  - name: legalBasis
+    type: STRING
+  - name: procedureType
+    type: STRING
+  - name: dataExclusivityEnd
+    type: DATE
+- label: RegulatoryAuthority
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: shortName
+    type: STRING
+  - name: countryCode
+    type: STRING
+  - name: role
+    type: STRING
+- label: Organization
+  properties:
+  - name: id
+    type: STRING
+  - name: organizationId
+    type: STRING
+  - name: name
+    type: STRING
+  - name: organizationType
+    type: STRING
+  - name: countryCode
+    type: STRING
+  - name: addressText
+    type: STRING
+- label: ClinicalTrial
+  properties:
+  - name: id
+    type: STRING
+  - name: trialIdentifier
+    type: STRING
+  - name: trialPhase
+    type: STRING
+  - name: title
+    type: STRING
+  - name: status
+    type: STRING
+  - name: startDate
+    type: DATE
+  - name: completionDate
+    type: DATE
+- label: Indication
+  properties:
+  - name: id
+    type: STRING
+  - name: code
+    type: STRING
+  - name: codeSystem
+    type: STRING
+  - name: term
+    type: STRING
+  - name: indicationType
+    type: STRING
+- label: Contraindication
+  properties:
+  - name: id
+    type: STRING
+  - name: code
+    type: STRING
+  - name: codeSystem
+    type: STRING
+  - name: term
+    type: STRING
+  - name: contraindicationText
+    type: STRING
+- label: Interaction
+  properties:
+  - name: id
+    type: STRING
+  - name: interactionType
+    type: STRING
+  - name: description
+    type: STRING
+  - name: severity
+    type: STRING
+  - name: management
+    type: STRING
+- label: UndesirableEffect
+  properties:
+  - name: id
+    type: STRING
+  - name: code
+    type: STRING
+  - name: codeSystem
+    type: STRING
+  - name: term
+    type: STRING
+  - name: frequency
+    type: STRING
+  - name: severity
+    type: STRING
+- label: Batch
+  properties:
+  - name: id
+    type: STRING
+  - name: batchNumber
+    type: STRING
+  - name: manufacturingDate
+    type: DATE
+  - name: expiryDate
+    type: DATE
+  - name: quantity
+    type: FLOAT
+  - name: quantityUnit
+    type: STRING
+- label: ManufacturingProcess
+  properties:
+  - name: id
+    type: STRING
+  - name: processType
+    type: STRING
+  - name: description
+    type: STRING
+  - name: isContinuous
+    type: BOOLEAN
+- label: MedicinalProductName
+  properties:
+  - name: id
+    type: STRING
+  - name: fullName
+    type: STRING
+  - name: namePart
+    type: STRING
+  - name: namePartType
+    type: STRING
+  - name: languageCode
+    type: STRING
+  - name: countryCode
+    type: STRING
+- label: TargetPopulation
+  properties:
+  - name: id
+    type: STRING
+  - name: ageRangeLow
+    type: FLOAT
+  - name: ageRangeHigh
+    type: FLOAT
+  - name: ageUnit
+    type: STRING
+  - name: gender
+    type: STRING
+  - name: specialPrecautions
+    type: STRING
+- label: PhysicalCharacteristic
+  properties:
+  - name: id
+    type: STRING
+  - name: characteristicType
+    type: STRING
+  - name: value
+    type: STRING
+  - name: unit
+    type: STRING
+- label: AttachedDocument
+  properties:
+  - name: id
+    type: STRING
+  - name: documentType
+    type: STRING
+  - name: title
+    type: STRING
+  - name: languageCode
+    type: STRING
+  - name: url
+    type: STRING
+  - name: versionDate
+    type: DATE
+- label: Identifier
+  properties:
+  - name: scheme
+    type: STRING
+  - name: value
+    type: STRING
+  - name: issuingAuthority
+    type: STRING
+  - name: status
+    type: STRING
+  - name: assignedDate
+    type: DATE
+relationships:
+- type: HAS_PHARMACEUTICAL_PRODUCT
+  start: MedicinalProduct
+  end: PharmaceuticalProduct
+- type: HAS_PACKAGED_PRODUCT
+  start: MedicinalProduct
+  end: PackagedMedicinalProduct
+- type: HAS_NAME
+  start: MedicinalProduct
+  end: MedicinalProductName
+- type: IDENTIFIED_BY
+  start: MedicinalProduct
+  end: Identifier
+- type: HAS_AUTHORIZATION
+  start: MedicinalProduct
+  end: MarketingAuthorization
+- type: HAS_INDICATION
+  start: MedicinalProduct
+  end: Indication
+- type: HAS_CONTRAINDICATION
+  start: MedicinalProduct
+  end: Contraindication
+- type: HAS_INTERACTION
+  start: MedicinalProduct
+  end: Interaction
+- type: HAS_UNDESIRABLE_EFFECT
+  start: MedicinalProduct
+  end: UndesirableEffect
+- type: HAS_COMBINED_DOSE_FORM
+  start: MedicinalProduct
+  end: DoseForm
+- type: HAS_ATTACHED_DOCUMENT
+  start: MedicinalProduct
+  end: AttachedDocument
+- type: HAS_TARGET_POPULATION
+  start: MedicinalProduct
+  end: TargetPopulation
+- type: STUDIED_IN
+  start: MedicinalProduct
+  end: ClinicalTrial
+- type: HAS_ADMINISTRABLE_DOSE_FORM
+  start: PharmaceuticalProduct
+  end: DoseForm
+- type: HAS_ROUTE
+  start: PharmaceuticalProduct
+  end: RouteOfAdministration
+- type: HAS_UNIT_OF_PRESENTATION
+  start: PharmaceuticalProduct
+  end: UnitOfPresentation
+- type: HAS_INGREDIENT
+  start: PharmaceuticalProduct
+  end: Ingredient
+- type: CONTAINS_MANUFACTURED_ITEM
+  start: PackagedMedicinalProduct
+  end: ManufacturedItem
+- type: HAS_CONTAINER
+  start: PackagedMedicinalProduct
+  end: Container
+- type: IDENTIFIED_BY
+  start: PackagedMedicinalProduct
+  end: Identifier
+- type: HAS_BATCH
+  start: PackagedMedicinalProduct
+  end: Batch
+- type: HAS_MANUFACTURED_DOSE_FORM
+  start: ManufacturedItem
+  end: DoseForm
+- type: HAS_INGREDIENT
+  start: ManufacturedItem
+  end: Ingredient
+- type: MANUFACTURED_BY
+  start: ManufacturedItem
+  end: Organization
+- type: HAS_SUBSTANCE
+  start: Ingredient
+  end: Substance
+- type: BASIS_OF_STRENGTH
+  start: Ingredient
+  end: Substance
+- type: STRENGTH_UNIT
+  start: Ingredient
+  end: UnitOfMeasurement
+- type: HAS_ACTIVE_MOIETY
+  start: Substance
+  end: Moiety
+- type: HAS_SPECIFIED_SUBSTANCE
+  start: Substance
+  end: SpecifiedSubstance
+- type: IDENTIFIED_BY
+  start: Substance
+  end: Identifier
+- type: HAS_PHYSICAL_CHARACTERISTIC
+  start: Substance
+  end: PhysicalCharacteristic
+- type: RELATED_SUBSTANCE
+  start: Substance
+  end: Substance
+- type: DERIVED_FROM_TAXON
+  start: SpecifiedSubstance
+  end: Taxon
+- type: PARENT_TAXON
+  start: Taxon
+  end: Taxon
+- type: HELD_BY
+  start: MarketingAuthorization
+  end: Organization
+- type: GRANTED_BY
+  start: MarketingAuthorization
+  end: RegulatoryAuthority
+- type: AUTHORIZES_PACKAGE
+  start: MarketingAuthorization
+  end: PackagedMedicinalProduct
+- type: PRODUCED_BY
+  start: Batch
+  end: ManufacturingProcess
+- type: PERFORMED_BY
+  start: ManufacturingProcess
+  end: Organization
+- type: SPONSORED_BY
+  start: ClinicalTrial
+  end: Organization
+- type: IDENTIFIED_BY
+  start: ClinicalTrial
+  end: Identifier
+- type: PART_OF
+  start: Organization
+  end: Organization
+- type: BROADER_THAN
+  start: DoseForm
+  end: DoseForm
+- type: HAS_JURISDICTION_ORG
+  start: RegulatoryAuthority
+  end: Organization
+keys: {}
+rules: {}
+notes:
+- 457 classes / 231 object properties / 15,684 triples.
+- Ingredient subclass family collapsed to one node with ingredientRole.
+- hasActiveMoiety preserved verbatim from ISO 11238.
