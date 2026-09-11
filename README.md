@@ -171,10 +171,19 @@ runs `ontoforge export` and the site ships the result as static JSON.
 - **4** Bring-your-own-source + JSON Schema ingester (unlocks Smart Data Models, OCSF, OSDU).
 - **5** Reference-data extraction + Cypher DDL in the UI; tabular and XSD ingesters.
 
-## Licensing note
+## Hosting
 
-Tool code is ours to license. **Catalog content is derived from third-party
-standards with differing terms** — FIBO is MIT, FHIR and IOF are permissive, but
-GS1 and IDMP need review before redistributing derived artifacts. Profiles and
-`sources.yaml` are unambiguously ours; prebuilt IR for gated standards should be
-fetch-on-demand rather than committed.
+Static site, ~872 KB, no backend and no login — so it hosts for free.
+**GitHub Pages** is the recommendation and the workflow is ready in
+`.github/workflows/deploy.yml`; `vite.config.ts` uses a relative base, verified
+to work from a `/<repo>/` subpath. See `docs/HOSTING.md` for the option
+comparison, custom domains, and the Cloudflare Pages alternative.
+
+## Licensing
+
+The tool is Apache-2.0 (`LICENSE`). Catalog content is *derived from*
+third-party standards, and terms differ — **FIBO, AUTO and IOF are verified
+MIT**; GS1, EPCIS, IDMP and FHIR carry no licence declaration verifiable from
+their distributions. `NOTICE.md` records the evidence per standard and how to
+publish a narrower catalog with `export --exclude`. Read it before making the
+repo public.

@@ -9,6 +9,22 @@ def camel_words(n: str) -> list[str]:
     return re.findall(r"[A-Z][a-z0-9]*|[A-Z]+(?![a-z])", n)
 
 
+# Vocabularies that use rdf:Property loosely (schema.org-style, e.g. GS1) declare
+# xsd ranges without marking the property as a datatype property, so the
+# via_datatype_property flag alone does not catch them. Exclude by target IRI too.
+_DATATYPE_NS = (
+    "http://www.w3.org/2001/XMLSchema#",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral",
+    "http://www.w3.org/2000/01/rdf-schema#Literal",
+)
+
+
+def is_datatype_target(iri: str | None) -> bool:
+    return bool(iri) and iri.startswith(_DATATYPE_NS)
+
+
 def _cov(entities, pred) -> float:
     return round(100 * sum(1 for e in entities if pred(e)) / len(entities), 1) if entities else 0
 
@@ -24,7 +40,8 @@ def metrics(ir: IR) -> dict:
     for c in ir.constraints:
         # Datatype targets ('string', 'boolean', xsd:*) are property value types,
         # not graph hubs -- counting them buries the real entities.
-        if c.target and not c.is_anonymous and not c.via_datatype_property:
+        if (c.target and not c.is_anonymous and not c.via_datatype_property
+                and not is_datatype_target(c.target)):
             indeg[c.target] += 1
         outdeg[c.subject] += 1
 

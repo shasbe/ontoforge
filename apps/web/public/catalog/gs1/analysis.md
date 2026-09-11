@@ -24,22 +24,17 @@
 
 ## Hub ranking (node-selection candidates, by in-degree)
 
--    65  `http://www.w3.org/2001/XMLSchema#anyURI`
 -    43  `NutritionMeasurementType`
 -    32  `QuantitativeValue`
 -    26  `Organization`
 -    20  `https://ref.gs1.org/voc/NonbinaryLogicCode`
 -    13  `Place`
--    10  `http://www.w3.org/2001/XMLSchema#date`
 -     7  `Country`
 -     7  `Product`
 -     6  `ReferencedFileDetails`
--     4  `http://www.w3.org/2001/XMLSchema#string`
 -     3  `https://ref.gs1.org/voc/LevelOfContainmentCode`
 -     3  `http://www.w3.org/2002/07/owl#Thing`
 -     2  `ContactPoint`
--     2  `http://www.w3.org/1999/02/22-rdf-syntax-ns#langString`
--     2  `http://www.w3.org/2001/XMLSchema#dateTime`
 -     2  `https://ref.gs1.org/voc/StatusType`
 -     2  `https://ref.gs1.org/voc/PreparationTypeCode`
 -     2  `WarrantyPromise`
@@ -49,6 +44,11 @@
 -     1  `https://ref.gs1.org/voc/PaymentMethod`
 -     1  `LocationID_Details`
 -     1  `OrganizationID_Details`
+-     1  `AdditionalProductClassificationDetails`
+-     1  `AdditiveDetails`
+-     1  `PostalAddress`
+-     1  `https://ref.gs1.org/voc/AllergenTypeCode`
+-     1  `https://ref.gs1.org/voc/AnatomicalFormCode`
 
 ## Widest parents (collapse candidates)
 

@@ -34,7 +34,6 @@
 -    45  `https://www.omg.org/spec/Commons/DatesAndTimes/DatePeriod`
 -    44  `Currency`
 -    42  `Security`
--    36  `http://www.w3.org/2001/XMLSchema#string`
 -    34  `https://www.omg.org/spec/Commons/RegulatoryAgencies/Jurisdiction`
 -    31  `SecuritiesUnderwritingIssuanceProcess`
 -    25  `MonetaryPrice`
@@ -53,6 +52,7 @@
 -    14  `https://www.omg.org/spec/Commons/QuantitiesAndUnits/Percentage`
 -    13  `Exchange`
 -    13  `RegulatoryAgency`
+-    12  `Asset`
 
 ## Widest parents (collapse candidates)
 

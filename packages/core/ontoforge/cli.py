@@ -118,8 +118,12 @@ def cmd_export(args):
     out = args.out
     os.makedirs(out, exist_ok=True)
     index = []
+    skip = set(args.exclude or [])
     for fp in sorted(glob.glob(_p("catalog", "profiles", "*.yaml"))):
         std = os.path.basename(fp)[:-5]
+        if std in skip:
+            print(f"  {std:10} excluded")
+            continue
         prof = Profile.load(fp)
         model, log = emit(prof, adapter)
         found = validate(model, adapter, sample)
@@ -221,6 +225,9 @@ def main(argv=None):
     x = sub.add_parser("export", help="emit the static catalog bundle for the web app")
     x.add_argument("--target", default=DEFAULT_TARGET)
     x.add_argument("--out", default="apps/web/public/catalog")
+    x.add_argument("--exclude", nargs="*", default=[],
+                   help="standard id(s) to omit from the published bundle "
+                        "(see NOTICE.md on per-standard licensing)")
     x.set_defaults(fn=cmd_export)
 
     a = sub.add_parser("analyze", help="metrics report from a prebuilt IR")
