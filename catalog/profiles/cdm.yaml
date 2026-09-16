@@ -1,0 +1,631 @@
+standard: cdm
+title: FINOS CDM -- Common Domain Model (derivatives, securities lending, repo)
+industry: Financial Services / Capital Markets
+source:
+  registry: cdm
+  git: github.com/finos/common-domain-model
+  format: rosetta-dsl
+  licence: Community Specification License 1.0
+  stewards: 'ISDA, ISLA, ICMA (tooling: REGnosys)'
+layout:
+  columns: 6
+nodes:
+- label: Trade
+  note: cdm.event.common
+  properties:
+  - name: tradeDate
+    type: DATE
+  - name: tradeTimeValue
+    type: STRING
+  - name: tradeTimeZone
+    type: STRING
+- label: TradeState
+  note: cdm.event.common
+  properties:
+  - name: id
+    type: STRING
+  - name: stateValue
+    type: STRING
+  - name: positionStatus
+    type: STRING
+- label: BusinessEvent
+  note: cdm.event.common
+  properties:
+  - name: id
+    type: STRING
+  - name: eventQualifier
+    type: STRING
+  - name: eventDate
+    type: DATE
+  - name: effectiveDate
+    type: DATE
+  - name: intent
+    type: STRING
+- label: ExecutionDetails
+  note: cdm.event.common
+  properties:
+  - name: executionType
+    type: STRING
+  - name: packageReference
+    type: STRING
+- label: Transfer
+  note: 'cdm.event.common (choice: Scheduled/Unscheduled/Contingent)'
+  properties:
+  - name: id
+    type: STRING
+  - name: transferType
+    type: STRING
+  - name: settlementDate
+    type: DATE
+  - name: transferStatus
+    type: STRING
+- label: TradableProduct
+  note: cdm.product.template
+  properties:
+  - name: id
+    type: STRING
+  - name: adjustment
+    type: STRING
+- label: NonTransferableProduct
+  note: cdm.product.template
+  properties:
+  - name: id
+    type: STRING
+- label: EconomicTerms
+  note: cdm.product.template
+  properties:
+  - name: id
+    type: STRING
+  - name: effectiveDate
+    type: DATE
+  - name: terminationDate
+    type: DATE
+  - name: dateAdjustments
+    type: STRING
+- label: Payout
+  note: cdm.product.template (choice, 8 options)
+  properties:
+  - name: id
+    type: STRING
+  - name: payoutType
+    type: STRING
+- label: InterestRatePayout
+  note: cdm.product.asset
+  properties:
+  - name: id
+    type: STRING
+  - name: fixedAmount
+    type: STRING
+  - name: floatingAmount
+    type: STRING
+  - name: paymentDelay
+    type: BOOLEAN
+  - name: dayCountFraction
+    type: STRING
+  - name: compoundingMethod
+    type: STRING
+  - name: spreadCalculationMethod
+    type: STRING
+- label: OptionPayout
+  note: cdm.product.template
+  properties:
+  - name: id
+    type: STRING
+  - name: optionType
+    type: STRING
+  - name: strikeValue
+    type: FLOAT
+- label: TradeLot
+  note: cdm.product.template
+  properties:
+  - name: id
+    type: STRING
+- label: PriceQuantity
+  note: cdm.observable.asset
+  properties:
+  - name: id
+    type: STRING
+- label: Asset
+  note: 'cdm.base.staticdata.asset.common (choice: Cash/Commodity/DigitalAsset/Instrument)'
+  properties:
+  - name: id
+    type: STRING
+  - name: assetClass
+    type: STRING
+- label: Security
+  note: cdm.base.staticdata.asset.common
+  properties:
+  - name: assetType
+    type: STRING
+  - name: securityType
+    type: STRING
+  - name: debtType
+    type: STRING
+  - name: equityType
+    type: STRING
+  - name: fundType
+    type: STRING
+  - name: isExchangeListed
+    type: BOOLEAN
+- label: Cash
+  note: cdm.base.staticdata.asset.common
+  properties:
+  - name: assetType
+    type: STRING
+  - name: isExchangeListed
+    type: BOOLEAN
+  - name: currency
+    type: STRING
+- label: Commodity
+  note: cdm.base.staticdata.asset.common
+  properties:
+  - name: assetType
+    type: STRING
+  - name: description
+    type: STRING
+  - name: priceQuoteType
+    type: STRING
+  - name: isExchangeListed
+    type: BOOLEAN
+- label: Taxonomy
+  note: cdm.base.staticdata.asset.common
+  properties:
+  - name: taxonomySource
+    type: STRING
+  - name: taxonomyValue
+    type: STRING
+- label: Identifier
+  note: cdm.base.staticdata.identifier
+  properties:
+  - name: issuer
+    type: STRING
+  - name: identifierValue
+    type: STRING
+  - name: identifierType
+    type: STRING
+  - name: version
+    type: INTEGER
+- label: Party
+  note: cdm.base.staticdata.party
+  properties:
+  - name: name
+    type: STRING
+  - name: partyIdValue
+    type: STRING
+  - name: partyIdScheme
+    type: STRING
+- label: LegalEntity
+  note: cdm.base.staticdata.party
+  properties:
+  - name: name
+    type: STRING
+  - name: entityIdValue
+    type: STRING
+  - name: entityIdScheme
+    type: STRING
+- label: PartyRole
+  note: cdm.base.staticdata.party
+  properties:
+  - name: role
+    type: STRING
+- label: Counterparty
+  note: cdm.base.staticdata.party -- top hub, 56 references
+  properties:
+  - name: role
+    type: STRING
+- label: NaturalPerson
+  note: cdm.base.staticdata.party
+  properties:
+  - name: firstName
+    type: STRING
+  - name: middleName
+    type: STRING
+  - name: surname
+    type: STRING
+  - name: initial
+    type: STRING
+  - name: honorific
+    type: STRING
+  - name: suffix
+    type: STRING
+  - name: dateOfBirth
+    type: DATE
+- label: Account
+  note: cdm.base.staticdata.party
+  properties:
+  - name: accountNumber
+    type: STRING
+  - name: accountName
+    type: STRING
+  - name: accountType
+    type: STRING
+- label: Money
+  note: cdm.observable.asset (extends Quantity)
+  properties:
+  - name: value
+    type: FLOAT
+  - name: currency
+    type: STRING
+- label: Price
+  note: cdm.observable.asset
+  properties:
+  - name: value
+    type: FLOAT
+  - name: priceType
+    type: STRING
+  - name: priceExpression
+    type: STRING
+  - name: priceSubType
+    type: STRING
+  - name: arithmeticOperator
+    type: STRING
+  - name: premiumType
+    type: STRING
+- label: Quantity
+  note: cdm.base.math
+  properties:
+  - name: value
+    type: FLOAT
+- label: UnitType
+  note: cdm.base.math
+  properties:
+  - name: currency
+    type: STRING
+  - name: financialUnit
+    type: STRING
+  - name: capacityUnit
+    type: STRING
+  - name: weatherUnit
+    type: STRING
+- label: Observable
+  note: 'cdm.observable.asset (choice: Asset/Basket/Index)'
+  properties:
+  - name: id
+    type: STRING
+  - name: observableType
+    type: STRING
+- label: Index
+  note: cdm.observable.asset
+  properties:
+  - name: id
+    type: STRING
+  - name: name
+    type: STRING
+  - name: indexType
+    type: STRING
+  - name: floatingRateIndex
+    type: STRING
+- label: AdjustableOrRelativeDate
+  note: cdm.base.datetime
+  properties:
+  - name: unadjustedDate
+    type: DATE
+  - name: adjustedDate
+    type: DATE
+  - name: dateRelativeTo
+    type: STRING
+- label: BusinessDayAdjustments
+  note: cdm.base.datetime
+  properties:
+  - name: businessDayConvention
+    type: STRING
+- label: BusinessCenters
+  note: cdm.base.datetime
+  properties:
+  - name: businessCenter
+    type: STRING
+  - name: businessCentersReference
+    type: STRING
+- label: Period
+  note: cdm.base.datetime
+  properties:
+  - name: periodMultiplier
+    type: INTEGER
+  - name: period
+    type: STRING
+- label: LegalAgreement
+  note: cdm.legaldocumentation.common
+  properties:
+  - name: id
+    type: STRING
+  - name: agreementType
+    type: STRING
+  - name: agreementDate
+    type: DATE
+  - name: effectiveDate
+    type: DATE
+  - name: governingLaw
+    type: STRING
+- label: ContractDetails
+  note: cdm.event.common
+  properties:
+  - name: governingLaw
+    type: STRING
+- label: Collateral
+  note: cdm.product.collateral
+  properties:
+  - name: id
+    type: STRING
+  - name: portfolioIdentifier
+    type: STRING
+  - name: independentAmountValue
+    type: FLOAT
+- label: CodeListValue
+  note: CODE_LIST_EXTRACT target for 280 enums / 4,226 values
+  properties:
+  - name: enumName
+    type: STRING
+  - name: value
+    type: STRING
+  - name: displayName
+    type: STRING
+  - name: definition
+    type: STRING
+  - name: namespace
+    type: STRING
+relationships:
+- type: HAS_PRODUCT
+  start: Trade
+  end: TradableProduct
+- type: HAS_PARTY
+  start: Trade
+  end: Party
+- type: HAS_PARTY_ROLE
+  start: Trade
+  end: PartyRole
+- type: IDENTIFIED_BY
+  start: Trade
+  end: Identifier
+- type: HAS_EXECUTION_DETAILS
+  start: Trade
+  end: ExecutionDetails
+- type: HAS_CONTRACT_DETAILS
+  start: Trade
+  end: ContractDetails
+- type: HAS_COLLATERAL
+  start: Trade
+  end: Collateral
+- type: HAS_TRADE
+  start: TradeState
+  end: Trade
+- type: TRANSFER_HISTORY
+  start: TradeState
+  end: Transfer
+- type: SUCCEEDS
+  start: TradeState
+  end: TradeState
+- type: AFTER
+  start: BusinessEvent
+  end: TradeState
+- type: BEFORE
+  start: BusinessEvent
+  end: TradeState
+- type: EXECUTION_VENUE
+  start: ExecutionDetails
+  end: LegalEntity
+- type: TRANSFERS_MONEY
+  start: Transfer
+  end: Money
+- type: TRANSFERS_ASSET
+  start: Transfer
+  end: Asset
+- type: TRANSFEROR
+  start: Transfer
+  end: Party
+- type: TRANSFEREE
+  start: Transfer
+  end: Party
+- type: HAS_COUNTERPARTY
+  start: TradableProduct
+  end: Counterparty
+- type: HAS_PRODUCT_DEFINITION
+  start: TradableProduct
+  end: NonTransferableProduct
+- type: HAS_TRADE_LOT
+  start: TradableProduct
+  end: TradeLot
+- type: HAS_ECONOMIC_TERMS
+  start: NonTransferableProduct
+  end: EconomicTerms
+- type: IDENTIFIED_BY
+  start: NonTransferableProduct
+  end: Identifier
+- type: CLASSIFIED_BY
+  start: NonTransferableProduct
+  end: Taxonomy
+- type: HAS_PAYOUT
+  start: EconomicTerms
+  end: Payout
+- type: IS_INTEREST_RATE_PAYOUT
+  start: Payout
+  end: InterestRatePayout
+- type: IS_OPTION_PAYOUT
+  start: Payout
+  end: OptionPayout
+- type: HAS_PRICE_QUANTITY
+  start: TradeLot
+  end: PriceQuantity
+- type: IDENTIFIED_BY
+  start: TradeLot
+  end: Identifier
+- type: HAS_PRICE
+  start: PriceQuantity
+  end: Price
+- type: HAS_QUANTITY
+  start: PriceQuantity
+  end: Quantity
+- type: HAS_OBSERVABLE
+  start: PriceQuantity
+  end: Observable
+- type: EFFECTIVE_DATE
+  start: PriceQuantity
+  end: AdjustableOrRelativeDate
+- type: PAYMENT_DATE
+  start: InterestRatePayout
+  end: AdjustableOrRelativeDate
+- type: REFERENCES_INDEX
+  start: InterestRatePayout
+  end: Index
+- type: CALCULATION_PERIOD_ADJUSTMENTS
+  start: InterestRatePayout
+  end: BusinessDayAdjustments
+- type: HAS_UNDERLIER
+  start: OptionPayout
+  end: Asset
+- type: BUYER_SELLER
+  start: OptionPayout
+  end: Counterparty
+- type: STRIKE_PRICE
+  start: OptionPayout
+  end: Price
+- type: IS_SECURITY
+  start: Asset
+  end: Security
+- type: IS_CASH
+  start: Asset
+  end: Cash
+- type: IS_COMMODITY
+  start: Asset
+  end: Commodity
+- type: IDENTIFIED_BY
+  start: Asset
+  end: Identifier
+- type: CLASSIFIED_BY
+  start: Asset
+  end: Taxonomy
+- type: ISSUED_BY
+  start: Security
+  end: LegalEntity
+- type: HAS_PARTY_ROLE
+  start: Asset
+  end: PartyRole
+- type: DENOMINATED_IN
+  start: Cash
+  end: UnitType
+- type: IS_ASSET
+  start: Observable
+  end: Asset
+- type: IS_INDEX
+  start: Observable
+  end: Index
+- type: HAS_ACCOUNT
+  start: Party
+  end: Account
+- type: HAS_PERSON
+  start: Party
+  end: NaturalPerson
+- type: IDENTIFIED_BY
+  start: Party
+  end: Identifier
+- type: PARTY_REFERENCE
+  start: PartyRole
+  end: Party
+- type: OWNERSHIP_PARTY
+  start: PartyRole
+  end: Party
+- type: PARTY_REFERENCE
+  start: Counterparty
+  end: Party
+- type: IS_LEGAL_ENTITY
+  start: Party
+  end: LegalEntity
+- type: ACCOUNT_BENEFICIARY
+  start: Account
+  end: Party
+- type: SERVICING_PARTY
+  start: Account
+  end: Party
+- type: ISSUER_REFERENCE
+  start: Identifier
+  end: Party
+- type: HAS_UNIT
+  start: Money
+  end: UnitType
+- type: HAS_UNIT
+  start: Price
+  end: UnitType
+- type: PER_UNIT_OF
+  start: Price
+  end: UnitType
+- type: HAS_UNIT
+  start: Quantity
+  end: UnitType
+- type: IS_MONEY
+  start: Quantity
+  end: Money
+- type: HAS_ADJUSTMENTS
+  start: AdjustableOrRelativeDate
+  end: BusinessDayAdjustments
+- type: HAS_BUSINESS_CENTERS
+  start: BusinessDayAdjustments
+  end: BusinessCenters
+- type: HAS_PERIOD
+  start: AdjustableOrRelativeDate
+  end: Period
+- type: DOCUMENTED_BY
+  start: ContractDetails
+  end: LegalAgreement
+- type: RELATED_AGREEMENT
+  start: LegalAgreement
+  end: LegalAgreement
+- type: HAS_PARTY
+  start: LegalAgreement
+  end: Party
+- type: IDENTIFIED_BY
+  start: LegalAgreement
+  end: Identifier
+- type: GOVERNS_COLLATERAL
+  start: LegalAgreement
+  end: Collateral
+- type: ELIGIBLE_ASSET
+  start: Collateral
+  end: Asset
+- type: INDEPENDENT_AMOUNT
+  start: Collateral
+  end: Money
+- type: BROADER_THAN
+  start: CodeListValue
+  end: CodeListValue
+- type: CLASSIFIED_BY_CODE
+  start: Taxonomy
+  end: CodeListValue
+- type: ROLE_CODE
+  start: Counterparty
+  end: CodeListValue
+- type: PARTY_ROLE_CODE
+  start: PartyRole
+  end: CodeListValue
+keys:
+  Trade:
+  - tradeDate
+  Party:
+  - name
+  LegalEntity:
+  - name
+  Identifier:
+  - identifierValue
+  CodeListValue:
+  - enumName
+  - value
+  Account:
+  - accountNumber
+rules: {}
+notes:
+- 'Source: 145 .rosetta files / 763 types / 280 enums (4,226 values) / 2,699 attributes.'
+- 'Rosetta declares what OWL makes you infer: 0% anonymous constructs, single-parent inheritance to depth
+  4, explicit (lo..hi) cardinality, and an explicit scalar-vs-complex split (899 scalar attributes ->
+  properties, 1,800 complex -> relationships).'
+- '`choice` types are named unions, so DISCRIMINATOR input is declared rather than recovered from anonymous
+  owl:unionOf. 16 choices: Asset, Payout, Product, Observable, Transfer, Instrument, Index, InterestRateIndex,
+  Underlier and others.'
+- Choice membership is emitted as IS_<OPTION> relationships. In Rosetta an option can both extend a base
+  type and belong to a choice (Cash extends AssetBase and is an Asset option), which is why 32 types legitimately
+  have two parents.
+- 'NOT represented: 1,290 func definitions and 615 conditions. CDM is machine-EXECUTABLE; a property graph
+  holds its data shape, not its calculations. This is the single biggest caveat when presenting a CDM
+  graph model.'
+- TradeState.SUCCEEDS is a derived traversal edge, not a CDM attribute -- CDM threads lifecycle through
+  BusinessEvent (before/after TradeState). It is included because the state chain is the query most people
+  want.
+- 'Licence differs from the rest of the catalog: Community Specification License 1.0, not MIT/Apache.
+  See NOTICE.md before redistributing derived artifacts.'

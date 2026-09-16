@@ -22,6 +22,7 @@ GOLDEN = {  # profile id -> golden filename produced by hand
     "gs1":  "gs1-trade-item-model.json",
     "epcis": "epcis-traceability-model.json",
     "wikidata": "wikidata-wikibase-model.json",
+    "cdm": "cdm-finos-model.json",
 }
 
 

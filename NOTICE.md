@@ -14,6 +14,14 @@ ontologies. Even so, attribution matters and terms differ per standard.
 | **FIBO** | MIT | Enterprise Data Management Council (2020) | `LICENSE` in `edmcouncil/fibo` |
 | **AUTO** | MIT | edmcouncil (2020) | `LICENSE` in `edmcouncil/auto` |
 | **IOF** | MIT | Industrial Ontologies Foundry (2022) | `LICENSE` in `iofoundry/ontology` |
+| **FINOS CDM** | **Community Specification License 1.0** | ISDA, ISLA, ICMA | `LICENSE.md` in `finos/common-domain-model` |
+
+CDM's licence is verified but is a **specification** licence rather than a software
+one, and is the only such licence in the catalog. It is stewarded by ISDA, ISLA and
+ICMA (tooling by REGnosys); Goldman Sachs is a participant, not the lead — Goldman's
+contribution is **Legend** (Apache-2.0), the platform used to author CDM proposals,
+which ships no domain model of its own. Confirm the Community Specification License's
+redistribution terms cover a derived structural model before relying on it.
 
 FIBO modules additionally carry
 `cmns-av:copyright "Copyright (c) 2013-2025 Object Management Group, Inc."`,

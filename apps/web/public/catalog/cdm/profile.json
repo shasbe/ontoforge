@@ -1,0 +1,750 @@
+{
+  "standard": "cdm",
+  "title": "FINOS CDM -- Common Domain Model (derivatives, securities lending, repo)",
+  "industry": "Financial Services / Capital Markets",
+  "source": {
+    "registry": "cdm",
+    "git": "github.com/finos/common-domain-model",
+    "format": "rosetta-dsl",
+    "licence": "Community Specification License 1.0",
+    "stewards": "ISDA, ISLA, ICMA (tooling: REGnosys)"
+  },
+  "notes": [
+    "Source: 145 .rosetta files / 763 types / 280 enums (4,226 values) / 2,699 attributes.",
+    "Rosetta declares what OWL makes you infer: 0% anonymous constructs, single-parent inheritance to depth 4, explicit (lo..hi) cardinality, and an explicit scalar-vs-complex split (899 scalar attributes -> properties, 1,800 complex -> relationships).",
+    "`choice` types are named unions, so DISCRIMINATOR input is declared rather than recovered from anonymous owl:unionOf. 16 choices: Asset, Payout, Product, Observable, Transfer, Instrument, Index, InterestRateIndex, Underlier and others.",
+    "Choice membership is emitted as IS_<OPTION> relationships. In Rosetta an option can both extend a base type and belong to a choice (Cash extends AssetBase and is an Asset option), which is why 32 types legitimately have two parents.",
+    "NOT represented: 1,290 func definitions and 615 conditions. CDM is machine-EXECUTABLE; a property graph holds its data shape, not its calculations. This is the single biggest caveat when presenting a CDM graph model.",
+    "TradeState.SUCCEEDS is a derived traversal edge, not a CDM attribute -- CDM threads lifecycle through BusinessEvent (before/after TradeState). It is included because the state chain is the query most people want.",
+    "Licence differs from the rest of the catalog: Community Specification License 1.0, not MIT/Apache. See NOTICE.md before redistributing derived artifacts."
+  ],
+  "keys": {
+    "Trade": [
+      "tradeDate"
+    ],
+    "Party": [
+      "name"
+    ],
+    "LegalEntity": [
+      "name"
+    ],
+    "Identifier": [
+      "identifierValue"
+    ],
+    "CodeListValue": [
+      "enumName",
+      "value"
+    ],
+    "Account": [
+      "accountNumber"
+    ]
+  },
+  "nodes": {
+    "Trade": {
+      "source_iri": null,
+      "note": "cdm.event.common",
+      "properties": [
+        {
+          "name": "tradeDate",
+          "type": "DATE"
+        },
+        {
+          "name": "tradeTimeValue",
+          "type": "STRING"
+        },
+        {
+          "name": "tradeTimeZone",
+          "type": "STRING"
+        }
+      ]
+    },
+    "TradeState": {
+      "source_iri": null,
+      "note": "cdm.event.common",
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "stateValue",
+          "type": "STRING"
+        },
+        {
+          "name": "positionStatus",
+          "type": "STRING"
+        }
+      ]
+    },
+    "BusinessEvent": {
+      "source_iri": null,
+      "note": "cdm.event.common",
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "eventQualifier",
+          "type": "STRING"
+        },
+        {
+          "name": "eventDate",
+          "type": "DATE"
+        },
+        {
+          "name": "effectiveDate",
+          "type": "DATE"
+        },
+        {
+          "name": "intent",
+          "type": "STRING"
+        }
+      ]
+    },
+    "ExecutionDetails": {
+      "source_iri": null,
+      "note": "cdm.event.common",
+      "properties": [
+        {
+          "name": "executionType",
+          "type": "STRING"
+        },
+        {
+          "name": "packageReference",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Transfer": {
+      "source_iri": null,
+      "note": "cdm.event.common (choice: Scheduled/Unscheduled/Contingent)",
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "transferType",
+          "type": "STRING"
+        },
+        {
+          "name": "settlementDate",
+          "type": "DATE"
+        },
+        {
+          "name": "transferStatus",
+          "type": "STRING"
+        }
+      ]
+    },
+    "TradableProduct": {
+      "source_iri": null,
+      "note": "cdm.product.template",
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "adjustment",
+          "type": "STRING"
+        }
+      ]
+    },
+    "NonTransferableProduct": {
+      "source_iri": null,
+      "note": "cdm.product.template",
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        }
+      ]
+    },
+    "EconomicTerms": {
+      "source_iri": null,
+      "note": "cdm.product.template",
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "effectiveDate",
+          "type": "DATE"
+        },
+        {
+          "name": "terminationDate",
+          "type": "DATE"
+        },
+        {
+          "name": "dateAdjustments",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Payout": {
+      "source_iri": null,
+      "note": "cdm.product.template (choice, 8 options)",
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "payoutType",
+          "type": "STRING"
+        }
+      ]
+    },
+    "InterestRatePayout": {
+      "source_iri": null,
+      "note": "cdm.product.asset",
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "fixedAmount",
+          "type": "STRING"
+        },
+        {
+          "name": "floatingAmount",
+          "type": "STRING"
+        },
+        {
+          "name": "paymentDelay",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "dayCountFraction",
+          "type": "STRING"
+        },
+        {
+          "name": "compoundingMethod",
+          "type": "STRING"
+        },
+        {
+          "name": "spreadCalculationMethod",
+          "type": "STRING"
+        }
+      ]
+    },
+    "OptionPayout": {
+      "source_iri": null,
+      "note": "cdm.product.template",
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "optionType",
+          "type": "STRING"
+        },
+        {
+          "name": "strikeValue",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "TradeLot": {
+      "source_iri": null,
+      "note": "cdm.product.template",
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        }
+      ]
+    },
+    "PriceQuantity": {
+      "source_iri": null,
+      "note": "cdm.observable.asset",
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Asset": {
+      "source_iri": null,
+      "note": "cdm.base.staticdata.asset.common (choice: Cash/Commodity/DigitalAsset/Instrument)",
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "assetClass",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Security": {
+      "source_iri": null,
+      "note": "cdm.base.staticdata.asset.common",
+      "properties": [
+        {
+          "name": "assetType",
+          "type": "STRING"
+        },
+        {
+          "name": "securityType",
+          "type": "STRING"
+        },
+        {
+          "name": "debtType",
+          "type": "STRING"
+        },
+        {
+          "name": "equityType",
+          "type": "STRING"
+        },
+        {
+          "name": "fundType",
+          "type": "STRING"
+        },
+        {
+          "name": "isExchangeListed",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "Cash": {
+      "source_iri": null,
+      "note": "cdm.base.staticdata.asset.common",
+      "properties": [
+        {
+          "name": "assetType",
+          "type": "STRING"
+        },
+        {
+          "name": "isExchangeListed",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "currency",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Commodity": {
+      "source_iri": null,
+      "note": "cdm.base.staticdata.asset.common",
+      "properties": [
+        {
+          "name": "assetType",
+          "type": "STRING"
+        },
+        {
+          "name": "description",
+          "type": "STRING"
+        },
+        {
+          "name": "priceQuoteType",
+          "type": "STRING"
+        },
+        {
+          "name": "isExchangeListed",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "Taxonomy": {
+      "source_iri": null,
+      "note": "cdm.base.staticdata.asset.common",
+      "properties": [
+        {
+          "name": "taxonomySource",
+          "type": "STRING"
+        },
+        {
+          "name": "taxonomyValue",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Identifier": {
+      "source_iri": null,
+      "note": "cdm.base.staticdata.identifier",
+      "properties": [
+        {
+          "name": "issuer",
+          "type": "STRING"
+        },
+        {
+          "name": "identifierValue",
+          "type": "STRING"
+        },
+        {
+          "name": "identifierType",
+          "type": "STRING"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "Party": {
+      "source_iri": null,
+      "note": "cdm.base.staticdata.party",
+      "properties": [
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "partyIdValue",
+          "type": "STRING"
+        },
+        {
+          "name": "partyIdScheme",
+          "type": "STRING"
+        }
+      ]
+    },
+    "LegalEntity": {
+      "source_iri": null,
+      "note": "cdm.base.staticdata.party",
+      "properties": [
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "entityIdValue",
+          "type": "STRING"
+        },
+        {
+          "name": "entityIdScheme",
+          "type": "STRING"
+        }
+      ]
+    },
+    "PartyRole": {
+      "source_iri": null,
+      "note": "cdm.base.staticdata.party",
+      "properties": [
+        {
+          "name": "role",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Counterparty": {
+      "source_iri": null,
+      "note": "cdm.base.staticdata.party -- top hub, 56 references",
+      "properties": [
+        {
+          "name": "role",
+          "type": "STRING"
+        }
+      ]
+    },
+    "NaturalPerson": {
+      "source_iri": null,
+      "note": "cdm.base.staticdata.party",
+      "properties": [
+        {
+          "name": "firstName",
+          "type": "STRING"
+        },
+        {
+          "name": "middleName",
+          "type": "STRING"
+        },
+        {
+          "name": "surname",
+          "type": "STRING"
+        },
+        {
+          "name": "initial",
+          "type": "STRING"
+        },
+        {
+          "name": "honorific",
+          "type": "STRING"
+        },
+        {
+          "name": "suffix",
+          "type": "STRING"
+        },
+        {
+          "name": "dateOfBirth",
+          "type": "DATE"
+        }
+      ]
+    },
+    "Account": {
+      "source_iri": null,
+      "note": "cdm.base.staticdata.party",
+      "properties": [
+        {
+          "name": "accountNumber",
+          "type": "STRING"
+        },
+        {
+          "name": "accountName",
+          "type": "STRING"
+        },
+        {
+          "name": "accountType",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Money": {
+      "source_iri": null,
+      "note": "cdm.observable.asset (extends Quantity)",
+      "properties": [
+        {
+          "name": "value",
+          "type": "FLOAT"
+        },
+        {
+          "name": "currency",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Price": {
+      "source_iri": null,
+      "note": "cdm.observable.asset",
+      "properties": [
+        {
+          "name": "value",
+          "type": "FLOAT"
+        },
+        {
+          "name": "priceType",
+          "type": "STRING"
+        },
+        {
+          "name": "priceExpression",
+          "type": "STRING"
+        },
+        {
+          "name": "priceSubType",
+          "type": "STRING"
+        },
+        {
+          "name": "arithmeticOperator",
+          "type": "STRING"
+        },
+        {
+          "name": "premiumType",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Quantity": {
+      "source_iri": null,
+      "note": "cdm.base.math",
+      "properties": [
+        {
+          "name": "value",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "UnitType": {
+      "source_iri": null,
+      "note": "cdm.base.math",
+      "properties": [
+        {
+          "name": "currency",
+          "type": "STRING"
+        },
+        {
+          "name": "financialUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "capacityUnit",
+          "type": "STRING"
+        },
+        {
+          "name": "weatherUnit",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Observable": {
+      "source_iri": null,
+      "note": "cdm.observable.asset (choice: Asset/Basket/Index)",
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "observableType",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Index": {
+      "source_iri": null,
+      "note": "cdm.observable.asset",
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "indexType",
+          "type": "STRING"
+        },
+        {
+          "name": "floatingRateIndex",
+          "type": "STRING"
+        }
+      ]
+    },
+    "AdjustableOrRelativeDate": {
+      "source_iri": null,
+      "note": "cdm.base.datetime",
+      "properties": [
+        {
+          "name": "unadjustedDate",
+          "type": "DATE"
+        },
+        {
+          "name": "adjustedDate",
+          "type": "DATE"
+        },
+        {
+          "name": "dateRelativeTo",
+          "type": "STRING"
+        }
+      ]
+    },
+    "BusinessDayAdjustments": {
+      "source_iri": null,
+      "note": "cdm.base.datetime",
+      "properties": [
+        {
+          "name": "businessDayConvention",
+          "type": "STRING"
+        }
+      ]
+    },
+    "BusinessCenters": {
+      "source_iri": null,
+      "note": "cdm.base.datetime",
+      "properties": [
+        {
+          "name": "businessCenter",
+          "type": "STRING"
+        },
+        {
+          "name": "businessCentersReference",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Period": {
+      "source_iri": null,
+      "note": "cdm.base.datetime",
+      "properties": [
+        {
+          "name": "periodMultiplier",
+          "type": "INTEGER"
+        },
+        {
+          "name": "period",
+          "type": "STRING"
+        }
+      ]
+    },
+    "LegalAgreement": {
+      "source_iri": null,
+      "note": "cdm.legaldocumentation.common",
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "agreementType",
+          "type": "STRING"
+        },
+        {
+          "name": "agreementDate",
+          "type": "DATE"
+        },
+        {
+          "name": "effectiveDate",
+          "type": "DATE"
+        },
+        {
+          "name": "governingLaw",
+          "type": "STRING"
+        }
+      ]
+    },
+    "ContractDetails": {
+      "source_iri": null,
+      "note": "cdm.event.common",
+      "properties": [
+        {
+          "name": "governingLaw",
+          "type": "STRING"
+        }
+      ]
+    },
+    "Collateral": {
+      "source_iri": null,
+      "note": "cdm.product.collateral",
+      "properties": [
+        {
+          "name": "id",
+          "type": "STRING"
+        },
+        {
+          "name": "portfolioIdentifier",
+          "type": "STRING"
+        },
+        {
+          "name": "independentAmountValue",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    "CodeListValue": {
+      "source_iri": null,
+      "note": "CODE_LIST_EXTRACT target for 280 enums / 4,226 values",
+      "properties": [
+        {
+          "name": "enumName",
+          "type": "STRING"
+        },
+        {
+          "name": "value",
+          "type": "STRING"
+        },
+        {
+          "name": "displayName",
+          "type": "STRING"
+        },
+        {
+          "name": "definition",
+          "type": "STRING"
+        },
+        {
+          "name": "namespace",
+          "type": "STRING"
+        }
+      ]
+    }
+  }
+}

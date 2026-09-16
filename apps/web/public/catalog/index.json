@@ -102,6 +102,90 @@
       "has_analysis": true
     },
     {
+      "standard": "cdm",
+      "title": "FINOS CDM -- Common Domain Model (derivatives, securities lending, repo)",
+      "industry": "Financial Services / Capital Markets",
+      "source": {
+        "registry": "cdm",
+        "git": "github.com/finos/common-domain-model",
+        "format": "rosetta-dsl",
+        "licence": "Community Specification License 1.0",
+        "stewards": "ISDA, ISLA, ICMA (tooling: REGnosys)"
+      },
+      "nodes": 39,
+      "properties": 118,
+      "relationships": 77,
+      "relationship_types": 66,
+      "self_relationships": [
+        "BROADER_THAN",
+        "RELATED_AGREEMENT",
+        "SUCCEEDS"
+      ],
+      "errors": 0,
+      "warnings": 0,
+      "ir": {
+        "triples": 7193,
+        "classes": 1059,
+        "object_properties": 0,
+        "individuals": 4226,
+        "anonymous_share": 0.0,
+        "anonymous_subclass_share": 0.0,
+        "max_depth": 4,
+        "grounding_coverage": 90.1,
+        "top_hubs": [
+          [
+            "CounterpartyRoleEnum",
+            56
+          ],
+          [
+            "Money",
+            45
+          ],
+          [
+            "Party",
+            43
+          ],
+          [
+            "Price",
+            23
+          ],
+          [
+            "AdjustableOrRelativeDate",
+            21
+          ],
+          [
+            "LegalEntity",
+            19
+          ],
+          [
+            "BusinessCenterTime",
+            17
+          ],
+          [
+            "PriceSchedule",
+            17
+          ],
+          [
+            "Identifier",
+            16
+          ],
+          [
+            "RelativeDateOffset",
+            14
+          ],
+          [
+            "BusinessDayAdjustments",
+            13
+          ],
+          [
+            "Period",
+            13
+          ]
+        ]
+      },
+      "has_analysis": true
+    },
+    {
       "standard": "epcis",
       "title": "GS1 EPCIS 2.0 -- supply chain traceability",
       "industry": "Supply Chain",

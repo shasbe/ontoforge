@@ -73,6 +73,7 @@ python -m ontoforge.cli analyze catalog/ir/fhir.ir.json
 | `auto` | Automotive | 30 | 53 | OWL / RDF-XML |
 | `idmp` | Pharmaceuticals | 29 | 44 | OWL / RDF-XML |
 | `gs1` | Retail / CPG | 28 | 47 | Turtle |
+| `cdm` | Financial Services / Capital Markets | 39 | 77 | Rosetta DSL |
 | `wikidata` | Cross-domain KG | 21 | 45 | spec (hand-modelled) |
 | `epcis` | Supply Chain | 20 | 38 | Turtle |
 
@@ -80,15 +81,18 @@ python -m ontoforge.cli analyze catalog/ir/fhir.ir.json
 
 Run `ontoforge analyze` for the full report. Headline numbers:
 
-| standard | triples | classes | anon subClassOf | anon targets | depth | grounding |
+| standard | assertions | classes | anon subClassOf | anon targets | depth | grounding |
 |---|---|---|---|---|---|---|
 | fibo | 130,273 | 3,021 | 42.1% | 8.5% | 12 | 85.5% |
 | iof | 25,348 | 1,002 | 38.6% | 44.1% | 7 | 95.1% |
 | gs1 | 18,749 | 56 | 0.0% | 0.5% | 3 | 100.0% |
 | idmp | 15,684 | 457 | 62.4% | 11.9% | 7 | 97.9% |
 | auto | 13,474 | 1,171 | 40.9% | 7.8% | 12 | 92.7% |
+| cdm | 7,193 | 1,059 | 0.0% | 0.0% | 4 | 90.1% |
 | fhir | 8,896 | 158 | — | 0.0% | 0 | 100.0% |
 | epcis | 1,000 | 20 | 0.0% | 14.9% | 1 | 100.0% |
+
+For RDF sources *assertions* means triples; for Rosetta it means attributes + inheritance + choice membership + enum values, and for FHIR, StructureDefinition elements.
 
 `anon subClassOf` is the share of `rdfs:subClassOf` axioms whose object is a
 blank node — i.e. how much of the apparent hierarchy is really OWL restrictions.
@@ -96,6 +100,12 @@ This is the single biggest reason a naive RDF import produces an unusable graph.
 `anon targets` is the narrower share of extracted constraints pointing at
 anonymous unions/intersections. Both are reported because they answer different
 questions. **IDMP is the extreme at 62.4%**, ahead of FIBO's 42.1%.
+
+**CDM is the outlier in the other direction**: 0% anonymous constructs, depth 4,
+single-parent inheritance, explicit cardinality, and a declared scalar-vs-complex
+split. Rosetta DSL states what OWL makes you infer, which makes CDM the cheapest
+high-quality model in the catalog. The trade-off is that CDM is machine-*executable* —
+its 1,290 functions and 615 conditions are logic a property graph cannot hold.
 
 Grounding coverage is scoped to *schema* entities (classes + properties);
 including reference-data individuals would dilute it — FIBO reads 39% over all
