@@ -44,13 +44,15 @@ spec grows:
 
 The proof is the second target already in the repo: the **Neo4j Ontology
 Graph Specification** ([OGS / ONT-31](https://neo4j.com/docs/ontology-graph-spec/))
-adapter at `targets/neo4j-ontology-graph-spec-1.1.0`. The same nine profiles
-compile to a second download format — a versioned, SDK-backed ontology
-document — and because OGS models keys, multi-labels and relationship
+adapters at `targets/neo4j-ontology-graph-spec-1.1.0` and `-1.0.0`. The same
+nine profiles compile to a second download format — a versioned, SDK-backed
+ontology document — and because OGS models keys, multi-labels and relationship
 properties natively, its capabilities are all on: EPCIS timestamps come out
 as `ZONED DATETIME` instead of degrading to `STRING`, and the CDM profile's
 keys become real `KEY` constraints. Every emitted document is validated
-against the official JSON Schema, vendored in the target dir.
+against the official JSON Schema, vendored in each target dir. Adding a future
+spec version is one more target dir; the web download menu picks it up from
+`index.json` automatically.
 
 Type negotiation works the same way. Profiles declare semantically honest types;
 the adapter reconciles them with what the target accepts:
@@ -185,8 +187,10 @@ tests/golden/               the nine hand-built models
 backend, no login). Browse the catalog, explore a model on a pan/zoom canvas,
 inspect nodes, read the validation gates and decision log, and download the JSON
 with your current layout baked into `display`. Every model also downloads as an
-**Ontology Graph Spec** document (`Download Ontology`), with the same layout
-baked into per-node display positions. See `apps/web/README.md`.
+**Ontology Graph Spec** document — the `Download Ontology ▾` menu offers each
+published spec version (1.0.0, 1.1.0, and future ones as they land), and
+picking one downloads it in a single action with the same layout baked into
+per-node display positions. See `apps/web/README.md`.
 
 The catalog it serves is precomputed: FIBO is a 137 MB clone and ~2 minutes of
 parsing, and FHIR R5 a 44 MB bundle, so neither can happen on a page load. CI

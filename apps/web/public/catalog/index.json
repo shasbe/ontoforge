@@ -48,7 +48,12 @@
         {
           "name": "neo4j-ontology-graph-spec",
           "version": "1.1.0",
-          "file": "neo4j-ontology-graph-spec.json"
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
         }
       ],
       "ir": null,
@@ -85,7 +90,12 @@
         {
           "name": "neo4j-ontology-graph-spec",
           "version": "1.1.0",
-          "file": "neo4j-ontology-graph-spec.json"
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
         }
       ],
       "ir": null,
@@ -119,7 +129,12 @@
         {
           "name": "neo4j-ontology-graph-spec",
           "version": "1.1.0",
-          "file": "neo4j-ontology-graph-spec.json"
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
         }
       ],
       "ir": null,
@@ -156,7 +171,12 @@
         {
           "name": "neo4j-ontology-graph-spec",
           "version": "1.1.0",
-          "file": "neo4j-ontology-graph-spec.json"
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
         }
       ],
       "ir": null,
@@ -196,7 +216,12 @@
         {
           "name": "neo4j-ontology-graph-spec",
           "version": "1.1.0",
-          "file": "neo4j-ontology-graph-spec.json"
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
         }
       ],
       "ir": null,
@@ -231,7 +256,12 @@
         {
           "name": "neo4j-ontology-graph-spec",
           "version": "1.1.0",
-          "file": "neo4j-ontology-graph-spec.json"
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
         }
       ],
       "ir": null,
@@ -267,7 +297,12 @@
         {
           "name": "neo4j-ontology-graph-spec",
           "version": "1.1.0",
-          "file": "neo4j-ontology-graph-spec.json"
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
         }
       ],
       "ir": null,
@@ -302,7 +337,12 @@
         {
           "name": "neo4j-ontology-graph-spec",
           "version": "1.1.0",
-          "file": "neo4j-ontology-graph-spec.json"
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
         }
       ],
       "ir": null,
@@ -337,7 +377,12 @@
         {
           "name": "neo4j-ontology-graph-spec",
           "version": "1.1.0",
-          "file": "neo4j-ontology-graph-spec.json"
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
         }
       ],
       "ir": null,

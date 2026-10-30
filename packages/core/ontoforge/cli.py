@@ -146,7 +146,7 @@ def cmd_export(args):
                 if errors(ef):
                     print(f"  {std:10} {ea.target}: INVALID, format not exported")
                     continue
-                fn = f"{ea.target}.json"
+                fn = f"{ea.target}-{ea.version}.json"
                 json.dump(em, open(os.path.join(d, fn), "w"), indent=2)
                 formats.append({"name": ea.target, "version": ea.version, "file": fn})
             except EmitError as e:

@@ -172,3 +172,21 @@ code, .mono { font-family: var(--mono); font-size: 12px; }
   flex-wrap: wrap; align-items: center;
 }
 .toolbar input[type="search"] { flex: 1 1 140px; min-width: 0; }
+
+/* versioned ontology download: one button, pick a version from the menu to
+   download it in a single action (opens upward -- the toolbar sits at the
+   bottom of the side panel) */
+.dd { position: relative; display: inline-flex; }
+.dd-backdrop { position: fixed; inset: 0; z-index: 20; }
+.dd-menu {
+  position: absolute; right: 0; bottom: calc(100% + 6px); z-index: 21;
+  margin: 0; padding: 4px; list-style: none; min-width: 100%;
+  background: var(--bg-2); border: 1px solid var(--line); border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+}
+.dd-menu button {
+  display: block; width: 100%; text-align: left; white-space: nowrap;
+  background: none; border: none; color: inherit;
+  padding: 6px 10px; border-radius: 6px; font-size: 12px; cursor: pointer;
+}
+.dd-menu button:hover { background: var(--line); }

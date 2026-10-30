@@ -24,13 +24,16 @@ jobs:
         run: |
           PYTHONPATH=packages/core python -m ontoforge.cli \
             validate apps/web/public/catalog/*/model.json
-          PYTHONPATH=packages/core python -m ontoforge.cli \
-            validate apps/web/public/catalog/*/neo4j-ontology-graph-spec.json \
-                    --target targets/neo4j-ontology-graph-spec-1.1.0
+          for v in 1.0.0 1.1.0; do
+            PYTHONPATH=packages/core python -m ontoforge.cli \
+              validate apps/web/public/catalog/*/neo4j-ontology-graph-spec-$v.json \
+                      --target targets/neo4j-ontology-graph-spec-$v
+          done
       - name: Catalog bundle is in sync with the profiles
         run: |
           PYTHONPATH=packages/core python -m ontoforge.cli export \
-            --also targets/neo4j-ontology-graph-spec-1.1.0 --out /tmp/check
+            --also targets/neo4j-ontology-graph-spec-1.1.0 \
+            --also targets/neo4j-ontology-graph-spec-1.0.0 --out /tmp/check
           for f in /tmp/check/*/*.json; do
             [[ "$f" == */index.json || "$f" == */validation.json \
                || "$f" == */profile.json ]] && continue

@@ -1,0 +1,66 @@
+{
+  "schema": "https://neo4j.com/docs/ontology-graph-spec/1.0.0/schema.json",
+  "version": "1.0.0",
+  "id": "sample",
+  "name": "Ontology Graph Spec sample",
+  "description": "Reference sample for the adapter: exercises every path ontoforge emits (labels, properties, KEY constraints, per-node display, relationship endpoints).",
+  "nodes": {
+    "patient": {
+      "labels": {
+        "identifier": "Patient"
+      },
+      "properties": {
+        "id": {
+          "type": "UUID",
+          "name": "id"
+        },
+        "birthDate": {
+          "type": "DATE",
+          "name": "birthDate"
+        }
+      },
+      "constraints": {
+        "key:0": {
+          "type": "KEY",
+          "properties": [
+            "id"
+          ]
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    "encounter": {
+      "labels": {
+        "identifier": "Encounter"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 430,
+          "y": 0
+        }
+      }
+    }
+  },
+  "relationships": {
+    "patient-included-in-0": {
+      "type": "INCLUDED_IN",
+      "from": {
+        "node": "patient"
+      },
+      "to": {
+        "node": "encounter"
+      }
+    }
+  }
+}
