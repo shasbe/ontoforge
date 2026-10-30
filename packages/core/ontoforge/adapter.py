@@ -65,6 +65,11 @@ class Adapter:
     label_pattern: str = r"[A-Z][A-Za-z0-9]*"
     rel_type_pattern: str = r"[A-Z][A-Z0-9_]*"
     extra: dict = field(default_factory=dict)
+    # ---- opt-in features (absent in the v4.0.0 workspace adapter)
+    root: dict = field(default_factory=dict)               # literal root fields
+    root_from_profile: dict = field(default_factory=dict)  # root field -> profile attr
+    version_from: Optional[str] = None       # profile attr for the model version
+    node_constraints: Optional[dict] = None  # {collection, id_pattern, key_type}
 
     # ---------- loading
     @staticmethod
@@ -85,7 +90,11 @@ class Adapter:
                        schema=schema,
                        label_pattern=d.get("label_pattern", r"[A-Z][A-Za-z0-9]*"),
                        rel_type_pattern=d.get("rel_type_pattern", r"[A-Z][A-Z0-9_]*"),
-                       extra=d.get("extra") or {})
+                       extra=d.get("extra") or {},
+                       root=d.get("root") or {},
+                       root_from_profile=d.get("root_from_profile") or {},
+                       version_from=d.get("version_from"),
+                       node_constraints=d.get("node", {}).get("constraints"))
 
     # ---------- the accepted property-type enum
     def type_enum(self) -> set[str]:
@@ -93,20 +102,35 @@ class Adapter:
         if isinstance(te, list):
             return set(te)
         if isinstance(te, dict) and "from_schema" in te and self.schema:
-            ref = te["from_schema"].lstrip("#/").split("/")
+            ref = te["from_schema"].lstrip("#").strip("/").split("/")
             cur: Any = self.schema
             for p in ref:
                 cur = cur.get(p, {})
+            if isinstance(cur, list):
+                return set(cur)                       # path points at the enum itself
             if isinstance(cur, dict) and "enum" in cur:
                 return set(cur["enum"])
         raise ValueError("adapter defines no resolvable property type_enum")
 
-    def id_for(self, which: str, i: int) -> str:
+    def id_for(self, which: str, i: int, name: Optional[str] = None) -> str:
+        """Fill an id pattern. Placeholders: {i} counter, {slug} kebab-case of
+        the element name (label / relationship type), {name} the raw name."""
         pat = {"node": self.node, "relationship": self.relationship}[which]["id_pattern"]
-        return pat.replace("{i}", str(i))
+        return _fill_pattern(pat, i, name)
 
-    def prop_id(self, i: int) -> str:
-        return self.node["properties"]["id_pattern"].replace("{i}", str(i))
+    def prop_id(self, i: int, name: Optional[str] = None) -> str:
+        return _fill_pattern(self.node["properties"]["id_pattern"], i, name)
+
+
+def _kebab(name: str) -> str:
+    out = re.sub(r"[^A-Za-z0-9]+", "-", name).strip("-").lower()
+    return out or "x"
+
+
+def _fill_pattern(pat: str, i: int, name: Optional[str]) -> str:
+    if name is not None:
+        pat = pat.replace("{slug}", _kebab(name)).replace("{name}", name)
+    return pat.replace("{i}", str(i))
 
     # ---------- drafting an adapter from a sample (the upload path)
     @staticmethod

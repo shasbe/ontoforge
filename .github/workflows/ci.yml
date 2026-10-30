@@ -13,22 +13,30 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pyyaml
+      - run: pip install pyyaml jsonschema
       # The nine hand-built models are the specification: any rule or emitter
       # change that alters them fails here.
       - name: Golden-file regression
         run: PYTHONPATH=packages/core python tests/test_golden.py
+      - name: Ontology Graph Spec target
+        run: PYTHONPATH=packages/core python tests/test_ogs.py
       - name: Validate the committed catalog bundle
         run: |
           PYTHONPATH=packages/core python -m ontoforge.cli \
             validate apps/web/public/catalog/*/model.json
+          PYTHONPATH=packages/core python -m ontoforge.cli \
+            validate apps/web/public/catalog/*/neo4j-ontology-graph-spec.json \
+                    --target targets/neo4j-ontology-graph-spec-1.1.0
       - name: Catalog bundle is in sync with the profiles
         run: |
-          PYTHONPATH=packages/core python -m ontoforge.cli export --out /tmp/check
-          for f in /tmp/check/*/model.json; do
+          PYTHONPATH=packages/core python -m ontoforge.cli export \
+            --also targets/neo4j-ontology-graph-spec-1.1.0 --out /tmp/check
+          for f in /tmp/check/*/*.json; do
+            [[ "$f" == */index.json || "$f" == */validation.json \
+               || "$f" == */profile.json ]] && continue
             std=$(basename $(dirname "$f"))
-            diff -q "$f" "apps/web/public/catalog/$std/model.json" \
-              || { echo "::error::$std is stale -- run 'ontoforge export' and commit"; exit 1; }
+            diff -q "$f" "apps/web/public/catalog/$std/$(basename "$f")" \
+              || { echo "::error::$std/$(basename "$f") is stale -- run 'ontoforge export' and commit"; exit 1; }
           done
 
   web:

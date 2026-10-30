@@ -71,9 +71,30 @@ export type CatalogEntry = {
   self_relationships: string[];
   errors: number;
   warnings: number;
+  formats?: { name: string; version: string; file: string }[];
   ir: IrStats | null;
   has_analysis: boolean;
 };
+
+/** Neo4j Ontology Graph Spec document (second download format). Loose on
+ *  purpose: the spec is additive, unknown fields are passthrough. */
+export type OntologyDoc = {
+  schema: string;
+  version: string;
+  id: string;
+  name?: string;
+  nodes: Record<string, {
+    labels?: { identifier?: string; implied?: string[]; optional?: string[] };
+    properties?: Record<string, { type: string; name?: string }>;
+    constraints?: Record<string, unknown>;
+    extensions?: { display?: { x: number; y: number } } & Record<string, unknown>;
+  } & Record<string, unknown>>;
+  relationships: Record<string, {
+    type: string;
+    from: { node: string };
+    to: { node: string };
+  } & Record<string, unknown>>;
+} & Record<string, unknown>;
 
 export type Catalog = {
   generated_by: string;

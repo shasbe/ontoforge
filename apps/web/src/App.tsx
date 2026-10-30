@@ -3,10 +3,10 @@ import { ReactFlowProvider } from "@xyflow/react";
 import GraphCanvas from "./GraphCanvas";
 import { Inspector, ValidationPanel, DecisionsPanel, NotesPanel, AnalysisPanel } from "./Panels";
 import {
-  loadCatalog, loadModel, loadValidation, loadProfile, loadAnalysis,
+  loadCatalog, loadModel, loadValidation, loadProfile, loadAnalysis, loadOntology,
   downloadJson, downloadText,
 } from "./data";
-import type { Catalog, CatalogEntry, Model, ProfileMeta, Validation } from "./types";
+import type { Catalog, CatalogEntry, Model, ProfileMeta, Validation, OntologyDoc } from "./types";
 
 type Tab = "inspector" | "validation" | "decisions" | "analysis" | "notes";
 
@@ -83,6 +83,7 @@ function StandardCard({ s }: { s: CatalogEntry }) {
 function ModelView({ catalog, std }: { catalog: Catalog; std: string }) {
   const entry = catalog.standards.find((s) => s.standard === std);
   const [model, setModel] = useState<Model | null>(null);
+  const [ontology, setOntology] = useState<OntologyDoc | null>(null);
   const [validation, setValidation] = useState<Validation | null>(null);
   const [profile, setProfile] = useState<ProfileMeta | null>(null);
   const [analysis, setAnalysis] = useState<string | null>(null);
@@ -95,10 +96,13 @@ function ModelView({ catalog, std }: { catalog: Catalog; std: string }) {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    setModel(null); setPositions(null); setSelected(null); setError(null);
+    setModel(null); setOntology(null); setPositions(null); setSelected(null); setError(null);
     setLayoutNonce(0); setResetNonce(0);   // a new standard starts from its curated layout
-    Promise.all([loadModel(std), loadValidation(std), loadProfile(std), loadAnalysis(std)])
-      .then(([m, v, p, a]) => { setModel(m); setValidation(v); setProfile(p); setAnalysis(a); })
+    Promise.all([loadModel(std), loadValidation(std), loadProfile(std), loadAnalysis(std),
+                 loadOntology(std).catch(() => null)])
+      .then(([m, v, p, a, o]) => {
+        setModel(m); setValidation(v); setProfile(p); setAnalysis(a); setOntology(o);
+      })
       .catch((e) => setError(String(e)));
   }, [std]);
 
@@ -109,6 +113,25 @@ function ModelView({ catalog, std }: { catalog: Catalog; std: string }) {
     if (!positions) return model;
     return { ...model, display: { ...model.display, nodes: positions } };
   }, [model, positions]);
+
+  /** Same for the Ontology Graph Spec download: its display lives per node
+   *  (extensions.display), and its node ids are slugs, so positions are
+   *  matched by label via the workspace model. */
+  const exportOntology = useMemo(() => {
+    if (!ontology || !model) return null;
+    if (!positions) return ontology;
+    const posByLabel: Record<string, { x: number; y: number }> = {};
+    for (const [nid, n] of Object.entries(model.nodes)) {
+      posByLabel[n.labels.identifier] = positions[nid] ?? model.display.nodes[nid];
+    }
+    const nodes = Object.fromEntries(Object.entries(ontology.nodes).map(([id, n]) => {
+      const label = n.labels?.identifier;
+      const p = label ? posByLabel[label] : undefined;
+      if (!p) return [id, n];
+      return [id, { ...n, extensions: { ...n.extensions, display: { x: p.x, y: p.y } } }];
+    }));
+    return { ...ontology, nodes };
+  }, [ontology, model, positions]);
 
   if (error) return <div className="err-box">Failed to load <code>{std}</code>: {error}</div>;
   if (!model || !validation || !profile || !entry)
@@ -146,6 +169,14 @@ function ModelView({ catalog, std }: { catalog: Catalog; std: string }) {
                   title="Includes your current canvas layout in the display block">
             Download JSON
           </button>
+          {ontology && (
+            <button onClick={() => downloadJson(`${std}-ontology.json`, exportOntology)}
+                    title="Neo4j Ontology Graph Spec 1.1.0 -- the same model as a
+versioned, SDK-backed ontology document; includes your current layout
+as per-node display positions">
+              Download Ontology
+            </button>
+          )}
           <button onClick={() => setLayoutNonce((n) => n + 1)}
                   title="Force-directed relaxation; hubs pull toward the centre">
             Auto-layout

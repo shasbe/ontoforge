@@ -22,8 +22,9 @@ TYPE_MAP = {
 # When the target rejects a token, degrade in this order. ISO 8601 strings sort
 # lexicographically, so a STRING fallback preserves ordering semantics.
 FALLBACK = {
-    "DATETIME": ["LOCAL_DATETIME", "ZONED_DATETIME", "DATE_TIME", "STRING"],
-    "TIME": ["LOCAL_TIME", "STRING"],
+    "DATETIME": ["ZONED_DATETIME", "LOCAL_DATETIME", "DATE_TIME",
+                 "ZONED DATETIME", "LOCAL DATETIME", "STRING"],
+    "TIME": ["LOCAL_TIME", "ZONED_TIME", "LOCAL TIME", "ZONED TIME", "STRING"],
     "DURATION": ["STRING"],
     "POINT": ["STRING"],
     "INTEGER": ["LONG", "FLOAT", "STRING"],

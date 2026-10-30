@@ -1,0 +1,2588 @@
+{
+  "version": "5.0.0",
+  "schema": "https://neo4j.com/docs/ontology-graph-spec/1.1.0/schema.json",
+  "id": "fhir",
+  "name": "HL7 FHIR R5 -- clinical core",
+  "nodes": {
+    "patient": {
+      "labels": {
+        "identifier": "Patient"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "active": {
+          "type": "BOOLEAN",
+          "name": "active"
+        },
+        "nameFamily": {
+          "type": "STRING",
+          "name": "nameFamily"
+        },
+        "nameGiven": {
+          "type": "STRING",
+          "name": "nameGiven"
+        },
+        "gender": {
+          "type": "STRING",
+          "name": "gender"
+        },
+        "birthDate": {
+          "type": "DATE",
+          "name": "birthDate"
+        },
+        "deceasedBoolean": {
+          "type": "BOOLEAN",
+          "name": "deceasedBoolean"
+        },
+        "deceasedDate": {
+          "type": "DATE",
+          "name": "deceasedDate"
+        },
+        "maritalStatus": {
+          "type": "STRING",
+          "name": "maritalStatus"
+        },
+        "multipleBirthInteger": {
+          "type": "INTEGER",
+          "name": "multipleBirthInteger"
+        },
+        "telecom": {
+          "type": "STRING",
+          "name": "telecom"
+        },
+        "addressText": {
+          "type": "STRING",
+          "name": "addressText"
+        },
+        "communicationLanguage": {
+          "type": "STRING",
+          "name": "communicationLanguage"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": -200
+        }
+      }
+    },
+    "practitioner": {
+      "labels": {
+        "identifier": "Practitioner"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "active": {
+          "type": "BOOLEAN",
+          "name": "active"
+        },
+        "nameFamily": {
+          "type": "STRING",
+          "name": "nameFamily"
+        },
+        "nameGiven": {
+          "type": "STRING",
+          "name": "nameGiven"
+        },
+        "gender": {
+          "type": "STRING",
+          "name": "gender"
+        },
+        "birthDate": {
+          "type": "DATE",
+          "name": "birthDate"
+        },
+        "qualificationCode": {
+          "type": "STRING",
+          "name": "qualificationCode"
+        },
+        "communicationLanguage": {
+          "type": "STRING",
+          "name": "communicationLanguage"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": -200
+        }
+      }
+    },
+    "practitionerrole": {
+      "labels": {
+        "identifier": "PractitionerRole"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "active": {
+          "type": "BOOLEAN",
+          "name": "active"
+        },
+        "periodStart": {
+          "type": "DATE",
+          "name": "periodStart"
+        },
+        "periodEnd": {
+          "type": "DATE",
+          "name": "periodEnd"
+        },
+        "code": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "specialty": {
+          "type": "STRING",
+          "name": "specialty"
+        },
+        "availabilityExceptions": {
+          "type": "STRING",
+          "name": "availabilityExceptions"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": -200
+        }
+      }
+    },
+    "organization": {
+      "labels": {
+        "identifier": "Organization"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "active": {
+          "type": "BOOLEAN",
+          "name": "active"
+        },
+        "type": {
+          "type": "STRING",
+          "name": "type"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "alias": {
+          "type": "STRING",
+          "name": "alias"
+        },
+        "telecom": {
+          "type": "STRING",
+          "name": "telecom"
+        },
+        "addressText": {
+          "type": "STRING",
+          "name": "addressText"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": -200
+        }
+      }
+    },
+    "location": {
+      "labels": {
+        "identifier": "Location"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "mode": {
+          "type": "STRING",
+          "name": "mode"
+        },
+        "type": {
+          "type": "STRING",
+          "name": "type"
+        },
+        "physicalType": {
+          "type": "STRING",
+          "name": "physicalType"
+        },
+        "addressText": {
+          "type": "STRING",
+          "name": "addressText"
+        },
+        "latitude": {
+          "type": "FLOAT",
+          "name": "latitude"
+        },
+        "longitude": {
+          "type": "FLOAT",
+          "name": "longitude"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": -200
+        }
+      }
+    },
+    "healthcareservice": {
+      "labels": {
+        "identifier": "HealthcareService"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "active": {
+          "type": "BOOLEAN",
+          "name": "active"
+        },
+        "category": {
+          "type": "STRING",
+          "name": "category"
+        },
+        "type": {
+          "type": "STRING",
+          "name": "type"
+        },
+        "specialty": {
+          "type": "STRING",
+          "name": "specialty"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "comment": {
+          "type": "STRING",
+          "name": "comment"
+        },
+        "appointmentRequired": {
+          "type": "BOOLEAN",
+          "name": "appointmentRequired"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": -200
+        }
+      }
+    },
+    "relatedperson": {
+      "labels": {
+        "identifier": "RelatedPerson"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "active": {
+          "type": "BOOLEAN",
+          "name": "active"
+        },
+        "relationship": {
+          "type": "STRING",
+          "name": "relationship"
+        },
+        "nameFamily": {
+          "type": "STRING",
+          "name": "nameFamily"
+        },
+        "nameGiven": {
+          "type": "STRING",
+          "name": "nameGiven"
+        },
+        "gender": {
+          "type": "STRING",
+          "name": "gender"
+        },
+        "birthDate": {
+          "type": "DATE",
+          "name": "birthDate"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 10
+        }
+      }
+    },
+    "group": {
+      "labels": {
+        "identifier": "Group"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "active": {
+          "type": "BOOLEAN",
+          "name": "active"
+        },
+        "type": {
+          "type": "STRING",
+          "name": "type"
+        },
+        "membership": {
+          "type": "STRING",
+          "name": "membership"
+        },
+        "code": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "quantity": {
+          "type": "INTEGER",
+          "name": "quantity"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 10
+        }
+      }
+    },
+    "careteam": {
+      "labels": {
+        "identifier": "CareTeam"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "category": {
+          "type": "STRING",
+          "name": "category"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "periodStart": {
+          "type": "DATE",
+          "name": "periodStart"
+        },
+        "periodEnd": {
+          "type": "DATE",
+          "name": "periodEnd"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 10
+        }
+      }
+    },
+    "device": {
+      "labels": {
+        "identifier": "Device"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "manufacturer": {
+          "type": "STRING",
+          "name": "manufacturer"
+        },
+        "modelNumber": {
+          "type": "STRING",
+          "name": "modelNumber"
+        },
+        "serialNumber": {
+          "type": "STRING",
+          "name": "serialNumber"
+        },
+        "manufactureDate": {
+          "type": "DATE",
+          "name": "manufactureDate"
+        },
+        "expirationDate": {
+          "type": "DATE",
+          "name": "expirationDate"
+        },
+        "lotNumber": {
+          "type": "STRING",
+          "name": "lotNumber"
+        },
+        "type": {
+          "type": "STRING",
+          "name": "type"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": 10
+        }
+      }
+    },
+    "coverage": {
+      "labels": {
+        "identifier": "Coverage"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "kind": {
+          "type": "STRING",
+          "name": "kind"
+        },
+        "type": {
+          "type": "STRING",
+          "name": "type"
+        },
+        "subscriberId": {
+          "type": "STRING",
+          "name": "subscriberId"
+        },
+        "dependent": {
+          "type": "STRING",
+          "name": "dependent"
+        },
+        "relationship": {
+          "type": "STRING",
+          "name": "relationship"
+        },
+        "periodStart": {
+          "type": "DATE",
+          "name": "periodStart"
+        },
+        "periodEnd": {
+          "type": "DATE",
+          "name": "periodEnd"
+        },
+        "network": {
+          "type": "STRING",
+          "name": "network"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": 10
+        }
+      }
+    },
+    "encounter": {
+      "labels": {
+        "identifier": "Encounter"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "class": {
+          "type": "STRING",
+          "name": "class"
+        },
+        "priority": {
+          "type": "STRING",
+          "name": "priority"
+        },
+        "type": {
+          "type": "STRING",
+          "name": "type"
+        },
+        "serviceType": {
+          "type": "STRING",
+          "name": "serviceType"
+        },
+        "actualPeriodStart": {
+          "type": "DATE",
+          "name": "actualPeriodStart"
+        },
+        "actualPeriodEnd": {
+          "type": "DATE",
+          "name": "actualPeriodEnd"
+        },
+        "lengthMinutes": {
+          "type": "INTEGER",
+          "name": "lengthMinutes"
+        },
+        "admitSource": {
+          "type": "STRING",
+          "name": "admitSource"
+        },
+        "dischargeDisposition": {
+          "type": "STRING",
+          "name": "dischargeDisposition"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": 10
+        }
+      }
+    },
+    "episodeofcare": {
+      "labels": {
+        "identifier": "EpisodeOfCare"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "type": {
+          "type": "STRING",
+          "name": "type"
+        },
+        "periodStart": {
+          "type": "DATE",
+          "name": "periodStart"
+        },
+        "periodEnd": {
+          "type": "DATE",
+          "name": "periodEnd"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 220
+        }
+      }
+    },
+    "condition": {
+      "labels": {
+        "identifier": "Condition"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "clinicalStatus": {
+          "type": "STRING",
+          "name": "clinicalStatus"
+        },
+        "verificationStatus": {
+          "type": "STRING",
+          "name": "verificationStatus"
+        },
+        "category": {
+          "type": "STRING",
+          "name": "category"
+        },
+        "severity": {
+          "type": "STRING",
+          "name": "severity"
+        },
+        "code": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "bodySite": {
+          "type": "STRING",
+          "name": "bodySite"
+        },
+        "onsetDate": {
+          "type": "DATE",
+          "name": "onsetDate"
+        },
+        "abatementDate": {
+          "type": "DATE",
+          "name": "abatementDate"
+        },
+        "recordedDate": {
+          "type": "DATE",
+          "name": "recordedDate"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 220
+        }
+      }
+    },
+    "observation": {
+      "labels": {
+        "identifier": "Observation"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "category": {
+          "type": "STRING",
+          "name": "category"
+        },
+        "code": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "effectiveDate": {
+          "type": "DATE",
+          "name": "effectiveDate"
+        },
+        "issued": {
+          "type": "DATE",
+          "name": "issued"
+        },
+        "valueQuantity": {
+          "type": "FLOAT",
+          "name": "valueQuantity"
+        },
+        "valueUnit": {
+          "type": "STRING",
+          "name": "valueUnit"
+        },
+        "valueCodeableConcept": {
+          "type": "STRING",
+          "name": "valueCodeableConcept"
+        },
+        "valueString": {
+          "type": "STRING",
+          "name": "valueString"
+        },
+        "interpretation": {
+          "type": "STRING",
+          "name": "interpretation"
+        },
+        "bodySite": {
+          "type": "STRING",
+          "name": "bodySite"
+        },
+        "method": {
+          "type": "STRING",
+          "name": "method"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 220
+        }
+      }
+    },
+    "procedure": {
+      "labels": {
+        "identifier": "Procedure"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "category": {
+          "type": "STRING",
+          "name": "category"
+        },
+        "code": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "occurrenceDate": {
+          "type": "DATE",
+          "name": "occurrenceDate"
+        },
+        "recorded": {
+          "type": "DATE",
+          "name": "recorded"
+        },
+        "outcome": {
+          "type": "STRING",
+          "name": "outcome"
+        },
+        "bodySite": {
+          "type": "STRING",
+          "name": "bodySite"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": 220
+        }
+      }
+    },
+    "diagnosticreport": {
+      "labels": {
+        "identifier": "DiagnosticReport"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "category": {
+          "type": "STRING",
+          "name": "category"
+        },
+        "code": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "effectiveDate": {
+          "type": "DATE",
+          "name": "effectiveDate"
+        },
+        "issued": {
+          "type": "DATE",
+          "name": "issued"
+        },
+        "conclusion": {
+          "type": "STRING",
+          "name": "conclusion"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": 220
+        }
+      }
+    },
+    "specimen": {
+      "labels": {
+        "identifier": "Specimen"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "type": {
+          "type": "STRING",
+          "name": "type"
+        },
+        "receivedTime": {
+          "type": "DATE",
+          "name": "receivedTime"
+        },
+        "collectedDate": {
+          "type": "DATE",
+          "name": "collectedDate"
+        },
+        "collectionMethod": {
+          "type": "STRING",
+          "name": "collectionMethod"
+        },
+        "bodySite": {
+          "type": "STRING",
+          "name": "bodySite"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": 220
+        }
+      }
+    },
+    "allergyintolerance": {
+      "labels": {
+        "identifier": "AllergyIntolerance"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "clinicalStatus": {
+          "type": "STRING",
+          "name": "clinicalStatus"
+        },
+        "verificationStatus": {
+          "type": "STRING",
+          "name": "verificationStatus"
+        },
+        "type": {
+          "type": "STRING",
+          "name": "type"
+        },
+        "category": {
+          "type": "STRING",
+          "name": "category"
+        },
+        "criticality": {
+          "type": "STRING",
+          "name": "criticality"
+        },
+        "code": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "onsetDate": {
+          "type": "DATE",
+          "name": "onsetDate"
+        },
+        "recordedDate": {
+          "type": "DATE",
+          "name": "recordedDate"
+        },
+        "lastOccurrence": {
+          "type": "DATE",
+          "name": "lastOccurrence"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 430
+        }
+      }
+    },
+    "immunization": {
+      "labels": {
+        "identifier": "Immunization"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "vaccineCode": {
+          "type": "STRING",
+          "name": "vaccineCode"
+        },
+        "occurrenceDate": {
+          "type": "DATE",
+          "name": "occurrenceDate"
+        },
+        "primarySource": {
+          "type": "BOOLEAN",
+          "name": "primarySource"
+        },
+        "lotNumber": {
+          "type": "STRING",
+          "name": "lotNumber"
+        },
+        "expirationDate": {
+          "type": "DATE",
+          "name": "expirationDate"
+        },
+        "site": {
+          "type": "STRING",
+          "name": "site"
+        },
+        "route": {
+          "type": "STRING",
+          "name": "route"
+        },
+        "doseQuantity": {
+          "type": "FLOAT",
+          "name": "doseQuantity"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 430
+        }
+      }
+    },
+    "careplan": {
+      "labels": {
+        "identifier": "CarePlan"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "intent": {
+          "type": "STRING",
+          "name": "intent"
+        },
+        "category": {
+          "type": "STRING",
+          "name": "category"
+        },
+        "title": {
+          "type": "STRING",
+          "name": "title"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "periodStart": {
+          "type": "DATE",
+          "name": "periodStart"
+        },
+        "periodEnd": {
+          "type": "DATE",
+          "name": "periodEnd"
+        },
+        "created": {
+          "type": "DATE",
+          "name": "created"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 430
+        }
+      }
+    },
+    "goal": {
+      "labels": {
+        "identifier": "Goal"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "lifecycleStatus": {
+          "type": "STRING",
+          "name": "lifecycleStatus"
+        },
+        "achievementStatus": {
+          "type": "STRING",
+          "name": "achievementStatus"
+        },
+        "category": {
+          "type": "STRING",
+          "name": "category"
+        },
+        "priority": {
+          "type": "STRING",
+          "name": "priority"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "startDate": {
+          "type": "DATE",
+          "name": "startDate"
+        },
+        "targetDate": {
+          "type": "DATE",
+          "name": "targetDate"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": 430
+        }
+      }
+    },
+    "clinicalimpression": {
+      "labels": {
+        "identifier": "ClinicalImpression"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "effectiveDate": {
+          "type": "DATE",
+          "name": "effectiveDate"
+        },
+        "summary": {
+          "type": "STRING",
+          "name": "summary"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": 430
+        }
+      }
+    },
+    "medication": {
+      "labels": {
+        "identifier": "Medication"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "code": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "doseFormCode": {
+          "type": "STRING",
+          "name": "doseFormCode"
+        },
+        "totalVolumeValue": {
+          "type": "FLOAT",
+          "name": "totalVolumeValue"
+        },
+        "totalVolumeUnit": {
+          "type": "STRING",
+          "name": "totalVolumeUnit"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": 430
+        }
+      }
+    },
+    "medicationrequest": {
+      "labels": {
+        "identifier": "MedicationRequest"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "intent": {
+          "type": "STRING",
+          "name": "intent"
+        },
+        "category": {
+          "type": "STRING",
+          "name": "category"
+        },
+        "priority": {
+          "type": "STRING",
+          "name": "priority"
+        },
+        "doNotPerform": {
+          "type": "BOOLEAN",
+          "name": "doNotPerform"
+        },
+        "authoredOn": {
+          "type": "DATE",
+          "name": "authoredOn"
+        },
+        "dosageText": {
+          "type": "STRING",
+          "name": "dosageText"
+        },
+        "dosageRoute": {
+          "type": "STRING",
+          "name": "dosageRoute"
+        },
+        "dispenseQuantity": {
+          "type": "FLOAT",
+          "name": "dispenseQuantity"
+        },
+        "numberOfRepeatsAllowed": {
+          "type": "INTEGER",
+          "name": "numberOfRepeatsAllowed"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 640
+        }
+      }
+    },
+    "medicationadministration": {
+      "labels": {
+        "identifier": "MedicationAdministration"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "category": {
+          "type": "STRING",
+          "name": "category"
+        },
+        "occurrenceDate": {
+          "type": "DATE",
+          "name": "occurrenceDate"
+        },
+        "recorded": {
+          "type": "DATE",
+          "name": "recorded"
+        },
+        "dosageText": {
+          "type": "STRING",
+          "name": "dosageText"
+        },
+        "dosageRoute": {
+          "type": "STRING",
+          "name": "dosageRoute"
+        },
+        "dosageDoseValue": {
+          "type": "FLOAT",
+          "name": "dosageDoseValue"
+        },
+        "dosageDoseUnit": {
+          "type": "STRING",
+          "name": "dosageDoseUnit"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 640
+        }
+      }
+    },
+    "medicationdispense": {
+      "labels": {
+        "identifier": "MedicationDispense"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "category": {
+          "type": "STRING",
+          "name": "category"
+        },
+        "type": {
+          "type": "STRING",
+          "name": "type"
+        },
+        "quantityValue": {
+          "type": "FLOAT",
+          "name": "quantityValue"
+        },
+        "quantityUnit": {
+          "type": "STRING",
+          "name": "quantityUnit"
+        },
+        "daysSupply": {
+          "type": "FLOAT",
+          "name": "daysSupply"
+        },
+        "whenPrepared": {
+          "type": "DATE",
+          "name": "whenPrepared"
+        },
+        "whenHandedOver": {
+          "type": "DATE",
+          "name": "whenHandedOver"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 640
+        }
+      }
+    },
+    "servicerequest": {
+      "labels": {
+        "identifier": "ServiceRequest"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "intent": {
+          "type": "STRING",
+          "name": "intent"
+        },
+        "category": {
+          "type": "STRING",
+          "name": "category"
+        },
+        "priority": {
+          "type": "STRING",
+          "name": "priority"
+        },
+        "doNotPerform": {
+          "type": "BOOLEAN",
+          "name": "doNotPerform"
+        },
+        "code": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "occurrenceDate": {
+          "type": "DATE",
+          "name": "occurrenceDate"
+        },
+        "authoredOn": {
+          "type": "DATE",
+          "name": "authoredOn"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": 640
+        }
+      }
+    },
+    "appointment": {
+      "labels": {
+        "identifier": "Appointment"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "cancellationReason": {
+          "type": "STRING",
+          "name": "cancellationReason"
+        },
+        "serviceCategory": {
+          "type": "STRING",
+          "name": "serviceCategory"
+        },
+        "serviceType": {
+          "type": "STRING",
+          "name": "serviceType"
+        },
+        "specialty": {
+          "type": "STRING",
+          "name": "specialty"
+        },
+        "appointmentType": {
+          "type": "STRING",
+          "name": "appointmentType"
+        },
+        "priority": {
+          "type": "STRING",
+          "name": "priority"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "startDate": {
+          "type": "DATE",
+          "name": "startDate"
+        },
+        "endDate": {
+          "type": "DATE",
+          "name": "endDate"
+        },
+        "minutesDuration": {
+          "type": "INTEGER",
+          "name": "minutesDuration"
+        },
+        "created": {
+          "type": "DATE",
+          "name": "created"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": 640
+        }
+      }
+    },
+    "task": {
+      "labels": {
+        "identifier": "Task"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "intent": {
+          "type": "STRING",
+          "name": "intent"
+        },
+        "priority": {
+          "type": "STRING",
+          "name": "priority"
+        },
+        "code": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "authoredOn": {
+          "type": "DATE",
+          "name": "authoredOn"
+        },
+        "lastModified": {
+          "type": "DATE",
+          "name": "lastModified"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": 640
+        }
+      }
+    },
+    "documentreference": {
+      "labels": {
+        "identifier": "DocumentReference"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "docStatus": {
+          "type": "STRING",
+          "name": "docStatus"
+        },
+        "type": {
+          "type": "STRING",
+          "name": "type"
+        },
+        "category": {
+          "type": "STRING",
+          "name": "category"
+        },
+        "date": {
+          "type": "DATE",
+          "name": "date"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "contentType": {
+          "type": "STRING",
+          "name": "contentType"
+        },
+        "contentUrl": {
+          "type": "STRING",
+          "name": "contentUrl"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 850
+        }
+      }
+    },
+    "provenance": {
+      "labels": {
+        "identifier": "Provenance"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "occurredDate": {
+          "type": "DATE",
+          "name": "occurredDate"
+        },
+        "recorded": {
+          "type": "DATE",
+          "name": "recorded"
+        },
+        "activity": {
+          "type": "STRING",
+          "name": "activity"
+        },
+        "policy": {
+          "type": "STRING",
+          "name": "policy"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 850
+        }
+      }
+    },
+    "coding": {
+      "labels": {
+        "identifier": "Coding"
+      },
+      "properties": {
+        "system": {
+          "type": "STRING",
+          "name": "system"
+        },
+        "code": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "display": {
+          "type": "STRING",
+          "name": "display"
+        },
+        "version": {
+          "type": "STRING",
+          "name": "version"
+        },
+        "userSelected": {
+          "type": "BOOLEAN",
+          "name": "userSelected"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 850
+        }
+      }
+    }
+  },
+  "relationships": {
+    "subject-0": {
+      "type": "SUBJECT",
+      "from": {
+        "node": "encounter"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "subject-1": {
+      "type": "SUBJECT",
+      "from": {
+        "node": "observation"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "subject-2": {
+      "type": "SUBJECT",
+      "from": {
+        "node": "condition"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "subject-3": {
+      "type": "SUBJECT",
+      "from": {
+        "node": "procedure"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "patient-4": {
+      "type": "PATIENT",
+      "from": {
+        "node": "allergyintolerance"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "patient-5": {
+      "type": "PATIENT",
+      "from": {
+        "node": "immunization"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "subject-6": {
+      "type": "SUBJECT",
+      "from": {
+        "node": "medicationrequest"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "subject-7": {
+      "type": "SUBJECT",
+      "from": {
+        "node": "medicationadministration"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "subject-8": {
+      "type": "SUBJECT",
+      "from": {
+        "node": "medicationdispense"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "subject-9": {
+      "type": "SUBJECT",
+      "from": {
+        "node": "diagnosticreport"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "subject-10": {
+      "type": "SUBJECT",
+      "from": {
+        "node": "careplan"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "subject-11": {
+      "type": "SUBJECT",
+      "from": {
+        "node": "goal"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "subject-12": {
+      "type": "SUBJECT",
+      "from": {
+        "node": "servicerequest"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "subject-13": {
+      "type": "SUBJECT",
+      "from": {
+        "node": "specimen"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "patient-14": {
+      "type": "PATIENT",
+      "from": {
+        "node": "episodeofcare"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "subject-15": {
+      "type": "SUBJECT",
+      "from": {
+        "node": "careteam"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "beneficiary-16": {
+      "type": "BENEFICIARY",
+      "from": {
+        "node": "coverage"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "subject-17": {
+      "type": "SUBJECT",
+      "from": {
+        "node": "clinicalimpression"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "subject-18": {
+      "type": "SUBJECT",
+      "from": {
+        "node": "documentreference"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "patient-19": {
+      "type": "PATIENT",
+      "from": {
+        "node": "relatedperson"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "for-20": {
+      "type": "FOR",
+      "from": {
+        "node": "task"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "member-patient-21": {
+      "type": "MEMBER_PATIENT",
+      "from": {
+        "node": "group"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "general-practitioner-22": {
+      "type": "GENERAL_PRACTITIONER",
+      "from": {
+        "node": "patient"
+      },
+      "to": {
+        "node": "practitioner"
+      }
+    },
+    "managing-organization-23": {
+      "type": "MANAGING_ORGANIZATION",
+      "from": {
+        "node": "patient"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "link-24": {
+      "type": "LINK",
+      "from": {
+        "node": "patient"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "part-of-25": {
+      "type": "PART_OF",
+      "from": {
+        "node": "encounter"
+      },
+      "to": {
+        "node": "encounter"
+      }
+    },
+    "service-provider-26": {
+      "type": "SERVICE_PROVIDER",
+      "from": {
+        "node": "encounter"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "location-27": {
+      "type": "LOCATION",
+      "from": {
+        "node": "encounter"
+      },
+      "to": {
+        "node": "location"
+      }
+    },
+    "participant-28": {
+      "type": "PARTICIPANT",
+      "from": {
+        "node": "encounter"
+      },
+      "to": {
+        "node": "practitioner"
+      }
+    },
+    "episode-of-care-29": {
+      "type": "EPISODE_OF_CARE",
+      "from": {
+        "node": "encounter"
+      },
+      "to": {
+        "node": "episodeofcare"
+      }
+    },
+    "diagnosis-30": {
+      "type": "DIAGNOSIS",
+      "from": {
+        "node": "encounter"
+      },
+      "to": {
+        "node": "condition"
+      }
+    },
+    "encounter-31": {
+      "type": "ENCOUNTER",
+      "from": {
+        "node": "observation"
+      },
+      "to": {
+        "node": "encounter"
+      }
+    },
+    "encounter-32": {
+      "type": "ENCOUNTER",
+      "from": {
+        "node": "condition"
+      },
+      "to": {
+        "node": "encounter"
+      }
+    },
+    "encounter-33": {
+      "type": "ENCOUNTER",
+      "from": {
+        "node": "procedure"
+      },
+      "to": {
+        "node": "encounter"
+      }
+    },
+    "encounter-34": {
+      "type": "ENCOUNTER",
+      "from": {
+        "node": "medicationrequest"
+      },
+      "to": {
+        "node": "encounter"
+      }
+    },
+    "encounter-35": {
+      "type": "ENCOUNTER",
+      "from": {
+        "node": "diagnosticreport"
+      },
+      "to": {
+        "node": "encounter"
+      }
+    },
+    "practitioner-36": {
+      "type": "PRACTITIONER",
+      "from": {
+        "node": "practitionerrole"
+      },
+      "to": {
+        "node": "practitioner"
+      }
+    },
+    "organization-37": {
+      "type": "ORGANIZATION",
+      "from": {
+        "node": "practitionerrole"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "location-38": {
+      "type": "LOCATION",
+      "from": {
+        "node": "practitionerrole"
+      },
+      "to": {
+        "node": "location"
+      }
+    },
+    "healthcare-service-39": {
+      "type": "HEALTHCARE_SERVICE",
+      "from": {
+        "node": "practitionerrole"
+      },
+      "to": {
+        "node": "healthcareservice"
+      }
+    },
+    "part-of-40": {
+      "type": "PART_OF",
+      "from": {
+        "node": "organization"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "part-of-41": {
+      "type": "PART_OF",
+      "from": {
+        "node": "location"
+      },
+      "to": {
+        "node": "location"
+      }
+    },
+    "managing-organization-42": {
+      "type": "MANAGING_ORGANIZATION",
+      "from": {
+        "node": "location"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "provided-by-43": {
+      "type": "PROVIDED_BY",
+      "from": {
+        "node": "healthcareservice"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "participant-44": {
+      "type": "PARTICIPANT",
+      "from": {
+        "node": "careteam"
+      },
+      "to": {
+        "node": "practitioner"
+      }
+    },
+    "qualification-issuer-45": {
+      "type": "QUALIFICATION_ISSUER",
+      "from": {
+        "node": "practitioner"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "performer-46": {
+      "type": "PERFORMER",
+      "from": {
+        "node": "observation"
+      },
+      "to": {
+        "node": "practitioner"
+      }
+    },
+    "specimen-47": {
+      "type": "SPECIMEN",
+      "from": {
+        "node": "observation"
+      },
+      "to": {
+        "node": "specimen"
+      }
+    },
+    "device-48": {
+      "type": "DEVICE",
+      "from": {
+        "node": "observation"
+      },
+      "to": {
+        "node": "device"
+      }
+    },
+    "has-member-49": {
+      "type": "HAS_MEMBER",
+      "from": {
+        "node": "observation"
+      },
+      "to": {
+        "node": "observation"
+      }
+    },
+    "derived-from-50": {
+      "type": "DERIVED_FROM",
+      "from": {
+        "node": "observation"
+      },
+      "to": {
+        "node": "observation"
+      }
+    },
+    "based-on-51": {
+      "type": "BASED_ON",
+      "from": {
+        "node": "observation"
+      },
+      "to": {
+        "node": "servicerequest"
+      }
+    },
+    "result-52": {
+      "type": "RESULT",
+      "from": {
+        "node": "diagnosticreport"
+      },
+      "to": {
+        "node": "observation"
+      }
+    },
+    "specimen-53": {
+      "type": "SPECIMEN",
+      "from": {
+        "node": "diagnosticreport"
+      },
+      "to": {
+        "node": "specimen"
+      }
+    },
+    "performer-54": {
+      "type": "PERFORMER",
+      "from": {
+        "node": "diagnosticreport"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "performer-55": {
+      "type": "PERFORMER",
+      "from": {
+        "node": "procedure"
+      },
+      "to": {
+        "node": "practitioner"
+      }
+    },
+    "reason-56": {
+      "type": "REASON",
+      "from": {
+        "node": "procedure"
+      },
+      "to": {
+        "node": "condition"
+      }
+    },
+    "report-57": {
+      "type": "REPORT",
+      "from": {
+        "node": "procedure"
+      },
+      "to": {
+        "node": "diagnosticreport"
+      }
+    },
+    "collector-58": {
+      "type": "COLLECTOR",
+      "from": {
+        "node": "specimen"
+      },
+      "to": {
+        "node": "practitioner"
+      }
+    },
+    "asserter-59": {
+      "type": "ASSERTER",
+      "from": {
+        "node": "condition"
+      },
+      "to": {
+        "node": "practitioner"
+      }
+    },
+    "goal-60": {
+      "type": "GOAL",
+      "from": {
+        "node": "careplan"
+      },
+      "to": {
+        "node": "goal"
+      }
+    },
+    "care-team-61": {
+      "type": "CARE_TEAM",
+      "from": {
+        "node": "careplan"
+      },
+      "to": {
+        "node": "careteam"
+      }
+    },
+    "addresses-62": {
+      "type": "ADDRESSES",
+      "from": {
+        "node": "careplan"
+      },
+      "to": {
+        "node": "condition"
+      }
+    },
+    "activity-63": {
+      "type": "ACTIVITY",
+      "from": {
+        "node": "careplan"
+      },
+      "to": {
+        "node": "servicerequest"
+      }
+    },
+    "problem-64": {
+      "type": "PROBLEM",
+      "from": {
+        "node": "clinicalimpression"
+      },
+      "to": {
+        "node": "condition"
+      }
+    },
+    "medication-65": {
+      "type": "MEDICATION",
+      "from": {
+        "node": "medicationrequest"
+      },
+      "to": {
+        "node": "medication"
+      }
+    },
+    "requester-66": {
+      "type": "REQUESTER",
+      "from": {
+        "node": "medicationrequest"
+      },
+      "to": {
+        "node": "practitioner"
+      }
+    },
+    "reason-67": {
+      "type": "REASON",
+      "from": {
+        "node": "medicationrequest"
+      },
+      "to": {
+        "node": "condition"
+      }
+    },
+    "medication-68": {
+      "type": "MEDICATION",
+      "from": {
+        "node": "medicationadministration"
+      },
+      "to": {
+        "node": "medication"
+      }
+    },
+    "request-69": {
+      "type": "REQUEST",
+      "from": {
+        "node": "medicationadministration"
+      },
+      "to": {
+        "node": "medicationrequest"
+      }
+    },
+    "performer-70": {
+      "type": "PERFORMER",
+      "from": {
+        "node": "medicationadministration"
+      },
+      "to": {
+        "node": "practitioner"
+      }
+    },
+    "medication-71": {
+      "type": "MEDICATION",
+      "from": {
+        "node": "medicationdispense"
+      },
+      "to": {
+        "node": "medication"
+      }
+    },
+    "authorizing-prescription-72": {
+      "type": "AUTHORIZING_PRESCRIPTION",
+      "from": {
+        "node": "medicationdispense"
+      },
+      "to": {
+        "node": "medicationrequest"
+      }
+    },
+    "manufacturer-73": {
+      "type": "MANUFACTURER",
+      "from": {
+        "node": "medication"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "requester-74": {
+      "type": "REQUESTER",
+      "from": {
+        "node": "servicerequest"
+      },
+      "to": {
+        "node": "practitioner"
+      }
+    },
+    "performer-75": {
+      "type": "PERFORMER",
+      "from": {
+        "node": "servicerequest"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "participant-practitioner-76": {
+      "type": "PARTICIPANT_PRACTITIONER",
+      "from": {
+        "node": "appointment"
+      },
+      "to": {
+        "node": "practitioner"
+      }
+    },
+    "participant-patient-77": {
+      "type": "PARTICIPANT_PATIENT",
+      "from": {
+        "node": "appointment"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "location-78": {
+      "type": "LOCATION",
+      "from": {
+        "node": "appointment"
+      },
+      "to": {
+        "node": "location"
+      }
+    },
+    "based-on-79": {
+      "type": "BASED_ON",
+      "from": {
+        "node": "appointment"
+      },
+      "to": {
+        "node": "servicerequest"
+      }
+    },
+    "owner-80": {
+      "type": "OWNER",
+      "from": {
+        "node": "task"
+      },
+      "to": {
+        "node": "practitioner"
+      }
+    },
+    "based-on-81": {
+      "type": "BASED_ON",
+      "from": {
+        "node": "task"
+      },
+      "to": {
+        "node": "servicerequest"
+      }
+    },
+    "author-82": {
+      "type": "AUTHOR",
+      "from": {
+        "node": "documentreference"
+      },
+      "to": {
+        "node": "practitioner"
+      }
+    },
+    "custodian-83": {
+      "type": "CUSTODIAN",
+      "from": {
+        "node": "documentreference"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "agent-84": {
+      "type": "AGENT",
+      "from": {
+        "node": "provenance"
+      },
+      "to": {
+        "node": "practitioner"
+      }
+    },
+    "target-85": {
+      "type": "TARGET",
+      "from": {
+        "node": "provenance"
+      },
+      "to": {
+        "node": "observation"
+      }
+    },
+    "owner-86": {
+      "type": "OWNER",
+      "from": {
+        "node": "device"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "location-87": {
+      "type": "LOCATION",
+      "from": {
+        "node": "device"
+      },
+      "to": {
+        "node": "location"
+      }
+    },
+    "payor-88": {
+      "type": "PAYOR",
+      "from": {
+        "node": "coverage"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "subscriber-89": {
+      "type": "SUBSCRIBER",
+      "from": {
+        "node": "coverage"
+      },
+      "to": {
+        "node": "patient"
+      }
+    },
+    "coded-as-90": {
+      "type": "CODED_AS",
+      "from": {
+        "node": "condition"
+      },
+      "to": {
+        "node": "coding"
+      }
+    },
+    "coded-as-91": {
+      "type": "CODED_AS",
+      "from": {
+        "node": "observation"
+      },
+      "to": {
+        "node": "coding"
+      }
+    },
+    "coded-as-92": {
+      "type": "CODED_AS",
+      "from": {
+        "node": "procedure"
+      },
+      "to": {
+        "node": "coding"
+      }
+    },
+    "coded-as-93": {
+      "type": "CODED_AS",
+      "from": {
+        "node": "medication"
+      },
+      "to": {
+        "node": "coding"
+      }
+    },
+    "coded-as-94": {
+      "type": "CODED_AS",
+      "from": {
+        "node": "allergyintolerance"
+      },
+      "to": {
+        "node": "coding"
+      }
+    },
+    "coded-as-95": {
+      "type": "CODED_AS",
+      "from": {
+        "node": "immunization"
+      },
+      "to": {
+        "node": "coding"
+      }
+    },
+    "coded-as-96": {
+      "type": "CODED_AS",
+      "from": {
+        "node": "encounter"
+      },
+      "to": {
+        "node": "coding"
+      }
+    },
+    "coded-as-97": {
+      "type": "CODED_AS",
+      "from": {
+        "node": "servicerequest"
+      },
+      "to": {
+        "node": "coding"
+      }
+    },
+    "coded-as-98": {
+      "type": "CODED_AS",
+      "from": {
+        "node": "specimen"
+      },
+      "to": {
+        "node": "coding"
+      }
+    },
+    "coded-as-99": {
+      "type": "CODED_AS",
+      "from": {
+        "node": "device"
+      },
+      "to": {
+        "node": "coding"
+      }
+    },
+    "subsumed-by-100": {
+      "type": "SUBSUMED_BY",
+      "from": {
+        "node": "coding"
+      },
+      "to": {
+        "node": "coding"
+      }
+    }
+  }
+}

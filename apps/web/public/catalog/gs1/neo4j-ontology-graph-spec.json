@@ -1,0 +1,1417 @@
+{
+  "version": "1.1.0",
+  "schema": "https://neo4j.com/docs/ontology-graph-spec/1.1.0/schema.json",
+  "id": "gs1",
+  "name": "GS1 Web Vocabulary -- trade items, parties, places",
+  "nodes": {
+    "product": {
+      "labels": {
+        "identifier": "Product"
+      },
+      "properties": {
+        "gtin": {
+          "type": "STRING",
+          "name": "gtin"
+        },
+        "productName": {
+          "type": "STRING",
+          "name": "productName"
+        },
+        "brandName": {
+          "type": "STRING",
+          "name": "brandName"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "gpcCategoryCode": {
+          "type": "STRING",
+          "name": "gpcCategoryCode"
+        },
+        "netContentValue": {
+          "type": "FLOAT",
+          "name": "netContentValue"
+        },
+        "netContentUnit": {
+          "type": "STRING",
+          "name": "netContentUnit"
+        },
+        "countryOfOrigin": {
+          "type": "STRING",
+          "name": "countryOfOrigin"
+        },
+        "productionDate": {
+          "type": "DATE",
+          "name": "productionDate"
+        },
+        "expirationDate": {
+          "type": "DATE",
+          "name": "expirationDate"
+        },
+        "isConsumerUnit": {
+          "type": "BOOLEAN",
+          "name": "isConsumerUnit"
+        },
+        "isBaseUnit": {
+          "type": "BOOLEAN",
+          "name": "isBaseUnit"
+        },
+        "isOrderableUnit": {
+          "type": "BOOLEAN",
+          "name": "isOrderableUnit"
+        },
+        "isDespatchUnit": {
+          "type": "BOOLEAN",
+          "name": "isDespatchUnit"
+        },
+        "isVariableWeight": {
+          "type": "BOOLEAN",
+          "name": "isVariableWeight"
+        },
+        "grossWeight": {
+          "type": "FLOAT",
+          "name": "grossWeight"
+        },
+        "weightUnit": {
+          "type": "STRING",
+          "name": "weightUnit"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": -200
+        }
+      }
+    },
+    "brand": {
+      "labels": {
+        "identifier": "Brand"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "brandName": {
+          "type": "STRING",
+          "name": "brandName"
+        },
+        "subBrand": {
+          "type": "STRING",
+          "name": "subBrand"
+        },
+        "brandOwnerName": {
+          "type": "STRING",
+          "name": "brandOwnerName"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": -200
+        }
+      }
+    },
+    "organization": {
+      "labels": {
+        "identifier": "Organization"
+      },
+      "properties": {
+        "gln": {
+          "type": "STRING",
+          "name": "gln"
+        },
+        "organizationName": {
+          "type": "STRING",
+          "name": "organizationName"
+        },
+        "organizationType": {
+          "type": "STRING",
+          "name": "organizationType"
+        },
+        "taxId": {
+          "type": "STRING",
+          "name": "taxId"
+        },
+        "duns": {
+          "type": "STRING",
+          "name": "duns"
+        },
+        "isManufacturer": {
+          "type": "BOOLEAN",
+          "name": "isManufacturer"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": -200
+        }
+      }
+    },
+    "place": {
+      "labels": {
+        "identifier": "Place"
+      },
+      "properties": {
+        "gln": {
+          "type": "STRING",
+          "name": "gln"
+        },
+        "placeName": {
+          "type": "STRING",
+          "name": "placeName"
+        },
+        "placeType": {
+          "type": "STRING",
+          "name": "placeType"
+        },
+        "glnType": {
+          "type": "STRING",
+          "name": "glnType"
+        },
+        "latitude": {
+          "type": "FLOAT",
+          "name": "latitude"
+        },
+        "longitude": {
+          "type": "FLOAT",
+          "name": "longitude"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": -200
+        }
+      }
+    },
+    "postaladdress": {
+      "labels": {
+        "identifier": "PostalAddress"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "streetAddress": {
+          "type": "STRING",
+          "name": "streetAddress"
+        },
+        "addressLocality": {
+          "type": "STRING",
+          "name": "addressLocality"
+        },
+        "addressRegion": {
+          "type": "STRING",
+          "name": "addressRegion"
+        },
+        "addressSuburb": {
+          "type": "STRING",
+          "name": "addressSuburb"
+        },
+        "postalCode": {
+          "type": "STRING",
+          "name": "postalCode"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": -200
+        }
+      }
+    },
+    "country": {
+      "labels": {
+        "identifier": "Country"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "countryCode": {
+          "type": "STRING",
+          "name": "countryCode"
+        },
+        "countryName": {
+          "type": "STRING",
+          "name": "countryName"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": -200
+        }
+      }
+    },
+    "geocoordinates": {
+      "labels": {
+        "identifier": "GeoCoordinates"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "latitude": {
+          "type": "FLOAT",
+          "name": "latitude"
+        },
+        "longitude": {
+          "type": "FLOAT",
+          "name": "longitude"
+        },
+        "elevation": {
+          "type": "FLOAT",
+          "name": "elevation"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 10
+        }
+      }
+    },
+    "offer": {
+      "labels": {
+        "identifier": "Offer"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "offerId": {
+          "type": "STRING",
+          "name": "offerId"
+        },
+        "price": {
+          "type": "FLOAT",
+          "name": "price"
+        },
+        "priceCurrency": {
+          "type": "STRING",
+          "name": "priceCurrency"
+        },
+        "availability": {
+          "type": "STRING",
+          "name": "availability"
+        },
+        "validFrom": {
+          "type": "DATE",
+          "name": "validFrom"
+        },
+        "validThrough": {
+          "type": "DATE",
+          "name": "validThrough"
+        },
+        "eligibleQuantity": {
+          "type": "FLOAT",
+          "name": "eligibleQuantity"
+        },
+        "acceptedPaymentMethod": {
+          "type": "STRING",
+          "name": "acceptedPaymentMethod"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 10
+        }
+      }
+    },
+    "pricespecification": {
+      "labels": {
+        "identifier": "PriceSpecification"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "price": {
+          "type": "FLOAT",
+          "name": "price"
+        },
+        "priceCurrency": {
+          "type": "STRING",
+          "name": "priceCurrency"
+        },
+        "valueAddedTaxIncluded": {
+          "type": "BOOLEAN",
+          "name": "valueAddedTaxIncluded"
+        },
+        "validFrom": {
+          "type": "DATE",
+          "name": "validFrom"
+        },
+        "validThrough": {
+          "type": "DATE",
+          "name": "validThrough"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 10
+        }
+      }
+    },
+    "discount": {
+      "labels": {
+        "identifier": "Discount"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "discountType": {
+          "type": "STRING",
+          "name": "discountType"
+        },
+        "discountValue": {
+          "type": "FLOAT",
+          "name": "discountValue"
+        },
+        "discountCurrency": {
+          "type": "STRING",
+          "name": "discountCurrency"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": 10
+        }
+      }
+    },
+    "packagingdetails": {
+      "labels": {
+        "identifier": "PackagingDetails"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "packagingTypeCode": {
+          "type": "STRING",
+          "name": "packagingTypeCode"
+        },
+        "packagingMaterialCode": {
+          "type": "STRING",
+          "name": "packagingMaterialCode"
+        },
+        "isRecyclable": {
+          "type": "BOOLEAN",
+          "name": "isRecyclable"
+        },
+        "packagingWeight": {
+          "type": "FLOAT",
+          "name": "packagingWeight"
+        },
+        "weightUnit": {
+          "type": "STRING",
+          "name": "weightUnit"
+        },
+        "isReturnable": {
+          "type": "BOOLEAN",
+          "name": "isReturnable"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": 10
+        }
+      }
+    },
+    "allergendetails": {
+      "labels": {
+        "identifier": "AllergenDetails"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "allergenTypeCode": {
+          "type": "STRING",
+          "name": "allergenTypeCode"
+        },
+        "levelOfContainmentCode": {
+          "type": "STRING",
+          "name": "levelOfContainmentCode"
+        },
+        "allergenStatement": {
+          "type": "STRING",
+          "name": "allergenStatement"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": 10
+        }
+      }
+    },
+    "additivedetails": {
+      "labels": {
+        "identifier": "AdditiveDetails"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "additiveName": {
+          "type": "STRING",
+          "name": "additiveName"
+        },
+        "levelOfContainmentCode": {
+          "type": "STRING",
+          "name": "levelOfContainmentCode"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 220
+        }
+      }
+    },
+    "nutrientdetail": {
+      "labels": {
+        "identifier": "NutrientDetail"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "nutrientTypeCode": {
+          "type": "STRING",
+          "name": "nutrientTypeCode"
+        },
+        "quantityContained": {
+          "type": "FLOAT",
+          "name": "quantityContained"
+        },
+        "quantityUnit": {
+          "type": "STRING",
+          "name": "quantityUnit"
+        },
+        "dailyValuePercent": {
+          "type": "FLOAT",
+          "name": "dailyValuePercent"
+        },
+        "measurementPrecision": {
+          "type": "STRING",
+          "name": "measurementPrecision"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 220
+        }
+      }
+    },
+    "ingredient": {
+      "labels": {
+        "identifier": "Ingredient"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "ingredientName": {
+          "type": "STRING",
+          "name": "ingredientName"
+        },
+        "ingredientSequence": {
+          "type": "INTEGER",
+          "name": "ingredientSequence"
+        },
+        "ingredientStrength": {
+          "type": "FLOAT",
+          "name": "ingredientStrength"
+        },
+        "strengthUnit": {
+          "type": "STRING",
+          "name": "strengthUnit"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 220
+        }
+      }
+    },
+    "certificationdetails": {
+      "labels": {
+        "identifier": "CertificationDetails"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "certificationStandard": {
+          "type": "STRING",
+          "name": "certificationStandard"
+        },
+        "certificationAgency": {
+          "type": "STRING",
+          "name": "certificationAgency"
+        },
+        "certificationValue": {
+          "type": "STRING",
+          "name": "certificationValue"
+        },
+        "certificationEndDate": {
+          "type": "DATE",
+          "name": "certificationEndDate"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": 220
+        }
+      }
+    },
+    "regulatoryinformation": {
+      "labels": {
+        "identifier": "RegulatoryInformation"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "regulationTypeCode": {
+          "type": "STRING",
+          "name": "regulationTypeCode"
+        },
+        "regulatoryAct": {
+          "type": "STRING",
+          "name": "regulatoryAct"
+        },
+        "permitId": {
+          "type": "STRING",
+          "name": "permitId"
+        },
+        "complianceStatement": {
+          "type": "STRING",
+          "name": "complianceStatement"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": 220
+        }
+      }
+    },
+    "identifier": {
+      "labels": {
+        "identifier": "Identifier"
+      },
+      "properties": {
+        "scheme": {
+          "type": "STRING",
+          "name": "scheme"
+        },
+        "value": {
+          "type": "STRING",
+          "name": "value"
+        },
+        "issuingAuthority": {
+          "type": "STRING",
+          "name": "issuingAuthority"
+        },
+        "isPrimary": {
+          "type": "BOOLEAN",
+          "name": "isPrimary"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": 220
+        }
+      }
+    },
+    "digitallink": {
+      "labels": {
+        "identifier": "DigitalLink"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "uri": {
+          "type": "STRING",
+          "name": "uri"
+        },
+        "linkType": {
+          "type": "STRING",
+          "name": "linkType"
+        },
+        "linkTitle": {
+          "type": "STRING",
+          "name": "linkTitle"
+        },
+        "targetUrl": {
+          "type": "STRING",
+          "name": "targetUrl"
+        },
+        "language": {
+          "type": "STRING",
+          "name": "language"
+        },
+        "context": {
+          "type": "STRING",
+          "name": "context"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 430
+        }
+      }
+    },
+    "gpccategory": {
+      "labels": {
+        "identifier": "GPCCategory"
+      },
+      "properties": {
+        "code": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "title": {
+          "type": "STRING",
+          "name": "title"
+        },
+        "definition": {
+          "type": "STRING",
+          "name": "definition"
+        },
+        "level": {
+          "type": "INTEGER",
+          "name": "level"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 430
+        }
+      }
+    },
+    "typecode": {
+      "labels": {
+        "identifier": "TypeCode"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "codeScheme": {
+          "type": "STRING",
+          "name": "codeScheme"
+        },
+        "codeValue": {
+          "type": "STRING",
+          "name": "codeValue"
+        },
+        "codeDescription": {
+          "type": "STRING",
+          "name": "codeDescription"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 430
+        }
+      }
+    },
+    "quantitativevalue": {
+      "labels": {
+        "identifier": "QuantitativeValue"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "value": {
+          "type": "FLOAT",
+          "name": "value"
+        },
+        "unitCode": {
+          "type": "STRING",
+          "name": "unitCode"
+        },
+        "minValue": {
+          "type": "FLOAT",
+          "name": "minValue"
+        },
+        "maxValue": {
+          "type": "FLOAT",
+          "name": "maxValue"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": 430
+        }
+      }
+    },
+    "targetmarket": {
+      "labels": {
+        "identifier": "TargetMarket"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "countryCode": {
+          "type": "STRING",
+          "name": "countryCode"
+        },
+        "countryName": {
+          "type": "STRING",
+          "name": "countryName"
+        },
+        "subdivisionCode": {
+          "type": "STRING",
+          "name": "subdivisionCode"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": 430
+        }
+      }
+    },
+    "sizedetails": {
+      "labels": {
+        "identifier": "SizeDetails"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "sizeCodeValue": {
+          "type": "STRING",
+          "name": "sizeCodeValue"
+        },
+        "sizeSystem": {
+          "type": "STRING",
+          "name": "sizeSystem"
+        },
+        "sizeDescriptor": {
+          "type": "STRING",
+          "name": "sizeDescriptor"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": 430
+        }
+      }
+    },
+    "referencedfile": {
+      "labels": {
+        "identifier": "ReferencedFile"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "fileName": {
+          "type": "STRING",
+          "name": "fileName"
+        },
+        "fileFormat": {
+          "type": "STRING",
+          "name": "fileFormat"
+        },
+        "url": {
+          "type": "STRING",
+          "name": "url"
+        },
+        "fileTypeCode": {
+          "type": "STRING",
+          "name": "fileTypeCode"
+        },
+        "language": {
+          "type": "STRING",
+          "name": "language"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 640
+        }
+      }
+    },
+    "transaction": {
+      "labels": {
+        "identifier": "Transaction"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "transactionType": {
+          "type": "STRING",
+          "name": "transactionType"
+        },
+        "transactionDate": {
+          "type": "DATE",
+          "name": "transactionDate"
+        },
+        "transactionIdentifier": {
+          "type": "STRING",
+          "name": "transactionIdentifier"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 640
+        }
+      }
+    },
+    "logisticunit": {
+      "labels": {
+        "identifier": "LogisticUnit"
+      },
+      "properties": {
+        "sscc": {
+          "type": "STRING",
+          "name": "sscc"
+        },
+        "unitType": {
+          "type": "STRING",
+          "name": "unitType"
+        },
+        "grossWeight": {
+          "type": "FLOAT",
+          "name": "grossWeight"
+        },
+        "weightUnit": {
+          "type": "STRING",
+          "name": "weightUnit"
+        },
+        "height": {
+          "type": "FLOAT",
+          "name": "height"
+        },
+        "width": {
+          "type": "FLOAT",
+          "name": "width"
+        },
+        "depth": {
+          "type": "FLOAT",
+          "name": "depth"
+        },
+        "dimensionUnit": {
+          "type": "STRING",
+          "name": "dimensionUnit"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 640
+        }
+      }
+    },
+    "contactpoint": {
+      "labels": {
+        "identifier": "ContactPoint"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "contactType": {
+          "type": "STRING",
+          "name": "contactType"
+        },
+        "telephone": {
+          "type": "STRING",
+          "name": "telephone"
+        },
+        "email": {
+          "type": "STRING",
+          "name": "email"
+        },
+        "contactName": {
+          "type": "STRING",
+          "name": "contactName"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": 640
+        }
+      }
+    }
+  },
+  "relationships": {
+    "has-brand-0": {
+      "type": "HAS_BRAND",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "brand"
+      }
+    },
+    "brand-owner-1": {
+      "type": "BRAND_OWNER",
+      "from": {
+        "node": "brand"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "manufactured-by-2": {
+      "type": "MANUFACTURED_BY",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "identified-by-3": {
+      "type": "IDENTIFIED_BY",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "identifier"
+      }
+    },
+    "classified-as-4": {
+      "type": "CLASSIFIED_AS",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "gpccategory"
+      }
+    },
+    "has-digital-link-5": {
+      "type": "HAS_DIGITAL_LINK",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "digitallink"
+      }
+    },
+    "contains-product-6": {
+      "type": "CONTAINS_PRODUCT",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "product"
+      }
+    },
+    "has-packaging-7": {
+      "type": "HAS_PACKAGING",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "packagingdetails"
+      }
+    },
+    "has-allergen-8": {
+      "type": "HAS_ALLERGEN",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "allergendetails"
+      }
+    },
+    "has-additive-9": {
+      "type": "HAS_ADDITIVE",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "additivedetails"
+      }
+    },
+    "has-nutrient-10": {
+      "type": "HAS_NUTRIENT",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "nutrientdetail"
+      }
+    },
+    "has-ingredient-11": {
+      "type": "HAS_INGREDIENT",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "ingredient"
+      }
+    },
+    "has-certification-12": {
+      "type": "HAS_CERTIFICATION",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "certificationdetails"
+      }
+    },
+    "has-regulatory-info-13": {
+      "type": "HAS_REGULATORY_INFO",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "regulatoryinformation"
+      }
+    },
+    "country-of-origin-14": {
+      "type": "COUNTRY_OF_ORIGIN",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "country"
+      }
+    },
+    "available-in-market-15": {
+      "type": "AVAILABLE_IN_MARKET",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "targetmarket"
+      }
+    },
+    "has-size-16": {
+      "type": "HAS_SIZE",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "sizedetails"
+      }
+    },
+    "has-referenced-file-17": {
+      "type": "HAS_REFERENCED_FILE",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "referencedfile"
+      }
+    },
+    "net-content-18": {
+      "type": "NET_CONTENT",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "quantitativevalue"
+      }
+    },
+    "offered-as-19": {
+      "type": "OFFERED_AS",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "offer"
+      }
+    },
+    "offered-by-20": {
+      "type": "OFFERED_BY",
+      "from": {
+        "node": "offer"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "has-price-specification-21": {
+      "type": "HAS_PRICE_SPECIFICATION",
+      "from": {
+        "node": "offer"
+      },
+      "to": {
+        "node": "pricespecification"
+      }
+    },
+    "has-discount-22": {
+      "type": "HAS_DISCOUNT",
+      "from": {
+        "node": "offer"
+      },
+      "to": {
+        "node": "discount"
+      }
+    },
+    "available-at-23": {
+      "type": "AVAILABLE_AT",
+      "from": {
+        "node": "offer"
+      },
+      "to": {
+        "node": "place"
+      }
+    },
+    "has-address-24": {
+      "type": "HAS_ADDRESS",
+      "from": {
+        "node": "organization"
+      },
+      "to": {
+        "node": "postaladdress"
+      }
+    },
+    "identified-by-25": {
+      "type": "IDENTIFIED_BY",
+      "from": {
+        "node": "organization"
+      },
+      "to": {
+        "node": "identifier"
+      }
+    },
+    "affiliated-to-26": {
+      "type": "AFFILIATED_TO",
+      "from": {
+        "node": "organization"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "located-at-27": {
+      "type": "LOCATED_AT",
+      "from": {
+        "node": "organization"
+      },
+      "to": {
+        "node": "place"
+      }
+    },
+    "has-contact-point-28": {
+      "type": "HAS_CONTACT_POINT",
+      "from": {
+        "node": "organization"
+      },
+      "to": {
+        "node": "contactpoint"
+      }
+    },
+    "has-address-29": {
+      "type": "HAS_ADDRESS",
+      "from": {
+        "node": "place"
+      },
+      "to": {
+        "node": "postaladdress"
+      }
+    },
+    "identified-by-30": {
+      "type": "IDENTIFIED_BY",
+      "from": {
+        "node": "place"
+      },
+      "to": {
+        "node": "identifier"
+      }
+    },
+    "has-geo-coordinates-31": {
+      "type": "HAS_GEO_COORDINATES",
+      "from": {
+        "node": "place"
+      },
+      "to": {
+        "node": "geocoordinates"
+      }
+    },
+    "part-of-place-32": {
+      "type": "PART_OF_PLACE",
+      "from": {
+        "node": "place"
+      },
+      "to": {
+        "node": "place"
+      }
+    },
+    "in-country-33": {
+      "type": "IN_COUNTRY",
+      "from": {
+        "node": "place"
+      },
+      "to": {
+        "node": "country"
+      }
+    },
+    "address-country-34": {
+      "type": "ADDRESS_COUNTRY",
+      "from": {
+        "node": "postaladdress"
+      },
+      "to": {
+        "node": "country"
+      }
+    },
+    "broader-than-35": {
+      "type": "BROADER_THAN",
+      "from": {
+        "node": "gpccategory"
+      },
+      "to": {
+        "node": "gpccategory"
+      }
+    },
+    "broader-than-36": {
+      "type": "BROADER_THAN",
+      "from": {
+        "node": "typecode"
+      },
+      "to": {
+        "node": "typecode"
+      }
+    },
+    "issued-by-37": {
+      "type": "ISSUED_BY",
+      "from": {
+        "node": "certificationdetails"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "contains-product-38": {
+      "type": "CONTAINS_PRODUCT",
+      "from": {
+        "node": "logisticunit"
+      },
+      "to": {
+        "node": "product"
+      }
+    },
+    "identified-by-39": {
+      "type": "IDENTIFIED_BY",
+      "from": {
+        "node": "logisticunit"
+      },
+      "to": {
+        "node": "identifier"
+      }
+    },
+    "shipped-from-40": {
+      "type": "SHIPPED_FROM",
+      "from": {
+        "node": "logisticunit"
+      },
+      "to": {
+        "node": "place"
+      }
+    },
+    "shipped-to-41": {
+      "type": "SHIPPED_TO",
+      "from": {
+        "node": "logisticunit"
+      },
+      "to": {
+        "node": "place"
+      }
+    },
+    "involves-product-42": {
+      "type": "INVOLVES_PRODUCT",
+      "from": {
+        "node": "transaction"
+      },
+      "to": {
+        "node": "product"
+      }
+    },
+    "buyer-43": {
+      "type": "BUYER",
+      "from": {
+        "node": "transaction"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "seller-44": {
+      "type": "SELLER",
+      "from": {
+        "node": "transaction"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "resolves-to-file-45": {
+      "type": "RESOLVES_TO_FILE",
+      "from": {
+        "node": "digitallink"
+      },
+      "to": {
+        "node": "referencedfile"
+      }
+    },
+    "classified-by-code-46": {
+      "type": "CLASSIFIED_BY_CODE",
+      "from": {
+        "node": "product"
+      },
+      "to": {
+        "node": "typecode"
+      }
+    }
+  }
+}

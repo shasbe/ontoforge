@@ -115,6 +115,12 @@ def cmd_export(args):
     adapter = Adapter.load(args.target)
     sample_p = os.path.join(args.target, "sample.json")
     sample = json.load(open(sample_p)) if os.path.exists(sample_p) else None
+    # secondary targets: same profiles, additional download formats
+    extras = []
+    for tdir in args.also or []:
+        ea = Adapter.load(tdir)
+        es = os.path.join(tdir, "sample.json")
+        extras.append((ea, json.load(open(es)) if os.path.exists(es) else None))
     out = args.out
     os.makedirs(out, exist_ok=True)
     index = []
@@ -131,6 +137,20 @@ def cmd_export(args):
         d = os.path.join(out, std)
         os.makedirs(d, exist_ok=True)
         json.dump(model, open(os.path.join(d, "model.json"), "w"), indent=2)
+        formats = [{"name": adapter.target, "version": adapter.version,
+                    "file": "model.json"}]
+        for ea, es in extras:
+            try:
+                em, _ = emit(prof, ea)
+                ef = validate(em, ea, es)
+                if errors(ef):
+                    print(f"  {std:10} {ea.target}: INVALID, format not exported")
+                    continue
+                fn = f"{ea.target}.json"
+                json.dump(em, open(os.path.join(d, fn), "w"), indent=2)
+                formats.append({"name": ea.target, "version": ea.version, "file": fn})
+            except EmitError as e:
+                print(f"  {std:10} {ea.target}: EMIT FAILED: {e}")
         json.dump({"findings": [dataclasses.asdict(x) for x in found],
                    "errors": len(errs),
                    "warnings": len(found) - len(errs),
@@ -176,6 +196,7 @@ def cmd_export(args):
                       "self_relationships": sorted({r["type"] for r in rels.values()
                                                     if r["from"]["node"] == r["to"]["node"]}),
                       "errors": len(errs), "warnings": len(found) - len(errs),
+                      "formats": formats,
                       "ir": ir_stats,
                       "has_analysis": os.path.exists(os.path.join(d, "analysis.md"))})
         print(f"  {std:10} model + validation + provenance"
@@ -224,6 +245,9 @@ def main(argv=None):
 
     x = sub.add_parser("export", help="emit the static catalog bundle for the web app")
     x.add_argument("--target", default=DEFAULT_TARGET)
+    x.add_argument("--also", action="append", default=[],
+                   help="additional target dir to export per standard as a "
+                        "second download format (repeatable)")
     x.add_argument("--out", default="apps/web/public/catalog")
     x.add_argument("--exclude", nargs="*", default=[],
                    help="standard id(s) to omit from the published bundle "
