@@ -51,6 +51,14 @@ PYTHONPATH=packages/core python -m ontoforge.cli export --exclude gs1 epcis idmp
 The profile and `sources.yaml` entry stay in the repo (those are this project's
 own work); only the derived model, validation and analysis artifacts are omitted.
 
+## Vendored specification schema
+
+`targets/neo4j-ontology-graph-spec-1.1.0/schema.json` is the official JSON
+Schema of the Neo4j Ontology Graph Specification (ONT-31), vendored verbatim
+from `neo4j/ontology-graph-spec` (Apache-2.0, Copyright Neo4j, Inc.). It is
+used read-only — the adapter resolves its accepted property-type enum from it
+— and redistributed under the same Apache-2.0 terms as this tool.
+
 ## Trademarks
 
 FIBO is a trademark of EDM Council, Inc. GS1, GTIN, GLN and EPCIS are trademarks

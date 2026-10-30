@@ -1,0 +1,2225 @@
+{
+  "version": "1.0.0",
+  "schema": "https://neo4j.com/docs/ontology-graph-spec/1.0.0/schema.json",
+  "id": "fibo",
+  "name": "FIBO -- Financial Industry Business Ontology",
+  "nodes": {
+    "instrumenttype": {
+      "labels": {
+        "identifier": "InstrumentType"
+      },
+      "properties": {
+        "fiboClassIri": {
+          "type": "STRING",
+          "name": "fiboClassIri"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "label": {
+          "type": "STRING",
+          "name": "label"
+        },
+        "definition": {
+          "type": "STRING",
+          "name": "definition"
+        },
+        "cfiCode": {
+          "type": "STRING",
+          "name": "cfiCode"
+        },
+        "fiboDomain": {
+          "type": "STRING",
+          "name": "fiboDomain"
+        },
+        "level": {
+          "type": "INTEGER",
+          "name": "level"
+        },
+        "isLeaf": {
+          "type": "BOOLEAN",
+          "name": "isLeaf"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1250,
+          "y": -240
+        }
+      }
+    },
+    "currency": {
+      "labels": {
+        "identifier": "Currency"
+      },
+      "properties": {
+        "iso4217Code": {
+          "type": "STRING",
+          "name": "iso4217Code"
+        },
+        "numericCode": {
+          "type": "STRING",
+          "name": "numericCode"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "minorUnit": {
+          "type": "INTEGER",
+          "name": "minorUnit"
+        },
+        "usedByCountry": {
+          "type": "STRING",
+          "name": "usedByCountry"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1250,
+          "y": -60
+        }
+      }
+    },
+    "jurisdiction": {
+      "labels": {
+        "identifier": "Jurisdiction"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "appliesToName": {
+          "type": "STRING",
+          "name": "appliesToName"
+        },
+        "countryCode": {
+          "type": "STRING",
+          "name": "countryCode"
+        },
+        "subdivisionCode": {
+          "type": "STRING",
+          "name": "subdivisionCode"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1250,
+          "y": 120
+        }
+      }
+    },
+    "industrysector": {
+      "labels": {
+        "identifier": "IndustrySector"
+      },
+      "properties": {
+        "scheme": {
+          "type": "STRING",
+          "name": "scheme"
+        },
+        "code": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1250,
+          "y": 300
+        }
+      }
+    },
+    "address": {
+      "labels": {
+        "identifier": "Address"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "addressLine1": {
+          "type": "STRING",
+          "name": "addressLine1"
+        },
+        "city": {
+          "type": "STRING",
+          "name": "city"
+        },
+        "region": {
+          "type": "STRING",
+          "name": "region"
+        },
+        "postalCode": {
+          "type": "STRING",
+          "name": "postalCode"
+        },
+        "countryCode": {
+          "type": "STRING",
+          "name": "countryCode"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1250,
+          "y": 480
+        }
+      }
+    },
+    "identifier": {
+      "labels": {
+        "identifier": "Identifier"
+      },
+      "properties": {
+        "scheme": {
+          "type": "STRING",
+          "name": "scheme"
+        },
+        "value": {
+          "type": "STRING",
+          "name": "value"
+        },
+        "issuingAuthority": {
+          "type": "STRING",
+          "name": "issuingAuthority"
+        },
+        "isPrimary": {
+          "type": "BOOLEAN",
+          "name": "isPrimary"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1250,
+          "y": -420
+        }
+      }
+    },
+    "market": {
+      "labels": {
+        "identifier": "Market"
+      },
+      "properties": {
+        "mic": {
+          "type": "STRING",
+          "name": "mic"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "marketLevel": {
+          "type": "STRING",
+          "name": "marketLevel"
+        },
+        "acronym": {
+          "type": "STRING",
+          "name": "acronym"
+        },
+        "venueType": {
+          "type": "STRING",
+          "name": "venueType"
+        },
+        "micStatus": {
+          "type": "STRING",
+          "name": "micStatus"
+        },
+        "countryName": {
+          "type": "STRING",
+          "name": "countryName"
+        },
+        "countryCode": {
+          "type": "STRING",
+          "name": "countryCode"
+        },
+        "city": {
+          "type": "STRING",
+          "name": "city"
+        },
+        "website": {
+          "type": "STRING",
+          "name": "website"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -850,
+          "y": -600
+        }
+      }
+    },
+    "interestratebenchmark": {
+      "labels": {
+        "identifier": "InterestRateBenchmark"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "tenor": {
+          "type": "STRING",
+          "name": "tenor"
+        },
+        "referenceCurrencyCode": {
+          "type": "STRING",
+          "name": "referenceCurrencyCode"
+        },
+        "referenceCurrencyName": {
+          "type": "STRING",
+          "name": "referenceCurrencyName"
+        },
+        "rateResetTime": {
+          "type": "STRING",
+          "name": "rateResetTime"
+        },
+        "publisherName": {
+          "type": "STRING",
+          "name": "publisherName"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1250,
+          "y": -600
+        }
+      }
+    },
+    "marketindex": {
+      "labels": {
+        "identifier": "MarketIndex"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "indexType": {
+          "type": "STRING",
+          "name": "indexType"
+        },
+        "baseValue": {
+          "type": "FLOAT",
+          "name": "baseValue"
+        },
+        "baseDate": {
+          "type": "DATE",
+          "name": "baseDate"
+        },
+        "methodology": {
+          "type": "STRING",
+          "name": "methodology"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1250,
+          "y": -780
+        }
+      }
+    },
+    "regulatoryagency": {
+      "labels": {
+        "identifier": "RegulatoryAgency"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "shortName": {
+          "type": "STRING",
+          "name": "shortName"
+        },
+        "agencyType": {
+          "type": "STRING",
+          "name": "agencyType"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -850,
+          "y": 480
+        }
+      }
+    },
+    "legalentity": {
+      "labels": {
+        "identifier": "LegalEntity"
+      },
+      "properties": {
+        "lei": {
+          "type": "STRING",
+          "name": "lei"
+        },
+        "legalName": {
+          "type": "STRING",
+          "name": "legalName"
+        },
+        "legalForm": {
+          "type": "STRING",
+          "name": "legalForm"
+        },
+        "entityStatus": {
+          "type": "STRING",
+          "name": "entityStatus"
+        },
+        "incorporationDate": {
+          "type": "DATE",
+          "name": "incorporationDate"
+        },
+        "entityExpirationDate": {
+          "type": "DATE",
+          "name": "entityExpirationDate"
+        },
+        "entityExpirationReason": {
+          "type": "STRING",
+          "name": "entityExpirationReason"
+        },
+        "isPubliclyTraded": {
+          "type": "BOOLEAN",
+          "name": "isPubliclyTraded"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -800,
+          "y": 60
+        }
+      }
+    },
+    "person": {
+      "labels": {
+        "identifier": "Person"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "fullName": {
+          "type": "STRING",
+          "name": "fullName"
+        },
+        "birthDate": {
+          "type": "DATE",
+          "name": "birthDate"
+        },
+        "deathDate": {
+          "type": "DATE",
+          "name": "deathDate"
+        },
+        "gender": {
+          "type": "STRING",
+          "name": "gender"
+        },
+        "citizenshipCountryCode": {
+          "type": "STRING",
+          "name": "citizenshipCountryCode"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -800,
+          "y": 260
+        }
+      }
+    },
+    "partyinrole": {
+      "labels": {
+        "identifier": "PartyInRole"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "roleType": {
+          "type": "STRING",
+          "name": "roleType"
+        },
+        "startDate": {
+          "type": "DATE",
+          "name": "startDate"
+        },
+        "endDate": {
+          "type": "DATE",
+          "name": "endDate"
+        },
+        "isActive": {
+          "type": "BOOLEAN",
+          "name": "isActive"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -400,
+          "y": 160
+        }
+      }
+    },
+    "ownership": {
+      "labels": {
+        "identifier": "Ownership"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "ownershipType": {
+          "type": "STRING",
+          "name": "ownershipType"
+        },
+        "ownershipPercentage": {
+          "type": "FLOAT",
+          "name": "ownershipPercentage"
+        },
+        "controlType": {
+          "type": "STRING",
+          "name": "controlType"
+        },
+        "isMajorityControl": {
+          "type": "BOOLEAN",
+          "name": "isMajorityControl"
+        },
+        "effectiveDate": {
+          "type": "DATE",
+          "name": "effectiveDate"
+        },
+        "endDate": {
+          "type": "DATE",
+          "name": "endDate"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -800,
+          "y": -140
+        }
+      }
+    },
+    "financialserviceprovider": {
+      "labels": {
+        "identifier": "FinancialServiceProvider"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "lei": {
+          "type": "STRING",
+          "name": "lei"
+        },
+        "providerType": {
+          "type": "STRING",
+          "name": "providerType"
+        },
+        "homeCountryName": {
+          "type": "STRING",
+          "name": "homeCountryName"
+        },
+        "homeCountryCode": {
+          "type": "STRING",
+          "name": "homeCountryCode"
+        },
+        "isSubjectToReserveRequirements": {
+          "type": "BOOLEAN",
+          "name": "isSubjectToReserveRequirements"
+        },
+        "licenceStatus": {
+          "type": "STRING",
+          "name": "licenceStatus"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -450,
+          "y": -280
+        }
+      }
+    },
+    "financialservice": {
+      "labels": {
+        "identifier": "FinancialService"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "serviceType": {
+          "type": "STRING",
+          "name": "serviceType"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -450,
+          "y": -460
+        }
+      }
+    },
+    "financialinstrument": {
+      "labels": {
+        "identifier": "FinancialInstrument"
+      },
+      "properties": {
+        "isin": {
+          "type": "STRING",
+          "name": "isin"
+        },
+        "cusip": {
+          "type": "STRING",
+          "name": "cusip"
+        },
+        "figi": {
+          "type": "STRING",
+          "name": "figi"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "shortName": {
+          "type": "STRING",
+          "name": "shortName"
+        },
+        "instrumentType": {
+          "type": "STRING",
+          "name": "instrumentType"
+        },
+        "cfiCode": {
+          "type": "STRING",
+          "name": "cfiCode"
+        },
+        "isNegotiable": {
+          "type": "BOOLEAN",
+          "name": "isNegotiable"
+        },
+        "issueDate": {
+          "type": "DATE",
+          "name": "issueDate"
+        },
+        "maturityDate": {
+          "type": "DATE",
+          "name": "maturityDate"
+        },
+        "nominalValueAmount": {
+          "type": "FLOAT",
+          "name": "nominalValueAmount"
+        },
+        "denominationCurrencyCode": {
+          "type": "STRING",
+          "name": "denominationCurrencyCode"
+        },
+        "isMiFIDReportingRequired": {
+          "type": "BOOLEAN",
+          "name": "isMiFIDReportingRequired"
+        },
+        "shareClass": {
+          "type": "STRING",
+          "name": "shareClass"
+        },
+        "isPreferred": {
+          "type": "BOOLEAN",
+          "name": "isPreferred"
+        },
+        "votingRights": {
+          "type": "STRING",
+          "name": "votingRights"
+        },
+        "votesPerShare": {
+          "type": "FLOAT",
+          "name": "votesPerShare"
+        },
+        "sharesAuthorized": {
+          "type": "INTEGER",
+          "name": "sharesAuthorized"
+        },
+        "sharesIssued": {
+          "type": "INTEGER",
+          "name": "sharesIssued"
+        },
+        "sharesOutstanding": {
+          "type": "INTEGER",
+          "name": "sharesOutstanding"
+        },
+        "isCumulative": {
+          "type": "BOOLEAN",
+          "name": "isCumulative"
+        },
+        "isParticipating": {
+          "type": "BOOLEAN",
+          "name": "isParticipating"
+        },
+        "isRedeemable": {
+          "type": "BOOLEAN",
+          "name": "isRedeemable"
+        },
+        "isExchangeable": {
+          "type": "BOOLEAN",
+          "name": "isExchangeable"
+        },
+        "isExtendable": {
+          "type": "BOOLEAN",
+          "name": "isExtendable"
+        },
+        "dividendRateType": {
+          "type": "STRING",
+          "name": "dividendRateType"
+        },
+        "couponRate": {
+          "type": "FLOAT",
+          "name": "couponRate"
+        },
+        "couponFrequency": {
+          "type": "STRING",
+          "name": "couponFrequency"
+        },
+        "faceValueAmount": {
+          "type": "FLOAT",
+          "name": "faceValueAmount"
+        },
+        "seniority": {
+          "type": "STRING",
+          "name": "seniority"
+        },
+        "isCallable": {
+          "type": "BOOLEAN",
+          "name": "isCallable"
+        },
+        "isPuttable": {
+          "type": "BOOLEAN",
+          "name": "isPuttable"
+        },
+        "dayCountConvention": {
+          "type": "STRING",
+          "name": "dayCountConvention"
+        },
+        "series": {
+          "type": "STRING",
+          "name": "series"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 0,
+          "y": -60
+        }
+      }
+    },
+    "loan": {
+      "labels": {
+        "identifier": "Loan"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "loanType": {
+          "type": "STRING",
+          "name": "loanType"
+        },
+        "principalAmount": {
+          "type": "FLOAT",
+          "name": "principalAmount"
+        },
+        "currencyCode": {
+          "type": "STRING",
+          "name": "currencyCode"
+        },
+        "interestRate": {
+          "type": "FLOAT",
+          "name": "interestRate"
+        },
+        "rateType": {
+          "type": "STRING",
+          "name": "rateType"
+        },
+        "disbursementDate": {
+          "type": "DATE",
+          "name": "disbursementDate"
+        },
+        "maturityDate": {
+          "type": "DATE",
+          "name": "maturityDate"
+        },
+        "isInterestOnly": {
+          "type": "BOOLEAN",
+          "name": "isInterestOnly"
+        },
+        "inDefault": {
+          "type": "BOOLEAN",
+          "name": "inDefault"
+        },
+        "isAssumable": {
+          "type": "BOOLEAN",
+          "name": "isAssumable"
+        },
+        "lienPosition": {
+          "type": "STRING",
+          "name": "lienPosition"
+        },
+        "loanMarketCategory": {
+          "type": "STRING",
+          "name": "loanMarketCategory"
+        },
+        "totalClosingCostsAmount": {
+          "type": "FLOAT",
+          "name": "totalClosingCostsAmount"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 0,
+          "y": 300
+        }
+      }
+    },
+    "derivativecontract": {
+      "labels": {
+        "identifier": "DerivativeContract"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "derivativeType": {
+          "type": "STRING",
+          "name": "derivativeType"
+        },
+        "notionalAmount": {
+          "type": "FLOAT",
+          "name": "notionalAmount"
+        },
+        "currencyCode": {
+          "type": "STRING",
+          "name": "currencyCode"
+        },
+        "tradeDate": {
+          "type": "DATE",
+          "name": "tradeDate"
+        },
+        "effectiveDate": {
+          "type": "DATE",
+          "name": "effectiveDate"
+        },
+        "expirationDate": {
+          "type": "DATE",
+          "name": "expirationDate"
+        },
+        "settlementType": {
+          "type": "STRING",
+          "name": "settlementType"
+        },
+        "optionType": {
+          "type": "STRING",
+          "name": "optionType"
+        },
+        "strikePrice": {
+          "type": "FLOAT",
+          "name": "strikePrice"
+        },
+        "isCleared": {
+          "type": "BOOLEAN",
+          "name": "isCleared"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 0,
+          "y": -480
+        }
+      }
+    },
+    "fund": {
+      "labels": {
+        "identifier": "Fund"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "fundType": {
+          "type": "STRING",
+          "name": "fundType"
+        },
+        "netAssetValue": {
+          "type": "FLOAT",
+          "name": "netAssetValue"
+        },
+        "navCurrencyCode": {
+          "type": "STRING",
+          "name": "navCurrencyCode"
+        },
+        "navDate": {
+          "type": "DATE",
+          "name": "navDate"
+        },
+        "isOpenEnded": {
+          "type": "BOOLEAN",
+          "name": "isOpenEnded"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 400,
+          "y": -480
+        }
+      }
+    },
+    "contract": {
+      "labels": {
+        "identifier": "Contract"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "contractType": {
+          "type": "STRING",
+          "name": "contractType"
+        },
+        "effectiveDate": {
+          "type": "DATE",
+          "name": "effectiveDate"
+        },
+        "executionDate": {
+          "type": "DATE",
+          "name": "executionDate"
+        },
+        "issuanceDate": {
+          "type": "DATE",
+          "name": "issuanceDate"
+        },
+        "isAssignable": {
+          "type": "BOOLEAN",
+          "name": "isAssignable"
+        },
+        "governingLaw": {
+          "type": "STRING",
+          "name": "governingLaw"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 0,
+          "y": 540
+        }
+      }
+    },
+    "collateral": {
+      "labels": {
+        "identifier": "Collateral"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "collateralType": {
+          "type": "STRING",
+          "name": "collateralType"
+        },
+        "valueAmount": {
+          "type": "FLOAT",
+          "name": "valueAmount"
+        },
+        "currencyCode": {
+          "type": "STRING",
+          "name": "currencyCode"
+        },
+        "haircutPercentage": {
+          "type": "FLOAT",
+          "name": "haircutPercentage"
+        },
+        "valuationDate": {
+          "type": "DATE",
+          "name": "valuationDate"
+        },
+        "lienPosition": {
+          "type": "STRING",
+          "name": "lienPosition"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -400,
+          "y": 480
+        }
+      }
+    },
+    "account": {
+      "labels": {
+        "identifier": "Account"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "accountType": {
+          "type": "STRING",
+          "name": "accountType"
+        },
+        "openDate": {
+          "type": "DATE",
+          "name": "openDate"
+        },
+        "closeDate": {
+          "type": "DATE",
+          "name": "closeDate"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "balanceAmount": {
+          "type": "FLOAT",
+          "name": "balanceAmount"
+        },
+        "balanceCurrencyCode": {
+          "type": "STRING",
+          "name": "balanceCurrencyCode"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 450,
+          "y": 160
+        }
+      }
+    },
+    "portfolio": {
+      "labels": {
+        "identifier": "Portfolio"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "investmentStrategy": {
+          "type": "STRING",
+          "name": "investmentStrategy"
+        },
+        "inceptionDate": {
+          "type": "DATE",
+          "name": "inceptionDate"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 450,
+          "y": -60
+        }
+      }
+    },
+    "holding": {
+      "labels": {
+        "identifier": "Holding"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "quantity": {
+          "type": "FLOAT",
+          "name": "quantity"
+        },
+        "fractionalInterest": {
+          "type": "FLOAT",
+          "name": "fractionalInterest"
+        },
+        "marketValueAmount": {
+          "type": "FLOAT",
+          "name": "marketValueAmount"
+        },
+        "currencyCode": {
+          "type": "STRING",
+          "name": "currencyCode"
+        },
+        "asOfDate": {
+          "type": "DATE",
+          "name": "asOfDate"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 450,
+          "y": -280
+        }
+      }
+    },
+    "position": {
+      "labels": {
+        "identifier": "Position"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "direction": {
+          "type": "STRING",
+          "name": "direction"
+        },
+        "quantity": {
+          "type": "FLOAT",
+          "name": "quantity"
+        },
+        "exposureAmount": {
+          "type": "FLOAT",
+          "name": "exposureAmount"
+        },
+        "currencyCode": {
+          "type": "STRING",
+          "name": "currencyCode"
+        },
+        "asOfDate": {
+          "type": "DATE",
+          "name": "asOfDate"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 450,
+          "y": 380
+        }
+      }
+    },
+    "paymentschedule": {
+      "labels": {
+        "identifier": "PaymentSchedule"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "scheduleType": {
+          "type": "STRING",
+          "name": "scheduleType"
+        },
+        "frequency": {
+          "type": "STRING",
+          "name": "frequency"
+        },
+        "firstPaymentDate": {
+          "type": "DATE",
+          "name": "firstPaymentDate"
+        },
+        "finalPaymentDate": {
+          "type": "DATE",
+          "name": "finalPaymentDate"
+        },
+        "anticipatedNumberOfPayments": {
+          "type": "INTEGER",
+          "name": "anticipatedNumberOfPayments"
+        },
+        "businessDayConvention": {
+          "type": "STRING",
+          "name": "businessDayConvention"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 850,
+          "y": 480
+        }
+      }
+    },
+    "payment": {
+      "labels": {
+        "identifier": "Payment"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "paymentType": {
+          "type": "STRING",
+          "name": "paymentType"
+        },
+        "dueDate": {
+          "type": "DATE",
+          "name": "dueDate"
+        },
+        "amount": {
+          "type": "FLOAT",
+          "name": "amount"
+        },
+        "currencyCode": {
+          "type": "STRING",
+          "name": "currencyCode"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "paidDate": {
+          "type": "DATE",
+          "name": "paidDate"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1200,
+          "y": 480
+        }
+      }
+    },
+    "cashflow": {
+      "labels": {
+        "identifier": "CashFlow"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "flowType": {
+          "type": "STRING",
+          "name": "flowType"
+        },
+        "flowDate": {
+          "type": "DATE",
+          "name": "flowDate"
+        },
+        "amount": {
+          "type": "FLOAT",
+          "name": "amount"
+        },
+        "currencyCode": {
+          "type": "STRING",
+          "name": "currencyCode"
+        },
+        "isProjected": {
+          "type": "BOOLEAN",
+          "name": "isProjected"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1200,
+          "y": 260
+        }
+      }
+    },
+    "trade": {
+      "labels": {
+        "identifier": "Trade"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "tradeDateTime": {
+          "type": "ZONED DATETIME",
+          "name": "tradeDateTime"
+        },
+        "side": {
+          "type": "STRING",
+          "name": "side"
+        },
+        "quantity": {
+          "type": "FLOAT",
+          "name": "quantity"
+        },
+        "price": {
+          "type": "FLOAT",
+          "name": "price"
+        },
+        "priceCurrencyCode": {
+          "type": "STRING",
+          "name": "priceCurrencyCode"
+        },
+        "notionalAmount": {
+          "type": "FLOAT",
+          "name": "notionalAmount"
+        },
+        "settlementDate": {
+          "type": "DATE",
+          "name": "settlementDate"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "venueMic": {
+          "type": "STRING",
+          "name": "venueMic"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 900,
+          "y": -60
+        }
+      }
+    },
+    "lifecycleevent": {
+      "labels": {
+        "identifier": "LifecycleEvent"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "eventType": {
+          "type": "STRING",
+          "name": "eventType"
+        },
+        "eventDateTime": {
+          "type": "ZONED DATETIME",
+          "name": "eventDateTime"
+        },
+        "stage": {
+          "type": "STRING",
+          "name": "stage"
+        },
+        "sequenceNumber": {
+          "type": "INTEGER",
+          "name": "sequenceNumber"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 900,
+          "y": -300
+        }
+      }
+    },
+    "corporateaction": {
+      "labels": {
+        "identifier": "CorporateAction"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "actionType": {
+          "type": "STRING",
+          "name": "actionType"
+        },
+        "announcementDate": {
+          "type": "DATE",
+          "name": "announcementDate"
+        },
+        "exDate": {
+          "type": "DATE",
+          "name": "exDate"
+        },
+        "recordDate": {
+          "type": "DATE",
+          "name": "recordDate"
+        },
+        "paymentDate": {
+          "type": "DATE",
+          "name": "paymentDate"
+        },
+        "effectiveDate": {
+          "type": "DATE",
+          "name": "effectiveDate"
+        },
+        "isMandatory": {
+          "type": "BOOLEAN",
+          "name": "isMandatory"
+        },
+        "ratio": {
+          "type": "STRING",
+          "name": "ratio"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 900,
+          "y": -540
+        }
+      }
+    },
+    "creditrating": {
+      "labels": {
+        "identifier": "CreditRating"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "ratingScore": {
+          "type": "STRING",
+          "name": "ratingScore"
+        },
+        "ratingScale": {
+          "type": "STRING",
+          "name": "ratingScale"
+        },
+        "ratingType": {
+          "type": "STRING",
+          "name": "ratingType"
+        },
+        "outlook": {
+          "type": "STRING",
+          "name": "outlook"
+        },
+        "issuanceDate": {
+          "type": "DATE",
+          "name": "issuanceDate"
+        },
+        "effectiveDate": {
+          "type": "DATE",
+          "name": "effectiveDate"
+        },
+        "isSolicited": {
+          "type": "BOOLEAN",
+          "name": "isSolicited"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -450,
+          "y": -780
+        }
+      }
+    }
+  },
+  "relationships": {
+    "broader-than-0": {
+      "type": "BROADER_THAN",
+      "from": {
+        "node": "instrumenttype"
+      },
+      "to": {
+        "node": "instrumenttype"
+      }
+    },
+    "classified-as-1": {
+      "type": "CLASSIFIED_AS",
+      "from": {
+        "node": "financialinstrument"
+      },
+      "to": {
+        "node": "instrumenttype"
+      }
+    },
+    "operated-under-2": {
+      "type": "OPERATED_UNDER",
+      "from": {
+        "node": "market"
+      },
+      "to": {
+        "node": "market"
+      }
+    },
+    "located-in-3": {
+      "type": "LOCATED_IN",
+      "from": {
+        "node": "market"
+      },
+      "to": {
+        "node": "jurisdiction"
+      }
+    },
+    "managed-by-4": {
+      "type": "MANAGED_BY",
+      "from": {
+        "node": "market"
+      },
+      "to": {
+        "node": "financialserviceprovider"
+      }
+    },
+    "identified-by-5": {
+      "type": "IDENTIFIED_BY",
+      "from": {
+        "node": "market"
+      },
+      "to": {
+        "node": "identifier"
+      }
+    },
+    "denominated-in-6": {
+      "type": "DENOMINATED_IN",
+      "from": {
+        "node": "interestratebenchmark"
+      },
+      "to": {
+        "node": "currency"
+      }
+    },
+    "has-constituent-7": {
+      "type": "HAS_CONSTITUENT",
+      "from": {
+        "node": "marketindex"
+      },
+      "to": {
+        "node": "financialinstrument"
+      }
+    },
+    "has-jurisdiction-8": {
+      "type": "HAS_JURISDICTION",
+      "from": {
+        "node": "regulatoryagency"
+      },
+      "to": {
+        "node": "jurisdiction"
+      }
+    },
+    "regulates-9": {
+      "type": "REGULATES",
+      "from": {
+        "node": "regulatoryagency"
+      },
+      "to": {
+        "node": "financialserviceprovider"
+      }
+    },
+    "has-legal-address-10": {
+      "type": "HAS_LEGAL_ADDRESS",
+      "from": {
+        "node": "legalentity"
+      },
+      "to": {
+        "node": "address"
+      }
+    },
+    "organized-in-11": {
+      "type": "ORGANIZED_IN",
+      "from": {
+        "node": "legalentity"
+      },
+      "to": {
+        "node": "jurisdiction"
+      }
+    },
+    "classified-by-12": {
+      "type": "CLASSIFIED_BY",
+      "from": {
+        "node": "legalentity"
+      },
+      "to": {
+        "node": "industrysector"
+      }
+    },
+    "identified-by-13": {
+      "type": "IDENTIFIED_BY",
+      "from": {
+        "node": "legalentity"
+      },
+      "to": {
+        "node": "identifier"
+      }
+    },
+    "plays-14": {
+      "type": "PLAYS",
+      "from": {
+        "node": "legalentity"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "plays-15": {
+      "type": "PLAYS",
+      "from": {
+        "node": "person"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "resides-at-16": {
+      "type": "RESIDES_AT",
+      "from": {
+        "node": "person"
+      },
+      "to": {
+        "node": "address"
+      }
+    },
+    "employed-by-17": {
+      "type": "EMPLOYED_BY",
+      "from": {
+        "node": "person"
+      },
+      "to": {
+        "node": "legalentity"
+      }
+    },
+    "has-owning-party-18": {
+      "type": "HAS_OWNING_PARTY",
+      "from": {
+        "node": "ownership"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "owns-entity-19": {
+      "type": "OWNS_ENTITY",
+      "from": {
+        "node": "ownership"
+      },
+      "to": {
+        "node": "legalentity"
+      }
+    },
+    "owns-instrument-20": {
+      "type": "OWNS_INSTRUMENT",
+      "from": {
+        "node": "ownership"
+      },
+      "to": {
+        "node": "financialinstrument"
+      }
+    },
+    "is-played-by-21": {
+      "type": "IS_PLAYED_BY",
+      "from": {
+        "node": "financialserviceprovider"
+      },
+      "to": {
+        "node": "legalentity"
+      }
+    },
+    "provides-22": {
+      "type": "PROVIDES",
+      "from": {
+        "node": "financialserviceprovider"
+      },
+      "to": {
+        "node": "financialservice"
+      }
+    },
+    "issued-by-23": {
+      "type": "ISSUED_BY",
+      "from": {
+        "node": "financialinstrument"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "denominated-in-24": {
+      "type": "DENOMINATED_IN",
+      "from": {
+        "node": "financialinstrument"
+      },
+      "to": {
+        "node": "currency"
+      }
+    },
+    "legally-recorded-in-25": {
+      "type": "LEGALLY_RECORDED_IN",
+      "from": {
+        "node": "financialinstrument"
+      },
+      "to": {
+        "node": "jurisdiction"
+      }
+    },
+    "identified-by-26": {
+      "type": "IDENTIFIED_BY",
+      "from": {
+        "node": "financialinstrument"
+      },
+      "to": {
+        "node": "identifier"
+      }
+    },
+    "listed-on-27": {
+      "type": "LISTED_ON",
+      "from": {
+        "node": "financialinstrument"
+      },
+      "to": {
+        "node": "market"
+      }
+    },
+    "has-underlier-28": {
+      "type": "HAS_UNDERLIER",
+      "from": {
+        "node": "financialinstrument"
+      },
+      "to": {
+        "node": "financialinstrument"
+      }
+    },
+    "has-payment-schedule-29": {
+      "type": "HAS_PAYMENT_SCHEDULE",
+      "from": {
+        "node": "financialinstrument"
+      },
+      "to": {
+        "node": "paymentschedule"
+      }
+    },
+    "collateralized-by-30": {
+      "type": "COLLATERALIZED_BY",
+      "from": {
+        "node": "financialinstrument"
+      },
+      "to": {
+        "node": "collateral"
+      }
+    },
+    "governed-by-31": {
+      "type": "GOVERNED_BY",
+      "from": {
+        "node": "financialinstrument"
+      },
+      "to": {
+        "node": "contract"
+      }
+    },
+    "interest-based-on-32": {
+      "type": "INTEREST_BASED_ON",
+      "from": {
+        "node": "financialinstrument"
+      },
+      "to": {
+        "node": "interestratebenchmark"
+      }
+    },
+    "has-underlier-33": {
+      "type": "HAS_UNDERLIER",
+      "from": {
+        "node": "derivativecontract"
+      },
+      "to": {
+        "node": "financialinstrument"
+      }
+    },
+    "has-counterparty-34": {
+      "type": "HAS_COUNTERPARTY",
+      "from": {
+        "node": "derivativecontract"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "governed-by-35": {
+      "type": "GOVERNED_BY",
+      "from": {
+        "node": "derivativecontract"
+      },
+      "to": {
+        "node": "contract"
+      }
+    },
+    "collateralized-by-36": {
+      "type": "COLLATERALIZED_BY",
+      "from": {
+        "node": "derivativecontract"
+      },
+      "to": {
+        "node": "collateral"
+      }
+    },
+    "references-benchmark-37": {
+      "type": "REFERENCES_BENCHMARK",
+      "from": {
+        "node": "derivativecontract"
+      },
+      "to": {
+        "node": "interestratebenchmark"
+      }
+    },
+    "references-index-38": {
+      "type": "REFERENCES_INDEX",
+      "from": {
+        "node": "derivativecontract"
+      },
+      "to": {
+        "node": "marketindex"
+      }
+    },
+    "has-portfolio-39": {
+      "type": "HAS_PORTFOLIO",
+      "from": {
+        "node": "fund"
+      },
+      "to": {
+        "node": "portfolio"
+      }
+    },
+    "managed-by-40": {
+      "type": "MANAGED_BY",
+      "from": {
+        "node": "fund"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "issued-by-41": {
+      "type": "ISSUED_BY",
+      "from": {
+        "node": "fund"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "has-borrower-42": {
+      "type": "HAS_BORROWER",
+      "from": {
+        "node": "loan"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "has-lender-43": {
+      "type": "HAS_LENDER",
+      "from": {
+        "node": "loan"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "has-guarantor-44": {
+      "type": "HAS_GUARANTOR",
+      "from": {
+        "node": "loan"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "serviced-by-45": {
+      "type": "SERVICED_BY",
+      "from": {
+        "node": "loan"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "collateralized-by-46": {
+      "type": "COLLATERALIZED_BY",
+      "from": {
+        "node": "loan"
+      },
+      "to": {
+        "node": "collateral"
+      }
+    },
+    "has-payment-schedule-47": {
+      "type": "HAS_PAYMENT_SCHEDULE",
+      "from": {
+        "node": "loan"
+      },
+      "to": {
+        "node": "paymentschedule"
+      }
+    },
+    "has-corresponding-account-48": {
+      "type": "HAS_CORRESPONDING_ACCOUNT",
+      "from": {
+        "node": "loan"
+      },
+      "to": {
+        "node": "account"
+      }
+    },
+    "interest-based-on-49": {
+      "type": "INTEREST_BASED_ON",
+      "from": {
+        "node": "loan"
+      },
+      "to": {
+        "node": "interestratebenchmark"
+      }
+    },
+    "has-contract-party-50": {
+      "type": "HAS_CONTRACT_PARTY",
+      "from": {
+        "node": "contract"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "governed-by-jurisdiction-51": {
+      "type": "GOVERNED_BY_JURISDICTION",
+      "from": {
+        "node": "contract"
+      },
+      "to": {
+        "node": "jurisdiction"
+      }
+    },
+    "supersedes-52": {
+      "type": "SUPERSEDES",
+      "from": {
+        "node": "contract"
+      },
+      "to": {
+        "node": "contract"
+      }
+    },
+    "held-by-53": {
+      "type": "HELD_BY",
+      "from": {
+        "node": "account"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "provided-by-54": {
+      "type": "PROVIDED_BY",
+      "from": {
+        "node": "account"
+      },
+      "to": {
+        "node": "financialserviceprovider"
+      }
+    },
+    "denominated-in-55": {
+      "type": "DENOMINATED_IN",
+      "from": {
+        "node": "account"
+      },
+      "to": {
+        "node": "currency"
+      }
+    },
+    "has-portfolio-56": {
+      "type": "HAS_PORTFOLIO",
+      "from": {
+        "node": "account"
+      },
+      "to": {
+        "node": "portfolio"
+      }
+    },
+    "has-position-57": {
+      "type": "HAS_POSITION",
+      "from": {
+        "node": "account"
+      },
+      "to": {
+        "node": "position"
+      }
+    },
+    "comprises-58": {
+      "type": "COMPRISES",
+      "from": {
+        "node": "portfolio"
+      },
+      "to": {
+        "node": "holding"
+      }
+    },
+    "member-of-59": {
+      "type": "MEMBER_OF",
+      "from": {
+        "node": "portfolio"
+      },
+      "to": {
+        "node": "portfolio"
+      }
+    },
+    "managed-by-60": {
+      "type": "MANAGED_BY",
+      "from": {
+        "node": "portfolio"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "of-instrument-61": {
+      "type": "OF_INSTRUMENT",
+      "from": {
+        "node": "holding"
+      },
+      "to": {
+        "node": "financialinstrument"
+      }
+    },
+    "in-instrument-62": {
+      "type": "IN_INSTRUMENT",
+      "from": {
+        "node": "position"
+      },
+      "to": {
+        "node": "financialinstrument"
+      }
+    },
+    "has-payment-63": {
+      "type": "HAS_PAYMENT",
+      "from": {
+        "node": "paymentschedule"
+      },
+      "to": {
+        "node": "payment"
+      }
+    },
+    "generates-cash-flow-64": {
+      "type": "GENERATES_CASH_FLOW",
+      "from": {
+        "node": "payment"
+      },
+      "to": {
+        "node": "cashflow"
+      }
+    },
+    "payable-to-65": {
+      "type": "PAYABLE_TO",
+      "from": {
+        "node": "payment"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "credited-to-66": {
+      "type": "CREDITED_TO",
+      "from": {
+        "node": "cashflow"
+      },
+      "to": {
+        "node": "account"
+      }
+    },
+    "involves-instrument-67": {
+      "type": "INVOLVES_INSTRUMENT",
+      "from": {
+        "node": "trade"
+      },
+      "to": {
+        "node": "financialinstrument"
+      }
+    },
+    "has-buyer-68": {
+      "type": "HAS_BUYER",
+      "from": {
+        "node": "trade"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "has-seller-69": {
+      "type": "HAS_SELLER",
+      "from": {
+        "node": "trade"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "executed-on-70": {
+      "type": "EXECUTED_ON",
+      "from": {
+        "node": "trade"
+      },
+      "to": {
+        "node": "market"
+      }
+    },
+    "settles-in-71": {
+      "type": "SETTLES_IN",
+      "from": {
+        "node": "trade"
+      },
+      "to": {
+        "node": "account"
+      }
+    },
+    "succeeds-72": {
+      "type": "SUCCEEDS",
+      "from": {
+        "node": "trade"
+      },
+      "to": {
+        "node": "trade"
+      }
+    },
+    "embodied-in-73": {
+      "type": "EMBODIED_IN",
+      "from": {
+        "node": "trade"
+      },
+      "to": {
+        "node": "contract"
+      }
+    },
+    "next-74": {
+      "type": "NEXT",
+      "from": {
+        "node": "lifecycleevent"
+      },
+      "to": {
+        "node": "lifecycleevent"
+      }
+    },
+    "affects-instrument-75": {
+      "type": "AFFECTS_INSTRUMENT",
+      "from": {
+        "node": "lifecycleevent"
+      },
+      "to": {
+        "node": "financialinstrument"
+      }
+    },
+    "affects-account-76": {
+      "type": "AFFECTS_ACCOUNT",
+      "from": {
+        "node": "lifecycleevent"
+      },
+      "to": {
+        "node": "account"
+      }
+    },
+    "involves-party-77": {
+      "type": "INVOLVES_PARTY",
+      "from": {
+        "node": "lifecycleevent"
+      },
+      "to": {
+        "node": "partyinrole"
+      }
+    },
+    "triggered-by-78": {
+      "type": "TRIGGERED_BY",
+      "from": {
+        "node": "lifecycleevent"
+      },
+      "to": {
+        "node": "trade"
+      }
+    },
+    "affects-instrument-79": {
+      "type": "AFFECTS_INSTRUMENT",
+      "from": {
+        "node": "corporateaction"
+      },
+      "to": {
+        "node": "financialinstrument"
+      }
+    },
+    "converts-to-80": {
+      "type": "CONVERTS_TO",
+      "from": {
+        "node": "corporateaction"
+      },
+      "to": {
+        "node": "financialinstrument"
+      }
+    },
+    "declared-by-81": {
+      "type": "DECLARED_BY",
+      "from": {
+        "node": "corporateaction"
+      },
+      "to": {
+        "node": "legalentity"
+      }
+    },
+    "has-lifecycle-event-82": {
+      "type": "HAS_LIFECYCLE_EVENT",
+      "from": {
+        "node": "corporateaction"
+      },
+      "to": {
+        "node": "lifecycleevent"
+      }
+    },
+    "rates-instrument-83": {
+      "type": "RATES_INSTRUMENT",
+      "from": {
+        "node": "creditrating"
+      },
+      "to": {
+        "node": "financialinstrument"
+      }
+    },
+    "rates-entity-84": {
+      "type": "RATES_ENTITY",
+      "from": {
+        "node": "creditrating"
+      },
+      "to": {
+        "node": "legalentity"
+      }
+    },
+    "issued-by-85": {
+      "type": "ISSUED_BY",
+      "from": {
+        "node": "creditrating"
+      },
+      "to": {
+        "node": "financialserviceprovider"
+      }
+    }
+  }
+}

@@ -1,0 +1,1727 @@
+{
+  "version": "1.0.0",
+  "schema": "https://neo4j.com/docs/ontology-graph-spec/1.0.0/schema.json",
+  "id": "iof",
+  "name": "Industrial Ontologies Foundry -- manufacturing",
+  "nodes": {
+    "materialartifact": {
+      "labels": {
+        "identifier": "MaterialArtifact"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "materialType": {
+          "type": "STRING",
+          "name": "materialType"
+        },
+        "serialNumber": {
+          "type": "STRING",
+          "name": "serialNumber"
+        },
+        "lotNumber": {
+          "type": "STRING",
+          "name": "lotNumber"
+        },
+        "quantity": {
+          "type": "FLOAT",
+          "name": "quantity"
+        },
+        "unitOfMeasure": {
+          "type": "STRING",
+          "name": "unitOfMeasure"
+        },
+        "grade": {
+          "type": "STRING",
+          "name": "grade"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": -200
+        }
+      }
+    },
+    "productdesign": {
+      "labels": {
+        "identifier": "ProductDesign"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "version": {
+          "type": "STRING",
+          "name": "version"
+        },
+        "revisionDate": {
+          "type": "DATE",
+          "name": "revisionDate"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "drawingNumber": {
+          "type": "STRING",
+          "name": "drawingNumber"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": -200
+        }
+      }
+    },
+    "planspecification": {
+      "labels": {
+        "identifier": "PlanSpecification"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "planType": {
+          "type": "STRING",
+          "name": "planType"
+        },
+        "version": {
+          "type": "STRING",
+          "name": "version"
+        },
+        "createdDate": {
+          "type": "DATE",
+          "name": "createdDate"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": -200
+        }
+      }
+    },
+    "plannedprocess": {
+      "labels": {
+        "identifier": "PlannedProcess"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "processType": {
+          "type": "STRING",
+          "name": "processType"
+        },
+        "plannedStart": {
+          "type": "DATE",
+          "name": "plannedStart"
+        },
+        "plannedEnd": {
+          "type": "DATE",
+          "name": "plannedEnd"
+        },
+        "actualStart": {
+          "type": "DATE",
+          "name": "actualStart"
+        },
+        "actualEnd": {
+          "type": "DATE",
+          "name": "actualEnd"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": -200
+        }
+      }
+    },
+    "manufacturingprocess": {
+      "labels": {
+        "identifier": "ManufacturingProcess"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "processType": {
+          "type": "STRING",
+          "name": "processType"
+        },
+        "cycleTime": {
+          "type": "FLOAT",
+          "name": "cycleTime"
+        },
+        "cycleTimeUnit": {
+          "type": "STRING",
+          "name": "cycleTimeUnit"
+        },
+        "yieldQuantity": {
+          "type": "FLOAT",
+          "name": "yieldQuantity"
+        },
+        "scrapQuantity": {
+          "type": "FLOAT",
+          "name": "scrapQuantity"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": -200
+        }
+      }
+    },
+    "processstage": {
+      "labels": {
+        "identifier": "ProcessStage"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "stageName": {
+          "type": "STRING",
+          "name": "stageName"
+        },
+        "sequenceNumber": {
+          "type": "INTEGER",
+          "name": "sequenceNumber"
+        },
+        "startTime": {
+          "type": "DATE",
+          "name": "startTime"
+        },
+        "endTime": {
+          "type": "DATE",
+          "name": "endTime"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": -200
+        }
+      }
+    },
+    "workorder": {
+      "labels": {
+        "identifier": "WorkOrder"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "orderNumber": {
+          "type": "STRING",
+          "name": "orderNumber"
+        },
+        "priority": {
+          "type": "STRING",
+          "name": "priority"
+        },
+        "quantityOrdered": {
+          "type": "FLOAT",
+          "name": "quantityOrdered"
+        },
+        "quantityCompleted": {
+          "type": "FLOAT",
+          "name": "quantityCompleted"
+        },
+        "dueDate": {
+          "type": "DATE",
+          "name": "dueDate"
+        },
+        "releaseDate": {
+          "type": "DATE",
+          "name": "releaseDate"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 10
+        }
+      }
+    },
+    "productionschedule": {
+      "labels": {
+        "identifier": "ProductionSchedule"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "scheduleId": {
+          "type": "STRING",
+          "name": "scheduleId"
+        },
+        "horizonStart": {
+          "type": "DATE",
+          "name": "horizonStart"
+        },
+        "horizonEnd": {
+          "type": "DATE",
+          "name": "horizonEnd"
+        },
+        "version": {
+          "type": "STRING",
+          "name": "version"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 10
+        }
+      }
+    },
+    "equipment": {
+      "labels": {
+        "identifier": "Equipment"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "equipmentType": {
+          "type": "STRING",
+          "name": "equipmentType"
+        },
+        "manufacturer": {
+          "type": "STRING",
+          "name": "manufacturer"
+        },
+        "modelNumber": {
+          "type": "STRING",
+          "name": "modelNumber"
+        },
+        "serialNumber": {
+          "type": "STRING",
+          "name": "serialNumber"
+        },
+        "installDate": {
+          "type": "DATE",
+          "name": "installDate"
+        },
+        "criticality": {
+          "type": "STRING",
+          "name": "criticality"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 10
+        }
+      }
+    },
+    "capability": {
+      "labels": {
+        "identifier": "Capability"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "capabilityType": {
+          "type": "STRING",
+          "name": "capabilityType"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "ratedCapacity": {
+          "type": "FLOAT",
+          "name": "ratedCapacity"
+        },
+        "capacityUnit": {
+          "type": "STRING",
+          "name": "capacityUnit"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": 10
+        }
+      }
+    },
+    "facility": {
+      "labels": {
+        "identifier": "Facility"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "facilityType": {
+          "type": "STRING",
+          "name": "facilityType"
+        },
+        "addressText": {
+          "type": "STRING",
+          "name": "addressText"
+        },
+        "countryCode": {
+          "type": "STRING",
+          "name": "countryCode"
+        },
+        "latitude": {
+          "type": "FLOAT",
+          "name": "latitude"
+        },
+        "longitude": {
+          "type": "FLOAT",
+          "name": "longitude"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": 10
+        }
+      }
+    },
+    "workcenter": {
+      "labels": {
+        "identifier": "WorkCenter"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "workCenterType": {
+          "type": "STRING",
+          "name": "workCenterType"
+        },
+        "capacity": {
+          "type": "FLOAT",
+          "name": "capacity"
+        },
+        "capacityUnit": {
+          "type": "STRING",
+          "name": "capacityUnit"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": 10
+        }
+      }
+    },
+    "agent": {
+      "labels": {
+        "identifier": "Agent"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "agentType": {
+          "type": "STRING",
+          "name": "agentType"
+        },
+        "employeeNumber": {
+          "type": "STRING",
+          "name": "employeeNumber"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 220
+        }
+      }
+    },
+    "agentrole": {
+      "labels": {
+        "identifier": "AgentRole"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "roleType": {
+          "type": "STRING",
+          "name": "roleType"
+        },
+        "startDate": {
+          "type": "DATE",
+          "name": "startDate"
+        },
+        "endDate": {
+          "type": "DATE",
+          "name": "endDate"
+        },
+        "isActive": {
+          "type": "BOOLEAN",
+          "name": "isActive"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 220
+        }
+      }
+    },
+    "organization": {
+      "labels": {
+        "identifier": "Organization"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "organizationType": {
+          "type": "STRING",
+          "name": "organizationType"
+        },
+        "duns": {
+          "type": "STRING",
+          "name": "duns"
+        },
+        "countryCode": {
+          "type": "STRING",
+          "name": "countryCode"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 220
+        }
+      }
+    },
+    "sensor": {
+      "labels": {
+        "identifier": "Sensor"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "sensorType": {
+          "type": "STRING",
+          "name": "sensorType"
+        },
+        "measurementType": {
+          "type": "STRING",
+          "name": "measurementType"
+        },
+        "samplingRate": {
+          "type": "FLOAT",
+          "name": "samplingRate"
+        },
+        "unitOfMeasure": {
+          "type": "STRING",
+          "name": "unitOfMeasure"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": 220
+        }
+      }
+    },
+    "measurement": {
+      "labels": {
+        "identifier": "Measurement"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "measurementType": {
+          "type": "STRING",
+          "name": "measurementType"
+        },
+        "value": {
+          "type": "FLOAT",
+          "name": "value"
+        },
+        "unitOfMeasure": {
+          "type": "STRING",
+          "name": "unitOfMeasure"
+        },
+        "timestamp": {
+          "type": "DATE",
+          "name": "timestamp"
+        },
+        "quality": {
+          "type": "STRING",
+          "name": "quality"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": 220
+        }
+      }
+    },
+    "informationcontententity": {
+      "labels": {
+        "identifier": "InformationContentEntity"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "entityType": {
+          "type": "STRING",
+          "name": "entityType"
+        },
+        "format": {
+          "type": "STRING",
+          "name": "format"
+        },
+        "createdDate": {
+          "type": "DATE",
+          "name": "createdDate"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": 220
+        }
+      }
+    },
+    "certificate": {
+      "labels": {
+        "identifier": "Certificate"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "certificateNumber": {
+          "type": "STRING",
+          "name": "certificateNumber"
+        },
+        "certificateType": {
+          "type": "STRING",
+          "name": "certificateType"
+        },
+        "issueDate": {
+          "type": "DATE",
+          "name": "issueDate"
+        },
+        "expiryDate": {
+          "type": "DATE",
+          "name": "expiryDate"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 430
+        }
+      }
+    },
+    "certifyingbody": {
+      "labels": {
+        "identifier": "CertifyingBody"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "accreditationNumber": {
+          "type": "STRING",
+          "name": "accreditationNumber"
+        },
+        "countryCode": {
+          "type": "STRING",
+          "name": "countryCode"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 430
+        }
+      }
+    },
+    "classifier": {
+      "labels": {
+        "identifier": "Classifier"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "scheme": {
+          "type": "STRING",
+          "name": "scheme"
+        },
+        "code": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "label": {
+          "type": "STRING",
+          "name": "label"
+        },
+        "definition": {
+          "type": "STRING",
+          "name": "definition"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 430
+        }
+      }
+    },
+    "supplyrelationship": {
+      "labels": {
+        "identifier": "SupplyRelationship"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "relationshipType": {
+          "type": "STRING",
+          "name": "relationshipType"
+        },
+        "startDate": {
+          "type": "DATE",
+          "name": "startDate"
+        },
+        "endDate": {
+          "type": "DATE",
+          "name": "endDate"
+        },
+        "contractReference": {
+          "type": "STRING",
+          "name": "contractReference"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": 430
+        }
+      }
+    },
+    "customer": {
+      "labels": {
+        "identifier": "Customer"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "customerType": {
+          "type": "STRING",
+          "name": "customerType"
+        },
+        "accountNumber": {
+          "type": "STRING",
+          "name": "accountNumber"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": 430
+        }
+      }
+    },
+    "supplier": {
+      "labels": {
+        "identifier": "Supplier"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "supplierType": {
+          "type": "STRING",
+          "name": "supplierType"
+        },
+        "supplierNumber": {
+          "type": "STRING",
+          "name": "supplierNumber"
+        },
+        "approvalStatus": {
+          "type": "STRING",
+          "name": "approvalStatus"
+        },
+        "riskRating": {
+          "type": "STRING",
+          "name": "riskRating"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": 430
+        }
+      }
+    },
+    "purchaseorder": {
+      "labels": {
+        "identifier": "PurchaseOrder"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "orderNumber": {
+          "type": "STRING",
+          "name": "orderNumber"
+        },
+        "orderDate": {
+          "type": "DATE",
+          "name": "orderDate"
+        },
+        "promisedDate": {
+          "type": "DATE",
+          "name": "promisedDate"
+        },
+        "quantity": {
+          "type": "FLOAT",
+          "name": "quantity"
+        },
+        "unitPrice": {
+          "type": "FLOAT",
+          "name": "unitPrice"
+        },
+        "currencyCode": {
+          "type": "STRING",
+          "name": "currencyCode"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 640
+        }
+      }
+    },
+    "shipment": {
+      "labels": {
+        "identifier": "Shipment"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "shipmentNumber": {
+          "type": "STRING",
+          "name": "shipmentNumber"
+        },
+        "shipDate": {
+          "type": "DATE",
+          "name": "shipDate"
+        },
+        "arrivalDate": {
+          "type": "DATE",
+          "name": "arrivalDate"
+        },
+        "quantity": {
+          "type": "FLOAT",
+          "name": "quantity"
+        },
+        "carrier": {
+          "type": "STRING",
+          "name": "carrier"
+        },
+        "trackingNumber": {
+          "type": "STRING",
+          "name": "trackingNumber"
+        },
+        "incoterms": {
+          "type": "STRING",
+          "name": "incoterms"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 640
+        }
+      }
+    },
+    "inventory": {
+      "labels": {
+        "identifier": "Inventory"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "quantityOnHand": {
+          "type": "FLOAT",
+          "name": "quantityOnHand"
+        },
+        "unitOfMeasure": {
+          "type": "STRING",
+          "name": "unitOfMeasure"
+        },
+        "asOfDate": {
+          "type": "DATE",
+          "name": "asOfDate"
+        },
+        "safetyStock": {
+          "type": "FLOAT",
+          "name": "safetyStock"
+        },
+        "reorderPoint": {
+          "type": "FLOAT",
+          "name": "reorderPoint"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 640
+        }
+      }
+    },
+    "maintenanceactivity": {
+      "labels": {
+        "identifier": "MaintenanceActivity"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "activityType": {
+          "type": "STRING",
+          "name": "activityType"
+        },
+        "scheduledDate": {
+          "type": "DATE",
+          "name": "scheduledDate"
+        },
+        "completedDate": {
+          "type": "DATE",
+          "name": "completedDate"
+        },
+        "downtimeHours": {
+          "type": "FLOAT",
+          "name": "downtimeHours"
+        },
+        "laborHours": {
+          "type": "FLOAT",
+          "name": "laborHours"
+        },
+        "cost": {
+          "type": "FLOAT",
+          "name": "cost"
+        },
+        "currencyCode": {
+          "type": "STRING",
+          "name": "currencyCode"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": 640
+        }
+      }
+    },
+    "failureevent": {
+      "labels": {
+        "identifier": "FailureEvent"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "failureMode": {
+          "type": "STRING",
+          "name": "failureMode"
+        },
+        "failureDate": {
+          "type": "DATE",
+          "name": "failureDate"
+        },
+        "detectionMethod": {
+          "type": "STRING",
+          "name": "detectionMethod"
+        },
+        "severity": {
+          "type": "STRING",
+          "name": "severity"
+        },
+        "rootCause": {
+          "type": "STRING",
+          "name": "rootCause"
+        },
+        "mtbfHours": {
+          "type": "FLOAT",
+          "name": "mtbfHours"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": 640
+        }
+      }
+    },
+    "deviation": {
+      "labels": {
+        "identifier": "Deviation"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "deviationType": {
+          "type": "STRING",
+          "name": "deviationType"
+        },
+        "detectedDate": {
+          "type": "DATE",
+          "name": "detectedDate"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "severity": {
+          "type": "STRING",
+          "name": "severity"
+        },
+        "status": {
+          "type": "STRING",
+          "name": "status"
+        },
+        "disposition": {
+          "type": "STRING",
+          "name": "disposition"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": 640
+        }
+      }
+    },
+    "qualitytest": {
+      "labels": {
+        "identifier": "QualityTest"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "testMethod": {
+          "type": "STRING",
+          "name": "testMethod"
+        },
+        "testDate": {
+          "type": "DATE",
+          "name": "testDate"
+        },
+        "result": {
+          "type": "FLOAT",
+          "name": "result"
+        },
+        "resultUnit": {
+          "type": "STRING",
+          "name": "resultUnit"
+        },
+        "specificationMin": {
+          "type": "FLOAT",
+          "name": "specificationMin"
+        },
+        "specificationMax": {
+          "type": "FLOAT",
+          "name": "specificationMax"
+        },
+        "passFail": {
+          "type": "STRING",
+          "name": "passFail"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 850
+        }
+      }
+    }
+  },
+  "relationships": {
+    "realizes-0": {
+      "type": "REALIZES",
+      "from": {
+        "node": "workorder"
+      },
+      "to": {
+        "node": "planspecification"
+      }
+    },
+    "produces-1": {
+      "type": "PRODUCES",
+      "from": {
+        "node": "workorder"
+      },
+      "to": {
+        "node": "materialartifact"
+      }
+    },
+    "executed-as-2": {
+      "type": "EXECUTED_AS",
+      "from": {
+        "node": "workorder"
+      },
+      "to": {
+        "node": "manufacturingprocess"
+      }
+    },
+    "scheduled-in-3": {
+      "type": "SCHEDULED_IN",
+      "from": {
+        "node": "workorder"
+      },
+      "to": {
+        "node": "productionschedule"
+      }
+    },
+    "for-customer-4": {
+      "type": "FOR_CUSTOMER",
+      "from": {
+        "node": "workorder"
+      },
+      "to": {
+        "node": "customer"
+      }
+    },
+    "has-stage-5": {
+      "type": "HAS_STAGE",
+      "from": {
+        "node": "manufacturingprocess"
+      },
+      "to": {
+        "node": "processstage"
+      }
+    },
+    "next-6": {
+      "type": "NEXT",
+      "from": {
+        "node": "processstage"
+      },
+      "to": {
+        "node": "processstage"
+      }
+    },
+    "uses-equipment-7": {
+      "type": "USES_EQUIPMENT",
+      "from": {
+        "node": "manufacturingprocess"
+      },
+      "to": {
+        "node": "equipment"
+      }
+    },
+    "performed-at-8": {
+      "type": "PERFORMED_AT",
+      "from": {
+        "node": "manufacturingprocess"
+      },
+      "to": {
+        "node": "workcenter"
+      }
+    },
+    "has-input-9": {
+      "type": "HAS_INPUT",
+      "from": {
+        "node": "manufacturingprocess"
+      },
+      "to": {
+        "node": "materialartifact"
+      }
+    },
+    "has-output-10": {
+      "type": "HAS_OUTPUT",
+      "from": {
+        "node": "manufacturingprocess"
+      },
+      "to": {
+        "node": "materialartifact"
+      }
+    },
+    "prescribed-by-11": {
+      "type": "PRESCRIBED_BY",
+      "from": {
+        "node": "manufacturingprocess"
+      },
+      "to": {
+        "node": "planspecification"
+      }
+    },
+    "has-participant-12": {
+      "type": "HAS_PARTICIPANT",
+      "from": {
+        "node": "manufacturingprocess"
+      },
+      "to": {
+        "node": "agentrole"
+      }
+    },
+    "prescribed-by-13": {
+      "type": "PRESCRIBED_BY",
+      "from": {
+        "node": "plannedprocess"
+      },
+      "to": {
+        "node": "planspecification"
+      }
+    },
+    "part-of-14": {
+      "type": "PART_OF",
+      "from": {
+        "node": "plannedprocess"
+      },
+      "to": {
+        "node": "plannedprocess"
+      }
+    },
+    "has-capability-15": {
+      "type": "HAS_CAPABILITY",
+      "from": {
+        "node": "equipment"
+      },
+      "to": {
+        "node": "capability"
+      }
+    },
+    "located-in-16": {
+      "type": "LOCATED_IN",
+      "from": {
+        "node": "equipment"
+      },
+      "to": {
+        "node": "facility"
+      }
+    },
+    "component-of-17": {
+      "type": "COMPONENT_OF",
+      "from": {
+        "node": "equipment"
+      },
+      "to": {
+        "node": "equipment"
+      }
+    },
+    "monitored-by-18": {
+      "type": "MONITORED_BY",
+      "from": {
+        "node": "equipment"
+      },
+      "to": {
+        "node": "sensor"
+      }
+    },
+    "located-in-19": {
+      "type": "LOCATED_IN",
+      "from": {
+        "node": "workcenter"
+      },
+      "to": {
+        "node": "facility"
+      }
+    },
+    "has-capability-20": {
+      "type": "HAS_CAPABILITY",
+      "from": {
+        "node": "workcenter"
+      },
+      "to": {
+        "node": "capability"
+      }
+    },
+    "generates-21": {
+      "type": "GENERATES",
+      "from": {
+        "node": "sensor"
+      },
+      "to": {
+        "node": "measurement"
+      }
+    },
+    "measures-process-22": {
+      "type": "MEASURES_PROCESS",
+      "from": {
+        "node": "measurement"
+      },
+      "to": {
+        "node": "manufacturingprocess"
+      }
+    },
+    "has-role-23": {
+      "type": "HAS_ROLE",
+      "from": {
+        "node": "agent"
+      },
+      "to": {
+        "node": "agentrole"
+      }
+    },
+    "role-in-organization-24": {
+      "type": "ROLE_IN_ORGANIZATION",
+      "from": {
+        "node": "agentrole"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "member-of-25": {
+      "type": "MEMBER_OF",
+      "from": {
+        "node": "agent"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "built-to-design-26": {
+      "type": "BUILT_TO_DESIGN",
+      "from": {
+        "node": "materialartifact"
+      },
+      "to": {
+        "node": "productdesign"
+      }
+    },
+    "classified-by-27": {
+      "type": "CLASSIFIED_BY",
+      "from": {
+        "node": "materialartifact"
+      },
+      "to": {
+        "node": "classifier"
+      }
+    },
+    "component-of-28": {
+      "type": "COMPONENT_OF",
+      "from": {
+        "node": "materialartifact"
+      },
+      "to": {
+        "node": "materialartifact"
+      }
+    },
+    "has-inventory-29": {
+      "type": "HAS_INVENTORY",
+      "from": {
+        "node": "materialartifact"
+      },
+      "to": {
+        "node": "inventory"
+      }
+    },
+    "tested-by-30": {
+      "type": "TESTED_BY",
+      "from": {
+        "node": "materialartifact"
+      },
+      "to": {
+        "node": "qualitytest"
+      }
+    },
+    "certified-by-31": {
+      "type": "CERTIFIED_BY",
+      "from": {
+        "node": "materialartifact"
+      },
+      "to": {
+        "node": "certificate"
+      }
+    },
+    "granted-by-32": {
+      "type": "GRANTED_BY",
+      "from": {
+        "node": "certificate"
+      },
+      "to": {
+        "node": "certifyingbody"
+      }
+    },
+    "certifies-equipment-33": {
+      "type": "CERTIFIES_EQUIPMENT",
+      "from": {
+        "node": "certificate"
+      },
+      "to": {
+        "node": "equipment"
+      }
+    },
+    "categorized-by-34": {
+      "type": "CATEGORIZED_BY",
+      "from": {
+        "node": "classifier"
+      },
+      "to": {
+        "node": "classifier"
+      }
+    },
+    "depends-on-buyer-35": {
+      "type": "DEPENDS_ON_BUYER",
+      "from": {
+        "node": "supplyrelationship"
+      },
+      "to": {
+        "node": "customer"
+      }
+    },
+    "depends-on-supplier-36": {
+      "type": "DEPENDS_ON_SUPPLIER",
+      "from": {
+        "node": "supplyrelationship"
+      },
+      "to": {
+        "node": "supplier"
+      }
+    },
+    "governs-material-37": {
+      "type": "GOVERNS_MATERIAL",
+      "from": {
+        "node": "supplyrelationship"
+      },
+      "to": {
+        "node": "materialartifact"
+      }
+    },
+    "placed-with-38": {
+      "type": "PLACED_WITH",
+      "from": {
+        "node": "purchaseorder"
+      },
+      "to": {
+        "node": "supplier"
+      }
+    },
+    "orders-material-39": {
+      "type": "ORDERS_MATERIAL",
+      "from": {
+        "node": "purchaseorder"
+      },
+      "to": {
+        "node": "materialartifact"
+      }
+    },
+    "fulfilled-by-40": {
+      "type": "FULFILLED_BY",
+      "from": {
+        "node": "purchaseorder"
+      },
+      "to": {
+        "node": "shipment"
+      }
+    },
+    "ships-material-41": {
+      "type": "SHIPS_MATERIAL",
+      "from": {
+        "node": "shipment"
+      },
+      "to": {
+        "node": "materialartifact"
+      }
+    },
+    "shipped-from-42": {
+      "type": "SHIPPED_FROM",
+      "from": {
+        "node": "shipment"
+      },
+      "to": {
+        "node": "facility"
+      }
+    },
+    "shipped-to-43": {
+      "type": "SHIPPED_TO",
+      "from": {
+        "node": "shipment"
+      },
+      "to": {
+        "node": "facility"
+      }
+    },
+    "stored-at-44": {
+      "type": "STORED_AT",
+      "from": {
+        "node": "inventory"
+      },
+      "to": {
+        "node": "facility"
+      }
+    },
+    "maintains-45": {
+      "type": "MAINTAINS",
+      "from": {
+        "node": "maintenanceactivity"
+      },
+      "to": {
+        "node": "equipment"
+      }
+    },
+    "performed-by-46": {
+      "type": "PERFORMED_BY",
+      "from": {
+        "node": "maintenanceactivity"
+      },
+      "to": {
+        "node": "agentrole"
+      }
+    },
+    "addresses-failure-47": {
+      "type": "ADDRESSES_FAILURE",
+      "from": {
+        "node": "maintenanceactivity"
+      },
+      "to": {
+        "node": "failureevent"
+      }
+    },
+    "affects-equipment-48": {
+      "type": "AFFECTS_EQUIPMENT",
+      "from": {
+        "node": "failureevent"
+      },
+      "to": {
+        "node": "equipment"
+      }
+    },
+    "caused-deviation-49": {
+      "type": "CAUSED_DEVIATION",
+      "from": {
+        "node": "failureevent"
+      },
+      "to": {
+        "node": "deviation"
+      }
+    },
+    "affects-process-50": {
+      "type": "AFFECTS_PROCESS",
+      "from": {
+        "node": "deviation"
+      },
+      "to": {
+        "node": "manufacturingprocess"
+      }
+    },
+    "affects-material-51": {
+      "type": "AFFECTS_MATERIAL",
+      "from": {
+        "node": "deviation"
+      },
+      "to": {
+        "node": "materialartifact"
+      }
+    },
+    "performed-by-52": {
+      "type": "PERFORMED_BY",
+      "from": {
+        "node": "qualitytest"
+      },
+      "to": {
+        "node": "agentrole"
+      }
+    },
+    "is-organization-53": {
+      "type": "IS_ORGANIZATION",
+      "from": {
+        "node": "supplier"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "is-organization-54": {
+      "type": "IS_ORGANIZATION",
+      "from": {
+        "node": "customer"
+      },
+      "to": {
+        "node": "organization"
+      }
+    },
+    "schedules-work-center-55": {
+      "type": "SCHEDULES_WORK_CENTER",
+      "from": {
+        "node": "productionschedule"
+      },
+      "to": {
+        "node": "workcenter"
+      }
+    },
+    "about-56": {
+      "type": "ABOUT",
+      "from": {
+        "node": "informationcontententity"
+      },
+      "to": {
+        "node": "materialartifact"
+      }
+    },
+    "classified-by-57": {
+      "type": "CLASSIFIED_BY",
+      "from": {
+        "node": "informationcontententity"
+      },
+      "to": {
+        "node": "classifier"
+      }
+    }
+  }
+}

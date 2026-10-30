@@ -1,0 +1,1731 @@
+{
+  "version": "1.1.0",
+  "schema": "https://neo4j.com/docs/ontology-graph-spec/1.1.0/schema.json",
+  "id": "cdm",
+  "name": "FINOS CDM -- Common Domain Model (derivatives, securities lending, repo)",
+  "nodes": {
+    "trade": {
+      "labels": {
+        "identifier": "Trade"
+      },
+      "properties": {
+        "tradeDate": {
+          "type": "DATE",
+          "name": "tradeDate"
+        },
+        "tradeTimeValue": {
+          "type": "STRING",
+          "name": "tradeTimeValue"
+        },
+        "tradeTimeZone": {
+          "type": "STRING",
+          "name": "tradeTimeZone"
+        }
+      },
+      "constraints": {
+        "key:0": {
+          "type": "KEY",
+          "properties": [
+            "tradeDate"
+          ]
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": -200
+        }
+      }
+    },
+    "tradestate": {
+      "labels": {
+        "identifier": "TradeState"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "stateValue": {
+          "type": "STRING",
+          "name": "stateValue"
+        },
+        "positionStatus": {
+          "type": "STRING",
+          "name": "positionStatus"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": -200
+        }
+      }
+    },
+    "businessevent": {
+      "labels": {
+        "identifier": "BusinessEvent"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "eventQualifier": {
+          "type": "STRING",
+          "name": "eventQualifier"
+        },
+        "eventDate": {
+          "type": "DATE",
+          "name": "eventDate"
+        },
+        "effectiveDate": {
+          "type": "DATE",
+          "name": "effectiveDate"
+        },
+        "intent": {
+          "type": "STRING",
+          "name": "intent"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": -200
+        }
+      }
+    },
+    "executiondetails": {
+      "labels": {
+        "identifier": "ExecutionDetails"
+      },
+      "properties": {
+        "executionType": {
+          "type": "STRING",
+          "name": "executionType"
+        },
+        "packageReference": {
+          "type": "STRING",
+          "name": "packageReference"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": -200
+        }
+      }
+    },
+    "transfer": {
+      "labels": {
+        "identifier": "Transfer"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "transferType": {
+          "type": "STRING",
+          "name": "transferType"
+        },
+        "settlementDate": {
+          "type": "DATE",
+          "name": "settlementDate"
+        },
+        "transferStatus": {
+          "type": "STRING",
+          "name": "transferStatus"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": -200
+        }
+      }
+    },
+    "tradableproduct": {
+      "labels": {
+        "identifier": "TradableProduct"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "adjustment": {
+          "type": "STRING",
+          "name": "adjustment"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": -200
+        }
+      }
+    },
+    "nontransferableproduct": {
+      "labels": {
+        "identifier": "NonTransferableProduct"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 10
+        }
+      }
+    },
+    "economicterms": {
+      "labels": {
+        "identifier": "EconomicTerms"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "effectiveDate": {
+          "type": "DATE",
+          "name": "effectiveDate"
+        },
+        "terminationDate": {
+          "type": "DATE",
+          "name": "terminationDate"
+        },
+        "dateAdjustments": {
+          "type": "STRING",
+          "name": "dateAdjustments"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 10
+        }
+      }
+    },
+    "payout": {
+      "labels": {
+        "identifier": "Payout"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "payoutType": {
+          "type": "STRING",
+          "name": "payoutType"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 10
+        }
+      }
+    },
+    "interestratepayout": {
+      "labels": {
+        "identifier": "InterestRatePayout"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "fixedAmount": {
+          "type": "STRING",
+          "name": "fixedAmount"
+        },
+        "floatingAmount": {
+          "type": "STRING",
+          "name": "floatingAmount"
+        },
+        "paymentDelay": {
+          "type": "BOOLEAN",
+          "name": "paymentDelay"
+        },
+        "dayCountFraction": {
+          "type": "STRING",
+          "name": "dayCountFraction"
+        },
+        "compoundingMethod": {
+          "type": "STRING",
+          "name": "compoundingMethod"
+        },
+        "spreadCalculationMethod": {
+          "type": "STRING",
+          "name": "spreadCalculationMethod"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": 10
+        }
+      }
+    },
+    "optionpayout": {
+      "labels": {
+        "identifier": "OptionPayout"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "optionType": {
+          "type": "STRING",
+          "name": "optionType"
+        },
+        "strikeValue": {
+          "type": "FLOAT",
+          "name": "strikeValue"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": 10
+        }
+      }
+    },
+    "tradelot": {
+      "labels": {
+        "identifier": "TradeLot"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": 10
+        }
+      }
+    },
+    "pricequantity": {
+      "labels": {
+        "identifier": "PriceQuantity"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 220
+        }
+      }
+    },
+    "asset": {
+      "labels": {
+        "identifier": "Asset"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "assetClass": {
+          "type": "STRING",
+          "name": "assetClass"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 220
+        }
+      }
+    },
+    "security": {
+      "labels": {
+        "identifier": "Security"
+      },
+      "properties": {
+        "assetType": {
+          "type": "STRING",
+          "name": "assetType"
+        },
+        "securityType": {
+          "type": "STRING",
+          "name": "securityType"
+        },
+        "debtType": {
+          "type": "STRING",
+          "name": "debtType"
+        },
+        "equityType": {
+          "type": "STRING",
+          "name": "equityType"
+        },
+        "fundType": {
+          "type": "STRING",
+          "name": "fundType"
+        },
+        "isExchangeListed": {
+          "type": "BOOLEAN",
+          "name": "isExchangeListed"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 220
+        }
+      }
+    },
+    "cash": {
+      "labels": {
+        "identifier": "Cash"
+      },
+      "properties": {
+        "assetType": {
+          "type": "STRING",
+          "name": "assetType"
+        },
+        "isExchangeListed": {
+          "type": "BOOLEAN",
+          "name": "isExchangeListed"
+        },
+        "currency": {
+          "type": "STRING",
+          "name": "currency"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": 220
+        }
+      }
+    },
+    "commodity": {
+      "labels": {
+        "identifier": "Commodity"
+      },
+      "properties": {
+        "assetType": {
+          "type": "STRING",
+          "name": "assetType"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "priceQuoteType": {
+          "type": "STRING",
+          "name": "priceQuoteType"
+        },
+        "isExchangeListed": {
+          "type": "BOOLEAN",
+          "name": "isExchangeListed"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": 220
+        }
+      }
+    },
+    "taxonomy": {
+      "labels": {
+        "identifier": "Taxonomy"
+      },
+      "properties": {
+        "taxonomySource": {
+          "type": "STRING",
+          "name": "taxonomySource"
+        },
+        "taxonomyValue": {
+          "type": "STRING",
+          "name": "taxonomyValue"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": 220
+        }
+      }
+    },
+    "identifier": {
+      "labels": {
+        "identifier": "Identifier"
+      },
+      "properties": {
+        "issuer": {
+          "type": "STRING",
+          "name": "issuer"
+        },
+        "identifierValue": {
+          "type": "STRING",
+          "name": "identifierValue"
+        },
+        "identifierType": {
+          "type": "STRING",
+          "name": "identifierType"
+        },
+        "version": {
+          "type": "INTEGER",
+          "name": "version"
+        }
+      },
+      "constraints": {
+        "key:0": {
+          "type": "KEY",
+          "properties": [
+            "identifierValue"
+          ]
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 430
+        }
+      }
+    },
+    "party": {
+      "labels": {
+        "identifier": "Party"
+      },
+      "properties": {
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "partyIdValue": {
+          "type": "STRING",
+          "name": "partyIdValue"
+        },
+        "partyIdScheme": {
+          "type": "STRING",
+          "name": "partyIdScheme"
+        }
+      },
+      "constraints": {
+        "key:0": {
+          "type": "KEY",
+          "properties": [
+            "name"
+          ]
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 430
+        }
+      }
+    },
+    "legalentity": {
+      "labels": {
+        "identifier": "LegalEntity"
+      },
+      "properties": {
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "entityIdValue": {
+          "type": "STRING",
+          "name": "entityIdValue"
+        },
+        "entityIdScheme": {
+          "type": "STRING",
+          "name": "entityIdScheme"
+        }
+      },
+      "constraints": {
+        "key:0": {
+          "type": "KEY",
+          "properties": [
+            "name"
+          ]
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 430
+        }
+      }
+    },
+    "partyrole": {
+      "labels": {
+        "identifier": "PartyRole"
+      },
+      "properties": {
+        "role": {
+          "type": "STRING",
+          "name": "role"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": 430
+        }
+      }
+    },
+    "counterparty": {
+      "labels": {
+        "identifier": "Counterparty"
+      },
+      "properties": {
+        "role": {
+          "type": "STRING",
+          "name": "role"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": 430
+        }
+      }
+    },
+    "naturalperson": {
+      "labels": {
+        "identifier": "NaturalPerson"
+      },
+      "properties": {
+        "firstName": {
+          "type": "STRING",
+          "name": "firstName"
+        },
+        "middleName": {
+          "type": "STRING",
+          "name": "middleName"
+        },
+        "surname": {
+          "type": "STRING",
+          "name": "surname"
+        },
+        "initial": {
+          "type": "STRING",
+          "name": "initial"
+        },
+        "honorific": {
+          "type": "STRING",
+          "name": "honorific"
+        },
+        "suffix": {
+          "type": "STRING",
+          "name": "suffix"
+        },
+        "dateOfBirth": {
+          "type": "DATE",
+          "name": "dateOfBirth"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": 430
+        }
+      }
+    },
+    "account": {
+      "labels": {
+        "identifier": "Account"
+      },
+      "properties": {
+        "accountNumber": {
+          "type": "STRING",
+          "name": "accountNumber"
+        },
+        "accountName": {
+          "type": "STRING",
+          "name": "accountName"
+        },
+        "accountType": {
+          "type": "STRING",
+          "name": "accountType"
+        }
+      },
+      "constraints": {
+        "key:0": {
+          "type": "KEY",
+          "properties": [
+            "accountNumber"
+          ]
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 640
+        }
+      }
+    },
+    "money": {
+      "labels": {
+        "identifier": "Money"
+      },
+      "properties": {
+        "value": {
+          "type": "FLOAT",
+          "name": "value"
+        },
+        "currency": {
+          "type": "STRING",
+          "name": "currency"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 640
+        }
+      }
+    },
+    "price": {
+      "labels": {
+        "identifier": "Price"
+      },
+      "properties": {
+        "value": {
+          "type": "FLOAT",
+          "name": "value"
+        },
+        "priceType": {
+          "type": "STRING",
+          "name": "priceType"
+        },
+        "priceExpression": {
+          "type": "STRING",
+          "name": "priceExpression"
+        },
+        "priceSubType": {
+          "type": "STRING",
+          "name": "priceSubType"
+        },
+        "arithmeticOperator": {
+          "type": "STRING",
+          "name": "arithmeticOperator"
+        },
+        "premiumType": {
+          "type": "STRING",
+          "name": "premiumType"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 640
+        }
+      }
+    },
+    "quantity": {
+      "labels": {
+        "identifier": "Quantity"
+      },
+      "properties": {
+        "value": {
+          "type": "FLOAT",
+          "name": "value"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": 640
+        }
+      }
+    },
+    "unittype": {
+      "labels": {
+        "identifier": "UnitType"
+      },
+      "properties": {
+        "currency": {
+          "type": "STRING",
+          "name": "currency"
+        },
+        "financialUnit": {
+          "type": "STRING",
+          "name": "financialUnit"
+        },
+        "capacityUnit": {
+          "type": "STRING",
+          "name": "capacityUnit"
+        },
+        "weatherUnit": {
+          "type": "STRING",
+          "name": "weatherUnit"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": 640
+        }
+      }
+    },
+    "observable": {
+      "labels": {
+        "identifier": "Observable"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "observableType": {
+          "type": "STRING",
+          "name": "observableType"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": 640
+        }
+      }
+    },
+    "index": {
+      "labels": {
+        "identifier": "Index"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "indexType": {
+          "type": "STRING",
+          "name": "indexType"
+        },
+        "floatingRateIndex": {
+          "type": "STRING",
+          "name": "floatingRateIndex"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 850
+        }
+      }
+    },
+    "adjustableorrelativedate": {
+      "labels": {
+        "identifier": "AdjustableOrRelativeDate"
+      },
+      "properties": {
+        "unadjustedDate": {
+          "type": "DATE",
+          "name": "unadjustedDate"
+        },
+        "adjustedDate": {
+          "type": "DATE",
+          "name": "adjustedDate"
+        },
+        "dateRelativeTo": {
+          "type": "STRING",
+          "name": "dateRelativeTo"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 850
+        }
+      }
+    },
+    "businessdayadjustments": {
+      "labels": {
+        "identifier": "BusinessDayAdjustments"
+      },
+      "properties": {
+        "businessDayConvention": {
+          "type": "STRING",
+          "name": "businessDayConvention"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 850
+        }
+      }
+    },
+    "businesscenters": {
+      "labels": {
+        "identifier": "BusinessCenters"
+      },
+      "properties": {
+        "businessCenter": {
+          "type": "STRING",
+          "name": "businessCenter"
+        },
+        "businessCentersReference": {
+          "type": "STRING",
+          "name": "businessCentersReference"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 215,
+          "y": 850
+        }
+      }
+    },
+    "period": {
+      "labels": {
+        "identifier": "Period"
+      },
+      "properties": {
+        "periodMultiplier": {
+          "type": "INTEGER",
+          "name": "periodMultiplier"
+        },
+        "period": {
+          "type": "STRING",
+          "name": "period"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 645,
+          "y": 850
+        }
+      }
+    },
+    "legalagreement": {
+      "labels": {
+        "identifier": "LegalAgreement"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "agreementType": {
+          "type": "STRING",
+          "name": "agreementType"
+        },
+        "agreementDate": {
+          "type": "DATE",
+          "name": "agreementDate"
+        },
+        "effectiveDate": {
+          "type": "DATE",
+          "name": "effectiveDate"
+        },
+        "governingLaw": {
+          "type": "STRING",
+          "name": "governingLaw"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 1075,
+          "y": 850
+        }
+      }
+    },
+    "contractdetails": {
+      "labels": {
+        "identifier": "ContractDetails"
+      },
+      "properties": {
+        "governingLaw": {
+          "type": "STRING",
+          "name": "governingLaw"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -1075,
+          "y": 1060
+        }
+      }
+    },
+    "collateral": {
+      "labels": {
+        "identifier": "Collateral"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "portfolioIdentifier": {
+          "type": "STRING",
+          "name": "portfolioIdentifier"
+        },
+        "independentAmountValue": {
+          "type": "FLOAT",
+          "name": "independentAmountValue"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -645,
+          "y": 1060
+        }
+      }
+    },
+    "codelistvalue": {
+      "labels": {
+        "identifier": "CodeListValue"
+      },
+      "properties": {
+        "enumName": {
+          "type": "STRING",
+          "name": "enumName"
+        },
+        "value": {
+          "type": "STRING",
+          "name": "value"
+        },
+        "displayName": {
+          "type": "STRING",
+          "name": "displayName"
+        },
+        "definition": {
+          "type": "STRING",
+          "name": "definition"
+        },
+        "namespace": {
+          "type": "STRING",
+          "name": "namespace"
+        }
+      },
+      "constraints": {
+        "key:0": {
+          "type": "KEY",
+          "properties": [
+            "enumName",
+            "value"
+          ]
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -215,
+          "y": 1060
+        }
+      }
+    }
+  },
+  "relationships": {
+    "has-product-0": {
+      "type": "HAS_PRODUCT",
+      "from": {
+        "node": "trade"
+      },
+      "to": {
+        "node": "tradableproduct"
+      }
+    },
+    "has-party-1": {
+      "type": "HAS_PARTY",
+      "from": {
+        "node": "trade"
+      },
+      "to": {
+        "node": "party"
+      }
+    },
+    "has-party-role-2": {
+      "type": "HAS_PARTY_ROLE",
+      "from": {
+        "node": "trade"
+      },
+      "to": {
+        "node": "partyrole"
+      }
+    },
+    "identified-by-3": {
+      "type": "IDENTIFIED_BY",
+      "from": {
+        "node": "trade"
+      },
+      "to": {
+        "node": "identifier"
+      }
+    },
+    "has-execution-details-4": {
+      "type": "HAS_EXECUTION_DETAILS",
+      "from": {
+        "node": "trade"
+      },
+      "to": {
+        "node": "executiondetails"
+      }
+    },
+    "has-contract-details-5": {
+      "type": "HAS_CONTRACT_DETAILS",
+      "from": {
+        "node": "trade"
+      },
+      "to": {
+        "node": "contractdetails"
+      }
+    },
+    "has-collateral-6": {
+      "type": "HAS_COLLATERAL",
+      "from": {
+        "node": "trade"
+      },
+      "to": {
+        "node": "collateral"
+      }
+    },
+    "has-trade-7": {
+      "type": "HAS_TRADE",
+      "from": {
+        "node": "tradestate"
+      },
+      "to": {
+        "node": "trade"
+      }
+    },
+    "transfer-history-8": {
+      "type": "TRANSFER_HISTORY",
+      "from": {
+        "node": "tradestate"
+      },
+      "to": {
+        "node": "transfer"
+      }
+    },
+    "succeeds-9": {
+      "type": "SUCCEEDS",
+      "from": {
+        "node": "tradestate"
+      },
+      "to": {
+        "node": "tradestate"
+      }
+    },
+    "after-10": {
+      "type": "AFTER",
+      "from": {
+        "node": "businessevent"
+      },
+      "to": {
+        "node": "tradestate"
+      }
+    },
+    "before-11": {
+      "type": "BEFORE",
+      "from": {
+        "node": "businessevent"
+      },
+      "to": {
+        "node": "tradestate"
+      }
+    },
+    "execution-venue-12": {
+      "type": "EXECUTION_VENUE",
+      "from": {
+        "node": "executiondetails"
+      },
+      "to": {
+        "node": "legalentity"
+      }
+    },
+    "transfers-money-13": {
+      "type": "TRANSFERS_MONEY",
+      "from": {
+        "node": "transfer"
+      },
+      "to": {
+        "node": "money"
+      }
+    },
+    "transfers-asset-14": {
+      "type": "TRANSFERS_ASSET",
+      "from": {
+        "node": "transfer"
+      },
+      "to": {
+        "node": "asset"
+      }
+    },
+    "transferor-15": {
+      "type": "TRANSFEROR",
+      "from": {
+        "node": "transfer"
+      },
+      "to": {
+        "node": "party"
+      }
+    },
+    "transferee-16": {
+      "type": "TRANSFEREE",
+      "from": {
+        "node": "transfer"
+      },
+      "to": {
+        "node": "party"
+      }
+    },
+    "has-counterparty-17": {
+      "type": "HAS_COUNTERPARTY",
+      "from": {
+        "node": "tradableproduct"
+      },
+      "to": {
+        "node": "counterparty"
+      }
+    },
+    "has-product-definition-18": {
+      "type": "HAS_PRODUCT_DEFINITION",
+      "from": {
+        "node": "tradableproduct"
+      },
+      "to": {
+        "node": "nontransferableproduct"
+      }
+    },
+    "has-trade-lot-19": {
+      "type": "HAS_TRADE_LOT",
+      "from": {
+        "node": "tradableproduct"
+      },
+      "to": {
+        "node": "tradelot"
+      }
+    },
+    "has-economic-terms-20": {
+      "type": "HAS_ECONOMIC_TERMS",
+      "from": {
+        "node": "nontransferableproduct"
+      },
+      "to": {
+        "node": "economicterms"
+      }
+    },
+    "identified-by-21": {
+      "type": "IDENTIFIED_BY",
+      "from": {
+        "node": "nontransferableproduct"
+      },
+      "to": {
+        "node": "identifier"
+      }
+    },
+    "classified-by-22": {
+      "type": "CLASSIFIED_BY",
+      "from": {
+        "node": "nontransferableproduct"
+      },
+      "to": {
+        "node": "taxonomy"
+      }
+    },
+    "has-payout-23": {
+      "type": "HAS_PAYOUT",
+      "from": {
+        "node": "economicterms"
+      },
+      "to": {
+        "node": "payout"
+      }
+    },
+    "is-interest-rate-payout-24": {
+      "type": "IS_INTEREST_RATE_PAYOUT",
+      "from": {
+        "node": "payout"
+      },
+      "to": {
+        "node": "interestratepayout"
+      }
+    },
+    "is-option-payout-25": {
+      "type": "IS_OPTION_PAYOUT",
+      "from": {
+        "node": "payout"
+      },
+      "to": {
+        "node": "optionpayout"
+      }
+    },
+    "has-price-quantity-26": {
+      "type": "HAS_PRICE_QUANTITY",
+      "from": {
+        "node": "tradelot"
+      },
+      "to": {
+        "node": "pricequantity"
+      }
+    },
+    "identified-by-27": {
+      "type": "IDENTIFIED_BY",
+      "from": {
+        "node": "tradelot"
+      },
+      "to": {
+        "node": "identifier"
+      }
+    },
+    "has-price-28": {
+      "type": "HAS_PRICE",
+      "from": {
+        "node": "pricequantity"
+      },
+      "to": {
+        "node": "price"
+      }
+    },
+    "has-quantity-29": {
+      "type": "HAS_QUANTITY",
+      "from": {
+        "node": "pricequantity"
+      },
+      "to": {
+        "node": "quantity"
+      }
+    },
+    "has-observable-30": {
+      "type": "HAS_OBSERVABLE",
+      "from": {
+        "node": "pricequantity"
+      },
+      "to": {
+        "node": "observable"
+      }
+    },
+    "effective-date-31": {
+      "type": "EFFECTIVE_DATE",
+      "from": {
+        "node": "pricequantity"
+      },
+      "to": {
+        "node": "adjustableorrelativedate"
+      }
+    },
+    "payment-date-32": {
+      "type": "PAYMENT_DATE",
+      "from": {
+        "node": "interestratepayout"
+      },
+      "to": {
+        "node": "adjustableorrelativedate"
+      }
+    },
+    "references-index-33": {
+      "type": "REFERENCES_INDEX",
+      "from": {
+        "node": "interestratepayout"
+      },
+      "to": {
+        "node": "index"
+      }
+    },
+    "calculation-period-adjustments-34": {
+      "type": "CALCULATION_PERIOD_ADJUSTMENTS",
+      "from": {
+        "node": "interestratepayout"
+      },
+      "to": {
+        "node": "businessdayadjustments"
+      }
+    },
+    "has-underlier-35": {
+      "type": "HAS_UNDERLIER",
+      "from": {
+        "node": "optionpayout"
+      },
+      "to": {
+        "node": "asset"
+      }
+    },
+    "buyer-seller-36": {
+      "type": "BUYER_SELLER",
+      "from": {
+        "node": "optionpayout"
+      },
+      "to": {
+        "node": "counterparty"
+      }
+    },
+    "strike-price-37": {
+      "type": "STRIKE_PRICE",
+      "from": {
+        "node": "optionpayout"
+      },
+      "to": {
+        "node": "price"
+      }
+    },
+    "is-security-38": {
+      "type": "IS_SECURITY",
+      "from": {
+        "node": "asset"
+      },
+      "to": {
+        "node": "security"
+      }
+    },
+    "is-cash-39": {
+      "type": "IS_CASH",
+      "from": {
+        "node": "asset"
+      },
+      "to": {
+        "node": "cash"
+      }
+    },
+    "is-commodity-40": {
+      "type": "IS_COMMODITY",
+      "from": {
+        "node": "asset"
+      },
+      "to": {
+        "node": "commodity"
+      }
+    },
+    "identified-by-41": {
+      "type": "IDENTIFIED_BY",
+      "from": {
+        "node": "asset"
+      },
+      "to": {
+        "node": "identifier"
+      }
+    },
+    "classified-by-42": {
+      "type": "CLASSIFIED_BY",
+      "from": {
+        "node": "asset"
+      },
+      "to": {
+        "node": "taxonomy"
+      }
+    },
+    "issued-by-43": {
+      "type": "ISSUED_BY",
+      "from": {
+        "node": "security"
+      },
+      "to": {
+        "node": "legalentity"
+      }
+    },
+    "has-party-role-44": {
+      "type": "HAS_PARTY_ROLE",
+      "from": {
+        "node": "asset"
+      },
+      "to": {
+        "node": "partyrole"
+      }
+    },
+    "denominated-in-45": {
+      "type": "DENOMINATED_IN",
+      "from": {
+        "node": "cash"
+      },
+      "to": {
+        "node": "unittype"
+      }
+    },
+    "is-asset-46": {
+      "type": "IS_ASSET",
+      "from": {
+        "node": "observable"
+      },
+      "to": {
+        "node": "asset"
+      }
+    },
+    "is-index-47": {
+      "type": "IS_INDEX",
+      "from": {
+        "node": "observable"
+      },
+      "to": {
+        "node": "index"
+      }
+    },
+    "has-account-48": {
+      "type": "HAS_ACCOUNT",
+      "from": {
+        "node": "party"
+      },
+      "to": {
+        "node": "account"
+      }
+    },
+    "has-person-49": {
+      "type": "HAS_PERSON",
+      "from": {
+        "node": "party"
+      },
+      "to": {
+        "node": "naturalperson"
+      }
+    },
+    "identified-by-50": {
+      "type": "IDENTIFIED_BY",
+      "from": {
+        "node": "party"
+      },
+      "to": {
+        "node": "identifier"
+      }
+    },
+    "party-reference-51": {
+      "type": "PARTY_REFERENCE",
+      "from": {
+        "node": "partyrole"
+      },
+      "to": {
+        "node": "party"
+      }
+    },
+    "ownership-party-52": {
+      "type": "OWNERSHIP_PARTY",
+      "from": {
+        "node": "partyrole"
+      },
+      "to": {
+        "node": "party"
+      }
+    },
+    "party-reference-53": {
+      "type": "PARTY_REFERENCE",
+      "from": {
+        "node": "counterparty"
+      },
+      "to": {
+        "node": "party"
+      }
+    },
+    "is-legal-entity-54": {
+      "type": "IS_LEGAL_ENTITY",
+      "from": {
+        "node": "party"
+      },
+      "to": {
+        "node": "legalentity"
+      }
+    },
+    "account-beneficiary-55": {
+      "type": "ACCOUNT_BENEFICIARY",
+      "from": {
+        "node": "account"
+      },
+      "to": {
+        "node": "party"
+      }
+    },
+    "servicing-party-56": {
+      "type": "SERVICING_PARTY",
+      "from": {
+        "node": "account"
+      },
+      "to": {
+        "node": "party"
+      }
+    },
+    "issuer-reference-57": {
+      "type": "ISSUER_REFERENCE",
+      "from": {
+        "node": "identifier"
+      },
+      "to": {
+        "node": "party"
+      }
+    },
+    "has-unit-58": {
+      "type": "HAS_UNIT",
+      "from": {
+        "node": "money"
+      },
+      "to": {
+        "node": "unittype"
+      }
+    },
+    "has-unit-59": {
+      "type": "HAS_UNIT",
+      "from": {
+        "node": "price"
+      },
+      "to": {
+        "node": "unittype"
+      }
+    },
+    "per-unit-of-60": {
+      "type": "PER_UNIT_OF",
+      "from": {
+        "node": "price"
+      },
+      "to": {
+        "node": "unittype"
+      }
+    },
+    "has-unit-61": {
+      "type": "HAS_UNIT",
+      "from": {
+        "node": "quantity"
+      },
+      "to": {
+        "node": "unittype"
+      }
+    },
+    "is-money-62": {
+      "type": "IS_MONEY",
+      "from": {
+        "node": "quantity"
+      },
+      "to": {
+        "node": "money"
+      }
+    },
+    "has-adjustments-63": {
+      "type": "HAS_ADJUSTMENTS",
+      "from": {
+        "node": "adjustableorrelativedate"
+      },
+      "to": {
+        "node": "businessdayadjustments"
+      }
+    },
+    "has-business-centers-64": {
+      "type": "HAS_BUSINESS_CENTERS",
+      "from": {
+        "node": "businessdayadjustments"
+      },
+      "to": {
+        "node": "businesscenters"
+      }
+    },
+    "has-period-65": {
+      "type": "HAS_PERIOD",
+      "from": {
+        "node": "adjustableorrelativedate"
+      },
+      "to": {
+        "node": "period"
+      }
+    },
+    "documented-by-66": {
+      "type": "DOCUMENTED_BY",
+      "from": {
+        "node": "contractdetails"
+      },
+      "to": {
+        "node": "legalagreement"
+      }
+    },
+    "related-agreement-67": {
+      "type": "RELATED_AGREEMENT",
+      "from": {
+        "node": "legalagreement"
+      },
+      "to": {
+        "node": "legalagreement"
+      }
+    },
+    "has-party-68": {
+      "type": "HAS_PARTY",
+      "from": {
+        "node": "legalagreement"
+      },
+      "to": {
+        "node": "party"
+      }
+    },
+    "identified-by-69": {
+      "type": "IDENTIFIED_BY",
+      "from": {
+        "node": "legalagreement"
+      },
+      "to": {
+        "node": "identifier"
+      }
+    },
+    "governs-collateral-70": {
+      "type": "GOVERNS_COLLATERAL",
+      "from": {
+        "node": "legalagreement"
+      },
+      "to": {
+        "node": "collateral"
+      }
+    },
+    "eligible-asset-71": {
+      "type": "ELIGIBLE_ASSET",
+      "from": {
+        "node": "collateral"
+      },
+      "to": {
+        "node": "asset"
+      }
+    },
+    "independent-amount-72": {
+      "type": "INDEPENDENT_AMOUNT",
+      "from": {
+        "node": "collateral"
+      },
+      "to": {
+        "node": "money"
+      }
+    },
+    "broader-than-73": {
+      "type": "BROADER_THAN",
+      "from": {
+        "node": "codelistvalue"
+      },
+      "to": {
+        "node": "codelistvalue"
+      }
+    },
+    "classified-by-code-74": {
+      "type": "CLASSIFIED_BY_CODE",
+      "from": {
+        "node": "taxonomy"
+      },
+      "to": {
+        "node": "codelistvalue"
+      }
+    },
+    "role-code-75": {
+      "type": "ROLE_CODE",
+      "from": {
+        "node": "counterparty"
+      },
+      "to": {
+        "node": "codelistvalue"
+      }
+    },
+    "party-role-code-76": {
+      "type": "PARTY_ROLE_CODE",
+      "from": {
+        "node": "partyrole"
+      },
+      "to": {
+        "node": "codelistvalue"
+      }
+    }
+  }
+}

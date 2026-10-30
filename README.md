@@ -42,6 +42,18 @@ spec grows:
 | `multi_label` | `EPCISEvent.eventType` discriminator | `:EPCISEvent:ObjectEvent` |
 | `node_keys` | keys only in Cypher DDL | keys emitted into the model |
 
+The proof is the second target already in the repo: the **Neo4j Ontology
+Graph Specification** ([OGS / ONT-31](https://neo4j.com/docs/ontology-graph-spec/))
+adapters at `targets/neo4j-ontology-graph-spec-1.1.0` and `-1.0.0`. The same
+nine profiles compile to a second download format — a versioned, SDK-backed
+ontology document — and because OGS models keys, multi-labels and relationship
+properties natively, its capabilities are all on: EPCIS timestamps come out
+as `ZONED DATETIME` instead of degrading to `STRING`, and the CDM profile's
+keys become real `KEY` constraints. Every emitted document is validated
+against the official JSON Schema, vendored in each target dir. Adding a future
+spec version is one more target dir; the web download menu picks it up from
+`index.json` automatically.
+
 Type negotiation works the same way. Profiles declare semantically honest types;
 the adapter reconciles them with what the target accepts:
 
@@ -57,8 +69,10 @@ pip install -e packages/core            # + rdflib for ingest
 export PYTHONPATH=packages/core:packages/ingest
 
 python -m ontoforge.cli list                        # catalog
-python -m ontoforge.cli build --out dist --log      # all 8 models
+python -m ontoforge.cli build --out dist --log      # all 9 models
 python -m ontoforge.cli build fhir --out dist
+python -m ontoforge.cli build fhir --out dist-ogs \
+    --target targets/neo4j-ontology-graph-spec-1.1.0   # as an OGS ontology
 python -m ontoforge.cli validate dist/*.json -v
 python -m ontoforge.cli analyze catalog/ir/fhir.ir.json
 ```
@@ -146,12 +160,15 @@ version agreement
 ## Tests
 
 ```bash
-python tests/test_golden.py
+python tests/test_golden.py     # workspace target
+python tests/test_ogs.py        # Ontology Graph Spec target (+ official JSON Schema)
 ```
 
 The nine models built by hand before this pipeline existed are the
 specification. All eight profiles reproduce their golden file **byte-identically**;
-any rule change that alters them fails CI.
+any rule change that alters them fails CI. `test_ogs.py` pins the second
+target's contract: gates, official-schema validity, root fields, slug ids,
+KEY constraints and the richer type negotiation.
 
 ## Layout
 
@@ -169,7 +186,11 @@ tests/golden/               the nine hand-built models
 `apps/web` — static catalog browser and model canvas (React + React Flow, no
 backend, no login). Browse the catalog, explore a model on a pan/zoom canvas,
 inspect nodes, read the validation gates and decision log, and download the JSON
-with your current layout baked into `display`. See `apps/web/README.md`.
+with your current layout baked into `display`. Every model also downloads as an
+**Ontology Graph Spec** document — the `Download Ontology ▾` menu offers each
+published spec version (1.0.0, 1.1.0, and future ones as they land), and
+picking one downloads it in a single action with the same layout baked into
+per-node display positions. See `apps/web/README.md`.
 
 The catalog it serves is precomputed: FIBO is a 137 MB clone and ~2 minutes of
 parsing, and FHIR R5 a 44 MB bundle, so neither can happen on a page load. CI

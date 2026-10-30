@@ -1,4 +1,4 @@
-import type { Catalog, Model, Validation, ProfileMeta } from "./types";
+import type { Catalog, Model, Validation, ProfileMeta, OntologyDoc } from "./types";
 
 const BASE = `${import.meta.env.BASE_URL}catalog`;
 
@@ -10,6 +10,8 @@ async function get<T>(path: string): Promise<T> {
 
 export const loadCatalog = () => get<Catalog>("index.json");
 export const loadModel = (std: string) => get<Model>(`${std}/model.json`);
+export const loadOntology = (std: string, file: string) =>
+  get<OntologyDoc>(`${std}/${file}`);
 export const loadValidation = (std: string) => get<Validation>(`${std}/validation.json`);
 export const loadProfile = (std: string) => get<ProfileMeta>(`${std}/profile.json`);
 

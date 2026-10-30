@@ -1,0 +1,1040 @@
+{
+  "version": "1.1.0",
+  "schema": "https://neo4j.com/docs/ontology-graph-spec/1.1.0/schema.json",
+  "id": "epcis",
+  "name": "GS1 EPCIS 2.0 -- supply chain traceability",
+  "nodes": {
+    "epcisevent": {
+      "labels": {
+        "identifier": "EPCISEvent"
+      },
+      "properties": {
+        "eventId": {
+          "type": "STRING",
+          "name": "eventId"
+        },
+        "eventType": {
+          "type": "STRING",
+          "name": "eventType"
+        },
+        "eventTime": {
+          "type": "ZONED DATETIME",
+          "name": "eventTime"
+        },
+        "recordTime": {
+          "type": "ZONED DATETIME",
+          "name": "recordTime"
+        },
+        "eventTimeZoneOffset": {
+          "type": "STRING",
+          "name": "eventTimeZoneOffset"
+        },
+        "action": {
+          "type": "STRING",
+          "name": "action"
+        },
+        "parentId": {
+          "type": "STRING",
+          "name": "parentId"
+        },
+        "transformationId": {
+          "type": "STRING",
+          "name": "transformationId"
+        },
+        "certificationInfo": {
+          "type": "STRING",
+          "name": "certificationInfo"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -860,
+          "y": -200
+        }
+      }
+    },
+    "tradeiteminstance": {
+      "labels": {
+        "identifier": "TradeItemInstance"
+      },
+      "properties": {
+        "epc": {
+          "type": "STRING",
+          "name": "epc"
+        },
+        "epcScheme": {
+          "type": "STRING",
+          "name": "epcScheme"
+        },
+        "gtin": {
+          "type": "STRING",
+          "name": "gtin"
+        },
+        "serialNumber": {
+          "type": "STRING",
+          "name": "serialNumber"
+        },
+        "lotNumber": {
+          "type": "STRING",
+          "name": "lotNumber"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -430,
+          "y": -200
+        }
+      }
+    },
+    "tradeitem": {
+      "labels": {
+        "identifier": "TradeItem"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "epcClass": {
+          "type": "STRING",
+          "name": "epcClass"
+        },
+        "gtin": {
+          "type": "STRING",
+          "name": "gtin"
+        },
+        "productName": {
+          "type": "STRING",
+          "name": "productName"
+        },
+        "gpcCategoryCode": {
+          "type": "STRING",
+          "name": "gpcCategoryCode"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 0,
+          "y": -200
+        }
+      }
+    },
+    "quantityelement": {
+      "labels": {
+        "identifier": "QuantityElement"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "epcClass": {
+          "type": "STRING",
+          "name": "epcClass"
+        },
+        "quantity": {
+          "type": "FLOAT",
+          "name": "quantity"
+        },
+        "uom": {
+          "type": "STRING",
+          "name": "uom"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 430,
+          "y": -200
+        }
+      }
+    },
+    "bizstep": {
+      "labels": {
+        "identifier": "BizStep"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "code": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "uri": {
+          "type": "STRING",
+          "name": "uri"
+        },
+        "label": {
+          "type": "STRING",
+          "name": "label"
+        },
+        "definition": {
+          "type": "STRING",
+          "name": "definition"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 860,
+          "y": -200
+        }
+      }
+    },
+    "disposition": {
+      "labels": {
+        "identifier": "Disposition"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "code": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "uri": {
+          "type": "STRING",
+          "name": "uri"
+        },
+        "label": {
+          "type": "STRING",
+          "name": "label"
+        },
+        "definition": {
+          "type": "STRING",
+          "name": "definition"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -860,
+          "y": 10
+        }
+      }
+    },
+    "persistentdisposition": {
+      "labels": {
+        "identifier": "PersistentDisposition"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "setDispositions": {
+          "type": "STRING",
+          "name": "setDispositions"
+        },
+        "unsetDispositions": {
+          "type": "STRING",
+          "name": "unsetDispositions"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -430,
+          "y": 10
+        }
+      }
+    },
+    "biztransaction": {
+      "labels": {
+        "identifier": "BizTransaction"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "transactionType": {
+          "type": "STRING",
+          "name": "transactionType"
+        },
+        "transactionId": {
+          "type": "STRING",
+          "name": "transactionId"
+        },
+        "transactionUri": {
+          "type": "STRING",
+          "name": "transactionUri"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 0,
+          "y": 10
+        }
+      }
+    },
+    "place": {
+      "labels": {
+        "identifier": "Place"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "gln": {
+          "type": "STRING",
+          "name": "gln"
+        },
+        "sgln": {
+          "type": "STRING",
+          "name": "sgln"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "locationType": {
+          "type": "STRING",
+          "name": "locationType"
+        },
+        "addressText": {
+          "type": "STRING",
+          "name": "addressText"
+        },
+        "latitude": {
+          "type": "FLOAT",
+          "name": "latitude"
+        },
+        "longitude": {
+          "type": "FLOAT",
+          "name": "longitude"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 430,
+          "y": 10
+        }
+      }
+    },
+    "sourceordestination": {
+      "labels": {
+        "identifier": "SourceOrDestination"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "sourceOrDestinationType": {
+          "type": "STRING",
+          "name": "sourceOrDestinationType"
+        },
+        "identifier": {
+          "type": "STRING",
+          "name": "identifier"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 860,
+          "y": 10
+        }
+      }
+    },
+    "party": {
+      "labels": {
+        "identifier": "Party"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "gln": {
+          "type": "STRING",
+          "name": "gln"
+        },
+        "partyName": {
+          "type": "STRING",
+          "name": "partyName"
+        },
+        "partyRole": {
+          "type": "STRING",
+          "name": "partyRole"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -860,
+          "y": 220
+        }
+      }
+    },
+    "sensorelement": {
+      "labels": {
+        "identifier": "SensorElement"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "elementId": {
+          "type": "STRING",
+          "name": "elementId"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -430,
+          "y": 220
+        }
+      }
+    },
+    "sensormetadata": {
+      "labels": {
+        "identifier": "SensorMetadata"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "time": {
+          "type": "ZONED DATETIME",
+          "name": "time"
+        },
+        "startTime": {
+          "type": "ZONED DATETIME",
+          "name": "startTime"
+        },
+        "endTime": {
+          "type": "ZONED DATETIME",
+          "name": "endTime"
+        },
+        "dataProcessingMethod": {
+          "type": "STRING",
+          "name": "dataProcessingMethod"
+        },
+        "bizRules": {
+          "type": "STRING",
+          "name": "bizRules"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 0,
+          "y": 220
+        }
+      }
+    },
+    "sensorreport": {
+      "labels": {
+        "identifier": "SensorReport"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "measurementType": {
+          "type": "STRING",
+          "name": "measurementType"
+        },
+        "value": {
+          "type": "FLOAT",
+          "name": "value"
+        },
+        "uom": {
+          "type": "STRING",
+          "name": "uom"
+        },
+        "minValue": {
+          "type": "FLOAT",
+          "name": "minValue"
+        },
+        "maxValue": {
+          "type": "FLOAT",
+          "name": "maxValue"
+        },
+        "meanValue": {
+          "type": "FLOAT",
+          "name": "meanValue"
+        },
+        "sDev": {
+          "type": "FLOAT",
+          "name": "sDev"
+        },
+        "percRank": {
+          "type": "FLOAT",
+          "name": "percRank"
+        },
+        "percValue": {
+          "type": "FLOAT",
+          "name": "percValue"
+        },
+        "stringValue": {
+          "type": "STRING",
+          "name": "stringValue"
+        },
+        "booleanValue": {
+          "type": "BOOLEAN",
+          "name": "booleanValue"
+        },
+        "hexBinaryValue": {
+          "type": "STRING",
+          "name": "hexBinaryValue"
+        },
+        "uriValue": {
+          "type": "STRING",
+          "name": "uriValue"
+        },
+        "component": {
+          "type": "STRING",
+          "name": "component"
+        },
+        "chemicalSubstance": {
+          "type": "STRING",
+          "name": "chemicalSubstance"
+        },
+        "microorganism": {
+          "type": "STRING",
+          "name": "microorganism"
+        },
+        "coordinateReferenceSystem": {
+          "type": "STRING",
+          "name": "coordinateReferenceSystem"
+        },
+        "exception": {
+          "type": "STRING",
+          "name": "exception"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 430,
+          "y": 220
+        }
+      }
+    },
+    "sensordevice": {
+      "labels": {
+        "identifier": "SensorDevice"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "deviceId": {
+          "type": "STRING",
+          "name": "deviceId"
+        },
+        "deviceType": {
+          "type": "STRING",
+          "name": "deviceType"
+        },
+        "manufacturer": {
+          "type": "STRING",
+          "name": "manufacturer"
+        },
+        "modelNumber": {
+          "type": "STRING",
+          "name": "modelNumber"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 860,
+          "y": 220
+        }
+      }
+    },
+    "ilmd": {
+      "labels": {
+        "identifier": "ILMD"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "lotNumber": {
+          "type": "STRING",
+          "name": "lotNumber"
+        },
+        "productionDate": {
+          "type": "DATE",
+          "name": "productionDate"
+        },
+        "bestBeforeDate": {
+          "type": "DATE",
+          "name": "bestBeforeDate"
+        },
+        "itemExpirationDate": {
+          "type": "DATE",
+          "name": "itemExpirationDate"
+        },
+        "farmName": {
+          "type": "STRING",
+          "name": "farmName"
+        },
+        "countryOfOrigin": {
+          "type": "STRING",
+          "name": "countryOfOrigin"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -860,
+          "y": 430
+        }
+      }
+    },
+    "errordeclaration": {
+      "labels": {
+        "identifier": "ErrorDeclaration"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "declarationTime": {
+          "type": "ZONED DATETIME",
+          "name": "declarationTime"
+        },
+        "reason": {
+          "type": "STRING",
+          "name": "reason"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -430,
+          "y": 430
+        }
+      }
+    },
+    "transformation": {
+      "labels": {
+        "identifier": "Transformation"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "transformationId": {
+          "type": "STRING",
+          "name": "transformationId"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 0,
+          "y": 430
+        }
+      }
+    },
+    "epcisdocument": {
+      "labels": {
+        "identifier": "EPCISDocument"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "schemaVersion": {
+          "type": "STRING",
+          "name": "schemaVersion"
+        },
+        "creationDate": {
+          "type": "STRING",
+          "name": "creationDate"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 430,
+          "y": 430
+        }
+      }
+    },
+    "masterdata": {
+      "labels": {
+        "identifier": "MasterData"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "vocabularyType": {
+          "type": "STRING",
+          "name": "vocabularyType"
+        },
+        "vocabularyElementId": {
+          "type": "STRING",
+          "name": "vocabularyElementId"
+        },
+        "attributeCount": {
+          "type": "INTEGER",
+          "name": "attributeCount"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 860,
+          "y": 430
+        }
+      }
+    }
+  },
+  "relationships": {
+    "next-0": {
+      "type": "NEXT",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "epcisevent"
+      }
+    },
+    "has-epc-1": {
+      "type": "HAS_EPC",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "tradeiteminstance"
+      }
+    },
+    "parent-epc-2": {
+      "type": "PARENT_EPC",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "tradeiteminstance"
+      }
+    },
+    "child-epc-3": {
+      "type": "CHILD_EPC",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "tradeiteminstance"
+      }
+    },
+    "input-epc-4": {
+      "type": "INPUT_EPC",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "tradeiteminstance"
+      }
+    },
+    "output-epc-5": {
+      "type": "OUTPUT_EPC",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "tradeiteminstance"
+      }
+    },
+    "has-quantity-element-6": {
+      "type": "HAS_QUANTITY_ELEMENT",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "quantityelement"
+      }
+    },
+    "biz-step-7": {
+      "type": "BIZ_STEP",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "bizstep"
+      }
+    },
+    "disposition-8": {
+      "type": "DISPOSITION",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "disposition"
+      }
+    },
+    "persistent-disposition-9": {
+      "type": "PERSISTENT_DISPOSITION",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "persistentdisposition"
+      }
+    },
+    "read-point-10": {
+      "type": "READ_POINT",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "place"
+      }
+    },
+    "biz-location-11": {
+      "type": "BIZ_LOCATION",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "place"
+      }
+    },
+    "has-biz-transaction-12": {
+      "type": "HAS_BIZ_TRANSACTION",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "biztransaction"
+      }
+    },
+    "source-13": {
+      "type": "SOURCE",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "sourceordestination"
+      }
+    },
+    "destination-14": {
+      "type": "DESTINATION",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "sourceordestination"
+      }
+    },
+    "has-sensor-element-15": {
+      "type": "HAS_SENSOR_ELEMENT",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "sensorelement"
+      }
+    },
+    "has-ilmd-16": {
+      "type": "HAS_ILMD",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "ilmd"
+      }
+    },
+    "has-error-declaration-17": {
+      "type": "HAS_ERROR_DECLARATION",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "errordeclaration"
+      }
+    },
+    "has-transformation-18": {
+      "type": "HAS_TRANSFORMATION",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "transformation"
+      }
+    },
+    "in-document-19": {
+      "type": "IN_DOCUMENT",
+      "from": {
+        "node": "epcisevent"
+      },
+      "to": {
+        "node": "epcisdocument"
+      }
+    },
+    "corrective-event-20": {
+      "type": "CORRECTIVE_EVENT",
+      "from": {
+        "node": "errordeclaration"
+      },
+      "to": {
+        "node": "epcisevent"
+      }
+    },
+    "has-metadata-21": {
+      "type": "HAS_METADATA",
+      "from": {
+        "node": "sensorelement"
+      },
+      "to": {
+        "node": "sensormetadata"
+      }
+    },
+    "has-report-22": {
+      "type": "HAS_REPORT",
+      "from": {
+        "node": "sensorelement"
+      },
+      "to": {
+        "node": "sensorreport"
+      }
+    },
+    "device-23": {
+      "type": "DEVICE",
+      "from": {
+        "node": "sensormetadata"
+      },
+      "to": {
+        "node": "sensordevice"
+      }
+    },
+    "device-24": {
+      "type": "DEVICE",
+      "from": {
+        "node": "sensorreport"
+      },
+      "to": {
+        "node": "sensordevice"
+      }
+    },
+    "of-epc-class-25": {
+      "type": "OF_EPC_CLASS",
+      "from": {
+        "node": "quantityelement"
+      },
+      "to": {
+        "node": "tradeitem"
+      }
+    },
+    "instance-of-26": {
+      "type": "INSTANCE_OF",
+      "from": {
+        "node": "tradeiteminstance"
+      },
+      "to": {
+        "node": "tradeitem"
+      }
+    },
+    "is-place-27": {
+      "type": "IS_PLACE",
+      "from": {
+        "node": "sourceordestination"
+      },
+      "to": {
+        "node": "place"
+      }
+    },
+    "is-party-28": {
+      "type": "IS_PARTY",
+      "from": {
+        "node": "sourceordestination"
+      },
+      "to": {
+        "node": "party"
+      }
+    },
+    "sender-29": {
+      "type": "SENDER",
+      "from": {
+        "node": "epcisdocument"
+      },
+      "to": {
+        "node": "party"
+      }
+    },
+    "receiver-30": {
+      "type": "RECEIVER",
+      "from": {
+        "node": "epcisdocument"
+      },
+      "to": {
+        "node": "party"
+      }
+    },
+    "has-master-data-31": {
+      "type": "HAS_MASTER_DATA",
+      "from": {
+        "node": "epcisdocument"
+      },
+      "to": {
+        "node": "masterdata"
+      }
+    },
+    "describes-place-32": {
+      "type": "DESCRIBES_PLACE",
+      "from": {
+        "node": "masterdata"
+      },
+      "to": {
+        "node": "place"
+      }
+    },
+    "describes-trade-item-33": {
+      "type": "DESCRIBES_TRADE_ITEM",
+      "from": {
+        "node": "masterdata"
+      },
+      "to": {
+        "node": "tradeitem"
+      }
+    },
+    "part-of-34": {
+      "type": "PART_OF",
+      "from": {
+        "node": "place"
+      },
+      "to": {
+        "node": "place"
+      }
+    },
+    "broader-than-35": {
+      "type": "BROADER_THAN",
+      "from": {
+        "node": "bizstep"
+      },
+      "to": {
+        "node": "bizstep"
+      }
+    },
+    "operates-place-36": {
+      "type": "OPERATES_PLACE",
+      "from": {
+        "node": "party"
+      },
+      "to": {
+        "node": "place"
+      }
+    },
+    "for-trade-item-37": {
+      "type": "FOR_TRADE_ITEM",
+      "from": {
+        "node": "ilmd"
+      },
+      "to": {
+        "node": "tradeitem"
+      }
+    }
+  }
+}

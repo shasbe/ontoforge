@@ -3,10 +3,11 @@ import { ReactFlowProvider } from "@xyflow/react";
 import GraphCanvas from "./GraphCanvas";
 import { Inspector, ValidationPanel, DecisionsPanel, NotesPanel, AnalysisPanel } from "./Panels";
 import {
-  loadCatalog, loadModel, loadValidation, loadProfile, loadAnalysis,
+  loadCatalog, loadModel, loadValidation, loadProfile, loadAnalysis, loadOntology,
   downloadJson, downloadText,
 } from "./data";
-import type { Catalog, CatalogEntry, Model, ProfileMeta, Validation } from "./types";
+
+import type { Catalog, CatalogEntry, Model, ProfileMeta, Validation, OntologyDoc } from "./types";
 
 type Tab = "inspector" | "validation" | "decisions" | "analysis" | "notes";
 
@@ -110,6 +111,45 @@ function ModelView({ catalog, std }: { catalog: Catalog; std: string }) {
     return { ...model, display: { ...model.display, nodes: positions } };
   }, [model, positions]);
 
+  /** Ontology Graph Spec downloads: a dropdown of the offered spec versions;
+   *  picking one fetches that document on demand and downloads it in a single
+   *  action, with the current layout baked in -- positions matched by label,
+   *  since OGS node ids are slugs. */
+  const ogsFormats = useMemo(
+    () => (entry?.formats ?? [])
+      .filter((f) => f.name === "neo4j-ontology-graph-spec")
+      .sort((a, b) => b.version.localeCompare(a.version)),
+    [entry]);
+  const [ogsOpen, setOgsOpen] = useState(false);
+  const [ogsBusy, setOgsBusy] = useState(false);
+
+  const downloadOntology = async (f: { version: string; file: string }) => {
+    if (!model) return;
+    setOgsBusy(true);
+    try {
+      const ontology = await loadOntology(std, f.file);
+      let doc: OntologyDoc = ontology;
+      if (positions) {
+        const posByLabel: Record<string, { x: number; y: number }> = {};
+        for (const [nid, n] of Object.entries(model.nodes)) {
+          posByLabel[n.labels.identifier] = positions[nid] ?? model.display.nodes[nid];
+        }
+        doc = {
+          ...ontology,
+          nodes: Object.fromEntries(Object.entries(ontology.nodes).map(([id, n]) => {
+            const label = n.labels?.identifier;
+            const p = label ? posByLabel[label] : undefined;
+            if (!p) return [id, n];
+            return [id, { ...n, extensions: { ...n.extensions, display: { x: p.x, y: p.y } } }];
+          })),
+        };
+      }
+      downloadJson(`${std}-ontology-${f.version}.json`, doc);
+    } finally {
+      setOgsBusy(false);
+    }
+  };
+
   if (error) return <div className="err-box">Failed to load <code>{std}</code>: {error}</div>;
   if (!model || !validation || !profile || !entry)
     return <div className="loading">Loading {std}…</div>;
@@ -146,6 +186,28 @@ function ModelView({ catalog, std }: { catalog: Catalog; std: string }) {
                   title="Includes your current canvas layout in the display block">
             Download JSON
           </button>
+          {ogsFormats.length > 0 && (
+            <span className="dd">
+              {ogsOpen && <span className="dd-backdrop" onClick={() => setOgsOpen(false)} />}
+              <button className={ogsOpen ? "" : "primary"}
+                      onClick={() => setOgsOpen((v) => !v)} disabled={ogsBusy}
+                      title="Neo4j Ontology Graph Spec -- the same model as a versioned, SDK-backed ontology document; includes your current layout as per-node display positions">
+                {ogsBusy ? "Fetching…" : "Download Ontology ▾"}
+              </button>
+              {ogsOpen && (
+                <ul className="dd-menu" role="menu">
+                  {ogsFormats.map((f) => (
+                    <li key={f.version} role="none">
+                      <button role="menuitem"
+                              onClick={() => { setOgsOpen(false); void downloadOntology(f); }}>
+                        OGS {f.version}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </span>
+          )}
           <button onClick={() => setLayoutNonce((n) => n + 1)}
                   title="Force-directed relaxation; hubs pull toward the centre">
             Auto-layout

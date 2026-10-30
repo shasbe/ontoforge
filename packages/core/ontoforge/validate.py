@@ -28,14 +28,28 @@ def _collection(model: dict, path: str) -> dict:
     return v if isinstance(v, dict) else {}
 
 
-def _shape(d: Any, path: str = "") -> set[str]:
+def _shape(d: Any, path: str = "", wild: frozenset[str] = frozenset()) -> set[str]:
+    """Key-path fingerprints. Keys at *wildcard* paths (the adapter's node /
+    relationship / property / constraint collections, which may be keyed by
+    counters or by slug/name) all normalise to <id>, so a model's `patient`
+    node matches a sample's `n:0`."""
     out: set[str] = set()
     if isinstance(d, dict):
         for k, v in d.items():
-            kk = re.sub(r"^([A-Za-z]+[:_-])\d+$", r"\1<id>", k)
+            kk = "<id>" if path.lstrip(".") in wild else re.sub(r"^([A-Za-z]+[:_-])\d+$", r"\1<id>", k)
             out.add(f"{path}.{kk}")
-            out |= _shape(v, f"{path}.{kk}")
+            out |= _shape(v, f"{path}.{kk}", wild)
     return out
+
+
+def _wildcard_paths(A: Adapter) -> frozenset[str]:
+    node_coll = A.node["collection"].lstrip("$.")
+    rel_coll = A.relationship["collection"].lstrip("$.")
+    prop_leaf = A.node["properties"]["collection"].lstrip("$.")
+    wild = {node_coll, rel_coll, f"{node_coll}.<id>.{prop_leaf}"}
+    if A.node_constraints:
+        wild.add(f"{node_coll}.<id>.{A.node_constraints['collection'].lstrip('$.')}")
+    return frozenset(wild)
 
 
 def validate(model: dict, adapter: Adapter, sample: Optional[dict] = None) -> list[Finding]:
@@ -44,7 +58,8 @@ def validate(model: dict, adapter: Adapter, sample: Optional[dict] = None) -> li
 
     # ---- gate 1: shape conformance against the reference sample
     if sample is not None:
-        ss, ms = _shape(sample), _shape(model)
+        w = _wildcard_paths(A)
+        ss, ms = _shape(sample, wild=w), _shape(model, wild=w)
         for extra in sorted(ms - ss):
             f.append(Finding("shape-conformance", "error",
                              f"key-path not present in target sample: {extra}"))
@@ -60,13 +75,17 @@ def validate(model: dict, adapter: Adapter, sample: Optional[dict] = None) -> li
     nodes = _collection(model, A.node["collection"])
     rels = _collection(model, A.relationship["collection"])
 
-    # ---- gate 3: id contiguity + uniqueness
+    # ---- gate 3: id contiguity + uniqueness (counter-keyed targets only;
+    # slug/name-keyed ids are name-derived, and emit rejects duplicates)
     for which, coll in (("node", nodes), ("relationship", rels)):
-        want = [A.id_for(which, i) for i in range(len(coll))]
-        if list(coll.keys()) != want:
-            f.append(Finding("id-contiguity", "error",
-                             f"{which} ids are not contiguous/ordered "
-                             f"(expected {want[:3]}... got {list(coll.keys())[:3]}...)"))
+        pat = {"node": A.node, "relationship": A.relationship}[which]["id_pattern"]
+        if "{i}" in pat and "{slug}" not in pat and "{name}" not in pat:
+            want = [A.id_for(which, i) for i in range(len(coll))]
+            if list(coll.keys()) != want:
+                f.append(Finding("id-contiguity", "error",
+                                 f"{which} ids are not contiguous/ordered "
+                                 f"(expected {want[:3]}... got {list(coll.keys())[:3]}...)"))
+    counter_pids = "{i}" in A.node["properties"]["id_pattern"]
     pids: list[str] = []
 
     labels: set[str] = set()
@@ -98,7 +117,7 @@ def validate(model: dict, adapter: Adapter, sample: Optional[dict] = None) -> li
                 f.append(Finding("type-allowlist", "error",
                                  f"{label}.{pn}: type {pt!r} not accepted "
                                  f"(target accepts {sorted(enum)})", f"{nid}.{pid}"))
-    if len(pids) != len(set(pids)):
+    if counter_pids and len(pids) != len(set(pids)):
         dupes = {p for p in pids if pids.count(p) > 1}
         f.append(Finding("uniqueness", "error", f"duplicate property ids: {sorted(dupes)[:5]}"))
 
@@ -118,8 +137,16 @@ def validate(model: dict, adapter: Adapter, sample: Optional[dict] = None) -> li
             f.append(Finding("uniqueness", "error", f"duplicate edge {key}", rid))
         seen_e.add(key)
 
-    # ---- gate 5: display block completeness
-    if A.display.get("nodes"):
+    # ---- gate 5: display completeness (top-level map, or per-node extensions)
+    if A.display.get("per_node"):
+        for nid, n in nodes.items():
+            d = _dig(n, A.display["per_node"])
+            ok = isinstance(d, dict) and isinstance(d.get("x"), (int, float)) \
+                and isinstance(d.get("y"), (int, float))
+            if not ok:
+                f.append(Finding("display-completeness", "error",
+                                 f"missing x/y display position", nid))
+    elif A.display.get("nodes"):
         d = _collection(model, A.display["nodes"])
         if set(d.keys()) != set(nodes.keys()):
             miss = sorted(set(nodes) - set(d)); extra = sorted(set(d) - set(nodes))
@@ -136,9 +163,15 @@ def validate(model: dict, adapter: Adapter, sample: Optional[dict] = None) -> li
         f.append(Finding("connectivity", "warning",
                          f"labels with no relationships: {orphans}"))
 
-    # ---- gate 7: version agreement
+    # ---- gate 7: version agreement (exact for adapter-versioned targets;
+    # a profile-derived version just has to be present and non-empty)
     v = _dig(model, A.version_path)
-    if str(v) != str(A.version):
+    if A.version_from:
+        if not isinstance(v, str) or not v.strip():
+            f.append(Finding("version", "error",
+                             f"model version {v!r} empty (expected from profile "
+                             f"{A.version_from})"))
+    elif str(v) != str(A.version):
         f.append(Finding("version", "error",
                          f"model version {v!r} != adapter version {A.version!r}"))
     return f

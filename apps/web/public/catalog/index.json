@@ -39,66 +39,24 @@
       ],
       "errors": 0,
       "warnings": 0,
-      "ir": {
-        "triples": 13474,
-        "classes": 1171,
-        "object_properties": 172,
-        "individuals": 58,
-        "anonymous_share": 7.8,
-        "anonymous_subclass_share": 40.9,
-        "max_depth": 12,
-        "grounding_coverage": 92.7,
-        "top_hubs": [
-          [
-            "DimensionlessUnit",
-            119
-          ],
-          [
-            "DiagnosticSystem",
-            20
-          ],
-          [
-            "QuantitativeValueFloat",
-            17
-          ],
-          [
-            "PriceSpecification",
-            17
-          ],
-          [
-            "ChoiceOrComponent",
-            14
-          ],
-          [
-            "Cabin",
-            13
-          ],
-          [
-            "MultimediaSystem",
-            13
-          ],
-          [
-            "QuantitativeValue",
-            12
-          ],
-          [
-            "TemperatureUnit",
-            11
-          ],
-          [
-            "Body",
-            10
-          ],
-          [
-            "PressureOrStressUnit",
-            10
-          ],
-          [
-            "TimeUnit",
-            9
-          ]
-        ]
-      },
+      "formats": [
+        {
+          "name": "neo4j-workspace",
+          "version": "4.0.0",
+          "file": "model.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.1.0",
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
+        }
+      ],
+      "ir": null,
       "has_analysis": true
     },
     {
@@ -123,66 +81,24 @@
       ],
       "errors": 0,
       "warnings": 0,
-      "ir": {
-        "triples": 7193,
-        "classes": 1059,
-        "object_properties": 0,
-        "individuals": 4226,
-        "anonymous_share": 0.0,
-        "anonymous_subclass_share": 0.0,
-        "max_depth": 4,
-        "grounding_coverage": 90.1,
-        "top_hubs": [
-          [
-            "CounterpartyRoleEnum",
-            56
-          ],
-          [
-            "Money",
-            45
-          ],
-          [
-            "Party",
-            43
-          ],
-          [
-            "Price",
-            23
-          ],
-          [
-            "AdjustableOrRelativeDate",
-            21
-          ],
-          [
-            "LegalEntity",
-            19
-          ],
-          [
-            "BusinessCenterTime",
-            17
-          ],
-          [
-            "PriceSchedule",
-            17
-          ],
-          [
-            "Identifier",
-            16
-          ],
-          [
-            "RelativeDateOffset",
-            14
-          ],
-          [
-            "BusinessDayAdjustments",
-            13
-          ],
-          [
-            "Period",
-            13
-          ]
-        ]
-      },
+      "formats": [
+        {
+          "name": "neo4j-workspace",
+          "version": "4.0.0",
+          "file": "model.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.1.0",
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
+        }
+      ],
+      "ir": null,
       "has_analysis": true
     },
     {
@@ -204,66 +120,24 @@
       ],
       "errors": 0,
       "warnings": 0,
-      "ir": {
-        "triples": 1000,
-        "classes": 20,
-        "object_properties": 48,
-        "individuals": 0,
-        "anonymous_share": 14.9,
-        "anonymous_subclass_share": 0.0,
-        "max_depth": 1,
-        "grounding_coverage": 100.0,
-        "top_hubs": [
-          [
-            "https://gs1.org/voc/IndividualObject",
-            4
-          ],
-          [
-            "QuantityElement",
-            4
-          ],
-          [
-            "https://ref.gs1.org/cbv/Disp",
-            3
-          ],
-          [
-            "https://gs1.org/voc/Place",
-            2
-          ],
-          [
-            "EPCISEvent",
-            2
-          ],
-          [
-            "SourceOrDestination",
-            2
-          ],
-          [
-            "https://ref.gs1.org/cbv/BizStep",
-            1
-          ],
-          [
-            "BizTransaction",
-            1
-          ],
-          [
-            "https://ref.gs1.org/cbv/BTT",
-            1
-          ],
-          [
-            "https://gs1.org/voc/CertificationDetails",
-            1
-          ],
-          [
-            "https://gs1.org/voc/SensorDevice",
-            1
-          ],
-          [
-            "EPCISDocumentBody",
-            1
-          ]
-        ]
-      },
+      "formats": [
+        {
+          "name": "neo4j-workspace",
+          "version": "4.0.0",
+          "file": "model.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.1.0",
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
+        }
+      ],
+      "ir": null,
       "has_analysis": true
     },
     {
@@ -288,66 +162,24 @@
       ],
       "errors": 0,
       "warnings": 0,
-      "ir": {
-        "triples": 8896,
-        "classes": 158,
-        "object_properties": 0,
-        "individuals": 0,
-        "anonymous_share": 0.0,
-        "anonymous_subclass_share": null,
-        "max_depth": 0,
-        "grounding_coverage": 100.0,
-        "top_hubs": [
-          [
-            "Organization",
-            219
-          ],
-          [
-            "Patient",
-            174
-          ],
-          [
-            "Practitioner",
-            170
-          ],
-          [
-            "PractitionerRole",
-            155
-          ],
-          [
-            "RelatedPerson",
-            111
-          ],
-          [
-            "Device",
-            108
-          ],
-          [
-            "http://hl7.org/fhir/StructureDefinition/Resource",
-            92
-          ],
-          [
-            "Group",
-            83
-          ],
-          [
-            "Location",
-            78
-          ],
-          [
-            "CareTeam",
-            58
-          ],
-          [
-            "Encounter",
-            48
-          ],
-          [
-            "HealthcareService",
-            37
-          ]
-        ]
-      },
+      "formats": [
+        {
+          "name": "neo4j-workspace",
+          "version": "4.0.0",
+          "file": "model.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.1.0",
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
+        }
+      ],
+      "ir": null,
       "has_analysis": true
     },
     {
@@ -375,66 +207,24 @@
       ],
       "errors": 0,
       "warnings": 0,
-      "ir": {
-        "triples": 130273,
-        "classes": 3021,
-        "object_properties": 946,
-        "individuals": 12029,
-        "anonymous_share": 8.5,
-        "anonymous_subclass_share": 42.1,
-        "max_depth": 12,
-        "grounding_coverage": 85.5,
-        "top_hubs": [
-          [
-            "MonetaryAmount",
-            102
-          ],
-          [
-            "https://www.omg.org/spec/Commons/DatesAndTimes/ExplicitDate",
-            75
-          ],
-          [
-            "https://www.omg.org/spec/Commons/DatesAndTimes/Date",
-            63
-          ],
-          [
-            "https://www.omg.org/spec/Commons/DatesAndTimes/DatePeriod",
-            45
-          ],
-          [
-            "Currency",
-            44
-          ],
-          [
-            "Security",
-            42
-          ],
-          [
-            "https://www.omg.org/spec/Commons/RegulatoryAgencies/Jurisdiction",
-            34
-          ],
-          [
-            "SecuritiesUnderwritingIssuanceProcess",
-            31
-          ],
-          [
-            "MonetaryPrice",
-            25
-          ],
-          [
-            "Party",
-            20
-          ],
-          [
-            "https://www.omg.org/spec/Commons/DatesAndTimes/Duration",
-            20
-          ],
-          [
-            "RecurrenceInterval",
-            20
-          ]
-        ]
-      },
+      "formats": [
+        {
+          "name": "neo4j-workspace",
+          "version": "4.0.0",
+          "file": "model.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.1.0",
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
+        }
+      ],
+      "ir": null,
       "has_analysis": true
     },
     {
@@ -457,66 +247,24 @@
       ],
       "errors": 0,
       "warnings": 0,
-      "ir": {
-        "triples": 18749,
-        "classes": 56,
-        "object_properties": 342,
-        "individuals": 0,
-        "anonymous_share": 0.5,
-        "anonymous_subclass_share": 0.0,
-        "max_depth": 3,
-        "grounding_coverage": 100.0,
-        "top_hubs": [
-          [
-            "NutritionMeasurementType",
-            43
-          ],
-          [
-            "QuantitativeValue",
-            32
-          ],
-          [
-            "Organization",
-            26
-          ],
-          [
-            "https://ref.gs1.org/voc/NonbinaryLogicCode",
-            20
-          ],
-          [
-            "Place",
-            13
-          ],
-          [
-            "Country",
-            7
-          ],
-          [
-            "Product",
-            7
-          ],
-          [
-            "ReferencedFileDetails",
-            6
-          ],
-          [
-            "https://ref.gs1.org/voc/LevelOfContainmentCode",
-            3
-          ],
-          [
-            "http://www.w3.org/2002/07/owl#Thing",
-            3
-          ],
-          [
-            "ContactPoint",
-            2
-          ],
-          [
-            "https://ref.gs1.org/voc/StatusType",
-            2
-          ]
-        ]
-      },
+      "formats": [
+        {
+          "name": "neo4j-workspace",
+          "version": "4.0.0",
+          "file": "model.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.1.0",
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
+        }
+      ],
+      "ir": null,
       "has_analysis": true
     },
     {
@@ -540,66 +288,24 @@
       ],
       "errors": 0,
       "warnings": 0,
-      "ir": {
-        "triples": 15684,
-        "classes": 457,
-        "object_properties": 231,
-        "individuals": 206,
-        "anonymous_share": 11.9,
-        "anonymous_subclass_share": 62.4,
-        "max_depth": 7,
-        "grounding_coverage": 97.9,
-        "top_hubs": [
-          [
-            "SubstanceName",
-            25
-          ],
-          [
-            "MedicinalProduct",
-            25
-          ],
-          [
-            "ReferenceSource",
-            19
-          ],
-          [
-            "Substance",
-            18
-          ],
-          [
-            "https://www.omg.org/spec/Commons/DatesAndTimes/ExplicitDate",
-            15
-          ],
-          [
-            "https://www.omg.org/spec/Commons/QuantitiesAndUnits/ScalarQuantityValue",
-            13
-          ],
-          [
-            "Amount",
-            12
-          ],
-          [
-            "Manufacturer",
-            12
-          ],
-          [
-            "Moiety",
-            9
-          ],
-          [
-            "PolymerSubstance",
-            8
-          ],
-          [
-            "Strength",
-            8
-          ],
-          [
-            "PhysicalCharacteristic",
-            8
-          ]
-        ]
-      },
+      "formats": [
+        {
+          "name": "neo4j-workspace",
+          "version": "4.0.0",
+          "file": "model.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.1.0",
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
+        }
+      ],
+      "ir": null,
       "has_analysis": true
     },
     {
@@ -622,66 +328,24 @@
       ],
       "errors": 0,
       "warnings": 0,
-      "ir": {
-        "triples": 25348,
-        "classes": 1002,
-        "object_properties": 128,
-        "individuals": 1,
-        "anonymous_share": 44.1,
-        "anonymous_subclass_share": 38.6,
-        "max_depth": 7,
-        "grounding_coverage": 95.1,
-        "top_hubs": [
-          [
-            "http://purl.obolibrary.org/obo/BFO_0000040",
-            56
-          ],
-          [
-            "http://purl.obolibrary.org/obo/BFO_0000001",
-            19
-          ],
-          [
-            "Solution",
-            10
-          ],
-          [
-            "RecipeProcessStage",
-            10
-          ],
-          [
-            "InformationContentEntity",
-            10
-          ],
-          [
-            "http://purl.obolibrary.org/obo/BFO_0000015",
-            9
-          ],
-          [
-            "Agent",
-            8
-          ],
-          [
-            "PlannedProcess",
-            8
-          ],
-          [
-            "RecipeProcessOperation",
-            8
-          ],
-          [
-            "CultureMedium",
-            6
-          ],
-          [
-            "MaterialProduct",
-            6
-          ],
-          [
-            "MaterialState",
-            6
-          ]
-        ]
-      },
+      "formats": [
+        {
+          "name": "neo4j-workspace",
+          "version": "4.0.0",
+          "file": "model.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.1.0",
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
+        }
+      ],
+      "ir": null,
       "has_analysis": true
     },
     {
@@ -704,6 +368,23 @@
       ],
       "errors": 0,
       "warnings": 0,
+      "formats": [
+        {
+          "name": "neo4j-workspace",
+          "version": "4.0.0",
+          "file": "model.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.1.0",
+          "file": "neo4j-ontology-graph-spec-1.1.0.json"
+        },
+        {
+          "name": "neo4j-ontology-graph-spec",
+          "version": "1.0.0",
+          "file": "neo4j-ontology-graph-spec-1.0.0.json"
+        }
+      ],
       "ir": null,
       "has_analysis": false
     }

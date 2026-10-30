@@ -1,0 +1,63 @@
+# Target Format Adapter: Neo4j Ontology Graph Specification 1.1.0
+# https://neo4j.com/docs/ontology-graph-spec/
+#
+# The format is close enough to the workspace shape that this is mostly a
+# config drop. Differences the core supports via opt-in adapter features:
+#   root            -- required literal root fields (here: the pinned schema URL)
+#   root_from_profile -- root fields derived per model (id, name, version)
+#   version_from    -- model version taken from profile.source.version
+#   {slug}/{name}   -- human-readable map keys instead of n:{i} counters
+#   display.per_node-- x/y inside each node's extensions.display
+#   node.constraints-- KEY constraints emitted from profile.keys
+target: neo4j-ontology-graph-spec
+version: "1.1.0"
+version_path: "$.version"
+version_from: "source.version"      # falls back to adapter version when absent
+
+root:
+  schema: "https://neo4j.com/docs/ontology-graph-spec/1.1.0/schema.json"
+
+root_from_profile:
+  id: standard
+  name: title
+
+node:
+  collection: "$.nodes"
+  id_pattern: "{slug}"
+  label: "$.labels.identifier"
+  # OGS nodes have no display-name field; the label identifier is the name.
+  name:
+  properties:
+    collection: "$.properties"
+    id_pattern: "{name}"
+    name: "$.name"
+    type: "$.type"
+    # Resolved from the vendored official JSON Schema ($defs.Neo4jType.enum),
+    # so it stays exact across spec versions -- no hand-copied list.
+    type_enum: {from_schema: "#/$defs/Neo4jType/enum"}
+  constraints:
+    collection: "$.constraints"
+    id_pattern: "key:{i}"
+
+relationship:
+  collection: "$.relationships"
+  id_pattern: "{slug}-{i}"
+  type: "$.type"
+  name:
+  from: "$.from.node"
+  to: "$.to.node"
+
+display:
+  # OGS carries position per node, not in a top-level display map.
+  per_node: "$.extensions.display"
+
+label_pattern: "[A-Z][A-Za-z0-9]*"
+rel_type_pattern: "[A-Z][A-Z0-9_]*"
+
+# The spec models these natively, so the same profiles compile to a richer
+# document than the v4.0.0 workspace target.
+capabilities:
+  multi_label: true
+  relationship_properties: true
+  node_keys: true
+  nested_property_types: false

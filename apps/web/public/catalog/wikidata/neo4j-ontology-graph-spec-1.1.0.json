@@ -1,0 +1,1084 @@
+{
+  "version": "1.1.0",
+  "schema": "https://neo4j.com/docs/ontology-graph-spec/1.1.0/schema.json",
+  "id": "wikidata",
+  "name": "Wikidata / Wikibase data model",
+  "nodes": {
+    "item": {
+      "labels": {
+        "identifier": "Item"
+      },
+      "properties": {
+        "qid": {
+          "type": "STRING",
+          "name": "qid"
+        },
+        "label": {
+          "type": "STRING",
+          "name": "label"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "modified": {
+          "type": "DATE",
+          "name": "modified"
+        },
+        "statementCount": {
+          "type": "INTEGER",
+          "name": "statementCount"
+        },
+        "siteLinkCount": {
+          "type": "INTEGER",
+          "name": "siteLinkCount"
+        },
+        "isRedirect": {
+          "type": "BOOLEAN",
+          "name": "isRedirect"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -860,
+          "y": -200
+        }
+      }
+    },
+    "property": {
+      "labels": {
+        "identifier": "Property"
+      },
+      "properties": {
+        "pid": {
+          "type": "STRING",
+          "name": "pid"
+        },
+        "label": {
+          "type": "STRING",
+          "name": "label"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "dataType": {
+          "type": "STRING",
+          "name": "dataType"
+        },
+        "formatterUrl": {
+          "type": "STRING",
+          "name": "formatterUrl"
+        },
+        "statementCount": {
+          "type": "INTEGER",
+          "name": "statementCount"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -430,
+          "y": -200
+        }
+      }
+    },
+    "statement": {
+      "labels": {
+        "identifier": "Statement"
+      },
+      "properties": {
+        "statementId": {
+          "type": "STRING",
+          "name": "statementId"
+        },
+        "rank": {
+          "type": "STRING",
+          "name": "rank"
+        },
+        "snakType": {
+          "type": "STRING",
+          "name": "snakType"
+        },
+        "propertyId": {
+          "type": "STRING",
+          "name": "propertyId"
+        },
+        "dataValueType": {
+          "type": "STRING",
+          "name": "dataValueType"
+        },
+        "hash": {
+          "type": "STRING",
+          "name": "hash"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 0,
+          "y": -200
+        }
+      }
+    },
+    "qualifier": {
+      "labels": {
+        "identifier": "Qualifier"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "propertyId": {
+          "type": "STRING",
+          "name": "propertyId"
+        },
+        "snakType": {
+          "type": "STRING",
+          "name": "snakType"
+        },
+        "dataValueType": {
+          "type": "STRING",
+          "name": "dataValueType"
+        },
+        "order": {
+          "type": "INTEGER",
+          "name": "order"
+        },
+        "hash": {
+          "type": "STRING",
+          "name": "hash"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 430,
+          "y": -200
+        }
+      }
+    },
+    "reference": {
+      "labels": {
+        "identifier": "Reference"
+      },
+      "properties": {
+        "referenceHash": {
+          "type": "STRING",
+          "name": "referenceHash"
+        },
+        "snakCount": {
+          "type": "INTEGER",
+          "name": "snakCount"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 860,
+          "y": -200
+        }
+      }
+    },
+    "snak": {
+      "labels": {
+        "identifier": "Snak"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "propertyId": {
+          "type": "STRING",
+          "name": "propertyId"
+        },
+        "snakType": {
+          "type": "STRING",
+          "name": "snakType"
+        },
+        "dataValueType": {
+          "type": "STRING",
+          "name": "dataValueType"
+        },
+        "hash": {
+          "type": "STRING",
+          "name": "hash"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -860,
+          "y": 10
+        }
+      }
+    },
+    "quantityvalue": {
+      "labels": {
+        "identifier": "QuantityValue"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "amount": {
+          "type": "FLOAT",
+          "name": "amount"
+        },
+        "lowerBound": {
+          "type": "FLOAT",
+          "name": "lowerBound"
+        },
+        "upperBound": {
+          "type": "FLOAT",
+          "name": "upperBound"
+        },
+        "unitId": {
+          "type": "STRING",
+          "name": "unitId"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -430,
+          "y": 10
+        }
+      }
+    },
+    "timevalue": {
+      "labels": {
+        "identifier": "TimeValue"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "time": {
+          "type": "STRING",
+          "name": "time"
+        },
+        "timezone": {
+          "type": "INTEGER",
+          "name": "timezone"
+        },
+        "before": {
+          "type": "INTEGER",
+          "name": "before"
+        },
+        "after": {
+          "type": "INTEGER",
+          "name": "after"
+        },
+        "precision": {
+          "type": "INTEGER",
+          "name": "precision"
+        },
+        "calendarModelId": {
+          "type": "STRING",
+          "name": "calendarModelId"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 0,
+          "y": 10
+        }
+      }
+    },
+    "globecoordinatevalue": {
+      "labels": {
+        "identifier": "GlobeCoordinateValue"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "latitude": {
+          "type": "FLOAT",
+          "name": "latitude"
+        },
+        "longitude": {
+          "type": "FLOAT",
+          "name": "longitude"
+        },
+        "altitude": {
+          "type": "FLOAT",
+          "name": "altitude"
+        },
+        "precision": {
+          "type": "FLOAT",
+          "name": "precision"
+        },
+        "globeId": {
+          "type": "STRING",
+          "name": "globeId"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 430,
+          "y": 10
+        }
+      }
+    },
+    "monolingualtext": {
+      "labels": {
+        "identifier": "MonolingualText"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "text": {
+          "type": "STRING",
+          "name": "text"
+        },
+        "languageCode": {
+          "type": "STRING",
+          "name": "languageCode"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 860,
+          "y": 10
+        }
+      }
+    },
+    "stringvalue": {
+      "labels": {
+        "identifier": "StringValue"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "value": {
+          "type": "STRING",
+          "name": "value"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -860,
+          "y": 220
+        }
+      }
+    },
+    "term": {
+      "labels": {
+        "identifier": "Term"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "termType": {
+          "type": "STRING",
+          "name": "termType"
+        },
+        "languageCode": {
+          "type": "STRING",
+          "name": "languageCode"
+        },
+        "value": {
+          "type": "STRING",
+          "name": "value"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -430,
+          "y": 220
+        }
+      }
+    },
+    "language": {
+      "labels": {
+        "identifier": "Language"
+      },
+      "properties": {
+        "code": {
+          "type": "STRING",
+          "name": "code"
+        },
+        "name": {
+          "type": "STRING",
+          "name": "name"
+        },
+        "nativeName": {
+          "type": "STRING",
+          "name": "nativeName"
+        },
+        "isRtl": {
+          "type": "BOOLEAN",
+          "name": "isRtl"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 0,
+          "y": 220
+        }
+      }
+    },
+    "sitelink": {
+      "labels": {
+        "identifier": "Sitelink"
+      },
+      "properties": {
+        "id": {
+          "type": "STRING",
+          "name": "id"
+        },
+        "site": {
+          "type": "STRING",
+          "name": "site"
+        },
+        "title": {
+          "type": "STRING",
+          "name": "title"
+        },
+        "url": {
+          "type": "STRING",
+          "name": "url"
+        },
+        "badgeCount": {
+          "type": "INTEGER",
+          "name": "badgeCount"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 430,
+          "y": 220
+        }
+      }
+    },
+    "wikisite": {
+      "labels": {
+        "identifier": "WikiSite"
+      },
+      "properties": {
+        "siteId": {
+          "type": "STRING",
+          "name": "siteId"
+        },
+        "siteName": {
+          "type": "STRING",
+          "name": "siteName"
+        },
+        "url": {
+          "type": "STRING",
+          "name": "url"
+        },
+        "languageCode": {
+          "type": "STRING",
+          "name": "languageCode"
+        },
+        "siteGroup": {
+          "type": "STRING",
+          "name": "siteGroup"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 860,
+          "y": 220
+        }
+      }
+    },
+    "lexeme": {
+      "labels": {
+        "identifier": "Lexeme"
+      },
+      "properties": {
+        "lid": {
+          "type": "STRING",
+          "name": "lid"
+        },
+        "lemma": {
+          "type": "STRING",
+          "name": "lemma"
+        },
+        "languageCode": {
+          "type": "STRING",
+          "name": "languageCode"
+        },
+        "lexicalCategoryId": {
+          "type": "STRING",
+          "name": "lexicalCategoryId"
+        },
+        "formCount": {
+          "type": "INTEGER",
+          "name": "formCount"
+        },
+        "senseCount": {
+          "type": "INTEGER",
+          "name": "senseCount"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -860,
+          "y": 430
+        }
+      }
+    },
+    "form": {
+      "labels": {
+        "identifier": "Form"
+      },
+      "properties": {
+        "formId": {
+          "type": "STRING",
+          "name": "formId"
+        },
+        "representation": {
+          "type": "STRING",
+          "name": "representation"
+        },
+        "grammaticalFeatureCount": {
+          "type": "INTEGER",
+          "name": "grammaticalFeatureCount"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -430,
+          "y": 430
+        }
+      }
+    },
+    "sense": {
+      "labels": {
+        "identifier": "Sense"
+      },
+      "properties": {
+        "senseId": {
+          "type": "STRING",
+          "name": "senseId"
+        },
+        "gloss": {
+          "type": "STRING",
+          "name": "gloss"
+        },
+        "glossLanguage": {
+          "type": "STRING",
+          "name": "glossLanguage"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 0,
+          "y": 430
+        }
+      }
+    },
+    "entityschema": {
+      "labels": {
+        "identifier": "EntitySchema"
+      },
+      "properties": {
+        "eid": {
+          "type": "STRING",
+          "name": "eid"
+        },
+        "label": {
+          "type": "STRING",
+          "name": "label"
+        },
+        "description": {
+          "type": "STRING",
+          "name": "description"
+        },
+        "schemaText": {
+          "type": "STRING",
+          "name": "schemaText"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 430,
+          "y": 430
+        }
+      }
+    },
+    "revision": {
+      "labels": {
+        "identifier": "Revision"
+      },
+      "properties": {
+        "revisionId": {
+          "type": "STRING",
+          "name": "revisionId"
+        },
+        "timestamp": {
+          "type": "DATE",
+          "name": "timestamp"
+        },
+        "comment": {
+          "type": "STRING",
+          "name": "comment"
+        },
+        "sizeBytes": {
+          "type": "INTEGER",
+          "name": "sizeBytes"
+        },
+        "isMinor": {
+          "type": "BOOLEAN",
+          "name": "isMinor"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": 860,
+          "y": 430
+        }
+      }
+    },
+    "editor": {
+      "labels": {
+        "identifier": "Editor"
+      },
+      "properties": {
+        "username": {
+          "type": "STRING",
+          "name": "username"
+        },
+        "userId": {
+          "type": "STRING",
+          "name": "userId"
+        },
+        "isBot": {
+          "type": "BOOLEAN",
+          "name": "isBot"
+        },
+        "editCount": {
+          "type": "INTEGER",
+          "name": "editCount"
+        },
+        "registrationDate": {
+          "type": "DATE",
+          "name": "registrationDate"
+        }
+      },
+      "extensions": {
+        "display": {
+          "x": -860,
+          "y": 640
+        }
+      }
+    }
+  },
+  "relationships": {
+    "has-statement-0": {
+      "type": "HAS_STATEMENT",
+      "from": {
+        "node": "item"
+      },
+      "to": {
+        "node": "statement"
+      }
+    },
+    "has-statement-1": {
+      "type": "HAS_STATEMENT",
+      "from": {
+        "node": "property"
+      },
+      "to": {
+        "node": "statement"
+      }
+    },
+    "has-statement-2": {
+      "type": "HAS_STATEMENT",
+      "from": {
+        "node": "lexeme"
+      },
+      "to": {
+        "node": "statement"
+      }
+    },
+    "has-statement-3": {
+      "type": "HAS_STATEMENT",
+      "from": {
+        "node": "sense"
+      },
+      "to": {
+        "node": "statement"
+      }
+    },
+    "has-statement-4": {
+      "type": "HAS_STATEMENT",
+      "from": {
+        "node": "form"
+      },
+      "to": {
+        "node": "statement"
+      }
+    },
+    "of-property-5": {
+      "type": "OF_PROPERTY",
+      "from": {
+        "node": "statement"
+      },
+      "to": {
+        "node": "property"
+      }
+    },
+    "has-qualifier-6": {
+      "type": "HAS_QUALIFIER",
+      "from": {
+        "node": "statement"
+      },
+      "to": {
+        "node": "qualifier"
+      }
+    },
+    "has-reference-7": {
+      "type": "HAS_REFERENCE",
+      "from": {
+        "node": "statement"
+      },
+      "to": {
+        "node": "reference"
+      }
+    },
+    "of-property-8": {
+      "type": "OF_PROPERTY",
+      "from": {
+        "node": "qualifier"
+      },
+      "to": {
+        "node": "property"
+      }
+    },
+    "has-snak-9": {
+      "type": "HAS_SNAK",
+      "from": {
+        "node": "reference"
+      },
+      "to": {
+        "node": "snak"
+      }
+    },
+    "of-property-10": {
+      "type": "OF_PROPERTY",
+      "from": {
+        "node": "snak"
+      },
+      "to": {
+        "node": "property"
+      }
+    },
+    "value-item-11": {
+      "type": "VALUE_ITEM",
+      "from": {
+        "node": "statement"
+      },
+      "to": {
+        "node": "item"
+      }
+    },
+    "value-quantity-12": {
+      "type": "VALUE_QUANTITY",
+      "from": {
+        "node": "statement"
+      },
+      "to": {
+        "node": "quantityvalue"
+      }
+    },
+    "value-time-13": {
+      "type": "VALUE_TIME",
+      "from": {
+        "node": "statement"
+      },
+      "to": {
+        "node": "timevalue"
+      }
+    },
+    "value-coordinate-14": {
+      "type": "VALUE_COORDINATE",
+      "from": {
+        "node": "statement"
+      },
+      "to": {
+        "node": "globecoordinatevalue"
+      }
+    },
+    "value-monolingual-text-15": {
+      "type": "VALUE_MONOLINGUAL_TEXT",
+      "from": {
+        "node": "statement"
+      },
+      "to": {
+        "node": "monolingualtext"
+      }
+    },
+    "value-string-16": {
+      "type": "VALUE_STRING",
+      "from": {
+        "node": "statement"
+      },
+      "to": {
+        "node": "stringvalue"
+      }
+    },
+    "value-item-17": {
+      "type": "VALUE_ITEM",
+      "from": {
+        "node": "qualifier"
+      },
+      "to": {
+        "node": "item"
+      }
+    },
+    "value-time-18": {
+      "type": "VALUE_TIME",
+      "from": {
+        "node": "qualifier"
+      },
+      "to": {
+        "node": "timevalue"
+      }
+    },
+    "value-quantity-19": {
+      "type": "VALUE_QUANTITY",
+      "from": {
+        "node": "qualifier"
+      },
+      "to": {
+        "node": "quantityvalue"
+      }
+    },
+    "value-item-20": {
+      "type": "VALUE_ITEM",
+      "from": {
+        "node": "snak"
+      },
+      "to": {
+        "node": "item"
+      }
+    },
+    "value-string-21": {
+      "type": "VALUE_STRING",
+      "from": {
+        "node": "snak"
+      },
+      "to": {
+        "node": "stringvalue"
+      }
+    },
+    "unit-22": {
+      "type": "UNIT",
+      "from": {
+        "node": "quantityvalue"
+      },
+      "to": {
+        "node": "item"
+      }
+    },
+    "calendar-model-23": {
+      "type": "CALENDAR_MODEL",
+      "from": {
+        "node": "timevalue"
+      },
+      "to": {
+        "node": "item"
+      }
+    },
+    "globe-24": {
+      "type": "GLOBE",
+      "from": {
+        "node": "globecoordinatevalue"
+      },
+      "to": {
+        "node": "item"
+      }
+    },
+    "in-language-25": {
+      "type": "IN_LANGUAGE",
+      "from": {
+        "node": "monolingualtext"
+      },
+      "to": {
+        "node": "language"
+      }
+    },
+    "has-term-26": {
+      "type": "HAS_TERM",
+      "from": {
+        "node": "item"
+      },
+      "to": {
+        "node": "term"
+      }
+    },
+    "has-term-27": {
+      "type": "HAS_TERM",
+      "from": {
+        "node": "property"
+      },
+      "to": {
+        "node": "term"
+      }
+    },
+    "in-language-28": {
+      "type": "IN_LANGUAGE",
+      "from": {
+        "node": "term"
+      },
+      "to": {
+        "node": "language"
+      }
+    },
+    "has-sitelink-29": {
+      "type": "HAS_SITELINK",
+      "from": {
+        "node": "item"
+      },
+      "to": {
+        "node": "sitelink"
+      }
+    },
+    "on-site-30": {
+      "type": "ON_SITE",
+      "from": {
+        "node": "sitelink"
+      },
+      "to": {
+        "node": "wikisite"
+      }
+    },
+    "has-badge-31": {
+      "type": "HAS_BADGE",
+      "from": {
+        "node": "sitelink"
+      },
+      "to": {
+        "node": "item"
+      }
+    },
+    "site-language-32": {
+      "type": "SITE_LANGUAGE",
+      "from": {
+        "node": "wikisite"
+      },
+      "to": {
+        "node": "language"
+      }
+    },
+    "has-form-33": {
+      "type": "HAS_FORM",
+      "from": {
+        "node": "lexeme"
+      },
+      "to": {
+        "node": "form"
+      }
+    },
+    "has-sense-34": {
+      "type": "HAS_SENSE",
+      "from": {
+        "node": "lexeme"
+      },
+      "to": {
+        "node": "sense"
+      }
+    },
+    "lexical-category-35": {
+      "type": "LEXICAL_CATEGORY",
+      "from": {
+        "node": "lexeme"
+      },
+      "to": {
+        "node": "item"
+      }
+    },
+    "language-item-36": {
+      "type": "LANGUAGE_ITEM",
+      "from": {
+        "node": "lexeme"
+      },
+      "to": {
+        "node": "item"
+      }
+    },
+    "grammatical-feature-37": {
+      "type": "GRAMMATICAL_FEATURE",
+      "from": {
+        "node": "form"
+      },
+      "to": {
+        "node": "item"
+      }
+    },
+    "constrains-item-38": {
+      "type": "CONSTRAINS_ITEM",
+      "from": {
+        "node": "entityschema"
+      },
+      "to": {
+        "node": "item"
+      }
+    },
+    "revision-of-39": {
+      "type": "REVISION_OF",
+      "from": {
+        "node": "revision"
+      },
+      "to": {
+        "node": "item"
+      }
+    },
+    "edited-by-40": {
+      "type": "EDITED_BY",
+      "from": {
+        "node": "revision"
+      },
+      "to": {
+        "node": "editor"
+      }
+    },
+    "instance-of-41": {
+      "type": "INSTANCE_OF",
+      "from": {
+        "node": "item"
+      },
+      "to": {
+        "node": "item"
+      }
+    },
+    "subclass-of-42": {
+      "type": "SUBCLASS_OF",
+      "from": {
+        "node": "item"
+      },
+      "to": {
+        "node": "item"
+      }
+    },
+    "part-of-43": {
+      "type": "PART_OF",
+      "from": {
+        "node": "item"
+      },
+      "to": {
+        "node": "item"
+      }
+    },
+    "subproperty-of-44": {
+      "type": "SUBPROPERTY_OF",
+      "from": {
+        "node": "property"
+      },
+      "to": {
+        "node": "property"
+      }
+    }
+  }
+}
